@@ -8,7 +8,7 @@ const courseTypes = new Set(['required', 'elective']);
 const targetAudiences = new Set(['core', 'service', 'mixed', 'unknown']);
 const nonNegativeCurriculumCourseFields = ['ects', 'theoryHours', 'practiceHours', 'labHours'];
 const asArray = value => Array.isArray(value) ? value : [];
-const key = (...parts) => parts.join('::');
+const key = (...parts) => JSON.stringify(parts);
 
 export function listPrograms(catalog, institutionId = null) {
   const institutions = new Map(asArray(catalog.institutions).map(item => [item.id, item]));
