@@ -1,0 +1,341 @@
+name: Remediate curriculum evidence
+
+on:
+  push:
+    branches: [feat/m2-curriculum-ay33]
+    paths: [.github/workflows/remediate-curriculum-evidence.yml]
+
+permissions:
+  contents: write
+
+jobs:
+  remediate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/m2-curriculum-ay33
+          fetch-depth: 0
+      - name: Promote exact evidence only
+        run: |
+          set -euo pipefail
+          git fetch origin chore/research-curriculum-source
+          mkdir -p evidence
+          git show origin/chore/research-curriculum-source:research-output/program-343-ay33.rows.tsv > evidence/program-343-ay33.rows.tsv
+          git show origin/chore/research-curriculum-source:research-output/program-343-ay23.rows.tsv > evidence/program-343-ay23.rows.tsv
+          git show origin/chore/research-curriculum-source:research-output/hashes.sha256 > evidence/hashes.sha256
+      - name: Add deterministic evidence tooling
+        run: |
+          set -euo pipefail
+          mkdir -p scripts evidence/diff
+          cat > scripts/curriculum-evidence.mjs <<'EOF'
+          import fs from 'node:fs';
+          import { academicCatalog } from '../data/academic-catalog.mjs';
+
+          export function parseCurriculumEvidence(text) {
+            const rows = [];
+            let semester = null;
+            let sectionType = null;
+            for (const raw of text.replace(/\r/g, '').split('\n')) {
+              const heading = raw.match(/^(\d+)\. Yarıyıl( Seçmeli)? Dersleri$/);
+              if (heading) {
+                semester = Number(heading[1]);
+                sectionType = heading[2] ? 'elective' : 'required';
+                continue;
+              }
+              if (!semester || raw.startsWith('Dersin Kodu\t') || raw.startsWith('Toplam\t') || raw.startsWith('T1:')) continue;
+              const cells = raw.split('\t');
+              if (cells.length !== 7 || !cells[0] || !['Zorunlu', 'Seçmeli'].includes(cells[2])) continue;
+              const [courseCode, sourceTitle, sourceType, theoryHours, practiceHours, labHours, ects] = cells;
+              const courseType = sourceType === 'Zorunlu' ? 'required' : 'elective';
+              if (courseType !== sectionType) throw new Error(`Section/type mismatch: ${raw}`);
+              const numeric = [theoryHours, practiceHours, labHours, ects].map(Number);
+              if (numeric.some(value => !Number.isFinite(value))) throw new Error(`Invalid numeric evidence row: ${raw}`);
+              rows.push({ semester, courseType, courseCode, sourceTitle, theoryHours: numeric[0], practiceHours: numeric[1], labHours: numeric[2], ects: numeric[3] });
+            }
+            return rows;
+          }
+
+          export const rowKey = row => JSON.stringify([
+            row.semester, row.courseType, row.courseCode, row.sourceTitle,
+            row.theoryHours, row.practiceHours, row.labHours, row.ects
+          ]);
+
+          function multiset(rows) {
+            const result = new Map();
+            for (const row of rows) result.set(rowKey(row), (result.get(rowKey(row)) ?? 0) + 1);
+            return result;
+          }
+
+          function subtract(left, right) {
+            const result = [];
+            for (const [key, count] of left) {
+              const remainder = count - (right.get(key) ?? 0);
+              for (let index = 0; index < Math.max(0, remainder); index += 1) result.push(JSON.parse(key));
+            }
+            return result;
+          }
+
+          export function reconcileFixture(evidenceRows, catalog = academicCatalog) {
+            const courses = new Map(catalog.courses.map(course => [course.id, course]));
+            const fixtureRows = catalog.curriculumCourses.map(relation => {
+              const course = courses.get(relation.courseId);
+              return {
+                semester: relation.semester,
+                courseType: relation.courseType,
+                courseCode: course?.courseCode,
+                sourceTitle: course?.sourceTitle,
+                theoryHours: relation.theoryHours,
+                practiceHours: relation.practiceHours,
+                labHours: relation.labHours,
+                ects: relation.ects
+              };
+            });
+            const evidenceSet = multiset(evidenceRows);
+            const fixtureSet = multiset(fixtureRows);
+            return {
+              evidenceCount: evidenceRows.length,
+              fixtureCount: fixtureRows.length,
+              missingFromFixture: subtract(evidenceSet, fixtureSet),
+              extraInFixture: subtract(fixtureSet, evidenceSet)
+            };
+          }
+
+          function pairUnique(oldRows, newRows, keyFn, category, changes) {
+            const oldMap = new Map();
+            const newMap = new Map();
+            for (const row of oldRows) oldMap.set(keyFn(row), [...(oldMap.get(keyFn(row)) ?? []), row]);
+            for (const row of newRows) newMap.set(keyFn(row), [...(newMap.get(keyFn(row)) ?? []), row]);
+            const pairedOld = new Set();
+            const pairedNew = new Set();
+            for (const [key, oldGroup] of oldMap) {
+              const newGroup = newMap.get(key) ?? [];
+              if (oldGroup.length !== 1 || newGroup.length !== 1) continue;
+              const before = oldGroup[0];
+              const after = newGroup[0];
+              pairedOld.add(before);
+              pairedNew.add(after);
+              const fields = ['semester', 'courseType', 'courseCode', 'sourceTitle', 'theoryHours', 'practiceHours', 'labHours', 'ects']
+                .filter(field => before[field] !== after[field]);
+              changes.push({ category, fields, before, after });
+            }
+            return [oldRows.filter(row => !pairedOld.has(row)), newRows.filter(row => !pairedNew.has(row))];
+          }
+
+          export function diffCurricula(oldRows, newRows) {
+            const oldExact = multiset(oldRows);
+            const newExact = multiset(newRows);
+            let remainingOld = oldRows.filter(row => {
+              const key = rowKey(row); const count = newExact.get(key) ?? 0;
+              if (count > 0) { newExact.set(key, count - 1); return false; }
+              return true;
+            });
+            let remainingNew = newRows.filter(row => {
+              const key = rowKey(row); const count = oldExact.get(key) ?? 0;
+              if (count > 0) { oldExact.set(key, count - 1); return false; }
+              return true;
+            });
+            const changes = [];
+            [remainingOld, remainingNew] = pairUnique(remainingOld, remainingNew, row => JSON.stringify([row.semester, row.courseType, row.courseCode]), 'attribute-change', changes);
+            [remainingOld, remainingNew] = pairUnique(remainingOld, remainingNew, row => JSON.stringify([row.semester, row.courseCode, row.sourceTitle]), 'course-type-change', changes);
+            [remainingOld, remainingNew] = pairUnique(remainingOld, remainingNew, row => JSON.stringify([row.semester, row.courseType, row.sourceTitle]), 'course-code-change', changes);
+            return {
+              source: { from: 'AyID=23 / 2015-2016', to: 'AyID=33 / 2025-2026' },
+              counts: { old: oldRows.length, current: newRows.length, added: remainingNew.length, removed: remainingOld.length, changed: changes.length },
+              added: remainingNew,
+              removed: remainingOld,
+              changed: changes,
+              matchingPolicy: 'Exact rows first; then only unique keys. Ambiguous records remain added/removed and are not guessed.'
+            };
+          }
+
+          export function renderDiffMarkdown(diff) {
+            const lines = [
+              '# Curriculum diff: AyID=23 → AyID=33', '',
+              `- Historical rows: **${diff.counts.old}**`,
+              `- Current rows: **${diff.counts.current}**`,
+              `- Added: **${diff.counts.added}**`,
+              `- Removed: **${diff.counts.removed}**`,
+              `- Changed (unique deterministic match): **${diff.counts.changed}**`, '',
+              `Matching policy: ${diff.matchingPolicy}`, ''
+            ];
+            const table = (title, rows) => {
+              lines.push(`## ${title}`, '', '| Semester | Type | Code | Title | T/U/L | ECTS |', '|---:|---|---|---|---|---:|');
+              for (const row of rows) lines.push(`| ${row.semester} | ${row.courseType} | ${row.courseCode} | ${row.sourceTitle.replace(/\|/g, '\\|')} | ${row.theoryHours}/${row.practiceHours}/${row.labHours} | ${row.ects} |`);
+              if (!rows.length) lines.push('| — | — | — | — | — | — |');
+              lines.push('');
+            };
+            table('Added', diff.added);
+            table('Removed', diff.removed);
+            lines.push('## Changed', '', '| Category | Fields | Before | After |', '|---|---|---|---|');
+            for (const item of diff.changed) lines.push(`| ${item.category} | ${item.fields.join(', ')} | S${item.before.semester} ${item.before.courseType} ${item.before.courseCode} — ${item.before.sourceTitle} | S${item.after.semester} ${item.after.courseType} ${item.after.courseCode} — ${item.after.sourceTitle} |`);
+            if (!diff.changed.length) lines.push('| — | — | — | — |');
+            lines.push('');
+            return `${lines.join('\n')}\n`;
+          }
+
+          if (import.meta.url === `file://${process.argv[1]}`) {
+            const mode = process.argv[2] ?? 'verify';
+            const current = parseCurriculumEvidence(fs.readFileSync('evidence/program-343-ay33.rows.tsv', 'utf8'));
+            if (mode === 'verify') {
+              const result = reconcileFixture(current);
+              console.log(JSON.stringify(result, null, 2));
+              if (result.evidenceCount !== 144 || result.fixtureCount !== 144 || result.missingFromFixture.length || result.extraInFixture.length) process.exitCode = 1;
+            } else if (mode === 'diff') {
+              const historical = parseCurriculumEvidence(fs.readFileSync('evidence/program-343-ay23.rows.tsv', 'utf8'));
+              const diff = diffCurricula(historical, current);
+              fs.mkdirSync('evidence/diff', { recursive: true });
+              fs.writeFileSync('evidence/diff/ay23-to-ay33.json', `${JSON.stringify(diff, null, 2)}\n`);
+              fs.writeFileSync('evidence/diff/ay23-to-ay33.md', renderDiffMarkdown(diff));
+              console.log(JSON.stringify(diff.counts));
+            } else throw new Error(`Unknown mode: ${mode}`);
+          }
+          EOF
+      - name: Patch validator, tests, package scripts and provenance docs
+        run: |
+          set -euo pipefail
+          python <<'PY'
+          from pathlib import Path
+
+          path = Path('academic-catalog.mjs')
+          text = path.read_text()
+          old = """    if (relation.requirementGroup !== null && (typeof relation.requirementGroup !== 'string' || !relation.requirementGroup.trim())) errors.push(`curriculumCourses:${relation.id}: invalid requirementGroup`);
+            for (const field of nonNegativeCurriculumCourseFields) {"""
+          new = """    if (relation.requirementGroup !== null && (typeof relation.requirementGroup !== 'string' || !relation.requirementGroup.trim())) errors.push(`curriculumCourses:${relation.id}: invalid requirementGroup`);
+            if (curriculum && relation.courseType === 'required' && relation.requirementGroup !== null) errors.push(`curriculumCourses:${relation.id}: required course must not have requirementGroup`);
+            if (curriculum && relation.courseType === 'elective') {
+              const group = asArray(curriculum.requirementGroups).find(item => item?.id === relation.requirementGroup);
+              if (!group) errors.push(`curriculumCourses:${relation.id}: unknown requirementGroup ${relation.requirementGroup}`);
+              else if (group.semester !== relation.semester) errors.push(`curriculumCourses:${relation.id}: requirementGroup ${relation.requirementGroup} semester mismatch`);
+            }
+            for (const field of nonNegativeCurriculumCourseFields) {"""
+          if old not in text: raise SystemExit('validator patch anchor missing')
+          path.write_text(text.replace(old, new))
+
+          path = Path('tests/academic-catalog.test.mjs')
+          text = path.read_text()
+          old = """  catalog.curriculumCourses = [
+              { ...base, id: 'cc-collision-a', courseId: 'course::pool', requirementGroup: 'x' },
+              { ...base, id: 'cc-collision-b', courseId: 'course', requirementGroup: 'pool::x' }
+            ];"""
+          new = """  catalog.curricula[0].requirementGroups.push(
+              { id: 'x', semester: 1, requiredEcts: 1, selectionCount: 1 },
+              { id: 'pool::x', semester: 1, requiredEcts: 1, selectionCount: 1 }
+            );
+            catalog.curriculumCourses = [
+              { ...base, id: 'cc-collision-a', courseId: 'course::pool', courseType: 'elective', requirementGroup: 'x' },
+              { ...base, id: 'cc-collision-b', courseId: 'course', courseType: 'elective', requirementGroup: 'pool::x' }
+            ];"""
+          if old not in text: raise SystemExit('collision test patch anchor missing')
+          text = text.replace(old, new)
+          text += """
+
+          test('validator enforces curriculum-local requirement-group semantics', () => {
+            const unknown = clone(academicCatalog);
+            unknown.curriculumCourses.find(item => item.courseType === 'elective').requirementGroup = 'missing-group';
+            assert.ok(validateAcademicCatalog(unknown).some(error => error.includes('unknown requirementGroup missing-group')));
+
+            const wrongSemester = clone(academicCatalog);
+            const elective = wrongSemester.curriculumCourses.find(item => item.courseType === 'elective');
+            elective.requirementGroup = 'elective-s4';
+            assert.ok(validateAcademicCatalog(wrongSemester).some(error => error.includes('requirementGroup elective-s4 semester mismatch')));
+
+            const requiredWithGroup = clone(academicCatalog);
+            requiredWithGroup.curriculumCourses.find(item => item.courseType === 'required').requirementGroup = 'elective-s3';
+            assert.ok(validateAcademicCatalog(requiredWithGroup).some(error => error.includes('required course must not have requirementGroup')));
+          });
+
+          test('validator rejects invalid curriculum metadata variants', () => {
+            const cases = [
+              ['semesterCount', value => { value.semesterCount = 0; }, 'invalid semesterCount'],
+              ['semesterEctsPublished type', value => { value.semesterEctsPublished = null; }, 'invalid semesterEctsPublished'],
+              ['semesterEctsPublished length', value => { value.semesterEctsPublished.pop(); }, 'semesterEctsPublished length must equal semesterCount'],
+              ['semesterEctsPublished value', value => { value.semesterEctsPublished[0] = Number.NaN; }, 'invalid semesterEctsPublished value'],
+              ['requirementGroups type', value => { value.requirementGroups = null; }, 'invalid requirementGroups'],
+              ['duplicate group', value => { value.requirementGroups.push({ ...value.requirementGroups[0] }); }, 'duplicate requirementGroup id'],
+              ['group semester', value => { value.requirementGroups[0].semester = 9; }, 'semester out of range'],
+              ['group ects', value => { value.requirementGroups[0].requiredEcts = -1; }, 'invalid requiredEcts'],
+              ['group selectionCount', value => { value.requirementGroups[0].selectionCount = 0; }, 'invalid selectionCount'],
+              ['unknown anomaly', value => { value.anomalyRefs = ['missing-anomaly']; }, 'unknown anomaly missing-anomaly']
+            ];
+            for (const [name, mutate, expected] of cases) {
+              const catalog = clone(academicCatalog);
+              mutate(catalog.curricula[0]);
+              assert.ok(validateAcademicCatalog(catalog).some(error => error.includes(expected)), name);
+            }
+          });
+          """
+          path.write_text(text)
+
+          path = Path('package.json')
+          import json
+          package = json.loads(path.read_text())
+          package['scripts']['evidence:verify'] = 'node scripts/curriculum-evidence.mjs verify'
+          package['scripts']['evidence:diff'] = 'node scripts/curriculum-evidence.mjs diff'
+          package['scripts']['verify'] = 'npm run check && npm test && npm run evidence:verify'
+          path.write_text(json.dumps(package, ensure_ascii=False, indent=2) + '\n')
+
+          path = Path('SOURCES.md')
+          text = path.read_text()
+          section = """
+
+          ## Permanent curriculum evidence
+
+          The production branch keeps only the normalized source evidence required for independent verification:
+
+          - `evidence/program-343-ay33.rows.tsv` — exact normalized text extracted from the official `AyID=33` snapshot.
+          - `evidence/program-343-ay23.rows.tsv` — historical `AyID=23` normalized evidence used only for deterministic comparison.
+          - `evidence/hashes.sha256` — SHA-256 manifest for the raw official snapshots; the current program hash is `0b72d3ba7919492cce571d697902dff1ca20d6e0ef67dcbdf3f53f5b6acee1c6`.
+          - `evidence/diff/ay23-to-ay33.json` and `.md` — machine-readable and human-readable historical diff generated without ambiguous guessing.
+
+          `npm run evidence:verify` parses only course-table rows, excludes competency tables, totals and elective placeholders, then reconciles fixture and evidence on semester, course type, code, source title, T/U/L hours and ECTS. The acceptance gate is exactly **144 evidence rows / 144 fixture rows / 0 missing / 0 extra**.
+          """
+          if '## Permanent curriculum evidence' not in text: text += section
+          path.write_text(text)
+          PY
+
+          cat > tests/curriculum-evidence.test.mjs <<'EOF'
+          import test from 'node:test';
+          import assert from 'node:assert/strict';
+          import fs from 'node:fs';
+          import { academicCatalog } from '../data/academic-catalog.mjs';
+          import { parseCurriculumEvidence, reconcileFixture, diffCurricula } from '../scripts/curriculum-evidence.mjs';
+
+          const current = parseCurriculumEvidence(fs.readFileSync('evidence/program-343-ay33.rows.tsv', 'utf8'));
+          const historical = parseCurriculumEvidence(fs.readFileSync('evidence/program-343-ay23.rows.tsv', 'utf8'));
+
+          test('official AyID=33 evidence reconciles exactly 144/144 with the fixture', () => {
+            const result = reconcileFixture(current, academicCatalog);
+            assert.equal(result.evidenceCount, 144);
+            assert.equal(result.fixtureCount, 144);
+            assert.deepEqual(result.missingFromFixture, []);
+            assert.deepEqual(result.extraInFixture, []);
+          });
+
+          test('evidence parser excludes competency rows, totals and elective placeholders', () => {
+            assert.deepEqual(current.reduce((counts, row) => ({ ...counts, [row.courseType]: (counts[row.courseType] ?? 0) + 1 }), {}), { required: 41, elective: 103 });
+            assert.ok(current.every(row => row.courseCode && !row.sourceTitle.includes('Seçmeli dersler için tıklayınız')));
+          });
+
+          test('historical diff is deterministic and internally complete', () => {
+            const first = diffCurricula(historical, current);
+            const second = diffCurricula(historical, current);
+            assert.deepEqual(first, second);
+            assert.equal(first.counts.old, historical.length);
+            assert.equal(first.counts.current, current.length);
+            assert.equal(first.counts.added - first.counts.removed + first.counts.old, first.counts.current);
+          });
+          EOF
+      - name: Generate diff and verify
+        run: |
+          set -euo pipefail
+          npm run evidence:diff
+          npm run verify
+      - name: Commit tested remediation
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add academic-catalog.mjs tests/academic-catalog.test.mjs tests/curriculum-evidence.test.mjs package.json SOURCES.md scripts/curriculum-evidence.mjs evidence
+          git commit -m "feat: add reproducible curriculum evidence gates"
+          git push origin HEAD:feat/m2-curriculum-ay33
