@@ -4,6 +4,9 @@ const arrays = ['sources', 'sourceSnapshots', 'institutions', 'programs', 'curri
 const sourcedCollections = ['institutions', 'programs', 'curricula', 'courses', 'curriculumCourses', 'anomalies'];
 const anomalyTypes = new Set(['duplicate-code', 'title-conflict', 'ects-conflict', 'typo-suspected', 'source-mismatch', 'other']);
 const anomalyStatuses = new Set(['open', 'confirmed', 'resolved', 'rejected']);
+const courseTypes = new Set(['required', 'elective']);
+const targetAudiences = new Set(['core', 'service', 'mixed', 'unknown']);
+const nonNegativeCurriculumCourseFields = ['ects', 'theoryHours', 'practiceHours', 'labHours'];
 const asArray = value => Array.isArray(value) ? value : [];
 const key = (...parts) => parts.join('::');
 
@@ -75,11 +78,25 @@ export function validateAcademicCatalog(catalog) {
     if (!course.sourceRecordKey) errors.push(`courses:${course.id}: missing sourceRecordKey`);
     for (const ref of asArray(course.anomalyRefs)) if (!ids.anomalies.has(ref)) errors.push(`courses:${course.id}: unknown anomaly ${ref}`);
   }
+
+  const curriculumCourseNaturalKeys = new Map();
   for (const relation of asArray(catalog.curriculumCourses)) {
     const curriculum = curricula.get(relation.curriculumId);
     if (!curriculum) errors.push(`curriculumCourses:${relation.id}: unknown curriculum ${relation.curriculumId}`);
     if (!ids.courses.has(relation.courseId)) errors.push(`curriculumCourses:${relation.id}: unknown course ${relation.courseId}`);
     if (curriculum && (!Number.isInteger(relation.semester) || relation.semester < 1 || relation.semester > curriculum.semesterCount)) errors.push(`curriculumCourses:${relation.id}: semester out of range`);
+    if (!courseTypes.has(relation.courseType)) errors.push(`curriculumCourses:${relation.id}: invalid courseType ${relation.courseType}`);
+    if (!targetAudiences.has(relation.targetAudience)) errors.push(`curriculumCourses:${relation.id}: invalid targetAudience ${relation.targetAudience}`);
+    if (relation.requirementGroup !== null && (typeof relation.requirementGroup !== 'string' || !relation.requirementGroup.trim())) errors.push(`curriculumCourses:${relation.id}: invalid requirementGroup`);
+    for (const field of nonNegativeCurriculumCourseFields) {
+      const value = relation[field];
+      if (value !== null && (typeof value !== 'number' || !Number.isFinite(value) || value < 0)) errors.push(`curriculumCourses:${relation.id}: invalid ${field}`);
+    }
+
+    const naturalKey = key(relation.curriculumId, relation.semester, relation.courseId, relation.requirementGroup);
+    const existingRelationId = curriculumCourseNaturalKeys.get(naturalKey);
+    if (existingRelationId && existingRelationId !== relation.id) errors.push(`curriculumCourses:${relation.id}: duplicate natural key ${naturalKey}`);
+    else curriculumCourseNaturalKeys.set(naturalKey, relation.id);
   }
   for (const anomaly of asArray(catalog.anomalies)) {
     if (anomaly.entityType === 'Course' && !ids.courses.has(anomaly.entityId)) errors.push(`anomalies:${anomaly.id}: unknown course ${anomaly.entityId}`);
