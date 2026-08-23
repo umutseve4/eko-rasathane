@@ -19,7 +19,7 @@ jobs:
       - name: Promote exact evidence only
         run: |
           set -euo pipefail
-          git fetch origin chore/research-curriculum-source
+          git fetch origin refs/heads/chore/research-curriculum-source:refs/remotes/origin/chore/research-curriculum-source
           mkdir -p evidence
           git show origin/chore/research-curriculum-source:research-output/program-343-ay33.rows.tsv > evidence/program-343-ay33.rows.tsv
           git show origin/chore/research-curriculum-source:research-output/program-343-ay23.rows.tsv > evidence/program-343-ay23.rows.tsv
