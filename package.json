@@ -1,1 +1,19 @@
-{"name":"eko-rasathane","version":"0.2.0","private":true,"type":"module","scripts":{"test":"node --test","check":"node --check app.js && node --check core.mjs && node --check data/catalog.mjs","verify":"npm run check && npm test"},"engines":{"node":">=22"},"license":"MIT"}
+{
+  "name": "eko-rasathane",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/core.test.mjs",
+    "test:e2e": "playwright test",
+    "check": "node --check app.js && node --check core.mjs && node --check data/catalog.mjs",
+    "verify": "npm run check && npm test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.55.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "license": "MIT"
+}
