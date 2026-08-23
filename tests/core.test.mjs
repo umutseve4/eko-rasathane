@@ -1,20 +1,12 @@
-import test from 'node:test';
-import assert from 'node:assert/strict';
-import { interpretCoefficient, nextRecallDate, progressPercent, minutesToClock } from '../core.mjs';
-
-test('coefficient interpreter preserves direction and units', () => {
-  const text = interpretCoefficient({ beta: -2.5, xUnit: 'puan', yUnit: 'TL' });
-  assert.match(text, /2,5 TL azalış/);
-  assert.match(text, /nedensellik değil/);
-});
-
-test('recall date uses deterministic spacing', () => {
-  assert.equal(nextRecallDate('good', new Date('2026-08-23T00:00:00Z')), '2026-08-30');
-});
-
-test('progress is clamped', () => {
-  assert.equal(progressPercent(12, 10), 100);
-  assert.equal(progressPercent(-2, 10), 0);
-});
-
-test('clock is zero padded', () => assert.equal(minutesToClock(65), '01:05'));
+import test from 'node:test';import assert from 'node:assert/strict';
+import {parseRoute,coursesForGrade,courseProgress,validateCatalog,migrateState} from '../core.mjs';
+import {grades,courses,topics} from '../data/catalog.mjs';
+test('hash routes are parsed',()=>{assert.deepEqual(parseRoute('#/'),{name:'home'});assert.deepEqual(parseRoute('#/sinif/3'),{name:'grade',gradeId:'3'});assert.equal(parseRoute('#/ders/temel-ekonometri-1').name,'course');assert.equal(parseRoute('#/ders/temel-ekonometri-1/konu/hipotez-testleri').name,'topic')});
+test('invalid and non-canonical routes are rejected',()=>{for(const route of ['#/sinif/9','#/sinif/3/fazla','#/ders/x/fazla','#/ders/%E0%A4%A','#/sinif//3','#/ders/course/','#/ders//course','#sinif/3'])assert.equal(parseRoute(route).name,'notFound')});
+test('grade filter is deterministic',()=>assert.deepEqual(coursesForGrade(courses,'3').map(x=>x.id),['temel-ekonometri-1']));
+test('progress is clamped to course topics',()=>assert.equal(courseProgress(['a','b','c'],['a','c','outside']),67));
+test('catalog references and invariants are valid',()=>assert.deepEqual(validateCatalog({grades,courses,topics}),[]));
+test('catalog validator rejects duplicate ids and broken quiz',()=>{const bad={grades:[{id:'1'},{id:'1'}],courses:[],topics:[{id:'x',n:0,options:[],answer:2}]};assert.ok(validateCatalog(bad).length>=3)});
+test('migration preserves exact production recall and evidence shapes',()=>{const legacy={evidence:[{id:1}],studio:{step:2,completed:[0]},recall:{index:3,schedule:{0:'2026-08-24',3:'2026-08-27'}},notes:{old:'metin'}};const s=migrateState(null,null,legacy);assert.equal(s.version,2);assert.deepEqual(s.evidence,[{id:1}]);assert.deepEqual(s.legacyStudio,{step:2,completed:[0]});assert.deepEqual(s.recall,legacy.recall);assert.equal(s.notes.old,'metin')});
+test('migration repairs incomplete v2 state',()=>{const s=migrateState(null,{version:2});assert.deepEqual(s.completedTopics,[]);assert.deepEqual(s.quizResults,{});assert.deepEqual(s.notes,{});assert.deepEqual(s.recall,{index:0,schedule:{}})});
+test('migration is idempotent for a normalized state',()=>{const s=migrateState(null,null);assert.deepEqual(migrateState(null,s),s)});

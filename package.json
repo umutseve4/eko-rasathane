@@ -1,10 +1,1 @@
-{
-  "name": "eko-rasathane",
-  "version": "0.1.0",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "test": "node --test",
-    "check": "node --check app.js && node --check core.mjs && node --check data.js"
-  }
-}
+{"name":"eko-rasathane","version":"0.2.0","private":true,"type":"module","scripts":{"test":"node --test","check":"node --check app.js && node --check core.mjs && node --check data/catalog.mjs","verify":"npm run check && npm test"},"engines":{"node":">=22"},"license":"MIT"}

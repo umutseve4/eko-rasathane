@@ -1,39 +1,48 @@
-# EKO Rasathane
+# EKO Rasathane β
 
-> BUÜ Ekonometri öğrencileri için **kavram → model → kanıt → yorum** akışını görünür kılan yerel-öncelikli çalışma işletim sistemi.
-
-Bu bir LMS, not deposu veya jenerik AI sohbet ekranı değildir. İlk dikey dilim; 8 dönemlik program pusulasını, odak oturumunu, ders stüdyosunu, geri çağırma kuyruğunu, katsayı tercümanını ve kanıt defterini tek bir etkileşimli deneyimde birleştirir.
-
-## Neden farklı?
-- **İlerleme süreden değil kanıttan gelir.** Her oturum bir yorum, çözüm veya Model Kartı bırakır.
-- **Resmî kaynağa bağlıdır.** 240 AKTS, program yeterlilikleri ve program yapısı BUÜ Bilgi Paketi üzerinden kaynaklandırılır.
-- **Etik geri dönüş döngüsü kurar.** Sonsuz akış, kayıp serisi ve manipülatif bildirim yoktur.
-- **AI-first değildir.** Temel çalışma akışı model servisi olmadan tamamlanır.
-- **Local-first.** Prototip not ve ilerlemeyi yalnızca tarayıcı `localStorage` alanında saklar.
-
-## Canlı uygulama
-
-https://umutseve4.github.io/eko-rasathane/
-
-## Çalıştırma
-Statik dosya sunucusuyla `index.html` açılabilir. Otomatik doğrulama:
-
-```bash
-npm test
-npm run check
-```
+BUÜ Ekonometri öğrencileri için **sınıf → ders → konu → çalışma adımı** akışına sahip bağımsız çalışma platformu.
 
 ## Durum
-| Seviye | Durum |
-|---|---|
-| Planlandı | M1–M4 |
-| Uygulandı | M1 dikey dilim |
-| Test edildi | Saf iş mantığı + statik sözleşme |
-| Doğrulandı | PR #1 Node 22 CI: `test` başarılı — run `32639209341` ve `32639214399`; Pages smoke: HTTP + `EKO RASATHANE` imzası başarılı — run `32639468597` |
-| Dağıtıldı | GitHub Pages: https://umutseve4.github.io/eko-rasathane/ — run `32639468597`, commit `4cdcc3bb0b90855ee3bd0cb39704ea0d97256a04` |
-| Production-ready | Hayır — resmî katalog senkronu, tarayıcı/E2E kapsamı, pilot, güvenlik ve hukuk incelemesi gerekli |
 
-Ayrıntılar: [ROADMAP.md](ROADMAP.md) · [SOURCES.md](SOURCES.md)
+- Eski sürüm: deployed ve imza doğrulaması yapılmıştı.
+- Bu dal: course-first yeniden tasarım; PR/CI/Pages kanıtı tamamlanana kadar **implemented** sayılmaz.
+- Ürün henüz browser E2E, gerçek öğrenci pilotu ve içerik uzmanı incelemesinden geçmediği için **production-ready değildir**.
+
+## Sabit ürün sözleşmesi
+
+1. Öğrenci 1–4 arasından sınıfını seçer.
+2. Aynı ekranda dönemlere göre dersleri görür.
+3. Dersi açar; konu rotası, aktif hatırlama, not ve ilerleme araçlarını kullanır.
+
+GitHub Pages uyumu için hash route kullanılır: `#/`, `#/sinif/:id`, `#/ders/:id`, `#/ders/:id/konu/:id`.
+
+## İlk tam dikey dilim
+
+**3. sınıf → EKO3103 TEMEL EKONOMETRİ I → 7 duraklık hazırlık rotası.** Bu rota resmî ilk yedi öğretim haftasından türetilmiştir; garanti vize kapsamı değildir. BUÜ kayıtlarındaki `5 / 6 AKTS` çelişkisi arayüzde açıkça gösterilir, tek bir değermiş gibi düzeltilmez.
+
+## Yerel doğrulama
+
+```bash
+npm run verify
+```
+
+## Kaynak politikası
+
+- Program ve ders kimliği: BUÜ resmî program/ders bilgi paketi.
+- Açıklamalar, örnekler ve sorular: projeye özgü içerik.
+- Telifli kitap, slayt, sınav veya cevap anahtarı kopyalanmaz.
+- Doğrulanmamış sınıf katalogları, sayfayı dolu göstermek için uydurulmaz.
+
+## Gizlilik
+
+İlerleme, quiz ve notlar yalnızca tarayıcının `localStorage` alanında tutulur. UKEY/UNİSİS kimlik bilgisi istenmez.
+
+## Kaynaklar
+
+- [BUÜ Ekonometri Program Bilgi Paketi](https://bilgipaketi.uludag.edu.tr/Programlar/Detay/343?AyID=23)
+- [BUÜ Ekonometri Bölümü](https://uludag.edu.tr/ekonometri)
+- [BUÜ İİBF Eğitim Planı](https://uludag.edu.tr/iibf/default/konu/1403)
 
 ## Lisans
-Kod MIT lisanslıdır. BUÜ adı, sayfaları ve üçüncü taraf eğitim içerikleri kendi hak sahiplerine aittir. Bu proje Bursa Uludağ Üniversitesinin resmî ürünü değildir.
+
+MIT
