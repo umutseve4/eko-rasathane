@@ -1,0 +1,2559 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv='Content-Type' content='text/html' charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    
+
+
+    <script src="/Scripts/jquery-2.1.3.js"></script>
+    
+
+
+    
+    
+    
+
+
+
+
+    
+    <script src="/Scripts/bootstrap.js"></script>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+
+
+    
+    
+    <link href="/Content/bootstrap.css" rel="stylesheet" />
+    
+    
+    
+    
+    
+    
+    <link href="/css/site.css" rel="stylesheet" />
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<body class="body">
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $('#navbar-search').affix({
+                offset: {
+                    top: 200
+                }
+            });
+        });
+    </script>
+
+    <div class="cizgi"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="page-header">
+                <div class="col-sm-4">
+                    <a href="https://uludag.edu.tr/"> <img src="https://uludag.edu.tr/assets/images/buu-mavi-logo.png" class="float-left logo-size" /> </a>
+                </div>
+                <div class="col-sm-6">
+                    <div class="bologna">Bilgi Paketi & Ders Kataloğu</div>
+                </div>
+                <div class="col-sm-2">
+                    <a href="https://uludag.edu.tr/tr/bologna">
+                        <img src="/Dosyalar/bolognaKoordinatorLogo.png" class="float-left birim-logo-size">
+
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <nav class="navbar navbar-default" id="navbar-search">
+        <div class="container">
+            <div class="row">
+                <div class="container-fluid">
+ 
+
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href=/><i class="fa fa-home fa-2x"></i></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                        <div class="nav navbar-nav navbar-right navbar-btn">
+
+                            <a class="btn btn-primary btn-group" href="/Programlar/Index/21">ÖnLisans</a>
+                            <a class="btn btn-primary btn-group" href="/Programlar/Index/33">Lisans</a>
+                            <a class="btn btn-primary btn-group" href="/Programlar/Index/41">Yüksek Lisans</a>
+                            <a class="btn btn-primary btn-group" href="/Programlar/Index/42">Tezsiz Yüksek Lisans</a>
+                            <a class="btn btn-primary btn-group" href="/Programlar/Index/43">Doktora</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    
+<script>
+    function listeGoster(result) {
+        var sonucDiv = document.getElementById("divListe");
+        sonucDiv.innerHTML = result;
+    }
+
+    function loadWindowTYYC(birimId) {
+        if (!birimId) {
+            console.error("Birim ID bulunamadı!");
+            return;
+        }
+
+        var url = `/Programlar/TYYCTabloView/?birimId=${encodeURIComponent(birimId)}`;
+
+        // Pencere boyutları
+        var w = 1000;
+        var h = 700;
+
+        // Ortalamak için konum hesapla
+        var left = (screen.width / 2) - (w / 2);
+        var top = (screen.height / 2) - (h / 2);
+
+        // Pencereyi aç
+        var yeniPencere = window.open(
+            url,
+            "TYYC_Pencere", // aynı isimde açılır, yeni pencere oluşturmaz
+            `width=${w},height=${h},top=${top},left=${left},scrollbars=yes,resizable=yes`
+        );
+
+        if (yeniPencere) {
+            yeniPencere.focus(); // Açılan pencereyi öne getir
+        } else {
+            alert("Lütfen tarayıcı açılır pencere engelleyicisini kapatın!");
+        }
+    }
+
+
+    function loadWindowTAY(birimId) {
+        if (!birimId) {
+            console.error("Birim ID bulunamadı!");
+            return;
+        }
+
+        var url = `/Programlar/TAYTabloView/?birimId=${encodeURIComponent(birimId)}`;
+
+        // Pencere boyutları
+        var w = 1000;
+        var h = 700;
+
+        // Ortalamak için konum hesapla
+        var left = (screen.width / 2) - (w / 2);
+        var top = (screen.height / 2) - (h / 2);
+
+        // Pencereyi aç
+        var yeniPencere = window.open(
+            url,
+            "TYYC_Pencere", // aynı isimde açılır, yeni pencere oluşturmaz
+            `width=${w},height=${h},top=${top},left=${left},scrollbars=yes,resizable=yes`
+        );
+
+        if (yeniPencere) {
+            yeniPencere.focus(); // Açılan pencereyi öne getir
+        } else {
+            alert("Lütfen tarayıcı açılır pencere engelleyicisini kapatın!");
+        }
+    }
+</script>
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $('#navbar-search').affix({
+            offset: {
+                top: 100
+            }
+        });
+    });
+    
+    
+    
+</script>
+
+    <div class="container">
+        <div class="dil">
+
+            <a class="btn btn-primary btn-xs" href="/Programlar/Detay/343?AyID=33" role="button">Türkçe</a>
+            <a class="btn btn-primary btn-xs" href="/Programlar/DetayENG/343?AyID=33" role="button">English</a>
+            <a class="btn btn-primary btn-xs" href="#Dersler" role="button">Ders Planı</a>
+            <a class="btn btn-primary btn-xs" href="#ProgramYeterlilikleri" role="button">Program Yeterlilikleri</a>
+            <a class="btn btn-primary btn-xs" href="/DersProgramiRapor/DersProgramiRaporTR/343?Dil=0&amp;AyarID=33" role="button">Ders Planı Rapor</a>
+
+        </div>
+    </div>
+    <div class="container">
+     
+        <div class="anaBaslik"><div class="anaBaslik">Ekonometri</div></div>
+        <div class="altBaslik">Genel Tanıtım</div>
+        <div class="kutu">
+            <div class="sayi">1</div>
+            <div class="altAltBaslik">Programın Kısa Ge&#231;mişi</div>
+        </div>
+        <div class="clear"></div>
+
+        <div class="aciklamaKutu">Ekonometri Bölümü 1982 yılında Uludağ Üniversitesi İktisadi ve İdari Bilimler Fakültesi bünyesinde kurulmuştur. Bölüm, İstatistik, Ekonometri ve Yöneylem Araştırması olmak üzere üç anabilim dalından oluşmaktadır. </div>
+
+
+        <div class="kutu">
+            <div class="sayi">2</div>
+            <div class="altAltBaslik">Verilen Derece</div>
+        </div>
+        <div class="clear"></div>
+        <div class="aciklamaKutu">Ekonometri B&#246;l&#252;m&#252;, y&#252;ksek &#246;ğretimde Ekonometri Bilimi alanında 240 AKTS kredilik birinci aşama derece sistemine tabidir. Program başarılı bir şekilde tamamlanıp, program yeterlilikleri sağlandığında Ekonometri Bilimi alanında Lisans derecesine sahip olunur.</div>
+
+        <div class="kutu">
+            <div class="sayi">3</div>
+            <div class="altAltBaslik">Derecenin D&#252;zeyi</div>
+        </div>
+        <div class="clear"></div>
+        <div class="aciklamaKutu">Lisans</div>
+
+        <div class="kutu">
+            <div class="sayi">4</div>
+            <div class="altAltBaslik">Kabul ve Kayıt Koşulları</div>
+        </div>
+        <div class="clear"></div>
+        <div class="aciklamaKutu">Adayların Lise ve dengi okul diplomasına sahip olması ve &#220;niversite &#214;ğrenci Se&#231;me Sınavından yeterli puanı almış olması gerekir.</div>
+
+        <div class="kutu">
+            <div class="sayi">5</div>
+            <div class="altAltBaslik">&#214;nceki &#214;ğrenmenin Tanınması</div>
+        </div>
+        <div class="clear"></div>
+        <div class="aciklamaKutu">“Y&#252;ksek&#246;ğretim Kurumlarında &#214;n Lisans ve Lisans D&#252;zeyindeki Programlar Arasında Ge&#231;iş, &#199;ift Anadal, Yandal ile Kurumlararası Kredi Transferi Yapılması Esaslarına İlişkin Y&#246;netmelik” h&#252;k&#252;mleri uygulanır.</div>
+
+        <div class="kutu">
+            <div class="sayi">6</div>
+            <div class="altAltBaslik">Yeterlilik Koşulları ve Kuralları</div>
+        </div>
+        <div class="clear"></div>
+        <div class="aciklamaKutu">Ekonometride lisans derecesi alabilmek i&#231;in, b&#246;l&#252;m eğitim programında belirtilen bi&#231;imde 240 AKTS karşılığı zorunlu ve se&#231;imlik derslerin başarıyla tamamlanması gerekmektedir. Bu koşula ek olarak genel akademik not ortalamasının en az 2.00 olması şarttır. </div>
+
+        <div class="kutu">
+            <div class="sayi">7</div>
+            <div class="altAltBaslik">Program Profili</div>
+        </div>
+        <div class="clear"></div>
+        <div class="aciklamaKutu">Ekonometri Bölümünün temel amacı, gelişen dünya ve ülke koşullarına göre ihtiyaç duyulan istatistik, ekonometri ve yöneylem bilim dallarında eğitim vererek, araştırma ve sorun çözme yeteneğine sahip bireyler yetiştirmektir. Bu amaç doğrultusunda hazırlanan bölüm programı ile öğrencilerin kentsel ve ülke düzeyinde ekonomik ve sosyal sorunların çözümüne yönelik bilimsel araştırmalar yapma ve bu araştırmaları kamuoyunun bilgisine sunma becerisine sahip olmaları hedeflenmektedir.<br />Ekonometri Bölümü, analiz ve sentez yeteneğine sahip, sosyal bilimler alanında bilimsel araştırma yapabilen Ekonometrisyen, İstatistikçi ve Yöneylem Araştırmacısı yetiştirmektedir. Bunun yanı sıra bölümün ders programı diğer bölümlerden (iktisat, maliye, çalışma ekonomisi ve endüstri ilişkileri ve işletme) bazı dersleri içerdiği için disiplinler arası yaklaşımı benimseyen bir bakış açısıyla öğrencilerin yetişmesine olanak sağlamaktadır. <br /></div>
+
+
+        <div class="kutu">
+            <div class="sayi">8</div>
+            <div class="altAltBaslik" id="ProgramYeterlilikleri">
+                Program Yeterlilikleri - TYYÇ - TAY İlişkisi
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="aciklamaKutu">
+            <div class="sayi2">8.1</div>
+            <div class="kutu2">
+                <div class="altAltBaslik2" id="ProgramYeterlilikleri81">
+                    Program Yeterlikleri
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="aciklamaKutu">
+                <div id="divListe" class="">
+                    
+
+<table class="table table-striped table-hover">
+   
+    <tbody>
+            <tr>
+                <tr>
+                    <td width="100%">
+                        1.
+                        Ekonometri, İstatistik ve Y&#246;neylem bilim dallarının temel kavramlarını ve kuramlarını anlayabilme.
+                    </td>
+                </tr>
+                                    <tr>
+                        <td width="100%">
+                            2.
+                            Kamu ve &#246;zel kesimin ihtiya&#231; duyduğu nitelikli elemanlarda aranan; ekonometri, istatistik ve y&#246;neylem, iktisat, maliye, hukuk, işletme, muhasebe bilgisine sahip olma ve bunları kullanabilme.
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td width="100%">
+                            3.
+                            Ekonometri, İstatistik ve Y&#246;neylem alanlarında kuramsal bilgileri analiz etme, değerlendirme ve &#231;&#246;z&#252;m &#246;nerileri &#252;retebilme.
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td width="100%">
+                            4.
+                            Ekonometri, İstatistik ve Y&#246;neylem alanlarında sorumluluk alma, planlayabilme ve sorumlulukları bağımsız olarak y&#252;r&#252;tebilme.
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td width="100%">
+                            5.
+                            Yaşam boyu &#246;ğrenme ve sorgulama bilinci ile Ekonometri, İstatistik ve Y&#246;neylem alanlarında alternatif &#231;&#246;z&#252;mler &#252;retebilme.
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td width="100%">
+                            6.
+                            &#214;ğrenim s&#252;recinde elde edilen bilgileri neden-sonu&#231; ilişkileri ile değerlendirebilmek; hangi bilgiye nerede, ne zaman ve ni&#231;in ihtiya&#231; duyulacağını &#246;ng&#246;rebilme.
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td width="100%">
+                            7.
+                            Ekonometri, İstatistik ve Y&#246;neylem alanlarıyla ilgili bilgi ve uygulamaları takım &#231;alışması halinde geliştirebilme, etkinliklere d&#246;n&#252;şt&#252;rebilme ve paylaşabilme.
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td width="100%">
+                            8.
+                            T&#252;rk&#231;e yazılı ve s&#246;zl&#252; iletişim yeterliliğine sahip olma; alanıyla ilgili iletişim kurabilecek d&#252;zeyde bir yabancı dili kullanabilme.
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td width="100%">
+                            9.
+                            Toplumsal, bilimsel ve mesleki etik değerlerin bilincinde olma, değişime ve yeniliğe a&#231;ık olma.
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td width="100%">
+                            10.
+                            G&#252;ncel Ekonometri, İstatistik ve Y&#246;neylem konularına ilişkin g&#246;r&#252;şlerini ortaya koyabilme, geliştirebilme ve olayları yorumlamada kullanabilme.
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td width="100%">
+                            11.
+                            Ekonometri, İstatistik ve Y&#246;neylem alanlarındaki bilgisayar programlarını kullanmada gerekli yetkinliğe sahip olma.
+                        </td>
+                    </tr>
+                                    <tr>
+                        <td width="100%">
+                            12.
+                            G&#252;ncel ekonomik ve sosyal konularda ilgi duyduğu bir soruna ilişkin bilimsel bir araştırma yapabilme, araştırma sonu&#231;larını analiz edebilme ve değerlendirebilme bilgi ve becerisine sahip olabilme.
+                        </td>
+                    </tr>
+                                                                                                                                                                                                                                                                                                                </tr>
+    </tbody>
+    </table>
+                </div>
+            </div>
+            <div class="kutu2">
+                <div class="sayi2">8.2</div>
+                <div class="altAltBaslik2" id="ProgramYeterlilikleri82">
+                    PROGRAM YETERLİLİĞİ - Türkiye Yükseköğretim Yeterlilikler Çerçevesi (TYYÇ) İlişkisi
+                    <div class="btn-group-xs pull-right" style="vertical-align:central">
+                        <button type="button" class="btn-group-xs btn-primary pull-right" onclick="loadWindowTYYC(343)">
+                            Türkiye Yükseköğretim Yeterlilikler Çerçevesi (TYYÇ) Tablo Göster
+                        </button>
+
+                    </div>
+
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="aciklamaKutu">
+                <div id="divListeTYYC" class="">
+                    <style>
+    .custom-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .custom-table th, .custom-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .custom-table th {
+            background-color: #0C4C78;
+            color: white;
+        }
+
+        .custom-table td {
+            background-color: #F9F1E7;
+            color: #333;
+        }
+
+        .custom-table .header-row {
+            background-color: #BDD7EE;
+            font-weight: bold;
+        }
+</style>
+
+<table class="custom-table">
+    <thead>
+        <tr class="header-row">
+            <th rowspan="2" colspan="2">Program Yeterliliği</th>
+            <th>TYYÇ-1 BİLGİ (Kuramsal - Uygulamalı)</th>
+            <th>TYYÇ-2 BECERİ (Bilişsel - Uygulamalı)</th>
+            <th>TYYÇ-3 YETKİNLİK (Bağımsız Çalışabilme ve Sorumluluk Alabilme)</th>
+            <th>TYYÇ-4 YETKİNLİK (Öğrenme Yetkinliği)</th>
+            <th>TYYÇ-5 YETKİNLİK (İletişim ve Sosyal Yetkinlik)</th>
+            <th>TYYÇ-6 YETKİNLİK (Alana Özgü Yetkinlik)</th>
+        </tr>
+        
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td style="text-align:left">Ekonometri, İstatistik ve Y&#246;neylem bilim dallarının temel kavramlarını ve kuramlarını anlayabilme.</td>
+            <td>1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td style="text-align:left">Kamu ve &#246;zel kesimin ihtiya&#231; duyduğu nitelikli elemanlarda aranan; ekonometri, istatistik ve y&#246;neylem, iktisat, maliye, hukuk, işletme, muhasebe bilgisine sahip olma ve bunları kullanabilme.</td>
+            <td>1</td>
+            <td>1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td style="text-align:left">Ekonometri, İstatistik ve Y&#246;neylem alanlarında kuramsal bilgileri analiz etme, değerlendirme ve &#231;&#246;z&#252;m &#246;nerileri &#252;retebilme.</td>
+            <td></td>
+            <td>2</td>
+            <td></td>
+            <td>1</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td style="text-align:left">Ekonometri, İstatistik ve Y&#246;neylem alanlarında sorumluluk alma, planlayabilme ve sorumlulukları bağımsız olarak y&#252;r&#252;tebilme.</td>
+            <td></td>
+            <td></td>
+            <td>1,2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td style="text-align:left">Yaşam boyu &#246;ğrenme ve sorgulama bilinci ile Ekonometri, İstatistik ve Y&#246;neylem alanlarında alternatif &#231;&#246;z&#252;mler &#252;retebilme.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>3</td>
+            <td>2</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td style="text-align:left">&#214;ğrenim s&#252;recinde elde edilen bilgileri neden-sonu&#231; ilişkileri ile değerlendirebilmek; hangi bilgiye nerede, ne zaman ve ni&#231;in ihtiya&#231; duyulacağını &#246;ng&#246;rebilme.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1,2</td>
+            <td></td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td style="text-align:left">Ekonometri, İstatistik ve Y&#246;neylem alanlarıyla ilgili bilgi ve uygulamaları takım &#231;alışması halinde geliştirebilme, etkinliklere d&#246;n&#252;şt&#252;rebilme ve paylaşabilme.</td>
+            <td></td>
+            <td>1</td>
+            <td>2</td>
+            <td></td>
+            <td>2</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td style="text-align:left">T&#252;rk&#231;e yazılı ve s&#246;zl&#252; iletişim yeterliliğine sahip olma; alanıyla ilgili iletişim kurabilecek d&#252;zeyde bir yabancı dili kullanabilme.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1,4</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td style="text-align:left">Toplumsal, bilimsel ve mesleki etik değerlerin bilincinde olma, değişime ve yeniliğe a&#231;ık olma.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1,2</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td style="text-align:left">G&#252;ncel Ekonometri, İstatistik ve Y&#246;neylem konularına ilişkin g&#246;r&#252;şlerini ortaya koyabilme, geliştirebilme ve olayları yorumlamada kullanabilme.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1,2</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td style="text-align:left">Ekonometri, İstatistik ve Y&#246;neylem alanlarındaki bilgisayar programlarını kullanmada gerekli yetkinliğe sahip olma.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td style="text-align:left">G&#252;ncel ekonomik ve sosyal konularda ilgi duyduğu bir soruna ilişkin bilimsel bir araştırma yapabilme, araştırma sonu&#231;larını analiz edebilme ve değerlendirebilme bilgi ve becerisine sahip olabilme.</td>
+            <td>1,2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+                </div>
+            </div>
+            <div class="kutu2">
+                <div class="sayi2">8.3</div>
+                <div class="altAltBaslik2" id="ProgramYeterlilikleri83">
+                    PROGRAM YETERLİLİĞİ - TEMEL ALAN YETERLİLİKLERİ (TAY) İLİŞKİSİ
+                    <div class="btn-group-xs pull-right" style="vertical-align:central">
+                        <button type="button" class="btn-group-xs btn-primary pull-right" onclick="loadWindowTAY(343)">
+                            TEMEL ALAN YETERLİLİKLERİ (TAY) Tablo Göster
+                        </button>
+
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="aciklamaKutu">
+                <div id="divListeTAY" class="">
+                    <style>
+    .custom-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .custom-table th, .custom-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .custom-table th {
+            background-color: #0C4C78;
+            color: white;
+        }
+
+        .custom-table td {
+            background-color: #F9F1E7;
+            color: #333;
+        }
+
+        .custom-table .header-row {
+            background-color: #BDD7EE;
+            font-weight: bold;
+        }
+</style>
+
+<table class="custom-table">
+    <thead>
+        <tr class="header-row">
+            <th rowspan="2" colspan="2">Program Yeterliliği</th>
+            <th>TAY-1 BİLGİ (Kuramsal - Uygulamalı)</th>
+            <th>TAY-2 BECERİ (Bilişsel - Uygulamalı)</th>
+            <th>TAY-3 YETKİNLİK (Bağımsız Çalışabilme ve Sorumluluk Alabilme)</th>
+            <th>TAY-4 YETKİNLİK (Öğrenme Yetkinliği)</th>
+            <th>TAY-5 YETKİNLİK (İletişim ve Sosyal Yetkinlik)</th>
+            <th>TAY-6 YETKİNLİK (Alana Özgü Yetkinlik)</th>
+        </tr>
+        
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td style="text-align:left">Ekonometri, İstatistik ve Y&#246;neylem bilim dallarının temel kavramlarını ve kuramlarını anlayabilme.</td>
+            <td>1,2,3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td style="text-align:left">Kamu ve &#246;zel kesimin ihtiya&#231; duyduğu nitelikli elemanlarda aranan; ekonometri, istatistik ve y&#246;neylem, iktisat, maliye, hukuk, işletme, muhasebe bilgisine sahip olma ve bunları kullanabilme.</td>
+            <td>1,3</td>
+            <td>1,4,5</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td style="text-align:left">Ekonometri, İstatistik ve Y&#246;neylem alanlarında kuramsal bilgileri analiz etme, değerlendirme ve &#231;&#246;z&#252;m &#246;nerileri &#252;retebilme.</td>
+            <td></td>
+            <td>1,4,5</td>
+            <td></td>
+            <td>1,4,6</td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td style="text-align:left">Ekonometri, İstatistik ve Y&#246;neylem alanlarında sorumluluk alma, planlayabilme ve sorumlulukları bağımsız olarak y&#252;r&#252;tebilme.</td>
+            <td></td>
+            <td></td>
+            <td>1,2,3,4</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td style="text-align:left">Yaşam boyu &#246;ğrenme ve sorgulama bilinci ile Ekonometri, İstatistik ve Y&#246;neylem alanlarında alternatif &#231;&#246;z&#252;mler &#252;retebilme.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1,4,7</td>
+            <td>1,4</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td style="text-align:left">&#214;ğrenim s&#252;recinde elde edilen bilgileri neden-sonu&#231; ilişkileri ile değerlendirebilmek; hangi bilgiye nerede, ne zaman ve ni&#231;in ihtiya&#231; duyulacağını &#246;ng&#246;rebilme.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1,2,6</td>
+            <td></td>
+            <td>3,4</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td style="text-align:left">Ekonometri, İstatistik ve Y&#246;neylem alanlarıyla ilgili bilgi ve uygulamaları takım &#231;alışması halinde geliştirebilme, etkinliklere d&#246;n&#252;şt&#252;rebilme ve paylaşabilme.</td>
+            <td></td>
+            <td>1</td>
+            <td>2</td>
+            <td></td>
+            <td>2</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td style="text-align:left">T&#252;rk&#231;e yazılı ve s&#246;zl&#252; iletişim yeterliliğine sahip olma; alanıyla ilgili iletişim kurabilecek d&#252;zeyde bir yabancı dili kullanabilme.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1,3,6</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td style="text-align:left">Toplumsal, bilimsel ve mesleki etik değerlerin bilincinde olma, değişime ve yeniliğe a&#231;ık olma.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1,3</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td style="text-align:left">G&#252;ncel Ekonometri, İstatistik ve Y&#246;neylem konularına ilişkin g&#246;r&#252;şlerini ortaya koyabilme, geliştirebilme ve olayları yorumlamada kullanabilme.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>1,4</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td style="text-align:left">Ekonometri, İstatistik ve Y&#246;neylem alanlarındaki bilgisayar programlarını kullanmada gerekli yetkinliğe sahip olma.</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>3,4</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td style="text-align:left">G&#252;ncel ekonomik ve sosyal konularda ilgi duyduğu bir soruna ilişkin bilimsel bir araştırma yapabilme, araştırma sonu&#231;larını analiz edebilme ve değerlendirebilme bilgi ve becerisine sahip olabilme.</td>
+            <td></td>
+            <td>1,2,3,4,5</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="kutu">
+            <div class="sayi">9</div>
+            <div class="altAltBaslik">Mezunların İstihdam Profilleri</div>
+        </div>
+        <div class="clear"></div>
+        <div class="aciklamaKutu">Yoğun uygulamalı eğitim g&#246;ren Ekonometri B&#246;l&#252;m&#252;nden mezun olan &#246;ğrenciler hem kamu hem de &#246;zel sekt&#246;rde &#231;alışma imkanı bulabilmektedirler. Kalkınma Bakanlığı ve T&#252;rkiye İstatistik Kurumu (T&#220;İK) başta olmak &#252;zere b&#246;l&#252;m mezunları &#246;zellikle firmaların Ar-Ge, planlama ve kalite kontrol b&#246;l&#252;mlerinde &#231;alışabilmektedirler. Bunun yanı sıra, bankacılık, finans, sigortacılık sekt&#246;rlerinde ve araştırma şirketlerinde geniş bir alanda iş bulma olanağına sahiptirler. </div>
+
+
+        <div class="kutu">
+            <div class="sayi">10</div>
+            <div class="altAltBaslik">&#220;st Derece Programlarına Ge&#231;iş</div>
+        </div>
+        <div class="clear"></div>
+        <div class="aciklamaKutu">Lisans eğitimini başarı ile tamamlayan mezunlarımız, ALES sınavından ge&#231;erli not almaları ve yeterli d&#252;zeyde yabancı dil bilgisine sahip olmaları koşuluyla ulusal ve uluslararası y&#252;ksek &#246;ğrenim kurumlarında y&#252;ksek lisans ve doktora &#246;ğrenimlerine y&#246;nelebilirler.</div>
+
+        <div class="kutu">
+            <div class="sayi">11</div>
+            <div class="altAltBaslik">Sınavlar, &#214;l&#231;me ve Değerlendirme</div>
+        </div>
+        <div class="clear"></div>
+        <div class="aciklamaKutu">Her &#246;ğrencinin d&#246;nem başında derslere kayıt yaptırması, d&#246;nem sonu sınavına girebilmesi i&#231;in derslerin en az %70`ine devam etmiş olması gereklidir. &#214;ğrenciler her ders i&#231;in en az 1 ara sınav ve yarıyıl sonu sınavına tabi tutulurlar. Başarı notuna, ara sınav (ara sınav notu olarak &#246;dev, kısa sınav vb. &#246;l&#231;me ara&#231;larından elde edilen puanlar da değerlendirmeye alınabilir) katkısı %40, yarıyıl sonu sınavının katkısı ise %60 şeklindedir. T&#252;m sınavlar 100 puan &#252;zerinden değerlendirilir. Bağıl Değerlendirme Katma Sınırı 20 puan, Yarıyıl Sonu Sınav Limiti 30 puan ve Ham Başarı Notu Alt Sınırı 40 puandır. Bir dersten AA, BA, BB, CB ve CC harf notlarından birini alan &#246;ğrenciler, o dersi başarmış sayılırlar. DC ve DD notları şartlı başarılı notlardır. &#214;ğrencinin DC veya DD notu aldığı bir dersten başarılı olması i&#231;in genel ağırlıklı not ortalamasının en az 2.0 olması gerekir.</div>
+
+        <div class="kutu">
+            <div class="sayi">12</div>
+            <div class="altAltBaslik">Mezuniyet Koşulları</div>
+        </div>
+        <div class="clear"></div>
+        <div class="aciklamaKutu">Programı başarıyla tamamlamak i&#231;in programda mevcut olan derslerin t&#252;m&#252;n&#252; (240 AKTS karşılığı) ge&#231;mek ve 4.00 &#252;zerinden en az 2.0 ağırlıklı not ortalaması elde etmek gerekmektedir.</div>
+
+        <div class="kutu">
+            <div class="sayi">13</div>
+            <div class="altAltBaslik">&#199;alışma Şekli</div>
+        </div>
+        <div class="clear"></div>
+        <div class="aciklamaKutu">Tam Zamanlı</div>
+
+        <div class="kutu">
+            <div class="sayi">14</div>
+
+            <div class="altAltBaslik">Adres İletişim Bilgileri</div>
+        </div>
+        <div class="clear"></div>
+        <div class="aciklamaKutu">Adres: Bursa Uludağ Üniversitesi, Görükle Kampüsü, Sosyal Bilimler Enstitüsü, Pk. 16059 , Nilüfer/BURSA.<br />Bölüm Başkanı: Prof. Dr. Nuran BAYRAM ARLI<br />Tel: 0 224 294 1126<br />Faks: 0 224 294 11 99<br />E-posta: nuranb@uludag.edu.tr<br />Bologna Koordinatörü: Doç. Dr. Vesile Sinem ARIKAN KARGI<br />E-posta: vesa@uludag.edu.tr<br />Erasmus Koordinatörü: Prof. Dr. Sevda GÜRSAKAL<br />E-posta: sdalgic@uludag.edu.tr<br /></div>
+
+        <div class="kutu">
+            <div class="sayi">15</div>
+            <div class="altAltBaslik">B&#246;l&#252;m/Fak&#252;lte/Program Olanakları</div>
+        </div>
+        <div class="clear"></div>
+        <div class="aciklamaKutu">Bölümümüz Türkçe eğitim vermektedir. Öğrencilerin kullanımına açık bir kütüphane, bir okuma salonu ve bir bilgisayar laboratuarı bulunmaktadır. Öğrenciler, Erasmus ve Farabi programları çerçevesinde en fazla iki dönem anlaşmalı üniversitelere gidebilmektedirler. Bölüme ait Ekonometri-İstatistik Araştırma Merkezi (EKOMER) mevcuttur.<br />Bölümümüzde halen 12 Profesör,1 Doçent ve 2 Doktor Öğretim Üyesi ve 3 Araştırma görevlisi görev yapmaktadır.<br /></div>
+
+        <div class="kutu">
+            <div class="sayi">16</div>
+            <div class="altAltBaslik">
+                Ders Planı
+                <div class="btn-group">
+
+                    <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Geçmiş Yıl Ders Planlarını Buradan Görebilirsiniz <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                            <li><a href="/Programlar/Detay/343?AyID=21">2014 - 2015 Akademik Yılı</a></li>
+                            <li><a href="/Programlar/Detay/343?AyID=23">2015 - 2016 Akademik Yılı</a></li>
+                            <li><a href="/Programlar/Detay/343?AyID=24">2016 - 2017 Akademik Yılı</a></li>
+                            <li><a href="/Programlar/Detay/343?AyID=25">2017 - 2018 Akademik Yılı</a></li>
+                            <li><a href="/Programlar/Detay/343?AyID=26">2018 - 2019 Akademik Yılı</a></li>
+                            <li><a href="/Programlar/Detay/343?AyID=27">2019 - 2020 Akademik Yılı</a></li>
+                            <li><a href="/Programlar/Detay/343?AyID=28">2020 - 2021 Akademik Yılı</a></li>
+                            <li><a href="/Programlar/Detay/343?AyID=29">2021 - 2022 Akademik Yılı</a></li>
+                            <li><a href="/Programlar/Detay/343?AyID=30">2022 - 2023 Akademik Yılı</a></li>
+                            <li><a href="/Programlar/Detay/343?AyID=31">2023 - 2024 Akademik Yılı</a></li>
+                            <li><a href="/Programlar/Detay/343?AyID=32">2024 - 2025 Akademik Yılı</a></li>
+                            <li><a href="/Programlar/Detay/343?AyID=33">2025 - 2026 Akademik Yılı</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div class="aciklamaKutu">
+            <div id="Dersler" class="">
+                    <div class="aciklamaKutu mouseIconEl" style="background-color:#fff;">
+        <table class="table table-bordered table-hover AktsTable">
+            <tr>
+                <td colspan="8" style="background-color:#337ab7; color:#fff; text-align:center; ">1. Yarıyıl Dersleri</td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td width="15%">Dersin Kodu</td>
+                <td width="40%">Dersin Adı</td>
+                <td width="15%">Dersin Türü</td>
+                <td width="5%">T<sup>1</sup></td>
+                <td width="5%">U<sup>2</sup></td>
+                <td width="5%">L<sup>3</sup></td>
+                <td width="10%">AKTS</td>
+            </tr>
+                    <tr onclick="location.href='/Ders/Index/1431655'">
+                        <td>EKO1001</td>
+                        <td>MATEMATİK I</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431718'">
+                        <td>EKO1003</td>
+                        <td>KARİYER PLANLAMA</td>
+                        <td>Zorunlu</td>
+                        <td>1</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>1</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431605'">
+                        <td>IKT1001</td>
+                        <td>İKTİSAT I</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431626'">
+                        <td>ISL1003</td>
+                        <td>İŞLETME</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431627'">
+                        <td>ISL1201</td>
+                        <td>MUHASEBE I</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431592'">
+                        <td>KAM1201</td>
+                        <td>HUKUKA GİRİŞ</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>4</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431703'">
+                        <td>ATA101</td>
+                        <td>ATAT&#220;RK İLKELERİ VE İNKILAP TARİHİ I</td>
+                        <td>Zorunlu</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>2</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431588'">
+                        <td>TUD101</td>
+                        <td>T&#220;RK DİLİ I</td>
+                        <td>Zorunlu</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>2</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431590'">
+                        <td>YAD101</td>
+                        <td>YABANCI DİL I (İNGİLİZCE)</td>
+                        <td>Zorunlu</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>2</td>
+                    </tr>
+            <tr>
+                <td style="background-color:#337ab7; color:#fff; text-align:center; ">Toplam</td>
+                <td colspan="5" style="background-color:#337ab7; color:#fff; text-align:center; "></td>
+                
+               
+                    <td style="background-color:#337ab7; color:#fff; text-align:center; ">31</td>
+                
+            </tr>
+        </table>
+    </div>
+    <div class="aciklamaKutu mouseIconEl" style="background-color:#fff;">
+        <table class="table table-bordered table-hover AktsTable">
+            <tr>
+                <td colspan="8" style="background-color:#337ab7; color:#fff; text-align:center; ">2. Yarıyıl Dersleri</td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td width="15%">Dersin Kodu</td>
+                <td width="40%">Dersin Adı</td>
+                <td width="15%">Dersin Türü</td>
+                <td width="5%">T<sup>1</sup></td>
+                <td width="5%">U<sup>2</sup></td>
+                <td width="5%">L<sup>3</sup></td>
+                <td width="10%">AKTS</td>
+            </tr>
+                    <tr onclick="location.href='/Ders/Index/1431643'">
+                        <td>CAL1102</td>
+                        <td>SOSYAL POLİTİKA</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>4</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431645'">
+                        <td>EKO1002</td>
+                        <td>MATEMATİK II</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431607'">
+                        <td>EKO1202</td>
+                        <td>BETİMSEL İSTATİSTİK</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431606'">
+                        <td>IKT1002</td>
+                        <td>İKTİSAT II</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431629'">
+                        <td>ISL1202</td>
+                        <td>MUHASEBE II</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431702'">
+                        <td>ATA102</td>
+                        <td>ATAT&#220;RK İLKELERİ VE İNKILAP TARİHİ II</td>
+                        <td>Zorunlu</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>2</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431589'">
+                        <td>TUD102</td>
+                        <td>T&#220;RK DİLİ II</td>
+                        <td>Zorunlu</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>2</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431591'">
+                        <td>YAD102</td>
+                        <td>YABANCI DİL II (İNGİLİZCE)</td>
+                        <td>Zorunlu</td>
+                        <td>2</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>2</td>
+                    </tr>
+            <tr>
+                <td style="background-color:#337ab7; color:#fff; text-align:center; ">Toplam</td>
+                <td colspan="5" style="background-color:#337ab7; color:#fff; text-align:center; "></td>
+                
+               
+                    <td style="background-color:#337ab7; color:#fff; text-align:center; ">30</td>
+                
+            </tr>
+        </table>
+    </div>
+    <div class="aciklamaKutu mouseIconEl" style="background-color:#fff;">
+        <table class="table table-bordered table-hover AktsTable">
+            <tr>
+                <td colspan="8" style="background-color:#337ab7; color:#fff; text-align:center; ">3. Yarıyıl Dersleri</td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td width="15%">Dersin Kodu</td>
+                <td width="40%">Dersin Adı</td>
+                <td width="15%">Dersin Türü</td>
+                <td width="5%">T<sup>1</sup></td>
+                <td width="5%">U<sup>2</sup></td>
+                <td width="5%">L<sup>3</sup></td>
+                <td width="10%">AKTS</td>
+            </tr>
+                    <tr onclick="location.href='/Ders/Index/1431724'">
+                        <td>EKO2005</td>
+                        <td>DOĞRUSAL CEBİR</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431650'">
+                        <td>EKO2201</td>
+                        <td>&#199;IKARIMSAL İSTATİSTİK</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431725'">
+                        <td>EKO2203</td>
+                        <td>BİLGİSAYAR DESTEKLİ İSTATİSTİKSEL ANALİZ</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431628'">
+                        <td>IKT2101</td>
+                        <td>MİKRO İKTİSAT</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <a href="#3000">Se&#231;meli dersler i&#231;in tıklayınız.</a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>10</td>
+                    </tr>
+            <tr>
+                <td style="background-color:#337ab7; color:#fff; text-align:center; ">Toplam</td>
+                <td colspan="5" style="background-color:#337ab7; color:#fff; text-align:center; "></td>
+                
+               
+                    <td style="background-color:#337ab7; color:#fff; text-align:center; ">30</td>
+                
+            </tr>
+        </table>
+    </div>
+    <div class="aciklamaKutu mouseIconEl" style="background-color:#fff;">
+        <table class="table table-bordered table-hover AktsTable">
+            <tr>
+                <td colspan="8" style="background-color:#337ab7; color:#fff; text-align:center; ">4. Yarıyıl Dersleri</td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td width="15%">Dersin Kodu</td>
+                <td width="40%">Dersin Adı</td>
+                <td width="15%">Dersin Türü</td>
+                <td width="5%">T<sup>1</sup></td>
+                <td width="5%">U<sup>2</sup></td>
+                <td width="5%">L<sup>3</sup></td>
+                <td width="10%">AKTS</td>
+            </tr>
+                    <tr onclick="location.href='/Ders/Index/1431726'">
+                        <td>EKO2004</td>
+                        <td>BİLGİSAYAR PROGRAMLAMA VE VBA UYGULAMALARI</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431680'">
+                        <td>EKO2104</td>
+                        <td>MODEL KURMA TEKNİKLERİ</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431727'">
+                        <td>EKO2202</td>
+                        <td>İSTATİSTİKSEL KARAR TEORİSİ</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431611'">
+                        <td>IKT2102</td>
+                        <td>MAKRO İKTİSAT</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <a href="#4000">Se&#231;meli dersler i&#231;in tıklayınız.</a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>10</td>
+                    </tr>
+            <tr>
+                <td style="background-color:#337ab7; color:#fff; text-align:center; ">Toplam</td>
+                <td colspan="5" style="background-color:#337ab7; color:#fff; text-align:center; "></td>
+                
+               
+                    <td style="background-color:#337ab7; color:#fff; text-align:center; ">30</td>
+                
+            </tr>
+        </table>
+    </div>
+    <div class="aciklamaKutu mouseIconEl" style="background-color:#fff;">
+        <table class="table table-bordered table-hover AktsTable">
+            <tr>
+                <td colspan="8" style="background-color:#337ab7; color:#fff; text-align:center; ">5. Yarıyıl Dersleri</td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td width="15%">Dersin Kodu</td>
+                <td width="40%">Dersin Adı</td>
+                <td width="15%">Dersin Türü</td>
+                <td width="5%">T<sup>1</sup></td>
+                <td width="5%">U<sup>2</sup></td>
+                <td width="5%">L<sup>3</sup></td>
+                <td width="10%">AKTS</td>
+            </tr>
+                    <tr onclick="location.href='/Ders/Index/1431656'">
+                        <td>EKO3101</td>
+                        <td>EKONOMETRİ I</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431658'">
+                        <td>EKO3109</td>
+                        <td>MATEMATİKSEL İKTİSAT I</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431669'">
+                        <td>EKO3201</td>
+                        <td>MATEMATİKSEL İSTATİSTİK</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431671'">
+                        <td>EKO3301</td>
+                        <td>Y&#214;NEYLEM ARAŞTIRMASI I</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <a href="#5000">Se&#231;meli dersler i&#231;in tıklayınız.</a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>10</td>
+                    </tr>
+            <tr>
+                <td style="background-color:#337ab7; color:#fff; text-align:center; ">Toplam</td>
+                <td colspan="5" style="background-color:#337ab7; color:#fff; text-align:center; "></td>
+                
+               
+                    <td style="background-color:#337ab7; color:#fff; text-align:center; ">30</td>
+                
+            </tr>
+        </table>
+    </div>
+    <div class="aciklamaKutu mouseIconEl" style="background-color:#fff;">
+        <table class="table table-bordered table-hover AktsTable">
+            <tr>
+                <td colspan="8" style="background-color:#337ab7; color:#fff; text-align:center; ">6. Yarıyıl Dersleri</td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td width="15%">Dersin Kodu</td>
+                <td width="40%">Dersin Adı</td>
+                <td width="15%">Dersin Türü</td>
+                <td width="5%">T<sup>1</sup></td>
+                <td width="5%">U<sup>2</sup></td>
+                <td width="5%">L<sup>3</sup></td>
+                <td width="10%">AKTS</td>
+            </tr>
+                    <tr onclick="location.href='/Ders/Index/1431599'">
+                        <td>EKO3006</td>
+                        <td>ARAŞTIRMA Y&#214;NTEMLERİ</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431679'">
+                        <td>EKO3102</td>
+                        <td>EKONOMETRİ II</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431673'">
+                        <td>EKO3112</td>
+                        <td>MATEMATİKSEL İKTİSAT II</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431674'">
+                        <td>EKO3302</td>
+                        <td>Y&#214;NEYLEM ARAŞTIRMASI II</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <a href="#6000">Se&#231;meli dersler i&#231;in tıklayınız.</a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>10</td>
+                    </tr>
+            <tr>
+                <td style="background-color:#337ab7; color:#fff; text-align:center; ">Toplam</td>
+                <td colspan="5" style="background-color:#337ab7; color:#fff; text-align:center; "></td>
+                
+               
+                    <td style="background-color:#337ab7; color:#fff; text-align:center; ">30</td>
+                
+            </tr>
+        </table>
+    </div>
+    <div class="aciklamaKutu mouseIconEl" style="background-color:#fff;">
+        <table class="table table-bordered table-hover AktsTable">
+            <tr>
+                <td colspan="8" style="background-color:#337ab7; color:#fff; text-align:center; ">7. Yarıyıl Dersleri</td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td width="15%">Dersin Kodu</td>
+                <td width="40%">Dersin Adı</td>
+                <td width="15%">Dersin Türü</td>
+                <td width="5%">T<sup>1</sup></td>
+                <td width="5%">U<sup>2</sup></td>
+                <td width="5%">L<sup>3</sup></td>
+                <td width="10%">AKTS</td>
+            </tr>
+                    <tr onclick="location.href='/Ders/Index/1431601'">
+                        <td>EKO4003</td>
+                        <td>G&#220;NCEL KONULAR</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431697'">
+                        <td>EKO4101</td>
+                        <td>EKONOMETRİK ANALİZ I</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431691'">
+                        <td>EKO4203</td>
+                        <td>&#199;OK DEĞİŞKENLİ İSTATİSTİKSEL TEKNİKLER</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431728'">
+                        <td>EKO4305</td>
+                        <td>BENZETİM</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <a href="#7000">Se&#231;meli dersler i&#231;in tıklayınız.</a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>10</td>
+                    </tr>
+            <tr>
+                <td style="background-color:#337ab7; color:#fff; text-align:center; ">Toplam</td>
+                <td colspan="5" style="background-color:#337ab7; color:#fff; text-align:center; "></td>
+                
+               
+                    <td style="background-color:#337ab7; color:#fff; text-align:center; ">30</td>
+                
+            </tr>
+        </table>
+    </div>
+    <div class="aciklamaKutu mouseIconEl" style="background-color:#fff;">
+        <table class="table table-bordered table-hover AktsTable">
+            <tr>
+                <td colspan="8" style="background-color:#337ab7; color:#fff; text-align:center; ">8. Yarıyıl Dersleri</td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td width="15%">Dersin Kodu</td>
+                <td width="40%">Dersin Adı</td>
+                <td width="15%">Dersin Türü</td>
+                <td width="5%">T<sup>1</sup></td>
+                <td width="5%">U<sup>2</sup></td>
+                <td width="5%">L<sup>3</sup></td>
+                <td width="10%">AKTS</td>
+            </tr>
+                    <tr onclick="location.href='/Ders/Index/1431729'">
+                        <td>EKO4102</td>
+                        <td>EKONOMETRİK ANALİZ II</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431690'">
+                        <td>EKO4104</td>
+                        <td>FİNANSAL EKONOMETRİ</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431678'">
+                        <td>EKO4206</td>
+                        <td>&#214;RNEKLEME</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr onclick="location.href='/Ders/Index/1431730'">
+                        <td>EKO4302</td>
+                        <td>PLANLAMA VE  OPTİMİZASYON</td>
+                        <td>Zorunlu</td>
+                        <td>3</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <a href="#8000">Se&#231;meli dersler i&#231;in tıklayınız.</a>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>10</td>
+                    </tr>
+            <tr>
+                <td style="background-color:#337ab7; color:#fff; text-align:center; ">Toplam</td>
+                <td colspan="5" style="background-color:#337ab7; color:#fff; text-align:center; "></td>
+                
+               
+                    <td style="background-color:#337ab7; color:#fff; text-align:center; ">30</td>
+                
+            </tr>
+        </table>
+    </div>
+
+
+
+
+
+            </div>
+        </div>
+
+        <div class="aciklamaKutu">
+            <div id="divListe" class="">
+                    <div class="aciklamaKutu mouseIconEl" id="3000" style="background-color:#fff;">
+        <table class="table table-bordered table-hover AktsTable">
+            <tr>
+                <td colspan="8" style="background-color:#337ab7; color:#fff; text-align:center; ">3. Yarıyıl Se&#231;meli Dersleri</td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td width="15%">Dersin Kodu</td>
+                <td width="40%">Dersin Adı</td>
+                <td width="15%">Dersin Türü</td>
+                <td width="5%">T<sup>1</sup></td>
+                <td width="5%">U<sup>2</sup></td>
+                <td width="5%">L<sup>3</sup></td>
+                <td width="10%">AKTS</td>
+            </tr>
+                <tr onclick="location.href='/Ders/Index/1431613'">
+                    <td>CAL2101</td>
+                    <td>T&#220;RKİYE&#39;DE SOSYAL POLİTİKA</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431646'">
+                    <td>EKO2003</td>
+                    <td>OFİS PROGRAMLARI HESAP TABLOLARI</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431711'">
+                    <td>EKO2107</td>
+                    <td>EKONOMİK G&#214;STERGELER ANALİZİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431693'">
+                    <td>EKO2217</td>
+                    <td>DEMOGRAFİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431639'">
+                    <td>ISL2103</td>
+                    <td>İŞLETME Y&#214;NETİMİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431624'">
+                    <td>ISL2201</td>
+                    <td>MUHASEBEDE D&#214;NEM SONU İŞLEMLERİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431630'">
+                    <td>ISL2203</td>
+                    <td>FİNANS MATEMATİĞİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431632'">
+                    <td>ISL2207</td>
+                    <td>ŞİRKETLER MUHASEBESİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431705'">
+                    <td>ISL2311</td>
+                    <td>GİRİŞİMCİLİK</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431608'">
+                    <td>KAM2403</td>
+                    <td>BOR&#199;LAR HUKUKU</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431593'">
+                    <td>MLY2401</td>
+                    <td>VERGİ HUKUKU</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431610'">
+                    <td>ULU2105</td>
+                    <td>ULUSLARARASI İLİŞKİLER</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+
+        </table>
+    </div>
+    <div class="aciklamaKutu mouseIconEl" id="4000" style="background-color:#fff;">
+        <table class="table table-bordered table-hover AktsTable">
+            <tr>
+                <td colspan="8" style="background-color:#337ab7; color:#fff; text-align:center; ">4. Yarıyıl Se&#231;meli Dersleri</td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td width="15%">Dersin Kodu</td>
+                <td width="40%">Dersin Adı</td>
+                <td width="15%">Dersin Türü</td>
+                <td width="5%">T<sup>1</sup></td>
+                <td width="5%">U<sup>2</sup></td>
+                <td width="5%">L<sup>3</sup></td>
+                <td width="10%">AKTS</td>
+            </tr>
+                <tr onclick="location.href='/Ders/Index/1431595'">
+                    <td>CAL2304</td>
+                    <td>T&#220;RKİYE&#39;NİN TOPLUMSAL YAPISI</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431631'">
+                    <td>EKO2004</td>
+                    <td>OFİS PROGRAMLARI -KELİME İŞLEM</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431652'">
+                    <td>EKO2206</td>
+                    <td>NİCEL VERİ ANALİZİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431670'">
+                    <td>EKO2210</td>
+                    <td>PARAMETRİK OLMAYAN İSTATİSTİK</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431633'">
+                    <td>IKT2306</td>
+                    <td>SANAYİ EKONOMİSİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431612'">
+                    <td>IKT2402</td>
+                    <td>İKTİSADİ SİSTEMLER</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431594'">
+                    <td>ISL2202</td>
+                    <td>MALİ TABLOLAR ANALİZİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431614'">
+                    <td>ISL2504</td>
+                    <td>TİCARET HUKUKU</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431649'">
+                    <td>KAM2308</td>
+                    <td>KENT ANALİZİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431609'">
+                    <td>MLY2106</td>
+                    <td>KAMU MALİYESİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431625'">
+                    <td>ULU2304</td>
+                    <td>ULUSLARARASI HUKUK</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+
+        </table>
+    </div>
+    <div class="aciklamaKutu mouseIconEl" id="5000" style="background-color:#fff;">
+        <table class="table table-bordered table-hover AktsTable">
+            <tr>
+                <td colspan="8" style="background-color:#337ab7; color:#fff; text-align:center; ">5. Yarıyıl Se&#231;meli Dersleri</td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td width="15%">Dersin Kodu</td>
+                <td width="40%">Dersin Adı</td>
+                <td width="15%">Dersin Türü</td>
+                <td width="5%">T<sup>1</sup></td>
+                <td width="5%">U<sup>2</sup></td>
+                <td width="5%">L<sup>3</sup></td>
+                <td width="10%">AKTS</td>
+            </tr>
+                <tr onclick="location.href='/Ders/Index/1431596'">
+                    <td>CAL3105</td>
+                    <td>&#199;ALIŞMA EKONOMİSİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431647'">
+                    <td>CAL3107</td>
+                    <td>YOKSULLUK VE REFAH POLİTİKALARI</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431715'">
+                    <td>EKO3001</td>
+                    <td>R İLE İSTATİSTİKSEL ANALİZ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431685'">
+                    <td>EKO3105</td>
+                    <td>EKONOMETRİK PROGRAMLAMA</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431657'">
+                    <td>EKO3203</td>
+                    <td>İSTATİSTİKSEL PAKET PROGRAMLARI</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431684'">
+                    <td>EKO3205</td>
+                    <td>NİTEL VERİ ANALİZİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431675'">
+                    <td>EKO3209</td>
+                    <td>FİNANSAL İSTATİSTİK</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431721'">
+                    <td>EKO3311</td>
+                    <td>PROGRAMLAMAYA GİRİŞ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431640'">
+                    <td>IKT3103</td>
+                    <td>PARA TEORİSİ VE POLİTİKASI</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431616'">
+                    <td>IKT3305</td>
+                    <td>D&#220;NYA EKONOMİSİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431615'">
+                    <td>IKT3307</td>
+                    <td>ULUSLAR ARASI İKTİSAT TEORİSİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431719'">
+                    <td>ISL3211</td>
+                    <td>BANKACILIK VE MUHASEBESİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431710'">
+                    <td>ISL3333</td>
+                    <td>SATIN ALMA VE TEDARİK ZİNCİRİ Y&#214;NETİMİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431622'">
+                    <td>KAM3205</td>
+                    <td>BİLGİ TOPLUMU VE E-DEVLET</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431634'">
+                    <td>MLY3203</td>
+                    <td>HAZİNE  İŞLEMLERİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431704'">
+                    <td>MLY3303</td>
+                    <td>KAMU EKONOMİSİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431717'">
+                    <td>MLY3403</td>
+                    <td>DIŞ TİCARET İŞLEM VE VERGİLERİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+
+        </table>
+    </div>
+    <div class="aciklamaKutu mouseIconEl" id="6000" style="background-color:#fff;">
+        <table class="table table-bordered table-hover AktsTable">
+            <tr>
+                <td colspan="8" style="background-color:#337ab7; color:#fff; text-align:center; ">6. Yarıyıl Se&#231;meli Dersleri</td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td width="15%">Dersin Kodu</td>
+                <td width="40%">Dersin Adı</td>
+                <td width="15%">Dersin Türü</td>
+                <td width="5%">T<sup>1</sup></td>
+                <td width="5%">U<sup>2</sup></td>
+                <td width="5%">L<sup>3</sup></td>
+                <td width="10%">AKTS</td>
+            </tr>
+                <tr onclick="location.href='/Ders/Index/1431597'">
+                    <td>CAL3204</td>
+                    <td>İŞ HUKUKU</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431712'">
+                    <td>EKO3002</td>
+                    <td>R İLE EKONOMETRİK ANALİZ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431664'">
+                    <td>EKO3010</td>
+                    <td>İLERİ EXCEL</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431687'">
+                    <td>EKO3108</td>
+                    <td>EKONOMETRİK YAZILIM GELİŞTİRME</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431672'">
+                    <td>EKO3204</td>
+                    <td>İSTATİSTİKSEL S&#220;RE&#199; KONTROL&#220;</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431653'">
+                    <td>EKO3206</td>
+                    <td>İSTATİSTİKSEL KALİTE UYGULAMALARI</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431681'">
+                    <td>EKO3208</td>
+                    <td>SİGORTA İSTATİSTİĞİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431731'">
+                    <td>EKO3310</td>
+                    <td>PYHTON UYGULAMALARI</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431641'">
+                    <td>IKT3102</td>
+                    <td>POLİTİK İKTİSAT</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431668'">
+                    <td>IKT3306</td>
+                    <td>İKTİSADİ PLANLAMA</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431694'">
+                    <td>IKT3306</td>
+                    <td>DOGAL KAYNAKLAR EKONOMİSİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431617'">
+                    <td>IKT3308</td>
+                    <td>ULUSLARARASI İKTİSAT POLİTİKASI</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431707'">
+                    <td>ISL3104</td>
+                    <td>İNSAN KAYNAĞI Y&#214;NETİMİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431635'">
+                    <td>ISL3206</td>
+                    <td>MALİYET MUHASEBESİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431716'">
+                    <td>ISL3216</td>
+                    <td>MENKUL KIYMETLER ANALİZİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431665'">
+                    <td>ISL3218</td>
+                    <td>FİNANSAL TEKNİKLER</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431663'">
+                    <td>ISL3308</td>
+                    <td>SATIŞ G&#220;C&#220; Y&#214;NETİMİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431623'">
+                    <td>ISL3310</td>
+                    <td>PAZARLAMA ARAŞTIRMASI</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431600'">
+                    <td>KAM3304</td>
+                    <td>&#199;EVRE POLİTİKALARI</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431618'">
+                    <td>MLY3204</td>
+                    <td>KAMU B&#220;T&#199;ESİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431598'">
+                    <td>MLY3404</td>
+                    <td>T&#220;RK VERGİ SİSTEMİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+
+        </table>
+    </div>
+    <div class="aciklamaKutu mouseIconEl" id="7000" style="background-color:#fff;">
+        <table class="table table-bordered table-hover AktsTable">
+            <tr>
+                <td colspan="8" style="background-color:#337ab7; color:#fff; text-align:center; ">7. Yarıyıl Se&#231;meli Dersleri</td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td width="15%">Dersin Kodu</td>
+                <td width="40%">Dersin Adı</td>
+                <td width="15%">Dersin Türü</td>
+                <td width="5%">T<sup>1</sup></td>
+                <td width="5%">U<sup>2</sup></td>
+                <td width="5%">L<sup>3</sup></td>
+                <td width="10%">AKTS</td>
+            </tr>
+                <tr onclick="location.href='/Ders/Index/1431648'">
+                    <td>CAL4107</td>
+                    <td>&#220;CRET SİSTEMLERİ VE VERİMLİLİK</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431619'">
+                    <td>CAL4205</td>
+                    <td>SOSYAL G&#220;VENLİK HUKUKU</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431720'">
+                    <td>CAL4405</td>
+                    <td>KARİYER Y&#214;NETİMİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431699'">
+                    <td>EKO4107</td>
+                    <td>TAHMİN TEKNİKLERİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431696'">
+                    <td>EKO4111</td>
+                    <td>ZAMAN SERİLERİ ANALİZİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431708'">
+                    <td>EKO4113</td>
+                    <td>UYGULAMALI EKONOMETRİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431709'">
+                    <td>EKO4115</td>
+                    <td>&#214;NRAPORLAMA TEKNİKLERİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431695'">
+                    <td>EKO4201</td>
+                    <td>ALTI SİGMA</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431682'">
+                    <td>EKO4205</td>
+                    <td>GENELLEŞTİRİLMİŞ DOĞRUSAL MODELLER</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431722'">
+                    <td>EKO4207</td>
+                    <td>KATEGORİK VERİ ANALİZİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431662'">
+                    <td>EKO4211</td>
+                    <td>RİSK ANALİZİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431688'">
+                    <td>EKO4303</td>
+                    <td>KALİTE Y&#214;NETİMİ VE PLANLAMASI</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431732'">
+                    <td>EKO4305</td>
+                    <td>Y&#214;NEYLEM ARAŞTIRMASI BİLGİSAYAR UYGULAMALARI</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431661'">
+                    <td>IKT4105</td>
+                    <td>MAKRO EKONOMİDE YENİ GELİŞMELER</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431642'">
+                    <td>IKT4203</td>
+                    <td>KONJONKT&#220;R VE FİNANSAL KRİZLER</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431659'">
+                    <td>IKT4305</td>
+                    <td>AB EKONOMİSİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431660'">
+                    <td>IKT4309</td>
+                    <td>BİLGİ TEKNOLOJİ EKONOMİSİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431637'">
+                    <td>ISL4105</td>
+                    <td>HALKLA İLİŞKİLER</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431638'">
+                    <td>ISL4201</td>
+                    <td>MUHASEBE DENETİMİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431706'">
+                    <td>ISL4203</td>
+                    <td>&#199;OK ULUSLU İŞLETMELERDE FİNANS</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431654'">
+                    <td>ISL4305</td>
+                    <td>MARKA Y&#214;NETİMİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431636'">
+                    <td>MLY4303</td>
+                    <td>FAYDA MALİYET ANALİZİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431604'">
+                    <td>ULU4107</td>
+                    <td>ULUSLARARASI TER&#214;RİZM VE G&#220;VENLİK</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+
+        </table>
+    </div>
+    <div class="aciklamaKutu mouseIconEl" id="8000" style="background-color:#fff;">
+        <table class="table table-bordered table-hover AktsTable">
+            <tr>
+                <td colspan="8" style="background-color:#337ab7; color:#fff; text-align:center; ">8. Yarıyıl Se&#231;meli Dersleri</td>
+            </tr>
+            <tr style="font-weight:bold;">
+                <td width="15%">Dersin Kodu</td>
+                <td width="40%">Dersin Adı</td>
+                <td width="15%">Dersin Türü</td>
+                <td width="5%">T<sup>1</sup></td>
+                <td width="5%">U<sup>2</sup></td>
+                <td width="5%">L<sup>3</sup></td>
+                <td width="10%">AKTS</td>
+            </tr>
+                <tr onclick="location.href='/Ders/Index/1431621'">
+                    <td>CAL4108</td>
+                    <td>İSTİHDAM VE İŞSİZLİK</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431651'">
+                    <td>CAL4206</td>
+                    <td>İŞ SAĞLIĞI VE G&#220;VENLİĞİ HUKUKU</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431713'">
+                    <td>EKO4006</td>
+                    <td>MATLAB UYGULAMALARI</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431692'">
+                    <td>EKO4110</td>
+                    <td>EŞANLI DENKLEM MODELLERİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431689'">
+                    <td>EKO4114</td>
+                    <td>SINIRLI BAĞIMLI DEĞİŞKENLİ MODELLER</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431714'">
+                    <td>EKO4118</td>
+                    <td>PANEL VERİ EKONOMETRİSİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431683'">
+                    <td>EKO4202</td>
+                    <td>DENEY TASARIMI</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431677'">
+                    <td>EKO4210</td>
+                    <td>İSTATİSTİKSEL MODELLER</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431700'">
+                    <td>EKO4214</td>
+                    <td>ORGANİZASYONEL AĞ ANALİZİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431701'">
+                    <td>EKO4216</td>
+                    <td>Y&#214;NETİM SİSTEMLERİNDE İSTATİSTİK</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431676'">
+                    <td>IKT4106</td>
+                    <td>YATIRIM PROJELERİ ANALİZİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431620'">
+                    <td>IKT4112</td>
+                    <td>T&#220;RKİYE EKONOMİSİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431723'">
+                    <td>IKT4306</td>
+                    <td>DİJİTAL EKONOMİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431698'">
+                    <td>ISL4108</td>
+                    <td>TOPLAM KALİTE Y&#214;NETİMİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431667'">
+                    <td>ISL4112</td>
+                    <td>&#214;RG&#220;TSEL İLETİŞİM</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431666'">
+                    <td>ISL4308</td>
+                    <td>LOJİSTİK Y&#214;NETİMİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431644'">
+                    <td>ISL4314</td>
+                    <td>ULUSLARARASI PAZARLAMA</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431602'">
+                    <td>MLY4102</td>
+                    <td>MALİ TEŞVİK SİSTEMLERİ</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+                <tr onclick="location.href='/Ders/Index/1431603'">
+                    <td>MLY4308</td>
+                    <td>MALİYE POLİTİKASI</td>
+                    <td>Se&#231;meli</td>
+                    <td>3</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>5</td>
+                </tr>
+
+        </table>
+    </div>
+<div class="aciklamaKutu mouseIconEl" style="background-color:#fff;">
+    <table class="table table-bordered table-hover AktsTable">
+        <tr>
+
+            <td width="25%">T<sup style="color:#337ab7">1</sup>: Teori</td>
+            <td width="25%">U<sup style="color:#337ab7">2</sup>: Uygulama</td>
+            <td width="25%">L<sup style="color:#337ab7">3</sup>: Laboratuvar</td>
+            
+          
+
+        </tr>
+    </table>
+</div>
+
+
+
+
+    
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+ 
+
+
+<div class="modal fade" id="duzenleDialogModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="duzenleDialogModalIcerik">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+    <div class="footerBilgi">
+        <div class="container">
+            <div class="col-sm-6">
+                Bologna İletişim <br />
+
+                Mail : bologna@uludag.edu.tr
+            </div>
+            <div class="col-sm-6">
+                Tasarım & Kodlama<br />
+                Bilgi İşlem Daire Başkanlığı © 2015<br />
+
+                otomasyon@uludag.edu.tr<br />
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
+

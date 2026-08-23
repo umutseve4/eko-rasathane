@@ -1,6 +1,8 @@
-fetched_at_utc=2026-08-23T19:02:29Z
+fetched_at_utc=2026-08-23T19:03:28Z
 program-343-ay23	http=200	curl_exit=0	bytes=99832	url=https://bilgipaketi.uludag.edu.tr/Programlar/Detay/343?AyID=23
 program-343-ay21	http=200	curl_exit=0	bytes=114593	url=https://bilgipaketi.uludag.edu.tr/Programlar/Detay/343?AyID=21
+program-343-ay33	http=200	curl_exit=0	bytes=108070	url=https://bilgipaketi.uludag.edu.tr/Programlar/Detay/343?AyID=33
 program-343-report-ay23	http=200	curl_exit=0	bytes=204949	url=https://bilgipaketi.uludag.edu.tr/DersProgramiRapor/DersProgramiRaporTR/343?Dil=0&AyarID=23
+program-343-report-ay33	http=200	curl_exit=0	bytes=207677	url=https://bilgipaketi.uludag.edu.tr/DersProgramiRapor/DersProgramiRaporTR/343?Dil=0&AyarID=33
 iibf-plan-current	http=200	curl_exit=0	bytes=122392	url=https://uludag.edu.tr/iibf/egitim-plani-14528
 iibf-plan-legacy	http=200	curl_exit=0	bytes=122392	url=https://uludag.edu.tr/iibf/default/konu/1403
