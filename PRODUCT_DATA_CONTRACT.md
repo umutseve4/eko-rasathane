@@ -1,6 +1,6 @@
 # EKO Rasathane — Ürün ve veri sözleşmesi
 
-**Durum:** M0 onay adayı  
+**Durum:** M0 verified — sözleşme kilitli  
 **Kapsam:** Şema ve davranış sözleşmesi; uygulama veya tasarım üretimi değildir.
 
 ## 1. Tasarım ilkeleri

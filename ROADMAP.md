@@ -34,7 +34,7 @@ Sınır:
 - Testlerin ders kimliğinden bağımsız fixture yapısına geçişi M2 ile başlar.
 - Çoklu tarayıcı kapsamı M8 kapısıdır.
 
-## M2 · Kanonik katalog ve Atlas omurgası — implemented, CI verification pending
+## M2 · Kanonik katalog ve Atlas omurgası — tested, merge verification pending
 
 İlk dikey dilim:
 - Institution, Program ve Curriculum varlıkları.
