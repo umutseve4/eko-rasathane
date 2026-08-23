@@ -21,10 +21,22 @@ EKO Rasathane resmî içeriği yeniden yayımlamak yerine kaynağa bağlanır; y
 | Erişim zamanı | `2026-08-23T19:03:28Z` |
 | HTTP sonucu | `200` |
 | Snapshot boyutu | `108070` bayt |
-| SHA-256 | `0b72d3ba7919492cce571d697902dff1ca20d6e0ef67dcbdf3f53f5b6acee1c6` |
+| Resmî HTML SHA-256 | `0b72d3ba7919492cce571d697902dff1ca20d6e0ef67dcbdf3f53f5b6acee1c6` |
 | Aktarılan kapsam | `8` yarıyıl, `41` zorunlu ders satırı, `103` seçmeli aday satırı, toplam `144` ilişki |
 
-Ham HTML araştırma dalında tutuldu; `main` yalnız olgusal fixture, provenance ve içerik hash'ini taşır.
+Ham HTML araştırma dalında tutulur; ürün dalında yalnız olgusal fixture, provenance ve yeniden üretilebilir normalize kanıt tutulur.
+
+## Taşınabilir kanıt dosyaları
+
+| Dosya | Rol |
+|---|---|
+| `evidence/program-343-ay33.rows.tsv` | AyID=33 resmî HTML tablosundan normalize edilmiş satır snapshot'ı |
+| `evidence/program-343-ay23.rows.tsv` | AyID=23 tarihsel karşılaştırma snapshot'ı |
+| `evidence/hashes.sha256` | Resmî HTML ve araştırma çıktılarının SHA-256 sicili |
+| `evidence/program-343-ay23-vs-ay33.diff.json` | Makinece okunabilir tarihsel fark |
+| `evidence/program-343-ay23-vs-ay33.diff.md` | Aynı farkın insan-okur özeti ve metodolojisi |
+
+TSV ayrıştırıcısı aktif yarıyılı “N. Yarıyıl Dersleri” / “N. Yarıyıl Seçmeli Dersleri” başlıklarından izler; yalnız yedi alanlı, kodu dolu ve türü `Zorunlu` veya `Seçmeli` olan satırları ders kabul eder. Böylece program yeterlilik metni, tablo başlıkları, `Toplam`, dipnot ve boş kodlu seçmeli yönlendirme satırları dışarıda kalır. Fixture eşleştirmesi yarıyıl, kod, kaynak başlığı, tür, T, U, L ve AKTS alanlarının tamamında yapılır.
 
 ## Seçmeli yük kuralı
 
@@ -34,13 +46,13 @@ Ham HTML araştırma dalında tutuldu; `main` yalnız olgusal fixture, provenanc
 
 - Program metadata'sı `240 AKTS` bildirir; yayımlanan yarıyıl toplamları `31 + 7×30 = 241 AKTS` eder. İki değer de korunmuş, `ects-conflict` anomalisi açılmıştır.
 - `EKO2004`, `IKT3306` ve `EKO4305` aynı kodla farklı başlıklarda yayımlanmıştır; kayıtlar birleştirilmemiş ve `duplicate-code` anomalileriyle ilişkilendirilmiştir.
-- `EKO3310` için `PYHTON UYGULAMALARI`, `EKO4115` için `ÖNRAPORLAMA TEKNİKLERİ` kaynak yazımları aynen korunmuş ve `typo-suspected` olarak işaretlenmiştir.
+- `EKO3310` için `PYHTON UYGULAMALARI`, `EKO4115` için `ÖNRAPORLAMA TEKNİKLERİ` ve `IKT3306` için `DOGAL KAYNAKLAR EKONOMİSİ` kaynak yazımları aynen korunmuş ve `typo-suspected` olarak işaretlenmiştir.
 
 ## Tarihsel ve keşif kaynakları
 
 | Kaynak | Dönem | Durum |
 |---|---|---|
-| [BUÜ Program Bilgi Paketi `AyID=23`](https://bilgipaketi.uludag.edu.tr/Programlar/Detay/343?AyID=23) | `2015-2016` | Tarihsel snapshot; current fixture değildir |
+| [BUÜ Program Bilgi Paketi `AyID=23`](https://bilgipaketi.uludag.edu.tr/Programlar/Detay/343?AyID=23) | `2015-2016` | Tarihsel snapshot; current fixture değildir; HTML SHA-256 `6b1fc3315767a7a2d6fb9c2d44d9418c922a4bdf796910aa4b89d92817856e39` |
 | [İİBF Eğitim Planı](https://uludag.edu.tr/iibf/default/konu/1403) | Bağlantı hedefi `AyID=23` | Güncel başlık altında eski sürüme yönlendirdiği için current kanıtı olarak kullanılmaz |
 | [Ekonometri Bölümü](https://uludag.edu.tr/ekonometri) | Dönemsel | Schedule keşfi; katalog kaynağı değildir |
 
