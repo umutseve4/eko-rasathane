@@ -10,6 +10,13 @@ function sourcedRecord(catalog) {
   return catalog.curriculumCourses[0];
 }
 
+const requiredRelation = catalog => catalog.curriculumCourses.find(relation => relation.courseType === 'required');
+const electiveRelation = catalog => catalog.curriculumCourses.find(relation => relation.courseType === 'elective');
+
+test('canonical fixture is valid', () => {
+  assert.deepEqual(validateAcademicCatalog(clone()), []);
+});
+
 test('rejects missing provenance and verification status', () => {
   const missingRefs = clone();
   sourcedRecord(missingRefs).sourceRefs = [];
@@ -117,6 +124,48 @@ test('validates requirementGroups IDs, semesters, ECTS and selection counts', ()
     catalog.curricula[0].requirementGroups[0].selectionCount = selectionCount;
     expectError(catalog, /invalid selectionCount/);
   }
+});
+
+test('required relations cannot carry a requirement group', () => {
+  const catalog = clone();
+  requiredRelation(catalog).requirementGroup = catalog.curricula[0].requirementGroups[0].id;
+  expectError(catalog, /required relation must not have requirementGroup/);
+});
+
+test('elective relations must carry a requirement group', () => {
+  const catalog = clone();
+  electiveRelation(catalog).requirementGroup = null;
+  expectError(catalog, /elective relation must have requirementGroup/);
+});
+
+test('elective relations must reference a group in their curriculum', () => {
+  const catalog = clone();
+  electiveRelation(catalog).requirementGroup = 'missing-group';
+  expectError(catalog, /unknown requirementGroup missing-group/);
+});
+
+test('elective relation semester must match its group semester', () => {
+  const catalog = clone();
+  const relation = electiveRelation(catalog);
+  const group = catalog.curricula[0].requirementGroups.find(item => item.id === relation.requirementGroup);
+  relation.semester = group.semester === 8 ? 7 : group.semester + 1;
+  expectError(catalog, /semester must match requirementGroup/);
+});
+
+test('group candidate ECTS must satisfy requiredEcts divided by selectionCount', () => {
+  const catalog = clone();
+  electiveRelation(catalog).ects = 4;
+  expectError(catalog, /ects must equal requirementGroup .* requiredEcts\/selectionCount/);
+});
+
+test('group must expose at least selectionCount candidates', () => {
+  const catalog = clone();
+  const relation = electiveRelation(catalog);
+  const group = catalog.curricula[0].requirementGroups.find(item => item.id === relation.requirementGroup);
+  const candidateCount = catalog.curriculumCourses.filter(item => item.curriculumId === catalog.curricula[0].id && item.requirementGroup === group.id).length;
+  group.selectionCount = candidateCount + 1;
+  group.requiredEcts = (candidateCount + 1) * relation.ects;
+  expectError(catalog, /candidate count below selectionCount/);
 });
 
 test('validates curriculum anomaly references and Curriculum anomaly entities', () => {
