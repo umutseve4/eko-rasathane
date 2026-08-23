@@ -12,11 +12,13 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm test
-      - run: npm run check
-      - name: Static contract
+      - run: npm run verify
+      - name: Static product contract
         run: |
           test -f index.html
           test -f styles.css
-          grep -q "BUÜ Ekonometri Program Bilgi Paketi" data.js
+          test -f data/catalog.mjs
+          grep -q "Kaçıncı sınıfsın" app.js
+          grep -q "BUÜ Ekonometri Program Bilgi Paketi" data/catalog.mjs
           grep -q "prefers-reduced-motion" styles.css
+          grep -q "#/sinif/:id" README.md
