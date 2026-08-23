@@ -115,7 +115,22 @@ test('validator rejects duplicate CurriculumCourse natural keys', () => {
   });
 
   const errors = validateAcademicCatalog(catalog);
-  assert.ok(errors.some(error => error.includes('duplicate natural key curr-buu-ekonometri-current::5::course-buu-eko3101::core')));
+  assert.ok(errors.some(error => error.includes('duplicate natural key')));
+});
+
+test('validator keeps compound keys distinct when values contain delimiters', () => {
+  const catalog = clone(academicCatalog);
+  const base = catalog.curriculumCourses[0];
+  catalog.courses.push(
+    { ...catalog.courses[0], id: 'course::pool', courseCode: 'COLLISION-A', sourceRecordKey: 'collision-a' },
+    { ...catalog.courses[0], id: 'course', courseCode: 'COLLISION-B', sourceRecordKey: 'collision-b' }
+  );
+  catalog.curriculumCourses = [
+    { ...base, id: 'cc-collision-a', courseId: 'course::pool', requirementGroup: 'x' },
+    { ...base, id: 'cc-collision-b', courseId: 'course', requirementGroup: 'pool::x' }
+  ];
+
+  assert.deepEqual(validateAcademicCatalog(catalog), []);
 });
 
 test('validator rejects invalid CurriculumCourse enums and requirement groups', () => {
