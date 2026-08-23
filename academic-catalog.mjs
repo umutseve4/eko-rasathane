@@ -2,6 +2,8 @@ import { VERIFICATION_STATUSES } from './data/academic-catalog.mjs';
 
 const arrays = ['sources', 'sourceSnapshots', 'institutions', 'programs', 'curricula', 'courses', 'curriculumCourses', 'anomalies'];
 const sourcedCollections = ['institutions', 'programs', 'curricula', 'courses', 'curriculumCourses', 'anomalies'];
+const anomalyTypes = new Set(['duplicate-code', 'title-conflict', 'ects-conflict', 'typo-suspected', 'source-mismatch', 'other']);
+const anomalyStatuses = new Set(['open', 'confirmed', 'resolved', 'rejected']);
 const asArray = value => Array.isArray(value) ? value : [];
 const key = (...parts) => parts.join('::');
 
@@ -81,15 +83,18 @@ export function validateAcademicCatalog(catalog) {
   }
   for (const anomaly of asArray(catalog.anomalies)) {
     if (anomaly.entityType === 'Course' && !ids.courses.has(anomaly.entityId)) errors.push(`anomalies:${anomaly.id}: unknown course ${anomaly.entityId}`);
+    if (!anomalyTypes.has(anomaly.type)) errors.push(`anomalies:${anomaly.id}: invalid type ${anomaly.type}`);
+    if (!anomalyStatuses.has(anomaly.status)) errors.push(`anomalies:${anomaly.id}: invalid status ${anomaly.status}`);
   }
 
-  const sourceRecords = new Set();
+  const sourceRecords = new Map();
   for (const course of asArray(catalog.courses)) {
     for (const sourceRef of asArray(course.sourceRefs)) {
       const sourceId = snapshots.get(sourceRef)?.sourceId ?? sourceRef;
       const naturalKey = key(sourceId, course.sourceRecordKey);
-      if (sourceRecords.has(naturalKey)) errors.push(`courses:${course.id}: duplicate source record ${naturalKey}`);
-      sourceRecords.add(naturalKey);
+      const existingCourseId = sourceRecords.get(naturalKey);
+      if (existingCourseId && existingCourseId !== course.id) errors.push(`courses:${course.id}: duplicate source record ${naturalKey}`);
+      else sourceRecords.set(naturalKey, course.id);
     }
   }
 

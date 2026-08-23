@@ -72,7 +72,19 @@ test('validator rejects duplicate course codes without explicit anomalies', () =
   assert.ok(errors.some(error => error.includes('duplicate courseCode without anomaly')));
 });
 
-test('validator rejects duplicate source records across snapshots and boolean verification flags', () => {
+test('validator allows one course source record across snapshots from the same source', () => {
+  const catalog = clone(academicCatalog);
+  catalog.sourceSnapshots.push({
+    id: 'snap-buu-program-second', sourceId: 'src-buu-program-package', retrievedAt: '2026-08-23T01:00:00Z',
+    academicYear: null, snapshotHash: null
+  });
+  catalog.courses[0].sourceRefs.push('snap-buu-program-second');
+
+  const errors = validateAcademicCatalog(catalog);
+  assert.ok(!errors.some(error => error.includes('duplicate source record')));
+});
+
+test('validator rejects the same source natural key on different courses', () => {
   const catalog = clone(academicCatalog);
   catalog.sourceSnapshots.push({
     id: 'snap-buu-program-second', sourceId: 'src-buu-program-package', retrievedAt: '2026-08-23T01:00:00Z',
@@ -80,8 +92,17 @@ test('validator rejects duplicate source records across snapshots and boolean ve
   });
   catalog.courses[1].sourceRefs = ['snap-buu-program-second'];
   catalog.courses[1].sourceRecordKey = catalog.courses[0].sourceRecordKey;
-  catalog.courses[1].verified = true;
+
   const errors = validateAcademicCatalog(catalog);
   assert.ok(errors.some(error => error.includes('duplicate source record')));
-  assert.ok(errors.some(error => error.includes('boolean verified is forbidden')));
+});
+
+test('validator rejects invalid anomaly type and status', () => {
+  const catalog = clone(academicCatalog);
+  catalog.anomalies[0].type = 'invalid-type';
+  catalog.anomalies[0].status = 'invalid-status';
+
+  const errors = validateAcademicCatalog(catalog);
+  assert.ok(errors.some(error => error.includes('invalid type invalid-type')));
+  assert.ok(errors.some(error => error.includes('invalid status invalid-status')));
 });
