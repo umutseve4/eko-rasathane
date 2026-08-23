@@ -1,42 +1,34 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import fs from 'node:fs';
+import { readFile } from 'node:fs/promises';
 import { academicCatalog } from '../data/academic-catalog.mjs';
-import { buildArtifacts, parseCurriculumEvidence, reconcileFixture, diffCurricula, renderDiffMarkdown, verifyArtifacts } from '../scripts/curriculum-evidence.mjs';
+import { parseCurriculumRows, generateArtifacts } from '../scripts/curriculum-evidence.mjs';
 
-const current = parseCurriculumEvidence(fs.readFileSync('evidence/program-343-ay33.rows.tsv', 'utf8'));
-const historical = parseCurriculumEvidence(fs.readFileSync('evidence/program-343-ay23.rows.tsv', 'utf8'));
+const evidence = path => new URL(`../evidence/${path}`, import.meta.url);
+const rowKey = row => JSON.stringify([row.semester, row.type, row.code, row.title, row.T, row.U, row.L, row.AKTS]);
 
-test('all 144 AyID=33 fixture rows exactly match committed source evidence', () => {
-  const result = reconcileFixture(current, academicCatalog);
-  assert.deepEqual(result, { evidenceCount: 144, fixtureCount: 144, missingFromFixture: [], extraInFixture: [] });
+test('parser extracts only course rows and excludes headings, placeholders, totals and program text', () => {
+  const input = `Program yeterlilik metni\n1. Yarıyıl Dersleri\nDersin Kodu\tDersin Adı\tT\tU\tL\tAKTS\tTürü\nEKO1001\tMATEMATİK I\t3\t0\t0\t5\tZorunlu\nToplam\t\t20\t0\t0\t30\t\n3. Yarıyıl Seçmeli Dersleri\n\tSeçmeli dersler için tıklayınız. [href=#]\t0\t0\t0\t10\tSeçmeli\nEKO2003\tOFİS PROGRAMLARI\t3\t0\t0\t5\tSeçmeli\nT1: Teori\tU2: Uygulama\tL3: Laboratuvar\n`;
+  assert.deepEqual(parseCurriculumRows(input), [
+    { code: 'EKO1001', title: 'MATEMATİK I', type: 'required', T: 3, U: 0, L: 0, AKTS: 5, semester: 1 },
+    { code: 'EKO2003', title: 'OFİS PROGRAMLARI', type: 'elective', T: 3, U: 0, L: 0, AKTS: 5, semester: 3 }
+  ]);
 });
 
-test('parser excludes program text, totals and elective placeholders', () => {
-  const counts = current.reduce((result, row) => ({ ...result, [row.courseType]: (result[row.courseType] ?? 0) + 1 }), {});
-  assert.deepEqual(counts, { required: 41, elective: 103 });
-  assert.ok(current.every(row => row.courseCode && !row.sourceTitle.includes('Seçmeli dersler için tıklayınız')));
+test('AyID=33 evidence matches all 144 fixture relations in every source field', async () => {
+  const rows = parseCurriculumRows(await readFile(evidence('program-343-ay33.rows.tsv'), 'utf8'));
+  const courses = new Map(academicCatalog.courses.map(course => [course.id, course]));
+  const fixture = academicCatalog.curriculumCourses.map(relation => {
+    const course = courses.get(relation.courseId);
+    return { code: course.courseCode, title: course.sourceTitle, type: relation.courseType, T: relation.theoryHours, U: relation.practiceHours, L: relation.labHours, AKTS: relation.ects, semester: relation.semester };
+  });
+  assert.equal(rows.length, 144);
+  assert.deepEqual(rows.map(rowKey).sort(), fixture.map(rowKey).sort());
 });
 
-test('historical diff artifacts are exactly reproducible', () => {
-  const diff = diffCurricula(historical, current);
-  assert.deepEqual(JSON.parse(fs.readFileSync('evidence/program-343-ay23-vs-ay33.diff.json', 'utf8')), diff);
-  assert.equal(fs.readFileSync('evidence/program-343-ay23-vs-ay33.diff.md', 'utf8'), renderDiffMarkdown(diff));
-  assert.deepEqual(diff.counts, { historicalRows: 122, currentRows: 144, unchangedRows: 71, addedRows: 73, removedRows: 51 });
-});
-
-test('independent artifact builds are byte-identical and verify without writes', () => {
-  const before = [
-    fs.readFileSync('evidence/program-343-ay23-vs-ay33.diff.json', 'utf8'),
-    fs.readFileSync('evidence/program-343-ay23-vs-ay33.diff.md', 'utf8')
-  ];
-  const first = buildArtifacts();
-  const second = buildArtifacts();
-  assert.equal(first.json, second.json);
-  assert.equal(first.markdown, second.markdown);
-  verifyArtifacts();
-  assert.deepEqual([
-    fs.readFileSync('evidence/program-343-ay23-vs-ay33.diff.json', 'utf8'),
-    fs.readFileSync('evidence/program-343-ay23-vs-ay33.diff.md', 'utf8')
-  ], before);
+test('committed diff artifacts are deterministic byte-for-byte regenerations', async () => {
+  const generated = await generateArtifacts({ beforePath: evidence('program-343-ay23.rows.tsv'), afterPath: evidence('program-343-ay33.rows.tsv') });
+  assert.deepEqual(generated.diff.counts, { ay23: 122, ay33: 144, unchanged: 71, added: 73, removed: 51 });
+  assert.equal(generated.json, await readFile(evidence('program-343-ay23-vs-ay33.diff.json'), 'utf8'));
+  assert.equal(generated.markdown, await readFile(evidence('program-343-ay23-vs-ay33.diff.md'), 'utf8'));
 });

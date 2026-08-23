@@ -1,0 +1,39 @@
+name: Materialize curriculum evidence
+on:
+  push:
+    branches: [feat/m2-curriculum-ay33]
+    paths:
+      - scripts/curriculum-evidence.mjs
+      - tests/curriculum-evidence.test.mjs
+      - .github/workflows/materialize-curriculum-evidence.yml
+permissions:
+  contents: write
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Copy normalized research evidence only
+        run: |
+          git fetch origin chore/research-curriculum-source
+          mkdir -p evidence
+          git show origin/chore/research-curriculum-source:research-output/program-343-ay33.rows.tsv > evidence/program-343-ay33.rows.tsv
+          git show origin/chore/research-curriculum-source:research-output/program-343-ay23.rows.tsv > evidence/program-343-ay23.rows.tsv
+          git show origin/chore/research-curriculum-source:research-output/hashes.sha256 > evidence/hashes.sha256
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Generate and verify
+        run: |
+          node scripts/curriculum-evidence.mjs
+          npm run verify
+      - name: Commit materialized evidence and remove this one-shot workflow
+        run: |
+          rm .github/workflows/materialize-curriculum-evidence.yml
+          git config user.name 'Umut SEVER'
+          git config user.email '2404005065@ogrenci.sbu.edu.tr'
+          git add evidence scripts tests .github/workflows/materialize-curriculum-evidence.yml
+          git commit -m 'chore: materialize curriculum evidence and deterministic diff'
+          git push origin HEAD:feat/m2-curriculum-ay33
