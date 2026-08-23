@@ -161,6 +161,7 @@ Bu ilişki EKO3101 ve EKO3103 gibi benzer alan derslerinin hangi programda çeki
 | `title` / `url` | string | Resmî başlık ve kararlı URL |
 | `sourceRole` | enum | program-package/course-package/schedule/department/platform-content |
 | `retrievedAt` | datetime | Erişim zamanı |
+| `retrievalPrecision` | enum/null | exact/date; saat kesinliği bilinmiyorsa date |
 | `academicYear` | string/null | Kaynağın dönemi |
 | `snapshotHash` | string/null | İçerik snapshot özeti |
 | `licenseOrUseNote` | string | Kullanım/telif notu |

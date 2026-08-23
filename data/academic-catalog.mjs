@@ -30,6 +30,7 @@ export const academicCatalog = Object.freeze({
       id: 'snap-buu-program-2026-08-23',
       sourceId: 'src-buu-program-package',
       retrievedAt: '2026-08-23T00:00:00Z',
+      retrievalPrecision: 'date',
       academicYear: null,
       snapshotHash: null
     },
@@ -37,6 +38,7 @@ export const academicCatalog = Object.freeze({
       id: 'snap-buu-eko3103-2026-08-23',
       sourceId: 'src-buu-eko3103-course-package',
       retrievedAt: '2026-08-23T00:00:00Z',
+      retrievalPrecision: 'date',
       academicYear: null,
       snapshotHash: null
     }
