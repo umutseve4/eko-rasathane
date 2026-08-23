@@ -1,146 +1,166 @@
-import { readFile, writeFile } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
+import fs from 'node:fs';
+import { academicCatalog } from '../data/academic-catalog.mjs';
 
-const HEADING = /^(\d+)\.\s*Yarıyıl(?:\s+Seçmeli)?\s+Dersleri$/u;
-const CODE = /^[A-ZÇĞİÖŞÜ]{2,}[0-9]{3,4}$/u;
-const TYPES = new Map([['Zorunlu', 'required'], ['Seçmeli', 'elective']]);
-const numeric = value => /^\d+(?:[.,]\d+)?$/u.test(value);
-const number = value => Number(value.replace(',', '.'));
-const DEFAULTS = {
-  beforePath: 'evidence/program-343-ay23.rows.tsv',
-  afterPath: 'evidence/program-343-ay33.rows.tsv',
-  jsonPath: 'evidence/program-343-ay23-vs-ay33.diff.json',
-  markdownPath: 'evidence/program-343-ay23-vs-ay33.diff.md'
-};
-const EXPECTED_COUNTS = { ay23: 122, ay33: 144, unchanged: 71, added: 73, removed: 51 };
+const fields = ['semester', 'courseType', 'courseCode', 'sourceTitle', 'theoryHours', 'practiceHours', 'labHours', 'ects'];
+const historicalPath = 'evidence/program-343-ay23.rows.tsv';
+const currentPath = 'evidence/program-343-ay33.rows.tsv';
+const jsonPath = 'evidence/program-343-ay23-vs-ay33.diff.json';
+const markdownPath = 'evidence/program-343-ay23-vs-ay33.diff.md';
+const expectedReconciliation = { evidenceCount: 144, fixtureCount: 144, missingFromFixture: [], extraInFixture: [] };
+const expectedDiffCounts = { historicalRows: 122, currentRows: 144, unchangedRows: 71, addedRows: 73, removedRows: 51 };
 
-export function parseCurriculumRows(text) {
-  let semester = null;
+export const rowKey = row => JSON.stringify(fields.map(field => row[field]));
+
+export function parseCurriculumEvidence(text) {
   const rows = [];
-  for (const rawLine of text.replace(/^\uFEFF/u, '').split(/\r?\n/u)) {
-    const line = rawLine.trim();
-    const heading = line.match(HEADING);
+  let semester = null;
+  let sectionType = null;
+  for (const sourceLine of text.replace(/\r/g, '').split('\n')) {
+    const line = sourceLine.trim();
+    const heading = line.match(/^(\d+)\. Yarıyıl( Seçmeli)? Dersleri$/);
     if (heading) {
       semester = Number(heading[1]);
+      sectionType = heading[2] ? 'elective' : 'required';
       continue;
     }
-    const values = rawLine.split('\t').map(value => value.trim());
-    if (semester === null || values.length !== 7) continue;
-    const [code, title, T, U, L, AKTS, sourceType] = values;
-    const type = TYPES.get(sourceType);
-    if (!CODE.test(code) || !title || !type || ![T, U, L, AKTS].every(numeric)) continue;
-    rows.push({ code, title, type, T: number(T), U: number(U), L: number(L), AKTS: number(AKTS), semester });
+    const cells = sourceLine.split('\t');
+    if (!semester || cells.length !== 7 || !cells[0] || !['Zorunlu', 'Seçmeli'].includes(cells[2])) continue;
+    const [courseCode, sourceTitle, sourceType, theory, practice, lab, ects] = cells;
+    if (!/^[A-Z0-9]+$/u.test(courseCode) || !/\d/u.test(courseCode) || !sourceTitle.trim()) continue;
+    const courseType = sourceType === 'Zorunlu' ? 'required' : 'elective';
+    if (courseType !== sectionType) throw new Error(`Section/type mismatch: ${sourceLine}`);
+    const numericCells = [theory, practice, lab, ects];
+    if (numericCells.some(value => !/^\d+(?:\.\d+)?$/u.test(value))) throw new Error(`Invalid numeric evidence row: ${sourceLine}`);
+    const numeric = numericCells.map(Number);
+    rows.push({ semester, courseType, courseCode, sourceTitle, theoryHours: numeric[0], practiceHours: numeric[1], labHours: numeric[2], ects: numeric[3] });
   }
   return rows;
 }
 
-const fields = ['semester', 'type', 'code', 'title', 'T', 'U', 'L', 'AKTS'];
-const compare = (a, b) => {
-  for (const field of fields) {
-    const result = typeof a[field] === 'number' ? a[field] - b[field] : a[field].localeCompare(b[field], 'tr');
-    if (result) return result;
-  }
-  return 0;
-};
-const key = row => JSON.stringify(fields.map(field => row[field]));
-const counts = rows => {
-  const result = new Map();
-  for (const row of rows) result.set(key(row), (result.get(key(row)) ?? 0) + 1);
-  return result;
-};
+export function fixtureRows(catalog = academicCatalog) {
+  const courses = new Map(catalog.courses.map(course => [course.id, course]));
+  return catalog.curriculumCourses.map(relation => {
+    const course = courses.get(relation.courseId);
+    return {
+      semester: relation.semester,
+      courseType: relation.courseType,
+      courseCode: course?.courseCode,
+      sourceTitle: course?.sourceTitle,
+      theoryHours: relation.theoryHours,
+      practiceHours: relation.practiceHours,
+      labHours: relation.labHours,
+      ects: relation.ects
+    };
+  });
+}
 
-export function createCurriculumDiff(beforeRows, afterRows) {
-  const unmatchedAfter = counts(afterRows);
-  const unchanged = [];
-  const removed = [];
-  for (const row of beforeRows) {
-    const rowKey = key(row);
-    const available = unmatchedAfter.get(rowKey) ?? 0;
-    (available > 0 ? unchanged : removed).push(row);
-    if (available > 0) unmatchedAfter.set(rowKey, available - 1);
+function multiset(rows) {
+  const result = new Map();
+  for (const row of rows) {
+    const key = rowKey(row);
+    const entry = result.get(key) ?? { row, count: 0 };
+    entry.count += 1;
+    result.set(key, entry);
   }
-  const added = [];
-  for (const row of afterRows) {
-    const rowKey = key(row);
-    const available = unmatchedAfter.get(rowKey) ?? 0;
-    if (available > 0) {
-      added.push(row);
-      unmatchedAfter.set(rowKey, available - 1);
-    }
+  return result;
+}
+
+function subtract(left, right) {
+  const result = [];
+  for (const [key, entry] of left) {
+    const count = Math.max(0, entry.count - (right.get(key)?.count ?? 0));
+    for (let index = 0; index < count; index += 1) result.push(entry.row);
   }
-  unchanged.sort(compare);
-  removed.sort(compare);
-  added.sort(compare);
-  const semesters = [...new Set([...beforeRows, ...afterRows].map(row => row.semester))].sort((a, b) => a - b);
-  const bySemester = semesters.map(semester => ({
-    semester,
-    ay23: beforeRows.filter(row => row.semester === semester).length,
-    ay33: afterRows.filter(row => row.semester === semester).length,
-    unchanged: unchanged.filter(row => row.semester === semester).length,
-    added: added.filter(row => row.semester === semester).length,
-    removed: removed.filter(row => row.semester === semester).length
-  }));
+  return result.sort((a, b) => rowKey(a).localeCompare(rowKey(b), 'en'));
+}
+
+export function reconcileFixture(evidenceRows, catalog = academicCatalog) {
+  const actual = fixtureRows(catalog);
+  const evidence = multiset(evidenceRows);
+  const fixture = multiset(actual);
+  return {
+    evidenceCount: evidenceRows.length,
+    fixtureCount: actual.length,
+    missingFromFixture: subtract(evidence, fixture),
+    extraInFixture: subtract(fixture, evidence)
+  };
+}
+
+export function diffCurricula(historicalRows, currentRows) {
+  const historical = multiset(historicalRows);
+  const current = multiset(currentRows);
+  const added = subtract(current, historical);
+  const removed = subtract(historical, current);
   return {
     schemaVersion: 1,
-    methodology: 'Exact structural row multiset over semester,type,code,title,T,U,L,AKTS; edits are one removal plus one addition.',
-    sources: { before: DEFAULTS.beforePath, after: DEFAULTS.afterPath },
-    counts: { ay23: beforeRows.length, ay33: afterRows.length, unchanged: unchanged.length, added: added.length, removed: removed.length },
-    bySemester,
+    source: { from: 'AyID=23', to: 'AyID=33' },
+    methodology: 'Parse only seven-field course rows under semester headings; ignore program text, headers, totals, footnotes and blank-code elective placeholders. Compare exact structural row multisets (semester, type, code, title, T, U, L, AKTS) without inferred matches.',
+    counts: {
+      historicalRows: historicalRows.length,
+      currentRows: currentRows.length,
+      unchangedRows: historicalRows.length - removed.length,
+      addedRows: added.length,
+      removedRows: removed.length
+    },
     added,
     removed
   };
 }
 
-export function renderJson(diff) { return `${JSON.stringify(diff, null, 2)}\n`; }
-export function renderMarkdown(diff) {
+export function renderDiffMarkdown(diff) {
   const lines = [
-    '# Program 343: AyID=23 → AyID=33 ders satırı farkı', '',
-    '## Metodoloji', '', diff.methodology, '',
-    'Yalnız TSV içindeki geçerli ders satırları karşılaştırılır. Yarıyıl başlıkları bağlam sağlar; tablo başlıkları, `Toplam`, program metni ve boş kodlu seçmeli yönlendirme satırları dışlanır.', '',
-    '## Tam sayılar', '',
-    '| AyID=23 | AyID=33 | Aynen korunan | Eklenen | Kaldırılan |',
-    '|---:|---:|---:|---:|---:|',
-    `| ${diff.counts.ay23} | ${diff.counts.ay33} | ${diff.counts.unchanged} | ${diff.counts.added} | ${diff.counts.removed} |`, '',
-    '## Yarıyıl kırılımı', '',
-    '| Yarıyıl | AyID=23 | AyID=33 | Aynen korunan | Eklenen | Kaldırılan |',
-    '|---:|---:|---:|---:|---:|---:|',
-    ...diff.bySemester.map(row => `| ${row.semester} | ${row.ay23} | ${row.ay33} | ${row.unchanged} | ${row.added} | ${row.removed} |`), '',
-    '## Satır düzeyi fark', '',
-    'Tam `added` ve `removed` kayıtları, sabit alan sırası ve stabil sıralamayla eşlik eden JSON artifact’ında yer alır.', ''
+    '# Curriculum diff: AyID=23 → AyID=33', '',
+    '## Methodology', '', diff.methodology, '',
+    '## Counts', '',
+    `- Historical rows: **${diff.counts.historicalRows}**`,
+    `- Current rows: **${diff.counts.currentRows}**`,
+    `- Exact unchanged rows: **${diff.counts.unchangedRows}**`,
+    `- Added rows: **${diff.counts.addedRows}**`,
+    `- Removed rows: **${diff.counts.removedRows}**`, ''
   ];
-  return lines.join('\n');
-}
-
-export async function generateArtifacts({ beforePath, afterPath, jsonPath, markdownPath }) {
-  const [beforeText, afterText] = await Promise.all([readFile(beforePath, 'utf8'), readFile(afterPath, 'utf8')]);
-  const diff = createCurriculumDiff(parseCurriculumRows(beforeText), parseCurriculumRows(afterText));
-  const json = renderJson(diff);
-  const markdown = renderMarkdown(diff);
-  if (jsonPath) await writeFile(jsonPath, json);
-  if (markdownPath) await writeFile(markdownPath, markdown);
-  return { diff, json, markdown };
-}
-
-export async function verifyArtifacts() {
-  const generated = await generateArtifacts({ beforePath: DEFAULTS.beforePath, afterPath: DEFAULTS.afterPath });
-  if (JSON.stringify(generated.diff.counts) !== JSON.stringify(EXPECTED_COUNTS)) {
-    throw new Error(`Unexpected curriculum counts: ${JSON.stringify(generated.diff.counts)}`);
+  for (const [title, rows] of [['Added rows', diff.added], ['Removed rows', diff.removed]]) {
+    lines.push(`## ${title}`, '', '| Semester | Type | Code | Source title | T/U/L | AKTS |', '|---:|---|---|---|---|---:|');
+    for (const row of rows) lines.push(`| ${row.semester} | ${row.courseType} | ${row.courseCode} | ${row.sourceTitle.replace(/\|/g, '\\|')} | ${row.theoryHours}/${row.practiceHours}/${row.labHours} | ${row.ects} |`);
+    if (!rows.length) lines.push('| — | — | — | — | — | — |');
+    lines.push('');
   }
-  const [json, markdown] = await Promise.all([readFile(DEFAULTS.jsonPath, 'utf8'), readFile(DEFAULTS.markdownPath, 'utf8')]);
-  if (json !== generated.json) throw new Error(`${DEFAULTS.jsonPath} is stale; run npm run evidence:generate`);
-  if (markdown !== generated.markdown) throw new Error(`${DEFAULTS.markdownPath} is stale; run npm run evidence:generate`);
-  return generated.diff.counts;
+  return `${lines.join('\n')}\n`;
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
-  if (process.argv.includes('--verify')) {
-    console.log(JSON.stringify(await verifyArtifacts()));
-  } else {
-    await generateArtifacts({
-      beforePath: process.argv[2] ?? DEFAULTS.beforePath,
-      afterPath: process.argv[3] ?? DEFAULTS.afterPath,
-      jsonPath: process.argv[4] ?? DEFAULTS.jsonPath,
-      markdownPath: process.argv[5] ?? DEFAULTS.markdownPath
-    });
-  }
+export function buildArtifacts() {
+  const historical = parseCurriculumEvidence(fs.readFileSync(historicalPath, 'utf8'));
+  const current = parseCurriculumEvidence(fs.readFileSync(currentPath, 'utf8'));
+  const reconciliation = reconcileFixture(current);
+  const diff = diffCurricula(historical, current);
+  return {
+    reconciliation,
+    diff,
+    json: `${JSON.stringify(diff, null, 2)}\n`,
+    markdown: renderDiffMarkdown(diff)
+  };
+}
+
+export function generateArtifacts() {
+  const artifacts = buildArtifacts();
+  fs.writeFileSync(jsonPath, artifacts.json);
+  fs.writeFileSync(markdownPath, artifacts.markdown);
+  return artifacts.diff;
+}
+
+function exactEqual(actual, expected) {
+  return JSON.stringify(actual) === JSON.stringify(expected);
+}
+
+export function verifyArtifacts() {
+  const artifacts = buildArtifacts();
+  if (!exactEqual(artifacts.reconciliation, expectedReconciliation)) throw new Error(`Fixture reconciliation mismatch: ${JSON.stringify(artifacts.reconciliation)}`);
+  if (!exactEqual(artifacts.diff.counts, expectedDiffCounts)) throw new Error(`Historical diff counts mismatch: ${JSON.stringify(artifacts.diff.counts)}`);
+  if (fs.readFileSync(jsonPath, 'utf8') !== artifacts.json) throw new Error(`${jsonPath} is stale; run npm run evidence:generate`);
+  if (fs.readFileSync(markdownPath, 'utf8') !== artifacts.markdown) throw new Error(`${markdownPath} is stale; run npm run evidence:generate`);
+  return { reconciliation: artifacts.reconciliation, counts: artifacts.diff.counts };
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  const verify = process.argv.slice(2).includes('--verify');
+  console.log(JSON.stringify(verify ? verifyArtifacts() : generateArtifacts().counts));
 }
