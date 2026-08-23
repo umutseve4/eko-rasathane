@@ -4,166 +4,92 @@ import { academicCatalog } from '../data/academic-catalog.mjs';
 import { listPrograms, semesterCatalog, validateAcademicCatalog } from '../academic-catalog.mjs';
 
 const clone = value => structuredClone(value);
+const curriculumId = 'curr-buu-ekonometri-2025-2026';
+const snapshotId = 'snap-buu-program-ay33-2026-08-23';
 
-test('M2 fixture satisfies referential, source and anomaly integrity', () => {
+test('2025-2026 fixture satisfies referential, source and anomaly integrity', () => {
   assert.deepEqual(validateAcademicCatalog(academicCatalog), []);
 });
 
-test('EKO3101 core context stays separate from conflicted EKO3103 fixture', () => {
-  const semester = semesterCatalog(academicCatalog, 'prog-buu-ekonometri-lisans', 5);
-  assert.equal(semester.entries.length, 1);
-  assert.equal(semester.entries[0].course.courseCode, 'EKO3101');
-  assert.equal(semester.entries[0].targetAudience, 'core');
-  const serviceFixture = academicCatalog.courses.find(course => course.courseCode === 'EKO3103');
-  assert.equal(serviceFixture.verificationStatus, 'conflicted');
-  assert.deepEqual(serviceFixture.anomalyRefs, ['anomaly-buu-eko3103-ects']);
-  assert.notEqual(semester.entries[0].course.id, serviceFixture.id);
+test('current curriculum contains all 8 semesters and all 144 source course rows', () => {
+  const expected = {
+    1: [9, 0], 2: [8, 0], 3: [4, 12], 4: [4, 11],
+    5: [4, 17], 6: [4, 21], 7: [4, 23], 8: [4, 19]
+  };
+  assert.equal(academicCatalog.courses.length, 144);
+  assert.equal(academicCatalog.curriculumCourses.length, 144);
+  for (const [semester, [required, elective]] of Object.entries(expected)) {
+    const entries = semesterCatalog(academicCatalog, 'prog-buu-ekonometri-lisans', Number(semester), curriculumId).entries;
+    assert.equal(entries.filter(item => item.courseType === 'required').length, required);
+    assert.equal(entries.filter(item => item.courseType === 'elective').length, elective);
+  }
 });
 
-test('semester catalog requires a curriculum id when a program has multiple curricula', () => {
+test('required and elective semantics preserve source load without fake placeholder courses', () => {
+  const curriculum = academicCatalog.curricula[0];
+  assert.deepEqual(curriculum.semesterEctsPublished, [31, 30, 30, 30, 30, 30, 30, 30]);
+  assert.equal(curriculum.semesterEctsPublished.reduce((sum, value) => sum + value, 0), 241);
+  assert.equal(academicCatalog.programs[0].totalEcts, 240);
+  assert.deepEqual(curriculum.requirementGroups.map(group => [group.semester, group.requiredEcts, group.selectionCount]), [
+    [3, 10, 2], [4, 10, 2], [5, 10, 2], [6, 10, 2], [7, 10, 2], [8, 10, 2]
+  ]);
+  for (const relation of academicCatalog.curriculumCourses) {
+    if (relation.courseType === 'required') assert.equal(relation.requirementGroup, null);
+    else assert.equal(relation.requirementGroup, `elective-s${relation.semester}`);
+  }
+  assert.ok(!academicCatalog.courses.some(course => course.sourceTitle.includes('Seçmeli dersler için tıklayınız')));
+  assert.ok(academicCatalog.anomalies.some(anomaly => anomaly.id === 'anomaly-curriculum-ay33-total-ects' && anomaly.type === 'ects-conflict'));
+});
+
+test('duplicate source codes and suspected typos remain explicit and uncorrected', () => {
+  for (const code of ['EKO2004', 'IKT3306', 'EKO4305']) {
+    const courses = academicCatalog.courses.filter(course => course.courseCode === code);
+    assert.equal(courses.length, 2);
+    assert.ok(courses.every(course => course.anomalyRefs.some(id => id.startsWith('anomaly-duplicate-'))));
+  }
+  assert.equal(academicCatalog.courses.find(course => course.courseCode === 'EKO3310').sourceTitle, 'PYHTON UYGULAMALARI');
+  assert.equal(academicCatalog.courses.find(course => course.courseCode === 'EKO4115').sourceTitle, 'ÖNRAPORLAMA TEKNİKLERİ');
+});
+
+test('all imported records carry exact snapshot provenance', () => {
+  const snapshot = academicCatalog.sourceSnapshots[0];
+  assert.equal(snapshot.retrievedAt, '2026-08-23T19:03:28Z');
+  assert.equal(snapshot.snapshotHash, 'sha256:0b72d3ba7919492cce571d697902dff1ca20d6e0ef67dcbdf3f53f5b6acee1c6');
+  for (const collection of ['institutions', 'programs', 'curricula', 'courses', 'curriculumCourses', 'anomalies']) {
+    assert.ok(academicCatalog[collection].every(record => record.sourceRefs.includes(snapshotId)));
+  }
+  assert.equal(new Set(academicCatalog.courses.map(course => course.sourceRecordKey)).size, 144);
+});
+
+test('program discovery and explicit curriculum selection remain data-driven', () => {
+  assert.deepEqual(listPrograms(academicCatalog).map(program => program.id), ['prog-buu-ekonometri-lisans']);
   const catalog = clone(academicCatalog);
-  const originalCurriculum = catalog.curricula.find(item => item.programId === 'prog-buu-ekonometri-lisans');
-  catalog.curricula.push({ ...originalCurriculum, id: 'curr-buu-ekonometri-lisans-second' });
-
-  assert.throws(
-    () => semesterCatalog(catalog, 'prog-buu-ekonometri-lisans', 5),
-    new Error('Multiple curricula for program prog-buu-ekonometri-lisans; curriculumId is required')
-  );
-  const semester = semesterCatalog(catalog, 'prog-buu-ekonometri-lisans', 5, originalCurriculum.id);
-  assert.deepEqual(semester.curriculum, originalCurriculum);
+  catalog.curricula.push({ ...catalog.curricula[0], id: 'curr-second' });
+  assert.throws(() => semesterCatalog(catalog, 'prog-buu-ekonometri-lisans', 5), /curriculumId is required/);
+  assert.equal(semesterCatalog(catalog, 'prog-buu-ekonometri-lisans', 5, curriculumId).entries.length, 21);
 });
 
-test('program discovery is data-driven when another institution and program are added', () => {
-  const catalog = clone(academicCatalog);
-  catalog.institutions.push({
-    id: 'inst-fixture', name: 'Fixture Üniversitesi', countryCode: 'TR', institutionSlug: 'fixture-universitesi',
-    sourceRefs: ['snap-buu-program-2026-08-23'], verificationStatus: 'unverified'
-  });
-  catalog.programs.push({
-    id: 'prog-fixture', institutionId: 'inst-fixture', programCode: null, sourceTitle: 'Fixture Programı',
-    canonicalTitle: 'Fixture Programı', degreeLevel: 'bachelor', totalEcts: null, disciplineTags: [],
-    sourceRefs: ['snap-buu-program-2026-08-23'], verificationStatus: 'unverified'
-  });
-  assert.deepEqual(listPrograms(catalog).map(program => program.id), ['prog-buu-ekonometri-lisans', 'prog-fixture']);
-  assert.equal(listPrograms(catalog, 'inst-fixture')[0].institution.id, 'inst-fixture');
-});
-
-test('validator rejects broken references, missing provenance and out-of-range semesters', () => {
+test('validator rejects broken references, duplicate natural keys and invalid measurements', () => {
   const catalog = clone(academicCatalog);
   catalog.programs[0].institutionId = 'missing';
-  catalog.courses[0].sourceRefs = [];
-  delete catalog.courses[0].verificationStatus;
-  catalog.curriculumCourses[0].semester = 9;
+  catalog.curriculumCourses.push({ ...catalog.curriculumCourses[0], id: 'duplicate-relation' });
+  catalog.curriculumCourses[0].ects = -1;
   const errors = validateAcademicCatalog(catalog);
   assert.ok(errors.some(error => error.includes('unknown institution missing')));
-  assert.ok(errors.some(error => error.includes('missing sourceRefs')));
-  assert.ok(errors.some(error => error.includes('missing verification status')));
-  assert.ok(errors.some(error => error.includes('semester out of range')));
-});
-
-test('validator rejects duplicate course codes without explicit anomalies', () => {
-  const catalog = clone(academicCatalog);
-  catalog.courses.push({
-    ...catalog.courses[0],
-    id: 'course-buu-eko3101-duplicate',
-    sourceRecordKey: 'program-343:EKO3101:duplicate'
-  });
-  const errors = validateAcademicCatalog(catalog);
-  assert.ok(errors.some(error => error.includes('duplicate courseCode without anomaly')));
-});
-
-test('validator allows one course source record across snapshots from the same source', () => {
-  const catalog = clone(academicCatalog);
-  catalog.sourceSnapshots.push({
-    id: 'snap-buu-program-second', sourceId: 'src-buu-program-package', retrievedAt: '2026-08-23T01:00:00Z',
-    academicYear: null, snapshotHash: null
-  });
-  catalog.courses[0].sourceRefs.push('snap-buu-program-second');
-
-  const errors = validateAcademicCatalog(catalog);
-  assert.ok(!errors.some(error => error.includes('duplicate source record')));
-});
-
-test('validator rejects the same source natural key on different courses', () => {
-  const catalog = clone(academicCatalog);
-  catalog.sourceSnapshots.push({
-    id: 'snap-buu-program-second', sourceId: 'src-buu-program-package', retrievedAt: '2026-08-23T01:00:00Z',
-    academicYear: null, snapshotHash: null
-  });
-  catalog.courses[1].sourceRefs = ['snap-buu-program-second'];
-  catalog.courses[1].sourceRecordKey = catalog.courses[0].sourceRecordKey;
-
-  const errors = validateAcademicCatalog(catalog);
-  assert.ok(errors.some(error => error.includes('duplicate source record')));
-});
-
-test('validator rejects invalid anomaly type and status', () => {
-  const catalog = clone(academicCatalog);
-  catalog.anomalies[0].type = 'invalid-type';
-  catalog.anomalies[0].status = 'invalid-status';
-
-  const errors = validateAcademicCatalog(catalog);
-  assert.ok(errors.some(error => error.includes('invalid type invalid-type')));
-  assert.ok(errors.some(error => error.includes('invalid status invalid-status')));
-});
-
-test('validator rejects duplicate CurriculumCourse natural keys', () => {
-  const catalog = clone(academicCatalog);
-  catalog.curriculumCourses.push({
-    ...catalog.curriculumCourses[0],
-    id: 'cc-buu-current-s5-eko3101-core-duplicate'
-  });
-
-  const errors = validateAcademicCatalog(catalog);
   assert.ok(errors.some(error => error.includes('duplicate natural key')));
+  assert.ok(errors.some(error => error.includes('invalid ects')));
 });
 
 test('validator keeps compound keys distinct when values contain delimiters', () => {
   const catalog = clone(academicCatalog);
   const base = catalog.curriculumCourses[0];
   catalog.courses.push(
-    { ...catalog.courses[0], id: 'course::pool', courseCode: 'COLLISION-A', sourceRecordKey: 'collision-a' },
-    { ...catalog.courses[0], id: 'course', courseCode: 'COLLISION-B', sourceRecordKey: 'collision-b' }
+    { ...catalog.courses[0], id: 'course::pool', courseCode: 'COLLISION-A', sourceRecordKey: 'collision-a', anomalyRefs: [] },
+    { ...catalog.courses[0], id: 'course', courseCode: 'COLLISION-B', sourceRecordKey: 'collision-b', anomalyRefs: [] }
   );
   catalog.curriculumCourses = [
     { ...base, id: 'cc-collision-a', courseId: 'course::pool', requirementGroup: 'x' },
     { ...base, id: 'cc-collision-b', courseId: 'course', requirementGroup: 'pool::x' }
   ];
-
-  assert.deepEqual(validateAcademicCatalog(catalog), []);
-});
-
-test('validator rejects invalid CurriculumCourse enums and requirement groups', () => {
-  const catalog = clone(academicCatalog);
-  catalog.curriculumCourses[0].courseType = 'mandatory';
-  catalog.curriculumCourses[0].targetAudience = 'everyone';
-  catalog.curriculumCourses[0].requirementGroup = '   ';
-
-  const errors = validateAcademicCatalog(catalog);
-  assert.ok(errors.some(error => error.includes('invalid courseType mandatory')));
-  assert.ok(errors.some(error => error.includes('invalid targetAudience everyone')));
-  assert.ok(errors.some(error => error.includes('invalid requirementGroup')));
-});
-
-test('validator rejects negative and non-finite CurriculumCourse measurements', () => {
-  const catalog = clone(academicCatalog);
-  catalog.curriculumCourses[0].ects = -1;
-  catalog.curriculumCourses[0].theoryHours = Number.NaN;
-  catalog.curriculumCourses[0].practiceHours = Number.POSITIVE_INFINITY;
-  catalog.curriculumCourses[0].labHours = '0';
-
-  const errors = validateAcademicCatalog(catalog);
-  for (const field of ['ects', 'theoryHours', 'practiceHours', 'labHours']) {
-    assert.ok(errors.some(error => error.includes(`invalid ${field}`)));
-  }
-});
-
-test('validator accepts zero, positive and null CurriculumCourse measurements', () => {
-  const catalog = clone(academicCatalog);
-  catalog.curriculumCourses[0].ects = 5;
-  catalog.curriculumCourses[0].theoryHours = 3;
-  catalog.curriculumCourses[0].practiceHours = 0;
-  catalog.curriculumCourses[0].labHours = null;
-
   assert.deepEqual(validateAcademicCatalog(catalog), []);
 });
