@@ -1,0 +1,91 @@
+name: audit-pr13-exact-sha
+
+on:
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: audit-pr13-exact-sha
+  cancel-in-progress: false
+
+env:
+  TARGET_SHA: 41072170840a2490af0165d0724d605e49ec7285
+
+jobs:
+  exact-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_SHA }}
+      - name: Assert exact SHA
+        run: test "$(git rev-parse HEAD)" = "$TARGET_SHA"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run verify
+
+  exact-browser-e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_SHA }}
+      - name: Assert exact SHA
+        run: test "$(git rev-parse HEAD)" = "$TARGET_SHA"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+
+  exact-live-critical-content:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_SHA }}
+      - name: Assert exact SHA
+        run: test "$(git rev-parse HEAD)" = "$TARGET_SHA"
+      - name: Compare deployed critical files byte-for-byte
+        shell: bash
+        run: |
+          set -euo pipefail
+          base="https://umutseve4.github.io/eko-rasathane"
+          files=(
+            "index.html"
+            "academic-catalog.mjs"
+            "data/academic-catalog.mjs"
+            "evidence/program-343-ay33.rows.tsv"
+            "evidence/hashes.sha256"
+          )
+          passed=0
+          for attempt in $(seq 1 20); do
+            passed=1
+            rm -rf live-audit
+            mkdir -p live-audit
+            for file in "${files[@]}"; do
+              mkdir -p "live-audit/$(dirname "$file")"
+              if ! curl --fail --silent --show-error --location --retry 3 "$base/$file?audit=$TARGET_SHA-$attempt" -o "live-audit/$file"; then
+                passed=0
+                break
+              fi
+              if ! cmp --silent "$file" "live-audit/$file"; then
+                passed=0
+                break
+              fi
+            done
+            if [ "$passed" -eq 1 ]; then
+              break
+            fi
+            sleep 15
+          done
+          test "$passed" -eq 1
+          grep -Fq "Ders rotan burada" live-audit/index.html
