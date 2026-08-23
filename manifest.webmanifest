@@ -1,0 +1,10 @@
+{
+  "name": "EKO Rasathane",
+  "short_name": "Rasathane",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#0b0d0c",
+  "theme_color": "#d9ff5b",
+  "description": "BUÜ Ekonometri öğrencileri için kanıt odaklı çalışma işletim sistemi.",
+  "icons": []
+}
