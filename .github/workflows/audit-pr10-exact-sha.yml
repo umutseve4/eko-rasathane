@@ -1,0 +1,80 @@
+name: audit-pr10-exact-sha
+
+on:
+  push:
+    branches: [chore/audit-pr10-exact-sha]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: audit-pr10-exact-sha
+  cancel-in-progress: false
+
+env:
+  TARGET_SHA: 2617ea7b71afd2a0a5a44cc0636ec6b9400acafd
+
+jobs:
+  exact-verify:
+    name: exact-2617ea7-verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_SHA }}
+      - name: Bind checkout to the audited merge SHA
+        run: test "$(git rev-parse HEAD)" = "$TARGET_SHA"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run syntax and unit integrity gates
+        run: npm run verify
+
+  exact-browser:
+    name: exact-2617ea7-browser-e2e
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_SHA }}
+      - name: Bind checkout to the audited merge SHA
+        run: test "$(git rev-parse HEAD)" = "$TARGET_SHA"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci --no-audit --no-fund
+      - run: npx playwright install --with-deps chromium
+      - name: Run browser acceptance suite
+        run: npm run test:e2e
+
+  exact-live:
+    name: exact-2617ea7-live-content
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_SHA }}
+      - name: Bind checkout to the audited merge SHA
+        run: test "$(git rev-parse HEAD)" = "$TARGET_SHA"
+      - name: Match deployed critical files to the exact merge SHA
+        env:
+          BASE_URL: https://umutseve4.github.io/eko-rasathane
+        run: |
+          for attempt in {1..12}; do
+            rm -rf deployed && mkdir deployed
+            if curl --fail --silent --show-error --location --retry 2 "$BASE_URL/index.html" -o deployed/index.html \
+              && curl --fail --silent --show-error --location --retry 2 "$BASE_URL/academic-catalog.mjs" -o deployed/academic-catalog.mjs \
+              && curl --fail --silent --show-error --location --retry 2 "$BASE_URL/data/academic-catalog.mjs" -o deployed/data-academic-catalog.mjs \
+              && cmp --silent index.html deployed/index.html \
+              && cmp --silent academic-catalog.mjs deployed/academic-catalog.mjs \
+              && cmp --silent data/academic-catalog.mjs deployed/data-academic-catalog.mjs \
+              && grep --fixed-strings --quiet "Ders rotan burada" deployed/index.html; then
+              echo "PASS: live critical files match $TARGET_SHA byte-for-byte."
+              exit 0
+            fi
+            echo "Attempt $attempt/12: live files do not yet match; retrying in 10 seconds."
+            sleep 10
+          done
+          echo "FAIL: live critical files do not match $TARGET_SHA."
+          exit 1
