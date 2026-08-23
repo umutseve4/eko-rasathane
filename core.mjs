@@ -1,13 +1,17 @@
 export const clamp=(n,min,max)=>Math.min(max,Math.max(min,n));
 
-const emptyState=()=>({version:2,lastRoute:'#/',selectedGradeId:null,completedTopics:[],quizResults:{},notes:{},legacyStudio:null,recall:[],evidence:[],timer:null});
+const emptyState=()=>({version:2,lastRoute:'#/',selectedGradeId:null,completedTopics:[],quizResults:{},notes:{},legacyStudio:null,recall:{index:0,schedule:{}},evidence:[],timer:null});
 const objectOr=(value,fallback={})=>value&&typeof value==='object'&&!Array.isArray(value)?value:fallback;
 const arrayOr=value=>Array.isArray(value)?value:[];
+const recallOr=value=>{const r=objectOr(value,null);if(!r)return {index:0,schedule:{}};return {index:Number.isInteger(r.index)&&r.index>=0?r.index:0,schedule:objectOr(r.schedule)}};
 
 export function parseRoute(hash=''){
+ if(hash===''||hash==='#'||hash==='#/')return {name:'home'};
+ if(!hash.startsWith('#/'))return {name:'notFound'};
+ const raw=hash.slice(2);
+ if(!raw||raw.includes('//')||raw.endsWith('/'))return {name:'notFound'};
  let p;
- try{p=hash.replace(/^#\/?/,'').split('/').filter(Boolean).map(decodeURIComponent)}catch{return {name:'notFound'}}
- if(!p.length)return {name:'home'};
+ try{p=raw.split('/').map(decodeURIComponent)}catch{return {name:'notFound'}}
  if(p.length===2&&p[0]==='sinif'&&/^[1-4]$/.test(p[1]))return {name:'grade',gradeId:p[1]};
  if(p.length===4&&p[0]==='ders'&&p[1]&&p[2]==='konu'&&p[3])return {name:'topic',courseId:p[1],topicId:p[3]};
  if(p.length===2&&p[0]==='ders'&&p[1])return {name:'course',courseId:p[1]};
@@ -34,9 +38,8 @@ export function validateCatalog({grades=[],courses=[],topics=[]}){
 }
 
 export function migrateState(rawV1,rawV2,legacy={}){
- const base=emptyState(), v2=objectOr(rawV2,null);
- if(v2?.version===2)return {...base,...v2,version:2,lastRoute:typeof v2.lastRoute==='string'?v2.lastRoute:'#/',selectedGradeId:typeof v2.selectedGradeId==='string'?v2.selectedGradeId:null,completedTopics:arrayOr(v2.completedTopics),quizResults:objectOr(v2.quizResults),notes:objectOr(v2.notes),recall:arrayOr(v2.recall),evidence:arrayOr(v2.evidence)};
- const v1=objectOr(rawV1);
- const legacyNotes=objectOr(legacy.notes);
- return {...base,legacyStudio:v1.studio||legacy.studio||null,recall:arrayOr(v1.recall).length?arrayOr(v1.recall):arrayOr(legacy.recall),evidence:arrayOr(v1.evidence).length?arrayOr(v1.evidence):arrayOr(legacy.evidence),timer:v1.timer||legacy.timer||null,notes:legacyNotes};
+ const base=emptyState(),v2=objectOr(rawV2,null);
+ if(v2?.version===2)return {...base,...v2,version:2,lastRoute:typeof v2.lastRoute==='string'?v2.lastRoute:'#/',selectedGradeId:typeof v2.selectedGradeId==='string'?v2.selectedGradeId:null,completedTopics:arrayOr(v2.completedTopics),quizResults:objectOr(v2.quizResults),notes:objectOr(v2.notes),recall:recallOr(v2.recall),evidence:arrayOr(v2.evidence)};
+ const v1=objectOr(rawV1),legacyNotes=objectOr(legacy.notes);
+ return {...base,legacyStudio:v1.studio||legacy.studio||null,recall:recallOr(v1.recall||legacy.recall),evidence:arrayOr(v1.evidence).length?arrayOr(v1.evidence):arrayOr(legacy.evidence),timer:v1.timer||legacy.timer||null,notes:legacyNotes};
 }
