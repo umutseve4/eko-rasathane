@@ -39,10 +39,12 @@ test('validator rejects broken references, missing provenance and out-of-range s
   const catalog = clone(academicCatalog);
   catalog.programs[0].institutionId = 'missing';
   catalog.courses[0].sourceRefs = [];
+  delete catalog.courses[0].verificationStatus;
   catalog.curriculumCourses[0].semester = 9;
   const errors = validateAcademicCatalog(catalog);
   assert.ok(errors.some(error => error.includes('unknown institution missing')));
   assert.ok(errors.some(error => error.includes('missing sourceRefs')));
+  assert.ok(errors.some(error => error.includes('missing verification status')));
   assert.ok(errors.some(error => error.includes('semester out of range')));
 });
 
@@ -57,9 +59,13 @@ test('validator rejects duplicate course codes without explicit anomalies', () =
   assert.ok(errors.some(error => error.includes('duplicate courseCode without anomaly')));
 });
 
-test('validator rejects duplicate source records and boolean verification flags', () => {
+test('validator rejects duplicate source records across snapshots and boolean verification flags', () => {
   const catalog = clone(academicCatalog);
-  catalog.courses[1].sourceRefs = [...catalog.courses[0].sourceRefs];
+  catalog.sourceSnapshots.push({
+    id: 'snap-buu-program-second', sourceId: 'src-buu-program-package', retrievedAt: '2026-08-23T01:00:00Z',
+    academicYear: null, snapshotHash: null
+  });
+  catalog.courses[1].sourceRefs = ['snap-buu-program-second'];
   catalog.courses[1].sourceRecordKey = catalog.courses[0].sourceRecordKey;
   catalog.courses[1].verified = true;
   const errors = validateAcademicCatalog(catalog);

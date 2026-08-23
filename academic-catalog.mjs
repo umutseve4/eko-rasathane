@@ -36,15 +36,17 @@ export function validateAcademicCatalog(catalog) {
       else if (ids[collection].has(record.id)) errors.push(`${collection}: duplicate id ${record.id}`);
       else ids[collection].add(record.id);
       if (Object.hasOwn(record ?? {}, 'verified')) errors.push(`${collection}:${record?.id}: boolean verified is forbidden`);
-      if (record?.verificationStatus && !statusSet.has(record.verificationStatus)) errors.push(`${collection}:${record.id}: invalid verification status`);
     }
   }
 
   const snapshotIds = ids.sourceSnapshots;
+  const snapshots = new Map(asArray(catalog.sourceSnapshots).map(item => [item.id, item]));
   for (const collection of sourcedCollections) {
     for (const record of asArray(catalog[collection])) {
       if (!asArray(record.sourceRefs).length) errors.push(`${collection}:${record.id}: missing sourceRefs`);
       for (const ref of asArray(record.sourceRefs)) if (!snapshotIds.has(ref)) errors.push(`${collection}:${record.id}: unknown sourceRef ${ref}`);
+      if (!record.verificationStatus) errors.push(`${collection}:${record.id}: missing verification status`);
+      else if (!statusSet.has(record.verificationStatus)) errors.push(`${collection}:${record.id}: invalid verification status`);
     }
   }
 
@@ -61,6 +63,7 @@ export function validateAcademicCatalog(catalog) {
   const curricula = new Map(asArray(catalog.curricula).map(item => [item.id, item]));
   for (const course of asArray(catalog.courses)) {
     if (!ids.institutions.has(course.institutionId)) errors.push(`courses:${course.id}: unknown institution ${course.institutionId}`);
+    if (!course.sourceRecordKey) errors.push(`courses:${course.id}: missing sourceRecordKey`);
     for (const ref of asArray(course.anomalyRefs)) if (!ids.anomalies.has(ref)) errors.push(`courses:${course.id}: unknown anomaly ${ref}`);
   }
   for (const relation of asArray(catalog.curriculumCourses)) {
@@ -76,7 +79,8 @@ export function validateAcademicCatalog(catalog) {
   const sourceRecords = new Set();
   for (const course of asArray(catalog.courses)) {
     for (const sourceRef of asArray(course.sourceRefs)) {
-      const naturalKey = key(sourceRef, course.sourceRecordKey);
+      const sourceId = snapshots.get(sourceRef)?.sourceId ?? sourceRef;
+      const naturalKey = key(sourceId, course.sourceRecordKey);
       if (sourceRecords.has(naturalKey)) errors.push(`courses:${course.id}: duplicate source record ${naturalKey}`);
       sourceRecords.add(naturalKey);
     }
