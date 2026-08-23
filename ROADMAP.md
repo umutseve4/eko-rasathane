@@ -34,7 +34,7 @@ Sınır:
 - Testlerin ders kimliğinden bağımsız fixture yapısına geçişi M2 ile başlar.
 - Çoklu tarayıcı kapsamı M8 kapısıdır.
 
-## M2 · Kanonik katalog ve Atlas omurgası — tested, merge verification pending
+## M2 · Kanonik katalog ve Atlas omurgası — verified small vertical slice
 
 İlk dikey dilim:
 - Institution, Program ve Curriculum varlıkları.
@@ -43,6 +43,14 @@ Sınır:
 - Source, SourceSnapshot ve açık Anomaly kayıtları.
 - Veri güdümlü program keşfi; yeni kurum/program için navigasyon mantığı değişmez.
 - Referential-integrity, duplicate-code, source-integrity, semester-range ve anomaly testleri.
+
+Doğrulama kanıtı:
+- PR #8 squash-merge SHA: `3bff9360cb19e26bdb1d1c4e470a691765fc3b76`.
+- Post-merge `deploy-pages`: run `32652642732`, job `97226518694`, `completed/success`.
+- Post-merge `verify`: run `32652642746`, job `97226518663`, `completed/success`.
+- Post-merge `browser-e2e`: run `32652642751`, job `97226518655`, `completed/success`.
+- Üç çalışma da `push` olayıyla `main` üzerinde aynı exact merge SHA'sına bağlıdır.
+- Bu statü yalnız ilk M2 küçük dikey dilimini doğrular; M2'nin tamamı ve ürün production-ready değildir.
 
 Genişleme teslimatları — ilk dikey dilim doğrulanmadan başlanmaz:
 - 8 yarıyıllık BUÜ Ekonometri katalog aktarımı.
