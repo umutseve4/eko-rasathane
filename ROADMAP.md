@@ -2,7 +2,7 @@
 
 Bu roadmap `planned`, `implemented`, `tested`, `verified`, `deployed` ve `production-ready` statülerini birbirine karıştırmaz.
 
-## M0 · Ürün ve veri sözleşmesi — in review
+## M0 · Ürün ve veri sözleşmesi — approved, merge verification pending
 
 **Amaç:** EKO Rasathane'yi tek ders/kurum prototipinden ekonometri camiası için kurumdan bağımsız bir ekosisteme bağlayan sözleşmeyi kilitlemek.
 
@@ -18,7 +18,7 @@ Kabul kapısı:
 - README, roadmap, kaynak sicili ve veri sözleşmesi aynı kapsamı ifade eder.
 - BUÜ yalnız ilk doğrulama alanı; EKO3103 yalnız örnek fixture olarak tanımlanır.
 - Gamification temel içeriği kilitlemez ve yalnız anlamlı etkinliği ödüllendirir.
-- Umut'un ürün sözleşmesi onayı alınır.
+- Umut'un ürün sözleşmesi onayı alındı; merge ve post-merge `main` CI kanıtı bekleniyor.
 
 ## M1 · Mevcut kalite borcu — partially verified
 
@@ -40,13 +40,19 @@ Kabul kapısı:
 
 ## M2 · Kanonik katalog ve Atlas omurgası — planned
 
-Teslimatlar:
+İlk dikey dilim:
+- Institution, Program ve Curriculum varlıkları.
+- Tek yarıyıllık doğrulanabilir katalog fixture'ı.
+- EKO3101/EKO3103 bağlam ayrımı.
+- Source, SourceSnapshot ve Anomaly kayıtları.
+- Yeni kurum/program eklemek için navigasyon kodunun değiştirilmemesi.
+
+Genişleme teslimatları — ilk dikey dilim doğrulanmadan başlanmaz:
 - 8 yarıyıllık BUÜ Ekonometri katalog aktarımı.
 - Zorunlu/seçmeli kayıtlarıyla sürümlü müfredat modeli.
 - Kurum + program + müfredat + dahili ders kimliği.
 - `sourceTitle` ve `canonicalTitle` ayrımı.
 - Kaynak snapshot/hash, erişim tarihi, doğrulama statüsü ve anomali sicili.
-- EKO3101/EKO3103 bağlam ayrımı.
 - `Veriden Modele` kavram düğümleri ve ders-kavram eşlemeleri.
 - Gün/saat/derslik için kanonik dersten ayrı offering katmanı.
 
