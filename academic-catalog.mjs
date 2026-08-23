@@ -13,8 +13,15 @@ export function listPrograms(catalog, institutionId = null) {
     .sort((a, b) => a.canonicalTitle.localeCompare(b.canonicalTitle, 'tr'));
 }
 
-export function semesterCatalog(catalog, programId, semester) {
-  const curriculum = asArray(catalog.curricula).find(item => item.programId === programId) ?? null;
+export function semesterCatalog(catalog, programId, semester, curriculumId = null) {
+  const curricula = asArray(catalog.curricula).filter(item => item.programId === programId);
+  if (!curricula.length) return null;
+  if (curriculumId === null && curricula.length > 1) {
+    throw new Error(`Multiple curricula for program ${programId}; curriculumId is required`);
+  }
+  const curriculum = curriculumId === null
+    ? curricula[0]
+    : curricula.find(item => item.id === curriculumId) ?? null;
   if (!curriculum) return null;
   const courses = new Map(asArray(catalog.courses).map(item => [item.id, item]));
   const entries = asArray(catalog.curriculumCourses)

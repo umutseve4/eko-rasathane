@@ -20,6 +20,19 @@ test('EKO3101 core context stays separate from conflicted EKO3103 fixture', () =
   assert.notEqual(semester.entries[0].course.id, serviceFixture.id);
 });
 
+test('semester catalog requires a curriculum id when a program has multiple curricula', () => {
+  const catalog = clone(academicCatalog);
+  const originalCurriculum = catalog.curricula.find(item => item.programId === 'prog-buu-ekonometri-lisans');
+  catalog.curricula.push({ ...originalCurriculum, id: 'curr-buu-ekonometri-lisans-second' });
+
+  assert.throws(
+    () => semesterCatalog(catalog, 'prog-buu-ekonometri-lisans', 5),
+    new Error('Multiple curricula for program prog-buu-ekonometri-lisans; curriculumId is required')
+  );
+  const semester = semesterCatalog(catalog, 'prog-buu-ekonometri-lisans', 5, originalCurriculum.id);
+  assert.deepEqual(semester.curriculum, originalCurriculum);
+});
+
 test('program discovery is data-driven when another institution and program are added', () => {
   const catalog = clone(academicCatalog);
   catalog.institutions.push({
