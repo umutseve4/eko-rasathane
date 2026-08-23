@@ -115,6 +115,44 @@ export function validateAcademicCatalog(catalog) {
     else curriculumCourseNaturalKeys.set(naturalKey, relation.id);
   }
 
+  // Enforce requirement-group meaning, not merely field shape.  Invalid group
+  // definitions are skipped here to avoid cascades; their structural errors above
+  // remain the authoritative diagnostics.
+  for (const curriculum of asArray(catalog.curricula)) {
+    const groups = new Map(asArray(curriculum.requirementGroups).filter(group => group?.id).map(group => [group.id, group]));
+    const candidates = new Map([...groups.keys()].map(id => [id, []]));
+    for (const relation of asArray(catalog.curriculumCourses).filter(item => item.curriculumId === curriculum.id)) {
+      if (relation.courseType === 'required') {
+        if (relation.requirementGroup !== null) errors.push(`curriculumCourses:${relation.id}: required relation must not have requirementGroup`);
+        continue;
+      }
+      if (relation.courseType !== 'elective') continue;
+      if (typeof relation.requirementGroup !== 'string' || !relation.requirementGroup.trim()) {
+        errors.push(`curriculumCourses:${relation.id}: elective relation must have requirementGroup`);
+        continue;
+      }
+      const group = groups.get(relation.requirementGroup);
+      if (!group) {
+        errors.push(`curriculumCourses:${relation.id}: unknown requirementGroup ${relation.requirementGroup}`);
+        continue;
+      }
+      if (relation.semester !== group.semester) {
+        errors.push(`curriculumCourses:${relation.id}: semester must match requirementGroup ${group.id}`);
+        continue;
+      }
+      candidates.get(group.id).push(relation);
+    }
+    for (const group of groups.values()) {
+      if (!Number.isInteger(group.selectionCount) || group.selectionCount < 1 || !isNonNegativeFinite(group.requiredEcts)) continue;
+      const groupCandidates = candidates.get(group.id) ?? [];
+      if (groupCandidates.length < group.selectionCount) errors.push(`curricula:${curriculum.id}: requirementGroup ${group.id}: candidate count below selectionCount`);
+      const expectedCandidateEcts = group.requiredEcts / group.selectionCount;
+      for (const candidate of groupCandidates) {
+        if (isNonNegativeFinite(candidate.ects) && candidate.ects !== expectedCandidateEcts) errors.push(`curriculumCourses:${candidate.id}: ects must equal requirementGroup ${group.id} requiredEcts/selectionCount`);
+      }
+    }
+  }
+
   for (const anomaly of asArray(catalog.anomalies)) {
     if (anomaly.entityType === 'Course' && !ids.courses.has(anomaly.entityId)) errors.push(`anomalies:${anomaly.id}: unknown course ${anomaly.entityId}`);
     if (anomaly.entityType === 'Curriculum' && !ids.curricula.has(anomaly.entityId)) errors.push(`anomalies:${anomaly.id}: unknown curriculum ${anomaly.entityId}`);
