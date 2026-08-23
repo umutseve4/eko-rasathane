@@ -1,0 +1,1259 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "from": "AyID=23",
+    "to": "AyID=33"
+  },
+  "methodology": "Parse only seven-field course rows under semester headings; ignore program text, headers, totals, footnotes and blank-code elective placeholders. Compare exact structural row multisets (semester, type, code, title, T, U, L, AKTS) without inferred matches.",
+  "counts": {
+    "historicalRows": 122,
+    "currentRows": 144,
+    "unchangedRows": 71,
+    "addedRows": 73,
+    "removedRows": 51
+  },
+  "added": [
+    {
+      "semester": 1,
+      "courseType": "required",
+      "courseCode": "ATA101",
+      "sourceTitle": "ATATÜRK İLKELERİ VE İNKILAP TARİHİ I",
+      "theoryHours": 2,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 2
+    },
+    {
+      "semester": 1,
+      "courseType": "required",
+      "courseCode": "EKO1003",
+      "sourceTitle": "KARİYER PLANLAMA",
+      "theoryHours": 1,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 1
+    },
+    {
+      "semester": 1,
+      "courseType": "required",
+      "courseCode": "YAD101",
+      "sourceTitle": "YABANCI DİL I (İNGİLİZCE)",
+      "theoryHours": 2,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 2
+    },
+    {
+      "semester": 2,
+      "courseType": "required",
+      "courseCode": "ATA102",
+      "sourceTitle": "ATATÜRK İLKELERİ VE İNKILAP TARİHİ II",
+      "theoryHours": 2,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 2
+    },
+    {
+      "semester": 2,
+      "courseType": "required",
+      "courseCode": "IKT1002",
+      "sourceTitle": "İKTİSAT II",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 2,
+      "courseType": "required",
+      "courseCode": "YAD102",
+      "sourceTitle": "YABANCI DİL II (İNGİLİZCE)",
+      "theoryHours": 2,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 2
+    },
+    {
+      "semester": 3,
+      "courseType": "elective",
+      "courseCode": "CAL2101",
+      "sourceTitle": "TÜRKİYE'DE SOSYAL POLİTİKA",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 3,
+      "courseType": "elective",
+      "courseCode": "EKO2003",
+      "sourceTitle": "OFİS PROGRAMLARI HESAP TABLOLARI",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 3,
+      "courseType": "elective",
+      "courseCode": "EKO2107",
+      "sourceTitle": "EKONOMİK GÖSTERGELER ANALİZİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 3,
+      "courseType": "elective",
+      "courseCode": "EKO2217",
+      "sourceTitle": "DEMOGRAFİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 3,
+      "courseType": "elective",
+      "courseCode": "ISL2103",
+      "sourceTitle": "İŞLETME YÖNETİMİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 3,
+      "courseType": "elective",
+      "courseCode": "ISL2207",
+      "sourceTitle": "ŞİRKETLER MUHASEBESİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 3,
+      "courseType": "elective",
+      "courseCode": "ISL2311",
+      "sourceTitle": "GİRİŞİMCİLİK",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 3,
+      "courseType": "elective",
+      "courseCode": "MLY2401",
+      "sourceTitle": "VERGİ HUKUKU",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 3,
+      "courseType": "required",
+      "courseCode": "EKO2005",
+      "sourceTitle": "DOĞRUSAL CEBİR",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 3,
+      "courseType": "required",
+      "courseCode": "EKO2201",
+      "sourceTitle": "ÇIKARIMSAL İSTATİSTİK",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 3,
+      "courseType": "required",
+      "courseCode": "EKO2203",
+      "sourceTitle": "BİLGİSAYAR DESTEKLİ İSTATİSTİKSEL ANALİZ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 3,
+      "courseType": "required",
+      "courseCode": "IKT2101",
+      "sourceTitle": "MİKRO İKTİSAT",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 4,
+      "courseType": "elective",
+      "courseCode": "EKO2004",
+      "sourceTitle": "OFİS PROGRAMLARI -KELİME İŞLEM",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 4,
+      "courseType": "elective",
+      "courseCode": "EKO2210",
+      "sourceTitle": "PARAMETRİK OLMAYAN İSTATİSTİK",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 4,
+      "courseType": "elective",
+      "courseCode": "IKT2402",
+      "sourceTitle": "İKTİSADİ SİSTEMLER",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 4,
+      "courseType": "elective",
+      "courseCode": "ISL2202",
+      "sourceTitle": "MALİ TABLOLAR ANALİZİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 4,
+      "courseType": "elective",
+      "courseCode": "KAM2308",
+      "sourceTitle": "KENT ANALİZİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 4,
+      "courseType": "elective",
+      "courseCode": "MLY2106",
+      "sourceTitle": "KAMU MALİYESİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 4,
+      "courseType": "elective",
+      "courseCode": "ULU2304",
+      "sourceTitle": "ULUSLARARASI HUKUK",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 4,
+      "courseType": "required",
+      "courseCode": "EKO2004",
+      "sourceTitle": "BİLGİSAYAR PROGRAMLAMA VE VBA UYGULAMALARI",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 4,
+      "courseType": "required",
+      "courseCode": "EKO2104",
+      "sourceTitle": "MODEL KURMA TEKNİKLERİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 4,
+      "courseType": "required",
+      "courseCode": "EKO2202",
+      "sourceTitle": "İSTATİSTİKSEL KARAR TEORİSİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 4,
+      "courseType": "required",
+      "courseCode": "IKT2102",
+      "sourceTitle": "MAKRO İKTİSAT",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "CAL3105",
+      "sourceTitle": "ÇALIŞMA EKONOMİSİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "CAL3107",
+      "sourceTitle": "YOKSULLUK VE REFAH POLİTİKALARI",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "EKO3001",
+      "sourceTitle": "R İLE İSTATİSTİKSEL ANALİZ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "EKO3311",
+      "sourceTitle": "PROGRAMLAMAYA GİRİŞ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "ISL3211",
+      "sourceTitle": "BANKACILIK VE MUHASEBESİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "ISL3333",
+      "sourceTitle": "SATIN ALMA VE TEDARİK ZİNCİRİ YÖNETİMİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "KAM3205",
+      "sourceTitle": "BİLGİ TOPLUMU VE E-DEVLET",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "MLY3203",
+      "sourceTitle": "HAZİNE İŞLEMLERİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "MLY3303",
+      "sourceTitle": "KAMU EKONOMİSİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "MLY3403",
+      "sourceTitle": "DIŞ TİCARET İŞLEM VE VERGİLERİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 6,
+      "courseType": "elective",
+      "courseCode": "EKO3002",
+      "sourceTitle": "R İLE EKONOMETRİK ANALİZ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 6,
+      "courseType": "elective",
+      "courseCode": "EKO3310",
+      "sourceTitle": "PYHTON UYGULAMALARI",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 6,
+      "courseType": "elective",
+      "courseCode": "IKT3306",
+      "sourceTitle": "DOGAL KAYNAKLAR EKONOMİSİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 6,
+      "courseType": "elective",
+      "courseCode": "ISL3216",
+      "sourceTitle": "MENKUL KIYMETLER ANALİZİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 6,
+      "courseType": "elective",
+      "courseCode": "KAM3304",
+      "sourceTitle": "ÇEVRE POLİTİKALARI",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 6,
+      "courseType": "elective",
+      "courseCode": "MLY3204",
+      "sourceTitle": "KAMU BÜTÇESİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 6,
+      "courseType": "elective",
+      "courseCode": "MLY3404",
+      "sourceTitle": "TÜRK VERGİ SİSTEMİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "elective",
+      "courseCode": "CAL4405",
+      "sourceTitle": "KARİYER YÖNETİMİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "elective",
+      "courseCode": "EKO4113",
+      "sourceTitle": "UYGULAMALI EKONOMETRİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "elective",
+      "courseCode": "EKO4115",
+      "sourceTitle": "ÖNRAPORLAMA TEKNİKLERİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "elective",
+      "courseCode": "EKO4205",
+      "sourceTitle": "GENELLEŞTİRİLMİŞ DOĞRUSAL MODELLER",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "elective",
+      "courseCode": "EKO4207",
+      "sourceTitle": "KATEGORİK VERİ ANALİZİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "elective",
+      "courseCode": "EKO4305",
+      "sourceTitle": "YÖNEYLEM ARAŞTIRMASI BİLGİSAYAR UYGULAMALARI",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "elective",
+      "courseCode": "IKT4105",
+      "sourceTitle": "MAKRO EKONOMİDE YENİ GELİŞMELER",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "elective",
+      "courseCode": "IKT4309",
+      "sourceTitle": "BİLGİ TEKNOLOJİ EKONOMİSİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "elective",
+      "courseCode": "ISL4203",
+      "sourceTitle": "ÇOK ULUSLU İŞLETMELERDE FİNANS",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "elective",
+      "courseCode": "ISL4305",
+      "sourceTitle": "MARKA YÖNETİMİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "elective",
+      "courseCode": "MLY4303",
+      "sourceTitle": "FAYDA MALİYET ANALİZİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "elective",
+      "courseCode": "ULU4107",
+      "sourceTitle": "ULUSLARARASI TERÖRİZM VE GÜVENLİK",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "required",
+      "courseCode": "EKO4101",
+      "sourceTitle": "EKONOMETRİK ANALİZ I",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "required",
+      "courseCode": "EKO4203",
+      "sourceTitle": "ÇOK DEĞİŞKENLİ İSTATİSTİKSEL TEKNİKLER",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "required",
+      "courseCode": "EKO4305",
+      "sourceTitle": "BENZETİM",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "elective",
+      "courseCode": "CAL4206",
+      "sourceTitle": "İŞ SAĞLIĞI VE GÜVENLİĞİ HUKUKU",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "elective",
+      "courseCode": "EKO4006",
+      "sourceTitle": "MATLAB UYGULAMALARI",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "elective",
+      "courseCode": "EKO4118",
+      "sourceTitle": "PANEL VERİ EKONOMETRİSİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "elective",
+      "courseCode": "IKT4106",
+      "sourceTitle": "YATIRIM PROJELERİ ANALİZİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "elective",
+      "courseCode": "IKT4306",
+      "sourceTitle": "DİJİTAL EKONOMİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "elective",
+      "courseCode": "ISL4108",
+      "sourceTitle": "TOPLAM KALİTE YÖNETİMİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "elective",
+      "courseCode": "ISL4112",
+      "sourceTitle": "ÖRGÜTSEL İLETİŞİM",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "elective",
+      "courseCode": "MLY4102",
+      "sourceTitle": "MALİ TEŞVİK SİSTEMLERİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "elective",
+      "courseCode": "MLY4308",
+      "sourceTitle": "MALİYE POLİTİKASI",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "required",
+      "courseCode": "EKO4102",
+      "sourceTitle": "EKONOMETRİK ANALİZ II",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "required",
+      "courseCode": "EKO4104",
+      "sourceTitle": "FİNANSAL EKONOMETRİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "required",
+      "courseCode": "EKO4302",
+      "sourceTitle": "PLANLAMA VE OPTİMİZASYON",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    }
+  ],
+  "removed": [
+    {
+      "semester": 1,
+      "courseType": "required",
+      "courseCode": "ATA101",
+      "sourceTitle": "ATATÜRK İLKELERİ VE DEVRİM TARİHİ I",
+      "theoryHours": 2,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 2
+    },
+    {
+      "semester": 1,
+      "courseType": "required",
+      "courseCode": "YAD101",
+      "sourceTitle": "YABANCI DİL",
+      "theoryHours": 2,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 2
+    },
+    {
+      "semester": 2,
+      "courseType": "required",
+      "courseCode": "ATA102",
+      "sourceTitle": "ATATÜRK İLKELERİ VE DEVRİM TARİHİ II",
+      "theoryHours": 2,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 2
+    },
+    {
+      "semester": 2,
+      "courseType": "required",
+      "courseCode": "IKT1202",
+      "sourceTitle": "İKTİSAT II",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 2,
+      "courseType": "required",
+      "courseCode": "YAD102",
+      "sourceTitle": "YABANCI DİL",
+      "theoryHours": 2,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 2
+    },
+    {
+      "semester": 3,
+      "courseType": "elective",
+      "courseCode": "EKO2003",
+      "sourceTitle": "OFİS PROGRAMLARI -KELİME İŞLEM",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 3,
+      "courseType": "elective",
+      "courseCode": "EKO2215",
+      "sourceTitle": "NÜFUS BİLİMİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 3,
+      "courseType": "elective",
+      "courseCode": "MAL2401",
+      "sourceTitle": "VERGİ HUKUKU",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 3,
+      "courseType": "required",
+      "courseCode": "EKO2201",
+      "sourceTitle": "ÇIKARIMSAL İSTATİSTİK",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 8
+    },
+    {
+      "semester": 3,
+      "courseType": "required",
+      "courseCode": "IKT2101",
+      "sourceTitle": "MİKRO İKTİSAT",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 6
+    },
+    {
+      "semester": 3,
+      "courseType": "required",
+      "courseCode": "ISL2205",
+      "sourceTitle": "MALİ TABLOLAR ANALİZİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 6
+    },
+    {
+      "semester": 4,
+      "courseType": "elective",
+      "courseCode": "CAL2102",
+      "sourceTitle": "TÜRKİYE'DE SOSYAL POLİTİKA",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 4,
+      "courseType": "elective",
+      "courseCode": "EKO2004",
+      "sourceTitle": "OFİS PROGRAMLARI HESAP TABLOLARI",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 4,
+      "courseType": "elective",
+      "courseCode": "EKO2102",
+      "sourceTitle": "MODEL KURMA TEKNİKLERİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 4,
+      "courseType": "elective",
+      "courseCode": "IKT2302",
+      "sourceTitle": "İKTİSADİ SİSTEMLER",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 4,
+      "courseType": "elective",
+      "courseCode": "ISL2208",
+      "sourceTitle": "ŞİRKETLER MUHASEBESİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 4,
+      "courseType": "elective",
+      "courseCode": "MAL2106",
+      "sourceTitle": "KAMU MALİYESİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 4,
+      "courseType": "required",
+      "courseCode": "EKO2004",
+      "sourceTitle": "BİLGİSAYAR PROGRAMLAMA",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 7
+    },
+    {
+      "semester": 4,
+      "courseType": "required",
+      "courseCode": "EKO2204",
+      "sourceTitle": "İSTATİSTİKSEL KARAR TEORİSİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 7
+    },
+    {
+      "semester": 4,
+      "courseType": "required",
+      "courseCode": "IKT2102",
+      "sourceTitle": "MAKRO İKTİSAT",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 6
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "CAL3109",
+      "sourceTitle": "ÇALIŞMA EKONOMİSİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "EKO3207",
+      "sourceTitle": "PARAMETRİK OLMAYAN İSTATİSTİK",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "EKO3303",
+      "sourceTitle": "YÖNEYLEM PAKET PROGRAMLARI",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "EKO3309",
+      "sourceTitle": "VISUAL BASIC. NET İLE PROGRAMLAMA",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "ISL3105",
+      "sourceTitle": "İNSAN KAYNAKLARI YÖNETİMİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "ISL3211",
+      "sourceTitle": "İHTİSAS MUHASEBELERİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "ISL3305",
+      "sourceTitle": "TÜKETİCİ DAVRANIŞLARI",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "MAL3203",
+      "sourceTitle": "HAZİNE İŞLEMLERİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "MAL3303",
+      "sourceTitle": "KAMU EKONOMİSİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 5,
+      "courseType": "elective",
+      "courseCode": "MAL3403",
+      "sourceTitle": "DIŞ TİC.İŞLEM VE VERGİLERİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 6,
+      "courseType": "elective",
+      "courseCode": "ISL3216",
+      "sourceTitle": "MENKUL KIYMET ANALİZLERİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 6,
+      "courseType": "elective",
+      "courseCode": "MAL3202",
+      "sourceTitle": "DEVLET MUHASEBESİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 6,
+      "courseType": "elective",
+      "courseCode": "MAL3404",
+      "sourceTitle": "TÜRK VERGİ SİSTEMİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "elective",
+      "courseCode": "ISL4303",
+      "sourceTitle": "TEDARİK ZİNRİCİ YÖNETİMİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "elective",
+      "courseCode": "ISL4303",
+      "sourceTitle": "ÜRETİM PLANLAMASI",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "elective",
+      "courseCode": "ISL4307",
+      "sourceTitle": "GİRİŞİMCİLİK TEMELLERİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "elective",
+      "courseCode": "MAL4303",
+      "sourceTitle": "FAYDA MALİYET ANALİZİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "elective",
+      "courseCode": "MAL4305",
+      "sourceTitle": "KÜRESELLEŞME VE MALİ YAPI",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "elective",
+      "courseCode": "MAL4305",
+      "sourceTitle": "MALİYE POLİTİKASI",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 7,
+      "courseType": "required",
+      "courseCode": "EKO4101",
+      "sourceTitle": "EKONOMETRİK ANALİZ I",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 8
+    },
+    {
+      "semester": 7,
+      "courseType": "required",
+      "courseCode": "EKO4301",
+      "sourceTitle": "PLANLAMA VE PROGRAMLAMA I",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 7
+    },
+    {
+      "semester": 8,
+      "courseType": "elective",
+      "courseCode": "EKO4112",
+      "sourceTitle": "FİNANSAL EKONOMETRİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "elective",
+      "courseCode": "EKO4212",
+      "sourceTitle": "ÇOK DEĞİŞKENLİ İSTATİSTİKSEL TEKNİKLER",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "elective",
+      "courseCode": "EKO4218",
+      "sourceTitle": "GENELLEŞTİRİLMİŞ DOĞRUSAL MODELLER",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "elective",
+      "courseCode": "ISL4106",
+      "sourceTitle": "YATIRIM PROJELERİ ANALİZİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "elective",
+      "courseCode": "ISL4108",
+      "sourceTitle": "TOPL.KALİTE YÖNETİMİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "elective",
+      "courseCode": "ISL4314",
+      "sourceTitle": "GİRİŞİMCİLİK PROJELERİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "elective",
+      "courseCode": "ISL4318",
+      "sourceTitle": "İNOVASYON YÖNETİMİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "elective",
+      "courseCode": "MAL4102",
+      "sourceTitle": "MALİ TEŞVİK SİSTEMLERİ",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 5
+    },
+    {
+      "semester": 8,
+      "courseType": "required",
+      "courseCode": "EKO4102",
+      "sourceTitle": "EKONOMETRİK ANALİZ II",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 8
+    },
+    {
+      "semester": 8,
+      "courseType": "required",
+      "courseCode": "EKO4302",
+      "sourceTitle": "PLANLAMA VE PROGRAMLAMA II",
+      "theoryHours": 3,
+      "practiceHours": 0,
+      "labHours": 0,
+      "ects": 7
+    }
+  ]
+}
