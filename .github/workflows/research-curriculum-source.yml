@@ -32,7 +32,7 @@ jobs:
             : > "research-output/${name}.headers.txt"
             code=$(curl --location --compressed --http1.1 --max-time 45 \
               --user-agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/127 Safari/537.36' \
-              --header 'Accept: text/html,application/xhtml+xml' \
+              --header 'Accept: text/html,application/xhtml+xml,application/pdf' \
               --dump-header "research-output/${name}.headers.txt" \
               --output "research-output/${name}.html" \
               --write-out '%{http_code}' "$url")
@@ -42,25 +42,74 @@ jobs:
           }
           fetch_page program-343-ay23 'https://bilgipaketi.uludag.edu.tr/Programlar/Detay/343?AyID=23'
           fetch_page program-343-ay21 'https://bilgipaketi.uludag.edu.tr/Programlar/Detay/343?AyID=21'
+          fetch_page program-343-report-ay23 'https://bilgipaketi.uludag.edu.tr/DersProgramiRapor/DersProgramiRaporTR/343?Dil=0&AyarID=23'
           fetch_page iibf-plan-current 'https://uludag.edu.tr/iibf/egitim-plani-14528'
           fetch_page iibf-plan-legacy 'https://uludag.edu.tr/iibf/default/konu/1403'
           python - <<'PY'
           from html.parser import HTMLParser
           from pathlib import Path
+          import re
 
-          class Links(HTMLParser):
+          def clean(value):
+              return re.sub(r'\s+', ' ', value).strip()
+
+          class Structured(HTMLParser):
               def __init__(self):
                   super().__init__()
-                  self.items = set()
+                  self.links = set()
+                  self.anchors = []
+                  self.rows = []
+                  self.anchor_href = None
+                  self.anchor_text = []
+                  self.in_cell = False
+                  self.cell_text = []
+                  self.cell_links = []
+                  self.row = None
+
               def handle_starttag(self, tag, attrs):
-                  for key, value in attrs:
-                      if key.lower() in {'href', 'src', 'action'} and value:
-                          self.items.add(f'{key.lower()}\t{value}')
+                  attrs = dict(attrs)
+                  for key in ('href', 'src', 'action'):
+                      if attrs.get(key):
+                          self.links.add(f'{key}\t{attrs[key]}')
+                  if tag == 'a':
+                      self.anchor_href = attrs.get('href', '')
+                      self.anchor_text = []
+                      if self.in_cell and self.anchor_href:
+                          self.cell_links.append(self.anchor_href)
+                  elif tag == 'tr':
+                      self.row = []
+                  elif tag in {'td', 'th'} and self.row is not None:
+                      self.in_cell = True
+                      self.cell_text = []
+                      self.cell_links = []
+
+              def handle_data(self, data):
+                  if self.anchor_href is not None:
+                      self.anchor_text.append(data)
+                  if self.in_cell:
+                      self.cell_text.append(data)
+
+              def handle_endtag(self, tag):
+                  if tag == 'a' and self.anchor_href is not None:
+                      self.anchors.append((clean(''.join(self.anchor_text)), self.anchor_href))
+                      self.anchor_href = None
+                      self.anchor_text = []
+                  elif tag in {'td', 'th'} and self.in_cell:
+                      text = clean(''.join(self.cell_text))
+                      links = ','.join(dict.fromkeys(self.cell_links))
+                      self.row.append(text + (f' [href={links}]' if links else ''))
+                      self.in_cell = False
+                  elif tag == 'tr' and self.row is not None:
+                      if any(self.row):
+                          self.rows.append(self.row)
+                      self.row = None
 
           for page in Path('research-output').glob('*.html'):
-              parser = Links()
+              parser = Structured()
               parser.feed(page.read_text(encoding='utf-8', errors='replace'))
-              page.with_suffix('.links.tsv').write_text('\n'.join(sorted(parser.items)) + ('\n' if parser.items else ''), encoding='utf-8')
+              page.with_suffix('.links.tsv').write_text('\n'.join(sorted(parser.links)) + ('\n' if parser.links else ''), encoding='utf-8')
+              page.with_suffix('.anchors.tsv').write_text('\n'.join(f'{text}\t{href}' for text, href in parser.anchors if text or href) + '\n', encoding='utf-8')
+              page.with_suffix('.rows.tsv').write_text('\n'.join('\t'.join(row) for row in parser.rows) + '\n', encoding='utf-8')
           PY
       - name: Commit probe output to research branch
         shell: bash
@@ -69,5 +118,5 @@ jobs:
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add research-output
-          git commit -m 'chore: capture official curriculum source probe' || exit 0
+          git commit -m 'chore: capture structured curriculum source evidence' || exit 0
           git push
