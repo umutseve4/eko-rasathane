@@ -38,6 +38,13 @@ Ham HTML araştırma dalında tutulur; ürün dalında yalnız olgusal fixture, 
 
 TSV ayrıştırıcısı aktif yarıyılı “N. Yarıyıl Dersleri” / “N. Yarıyıl Seçmeli Dersleri” başlıklarından izler; yalnız yedi alanlı, kodu dolu ve türü `Zorunlu` veya `Seçmeli` olan satırları ders kabul eder. Böylece program yeterlilik metni, tablo başlıkları, `Toplam`, dipnot ve boş kodlu seçmeli yönlendirme satırları dışarıda kalır. Fixture eşleştirmesi yarıyıl, kod, kaynak başlığı, tür, T, U, L ve AKTS alanlarının tamamında yapılır.
 
+### Yeniden üretme ve doğrulama
+
+- `npm run evidence:generate` AyID=23 → AyID=33 JSON ve Markdown farklarını deterministik olarak yeniden üretir.
+- `npm run evidence:verify` dosya yazmadan AyID=33 evidence/fixture uzlaşmasını ve committed fark artifact'larını byte-for-byte doğrular.
+- Beklenen AyID=33 uzlaşması: evidence `144`, fixture `144`, missing `0`, extra `0`.
+- Beklenen AyID=23 → AyID=33 farkı: historical `122`, current `144`, unchanged `71`, added `73`, removed `51`.
+
 AyID=23 → AyID=33 tarihsel farkı exact structural row multiset yöntemiyle üretilir; belirsiz yeniden adlandırma veya kod değişikliği eşleşmeleri türetilmez. AyID=23 snapshot'ında `122`, AyID=33 snapshot'ında `144` ders satırı vardır; `71` satır aynen korunmuş, `73` satır eklenmiş ve `51` satır kaldırılmıştır. Değişen bir satır bir kaldırma ve bir ekleme olarak raporlanır.
 
 ## Seçmeli yük kuralı

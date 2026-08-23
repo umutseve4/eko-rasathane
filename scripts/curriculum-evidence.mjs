@@ -2,6 +2,13 @@ import fs from 'node:fs';
 import { academicCatalog } from '../data/academic-catalog.mjs';
 
 const fields = ['semester', 'courseType', 'courseCode', 'sourceTitle', 'theoryHours', 'practiceHours', 'labHours', 'ects'];
+const historicalPath = 'evidence/program-343-ay23.rows.tsv';
+const currentPath = 'evidence/program-343-ay33.rows.tsv';
+const jsonPath = 'evidence/program-343-ay23-vs-ay33.diff.json';
+const markdownPath = 'evidence/program-343-ay23-vs-ay33.diff.md';
+const expectedReconciliation = { evidenceCount: 144, fixtureCount: 144, missingFromFixture: [], extraInFixture: [] };
+const expectedDiffCounts = { historicalRows: 122, currentRows: 144, unchangedRows: 71, addedRows: 73, removedRows: 51 };
+
 export const rowKey = row => JSON.stringify(fields.map(field => row[field]));
 
 export function parseCurriculumEvidence(text) {
@@ -118,13 +125,44 @@ export function renderDiffMarkdown(diff) {
   return `${lines.join('\n')}\n`;
 }
 
-export function generateArtifacts() {
-  const historical = parseCurriculumEvidence(fs.readFileSync('evidence/program-343-ay23.rows.tsv', 'utf8'));
-  const current = parseCurriculumEvidence(fs.readFileSync('evidence/program-343-ay33.rows.tsv', 'utf8'));
+export function buildArtifacts() {
+  const historical = parseCurriculumEvidence(fs.readFileSync(historicalPath, 'utf8'));
+  const current = parseCurriculumEvidence(fs.readFileSync(currentPath, 'utf8'));
+  const reconciliation = reconcileFixture(current);
   const diff = diffCurricula(historical, current);
-  fs.writeFileSync('evidence/program-343-ay23-vs-ay33.diff.json', `${JSON.stringify(diff, null, 2)}\n`);
-  fs.writeFileSync('evidence/program-343-ay23-vs-ay33.diff.md', renderDiffMarkdown(diff));
-  return diff;
+  return {
+    reconciliation,
+    diff,
+    json: `${JSON.stringify(diff, null, 2)}\n`,
+    markdown: renderDiffMarkdown(diff)
+  };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) console.log(JSON.stringify(generateArtifacts().counts));
+export function generateArtifacts() {
+  const artifacts = buildArtifacts();
+  fs.writeFileSync(jsonPath, artifacts.json);
+  fs.writeFileSync(markdownPath, artifacts.markdown);
+  return artifacts.diff;
+}
+
+function exactEqual(actual, expected) {
+  return JSON.stringify(actual) === JSON.stringify(expected);
+}
+
+export function verifyArtifacts() {
+  const artifacts = buildArtifacts();
+  if (!exactEqual(artifacts.reconciliation, expectedReconciliation)) {
+    throw new Error(`Fixture reconciliation mismatch: ${JSON.stringify(artifacts.reconciliation)}`);
+  }
+  if (!exactEqual(artifacts.diff.counts, expectedDiffCounts)) {
+    throw new Error(`Historical diff counts mismatch: ${JSON.stringify(artifacts.diff.counts)}`);
+  }
+  if (fs.readFileSync(jsonPath, 'utf8') !== artifacts.json) throw new Error(`${jsonPath} is stale; run npm run evidence:generate`);
+  if (fs.readFileSync(markdownPath, 'utf8') !== artifacts.markdown) throw new Error(`${markdownPath} is stale; run npm run evidence:generate`);
+  return { reconciliation: artifacts.reconciliation, counts: artifacts.diff.counts };
+}
+
+if (import.meta.url === `file://${process.argv[1]}`) {
+  const verify = process.argv.slice(2).includes('--verify');
+  console.log(JSON.stringify(verify ? verifyArtifacts() : generateArtifacts().counts));
+}
