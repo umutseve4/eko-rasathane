@@ -87,9 +87,13 @@ test('validator keeps compound keys distinct when values contain delimiters', ()
     { ...catalog.courses[0], id: 'course::pool', courseCode: 'COLLISION-A', sourceRecordKey: 'collision-a', anomalyRefs: [] },
     { ...catalog.courses[0], id: 'course', courseCode: 'COLLISION-B', sourceRecordKey: 'collision-b', anomalyRefs: [] }
   );
+  catalog.curricula[0].requirementGroups = [
+    { id: 'x', semester: base.semester, selectionCount: 1, requiredEcts: base.ects },
+    { id: 'pool::x', semester: base.semester, selectionCount: 1, requiredEcts: base.ects }
+  ];
   catalog.curriculumCourses = [
-    { ...base, id: 'cc-collision-a', courseId: 'course::pool', requirementGroup: 'x' },
-    { ...base, id: 'cc-collision-b', courseId: 'course', requirementGroup: 'pool::x' }
+    { ...base, id: 'cc-collision-a', courseId: 'course::pool', courseType: 'elective', requirementGroup: 'x' },
+    { ...base, id: 'cc-collision-b', courseId: 'course', courseType: 'elective', requirementGroup: 'pool::x' }
   ];
   assert.deepEqual(validateAcademicCatalog(catalog), []);
 });
