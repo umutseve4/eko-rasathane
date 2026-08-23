@@ -1,28 +1,22 @@
-export function clamp(value, min, max) {
-  return Math.min(max, Math.max(min, Number(value)));
+export const clamp=(n,min,max)=>Math.min(max,Math.max(min,n));
+export function parseRoute(hash=''){
+ const p=(hash.replace(/^#\/?/,'').split('/').filter(Boolean));
+ if(!p.length)return {name:'home'};
+ if(p[0]==='sinif'&&/^[1-4]$/.test(p[1]))return {name:'grade',gradeId:p[1]};
+ if(p[0]==='ders'&&p[1]&&p[2]==='konu'&&p[3])return {name:'topic',courseId:p[1],topicId:p[3]};
+ if(p[0]==='ders'&&p[1])return {name:'course',courseId:p[1]};
+ return {name:'notFound'};
 }
-
-export function interpretCoefficient({ beta, xUnit = 'birim', yUnit = 'birim' }) {
-  const b = Number(beta);
-  if (!Number.isFinite(b)) return 'Geçerli bir katsayı gir.';
-  const direction = b === 0 ? 'değişim beklenmez' : b > 0 ? 'artış beklenir' : 'azalış beklenir';
-  const magnitude = Math.abs(b).toLocaleString('tr-TR', { maximumFractionDigits: 4 });
-  return `Diğer değişkenler sabitken X’teki 1 ${xUnit} artışla Y’de ortalama ${magnitude} ${yUnit} ${direction}. Bu, nedensellik değil koşullu bir ilişkidir.`;
+export const coursesForGrade=(courses,gradeId)=>courses.filter(c=>c.gradeId===gradeId).sort((a,b)=>a.term-b.term||a.name.localeCompare(b.name,'tr'));
+export const groupByTerm=courses=>courses.reduce((a,c)=>((a[c.term]??=[]).push(c),a),{});
+export const progressPercent=(done,total)=>total<=0?0:Math.round(clamp(done,0,total)/total*100);
+export const courseProgress=(topicIds,completed)=>progressPercent(topicIds.filter(id=>completed.includes(id)).length,topicIds.length);
+export function validateCatalog({grades,courses,topics}){
+ const errors=[]; const gids=new Set(grades.map(x=>x.id)); const tids=new Set(topics.map(x=>x.id));
+ for(const c of courses){if(!gids.has(c.gradeId))errors.push(`${c.id}: unknown grade`); if(!c.verified)errors.push(`${c.id}: unverified`); for(const id of c.topicIds||[])if(!tids.has(id))errors.push(`${c.id}: unknown topic ${id}`)}
+ return errors;
 }
-
-export function nextRecallDate(confidence, from = new Date()) {
-  const days = { again: 1, hard: 3, good: 7, easy: 14 }[confidence] ?? 1;
-  const date = new Date(from);
-  date.setUTCDate(date.getUTCDate() + days);
-  return date.toISOString().slice(0, 10);
-}
-
-export function progressPercent(completed, total) {
-  if (total <= 0) return 0;
-  return Math.round(clamp(completed, 0, total) / total * 100);
-}
-
-export function minutesToClock(seconds) {
-  const safe = Math.max(0, Math.floor(seconds));
-  return `${String(Math.floor(safe / 60)).padStart(2, '0')}:${String(safe % 60).padStart(2, '0')}`;
+export function migrateState(rawV1,rawV2){
+ if(rawV2&&rawV2.version===2)return rawV2;
+ return {version:2,lastRoute:'#/',selectedGradeId:null,completedTopics:[],quizResults:{},notes:{},legacyStudio:rawV1?.studio||null,recall:rawV1?.recall||[],evidence:rawV1?.evidence||[],timer:rawV1?.timer||null};
 }

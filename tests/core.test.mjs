@@ -1,20 +1,10 @@
-import test from 'node:test';
-import assert from 'node:assert/strict';
-import { interpretCoefficient, nextRecallDate, progressPercent, minutesToClock } from '../core.mjs';
-
-test('coefficient interpreter preserves direction and units', () => {
-  const text = interpretCoefficient({ beta: -2.5, xUnit: 'puan', yUnit: 'TL' });
-  assert.match(text, /2,5 TL azalış/);
-  assert.match(text, /nedensellik değil/);
-});
-
-test('recall date uses deterministic spacing', () => {
-  assert.equal(nextRecallDate('good', new Date('2026-08-23T00:00:00Z')), '2026-08-30');
-});
-
-test('progress is clamped', () => {
-  assert.equal(progressPercent(12, 10), 100);
-  assert.equal(progressPercent(-2, 10), 0);
-});
-
-test('clock is zero padded', () => assert.equal(minutesToClock(65), '01:05'));
+import test from 'node:test';import assert from 'node:assert/strict';
+import {parseRoute,coursesForGrade,courseProgress,validateCatalog,migrateState} from '../core.mjs';
+import {grades,courses,topics} from '../data/catalog.mjs';
+test('hash routes are parsed',()=>{assert.deepEqual(parseRoute('#/'),{name:'home'});assert.deepEqual(parseRoute('#/sinif/3'),{name:'grade',gradeId:'3'});assert.equal(parseRoute('#/ders/temel-ekonometri-1').name,'course');assert.equal(parseRoute('#/ders/temel-ekonometri-1/konu/hipotez-testleri').name,'topic')});
+test('invalid grades do not route',()=>assert.equal(parseRoute('#/sinif/9').name,'notFound'));
+test('grade filter is deterministic',()=>assert.deepEqual(coursesForGrade(courses,'3').map(x=>x.id),['temel-ekonometri-1']));
+test('progress is clamped to course topics',()=>assert.equal(courseProgress(['a','b','c'],['a','c','outside']),67));
+test('catalog references are valid and verified',()=>assert.deepEqual(validateCatalog({grades,courses,topics}),[]));
+test('migration preserves legacy evidence',()=>{const s=migrateState({evidence:[{id:1}],studio:{x:1}},null);assert.equal(s.version,2);assert.deepEqual(s.evidence,[{id:1}]);assert.deepEqual(s.legacyStudio,{x:1})});
+test('migration is idempotent',()=>{const s=migrateState(null,null);assert.equal(migrateState(null,s),s)});
