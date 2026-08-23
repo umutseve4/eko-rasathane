@@ -12,24 +12,16 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <a class="skip" href="#app">İçeriğe geç</a>
+  <a class="skip" href="#app" data-skip>İçeriğe geç</a>
   <div class="ambient" aria-hidden="true"></div>
   <header class="site-header">
-    <a class="brand" href="#/" aria-label="EKO Rasathane ana sayfa">
-      <span class="brand-mark">EKO</span><span>Rasathane</span><sup>β</sup>
-    </a>
-    <div class="header-actions">
-      <span class="live"><i></i> BUÜ odaklı</span>
-      <button class="icon-button" id="reset-progress" title="İlerlemeyi sıfırla" aria-label="İlerlemeyi sıfırla">↻</button>
-    </div>
+    <a class="brand" href="#/" aria-label="EKO Rasathane ana sayfa"><span class="brand-mark">EKO</span><span>Rasathane</span><sup>β</sup></a>
+    <div class="header-actions"><span class="live"><i></i> BUÜ odaklı</span><button class="icon-button" id="reset-progress" title="İlerlemeyi sıfırla" aria-label="İlerlemeyi sıfırla">↻</button></div>
   </header>
   <nav class="crumbs" id="crumbs" aria-label="Sayfa yolu"></nav>
   <main id="app" tabindex="-1"></main>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
-  <footer>
-    <span>Öğrenci yapımı bağımsız proje · Resmî BUÜ hizmeti değildir.</span>
-    <a href="https://uludag.edu.tr/ekonometri" target="_blank" rel="noreferrer">BUÜ Ekonometri ↗</a>
-  </footer>
+  <footer><span>Öğrenci yapımı bağımsız proje · Resmî BUÜ hizmeti değildir.</span><a href="https://uludag.edu.tr/ekonometri" target="_blank" rel="noreferrer">BUÜ Ekonometri ↗</a></footer>
   <script type="module" src="./app.js"></script>
 </body>
 </html>
