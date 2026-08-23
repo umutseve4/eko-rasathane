@@ -11,6 +11,10 @@ Bu bir LMS, not deposu veya jenerik AI sohbet ekranı değildir. İlk dikey dili
 - **AI-first değildir.** Temel çalışma akışı model servisi olmadan tamamlanır.
 - **Local-first.** Prototip not ve ilerlemeyi yalnızca tarayıcı `localStorage` alanında saklar.
 
+## Canlı uygulama
+
+https://umutseve4.github.io/eko-rasathane/
+
 ## Çalıştırma
 Statik dosya sunucusuyla `index.html` açılabilir. Otomatik doğrulama:
 
@@ -25,9 +29,9 @@ npm run check
 | Planlandı | M1–M4 |
 | Uygulandı | M1 dikey dilim |
 | Test edildi | Saf iş mantığı + statik sözleşme |
-| Doğrulandı | PR #1 Node 22 CI: `test` başarılı — run `32639209341` ve `32639214399` |
-| Dağıtıldı | Pages iş akışı mevcut; canlı imza kontrolü henüz kanıtlanmadı |
-| Production-ready | Hayır — resmî katalog senkronu, pilot, güvenlik ve hukuk incelemesi gerekli |
+| Doğrulandı | PR #1 Node 22 CI: `test` başarılı — run `32639209341` ve `32639214399`; Pages smoke: HTTP + `EKO RASATHANE` imzası başarılı — run `32639468597` |
+| Dağıtıldı | GitHub Pages: https://umutseve4.github.io/eko-rasathane/ — run `32639468597`, commit `4cdcc3bb0b90855ee3bd0cb39704ea0d97256a04` |
+| Production-ready | Hayır — resmî katalog senkronu, tarayıcı/E2E kapsamı, pilot, güvenlik ve hukuk incelemesi gerekli |
 
 Ayrıntılar: [ROADMAP.md](ROADMAP.md) · [SOURCES.md](SOURCES.md)
 
