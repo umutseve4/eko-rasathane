@@ -38,6 +38,8 @@ Ham HTML araştırma dalında tutulur; ürün dalında yalnız olgusal fixture, 
 
 TSV ayrıştırıcısı aktif yarıyılı “N. Yarıyıl Dersleri” / “N. Yarıyıl Seçmeli Dersleri” başlıklarından izler; yalnız yedi alanlı, kodu dolu ve türü `Zorunlu` veya `Seçmeli` olan satırları ders kabul eder. Böylece program yeterlilik metni, tablo başlıkları, `Toplam`, dipnot ve boş kodlu seçmeli yönlendirme satırları dışarıda kalır. Fixture eşleştirmesi yarıyıl, kod, kaynak başlığı, tür, T, U, L ve AKTS alanlarının tamamında yapılır.
 
+AyID=23 → AyID=33 tarihsel farkı exact structural row multiset yöntemiyle üretilir; belirsiz yeniden adlandırma veya kod değişikliği eşleşmeleri türetilmez. AyID=23 snapshot'ında `122`, AyID=33 snapshot'ında `144` ders satırı vardır; `71` satır aynen korunmuş, `73` satır eklenmiş ve `51` satır kaldırılmıştır. Değişen bir satır bir kaldırma ve bir ekleme olarak raporlanır.
+
 ## Seçmeli yük kuralı
 
 3–8. yarıyılların her birinde resmî tabloda `10 AKTS` seçmeli yük bulunur. Her aday ders `5 AKTS` olduğundan her grupta `2` ders seçilir. “Seçmeli dersler için tıklayınız” satırları ders değildir; sahte `Course` üretilmemiştir.
