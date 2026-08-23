@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+<html lang="tr" data-institution-name="&#x130;KT&#x130;SAD&#x130; VE &#x130;DAR&#x130; B&#x130;L&#x130;MLER FAK&#xDC;LTES&#x130;">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Egitim Plani | &#x130;KT&#x130;SAD&#x130; VE &#x130;DAR&#x130; B&#x130;L&#x130;MLER FAK&#xDC;LTES&#x130; | Bursa Uluda&#x11F; &#xDC;niversitesi</title>
+
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/staff-list.css" />
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="/assets/js/mobileApp.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="asdasdasd Bursa Uludağ Üniversitesi Bilgi İşlem Daire Başkanlığı">
+    <link rel="icon" href="/assets/images/favicon/favicon.ico" sizes="32x32">
+    <link rel="icon" href="/assets/images/favicon/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/assets/images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="/assets/images/favicon/manifest.webmanifest">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.3/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="/assets/css/haberdetay/carditem.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+          integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap core CSS -->
+    <style type="text/css">
+        #name {
+        position: relative;
+        z-index: 10000;
+        }
+
+        .ui-autocomplete {
+        z-index: 101000 !important;
+        }
+
+        #auto-complete-app {
+        /*width: 598px;*/
+        display: flex;
+        justify-content: center;
+        }
+
+        .nav>li>ul {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        z-index: 1000;
+        }
+
+        .nav>li>ul>li>ul {
+        left: 100%;
+        top: 0;
+        display: none;
+        }
+
+        .nav>li:hover>ul,
+        .nav>li>ul>li:hover>ul {
+        display: block;
+        }
+
+        .logo-container {
+        display: flex;
+        align-items: center;
+        }
+
+        .logo-text {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        color: black;
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        padding-left: 15px;
+        }
+
+        .header-area .logo-text {
+        color: white !important;
+        }
+
+        .background-header .logo-text {
+        color: var(--kurumsal-mavi-3) !important;
+        }
+
+        .background-header .container {
+        margin-top: 0px !important;
+        }
+
+        .header-area .container {
+        margin-top: 6px;
+        }
+
+        .header-area nav .nav {
+        margin-top: 0px !important;
+        }
+
+        @media (max-width: 767px) {
+        .sub-header .left-content {
+        display: none !important;
+        }
+
+        .container-fluid .logo-text {
+        font-size: 12px;
+        }
+
+        .container-fluid .logo-text span {
+        color: var(--kurumsal-logo-mavi) !important;
+        }
+
+        .quick-links-text {
+        display: none;
+        }
+        }
+
+        #animated-50-yil {
+        width: 0;
+        opacity: 0;
+        transition: all 1s ease-in-out;
+        }
+
+        #animated-50-yil.grow {
+        width: 65px;
+        opacity: 1;
+        transform: scale(1);
+        transform-origin: center;
+        }
+
+        .ui-menu {
+        max-height: 500px !important;
+        overflow-y: auto !important;
+        overflow-x: hidden;
+        width: inherit;
+        z-index: 9999;
+        pointer-events: auto;
+        -webkit-overflow-scrolling: touch;
+        touch-action: auto;
+        }
+
+        .ui-menu::-webkit-scrollbar {
+        width: 10px;
+        }
+
+        .ui-menu::-webkit-scrollbar-thumb {
+        background-color: darkgray;
+        border-radius: 10px;
+        }
+
+        .ui-menu::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        }
+
+        @media only screen and (max-width: 768px) {
+
+
+        .ui-menu {
+        max-height: 50vh !important;
+        overflow-y: auto !important;
+        }
+        }
+
+        .disabled-item {
+        pointer-events: none;
+        opacity: 0.7;
+        }
+    </style>
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/multi-level-menu.css?v=zgP2HoQBqwKVn5xjr7bjRNji4grlyfjlS1P7d0dMp60">
+    <link rel="stylesheet" href="/assets/css/templatemo-edu-meeting.css">
+    <link rel="stylesheet" href="/assets/css/owl.css">
+    <link rel="stylesheet" href="/assets/css/lightbox.css">
+    <link rel="stylesheet" href="/assets/css/Birim/carousel.css">
+    <link rel="stylesheet" href="/assets/css/footer.css">
+    <link rel="stylesheet" href="/assets/css/mobileApp.css">
+    <link rel="stylesheet" href="/assets/css/accessibility.css?v=8JzWnPwHM563P-gKWFtznZO91bh-OuG1JyrvjNeyen8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-591YE2V607"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-591YE2V607');
+    </script>
+</head>
+
+<body>
+    <a class="skip-link" href="#main-content">Ana i&#xE7;eri&#x11F;e atla</a>
+    <div class="sub-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-12 lc">
+                    <div class="left-content">
+                        <i class='fa-solid fa-tag' style='font-size:20px;' title="50.Yılında hala genç"></i>
+                        
+<p class="top-banner-row"><span class="auto-type"></span></p>
+
+<script type="text/javascript">
+    try  {
+    !function (t, s) { "object" == typeof exports && "undefined" != typeof module ? module.exports = s() : "function" == typeof define && define.amd ? define(s) : (t || self).Typed = s() }(this, function () {
+        function t() { return t = Object.assign ? Object.assign.bind() : function (t) { for (var s = 1; s < arguments.length; s++) { var e = arguments[s]; for (var n in e) Object.prototype.hasOwnProperty.call(e, n) && (t[n] = e[n]) } return t }, t.apply(this, arguments) } var s = { strings: ["These are the default values...", "You know what you should do?", "Use your own!", "Have a great day!"], stringsElement: null, typeSpeed: 0, startDelay: 0, backSpeed: 0, smartBackspace: !0, shuffle: !1, backDelay: 700, fadeOut: !1, fadeOutClass: "typed-fade-out", fadeOutDelay: 500, loop: !1, loopCount: Infinity, showCursor: !0, cursorChar: "|", autoInsertCss: !0, attr: null, bindInputFocusEvents: !1, contentType: "html", onBegin: function (t) { }, onComplete: function (t) { }, preStringTyped: function (t, s) { }, onStringTyped: function (t, s) { }, onLastStringBackspaced: function (t) { }, onTypingPaused: function (t, s) { }, onTypingResumed: function (t, s) { }, onReset: function (t) { }, onStop: function (t, s) { }, onStart: function (t, s) { }, onDestroy: function (t) { } }, e = new (/*#__PURE__*/function () { function e() { } var n = e.prototype; return n.load = function (e, n, i) { if (e.el = "string" == typeof i ? document.querySelector(i) : i, e.options = t({}, s, n), e.isInput = "input" === e.el.tagName.toLowerCase(), e.attr = e.options.attr, e.bindInputFocusEvents = e.options.bindInputFocusEvents, e.showCursor = !e.isInput && e.options.showCursor, e.cursorChar = e.options.cursorChar, e.cursorBlinking = !0, e.elContent = e.attr ? e.el.getAttribute(e.attr) : e.el.textContent, e.contentType = e.options.contentType, e.typeSpeed = e.options.typeSpeed, e.startDelay = e.options.startDelay, e.backSpeed = e.options.backSpeed, e.smartBackspace = e.options.smartBackspace, e.backDelay = e.options.backDelay, e.fadeOut = e.options.fadeOut, e.fadeOutClass = e.options.fadeOutClass, e.fadeOutDelay = e.options.fadeOutDelay, e.isPaused = !1, e.strings = e.options.strings.map(function (t) { return t.trim() }), e.stringsElement = "string" == typeof e.options.stringsElement ? document.querySelector(e.options.stringsElement) : e.options.stringsElement, e.stringsElement) { e.strings = [], e.stringsElement.style.cssText = "clip: rect(0 0 0 0);clip-path:inset(50%);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px;"; var r = Array.prototype.slice.apply(e.stringsElement.children), o = r.length; if (o) for (var a = 0; a < o; a += 1)e.strings.push(r[a].innerHTML.trim()) } for (var u in e.strPos = 0, e.currentElContent = this.getCurrentElContent(e), e.currentElContent && e.currentElContent.length > 0 && (e.strPos = e.currentElContent.length - 1, e.strings.unshift(e.currentElContent)), e.sequence = [], e.strings) e.sequence[u] = u; e.arrayPos = 0, e.stopNum = 0, e.loop = e.options.loop, e.loopCount = e.options.loopCount, e.curLoop = 0, e.shuffle = e.options.shuffle, e.pause = { status: !1, typewrite: !0, curString: "", curStrPos: 0 }, e.typingComplete = !1, e.autoInsertCss = e.options.autoInsertCss, e.autoInsertCss && (this.appendCursorAnimationCss(e), this.appendFadeOutAnimationCss(e)) }, n.getCurrentElContent = function (t) { return t.attr ? t.el.getAttribute(t.attr) : t.isInput ? t.el.value : "html" === t.contentType ? t.el.innerHTML : t.el.textContent }, n.appendCursorAnimationCss = function (t) { var s = "data-typed-js-cursor-css"; if (t.showCursor && !document.querySelector("[" + s + "]")) { var e = document.createElement("style"); e.setAttribute(s, "true"), e.innerHTML = "\n        .typed-cursor{\n          opacity: 1;\n        }\n        .typed-cursor.typed-cursor--blink{\n          animation: typedjsBlink 0.7s infinite;\n          -webkit-animation: typedjsBlink 0.7s infinite;\n                  animation: typedjsBlink 0.7s infinite;\n        }\n        keyframes typedjsBlink{\n          50% { opacity: 0.0; }\n        }\n        -webkit-keyframes typedjsBlink{\n          0% { opacity: 1; }\n          50% { opacity: 0.0; }\n          100% { opacity: 1; }\n        }\n      ", document.body.appendChild(e) } }, n.appendFadeOutAnimationCss = function (t) { var s = "data-typed-fadeout-js-css"; if (t.fadeOut && !document.querySelector("[" + s + "]")) { var e = document.createElement("style"); e.setAttribute(s, "true"), e.innerHTML = "\n        .typed-fade-out{\n          opacity: 0;\n          transition: opacity .25s;\n        }\n        .typed-cursor.typed-cursor--blink.typed-fade-out{\n          -webkit-animation: 0;\n          animation: 0;\n        }\n      ", document.body.appendChild(e) } }, e }()), n = new (/*#__PURE__*/function () { function t() { } var s = t.prototype; return s.typeHtmlChars = function (t, s, e) { if ("html" !== e.contentType) return s; var n = t.substring(s).charAt(0); if ("<" === n || "&" === n) { var i; for (i = "<" === n ? ">" : ";"; t.substring(s + 1).charAt(0) !== i && !(1 + ++s > t.length);); s++ } return s }, s.backSpaceHtmlChars = function (t, s, e) { if ("html" !== e.contentType) return s; var n = t.substring(s).charAt(0); if (">" === n || ";" === n) { var i; for (i = ">" === n ? "<" : "&"; t.substring(s - 1).charAt(0) !== i && !(--s < 0);); s-- } return s }, t }());/*#__PURE__*/
+        return function () { function t(t, s) { e.load(this, s, t), this.begin() } var s = t.prototype; return s.toggle = function () { this.pause.status ? this.start() : this.stop() }, s.stop = function () { this.typingComplete || this.pause.status || (this.toggleBlinking(!0), this.pause.status = !0, this.options.onStop(this.arrayPos, this)) }, s.start = function () { this.typingComplete || this.pause.status && (this.pause.status = !1, this.pause.typewrite ? this.typewrite(this.pause.curString, this.pause.curStrPos) : this.backspace(this.pause.curString, this.pause.curStrPos), this.options.onStart(this.arrayPos, this)) }, s.destroy = function () { this.reset(!1), this.options.onDestroy(this) }, s.reset = function (t) { void 0 === t && (t = !0), clearInterval(this.timeout), this.replaceText(""), this.cursor && this.cursor.parentNode && (this.cursor.parentNode.removeChild(this.cursor), this.cursor = null), this.strPos = 0, this.arrayPos = 0, this.curLoop = 0, t && (this.insertCursor(), this.options.onReset(this), this.begin()) }, s.begin = function () { var t = this; this.options.onBegin(this), this.typingComplete = !1, this.shuffleStringsIfNeeded(this), this.insertCursor(), this.bindInputFocusEvents && this.bindFocusEvents(), this.timeout = setTimeout(function () { 0 === t.strPos ? t.typewrite(t.strings[t.sequence[t.arrayPos]], t.strPos) : t.backspace(t.strings[t.sequence[t.arrayPos]], t.strPos) }, this.startDelay) }, s.typewrite = function (t, s) { var e = this; this.fadeOut && this.el.classList.contains(this.fadeOutClass) && (this.el.classList.remove(this.fadeOutClass), this.cursor && this.cursor.classList.remove(this.fadeOutClass)); var i = this.humanizer(this.typeSpeed), r = 1; !0 !== this.pause.status ? this.timeout = setTimeout(function () { s = n.typeHtmlChars(t, s, e); var i = 0, o = t.substring(s); if ("^" === o.charAt(0) && /^\^\d+/.test(o)) { var a = 1; a += (o = /\d+/.exec(o)[0]).length, i = parseInt(o), e.temporaryPause = !0, e.options.onTypingPaused(e.arrayPos, e), t = t.substring(0, s) + t.substring(s + a), e.toggleBlinking(!0) } if ("`" === o.charAt(0)) { for (; "`" !== t.substring(s + r).charAt(0) && (r++, !(s + r > t.length));); var u = t.substring(0, s), p = t.substring(u.length + 1, s + r), c = t.substring(s + r + 1); t = u + p + c, r-- } e.timeout = setTimeout(function () { e.toggleBlinking(!1), s >= t.length ? e.doneTyping(t, s) : e.keepTyping(t, s, r), e.temporaryPause && (e.temporaryPause = !1, e.options.onTypingResumed(e.arrayPos, e)) }, i) }, i) : this.setPauseStatus(t, s, !0) }, s.keepTyping = function (t, s, e) { 0 === s && (this.toggleBlinking(!1), this.options.preStringTyped(this.arrayPos, this)); var n = t.substring(0, s += e); this.replaceText(n), this.typewrite(t, s) }, s.doneTyping = function (t, s) { var e = this; this.options.onStringTyped(this.arrayPos, this), this.toggleBlinking(!0), this.arrayPos === this.strings.length - 1 && (this.complete(), !1 === this.loop || this.curLoop === this.loopCount) || (this.timeout = setTimeout(function () { e.backspace(t, s) }, this.backDelay)) }, s.backspace = function (t, s) { var e = this; if (!0 !== this.pause.status) { if (this.fadeOut) return this.initFadeOut(); this.toggleBlinking(!1); var i = this.humanizer(this.backSpeed); this.timeout = setTimeout(function () { s = n.backSpaceHtmlChars(t, s, e); var i = t.substring(0, s); if (e.replaceText(i), e.smartBackspace) { var r = e.strings[e.arrayPos + 1]; e.stopNum = r && i === r.substring(0, s) ? s : 0 } s > e.stopNum ? (s--, e.backspace(t, s)) : s <= e.stopNum && (e.arrayPos++, e.arrayPos === e.strings.length ? (e.arrayPos = 0, e.options.onLastStringBackspaced(), e.shuffleStringsIfNeeded(), e.begin()) : e.typewrite(e.strings[e.sequence[e.arrayPos]], s)) }, i) } else this.setPauseStatus(t, s, !1) }, s.complete = function () { this.options.onComplete(this), this.loop ? this.curLoop++ : this.typingComplete = !0 }, s.setPauseStatus = function (t, s, e) { this.pause.typewrite = e, this.pause.curString = t, this.pause.curStrPos = s }, s.toggleBlinking = function (t) { this.cursor && (this.pause.status || this.cursorBlinking !== t && (this.cursorBlinking = t, t ? this.cursor.classList.add("typed-cursor--blink") : this.cursor.classList.remove("typed-cursor--blink"))) }, s.humanizer = function (t) { return Math.round(Math.random() * t / 2) + t }, s.shuffleStringsIfNeeded = function () { this.shuffle && (this.sequence = this.sequence.sort(function () { return Math.random() - .5 })) }, s.initFadeOut = function () { var t = this; return this.el.className += " " + this.fadeOutClass, this.cursor && (this.cursor.className += " " + this.fadeOutClass), setTimeout(function () { t.arrayPos++, t.replaceText(""), t.strings.length > t.arrayPos ? t.typewrite(t.strings[t.sequence[t.arrayPos]], 0) : (t.typewrite(t.strings[0], 0), t.arrayPos = 0) }, this.fadeOutDelay) }, s.replaceText = function (t) { this.attr ? this.el.setAttribute(this.attr, t) : this.isInput ? this.el.value = t : "html" === this.contentType ? this.el.innerHTML = t : this.el.textContent = t }, s.bindFocusEvents = function () { var t = this; this.isInput && (this.el.addEventListener("focus", function (s) { t.stop() }), this.el.addEventListener("blur", function (s) { t.el.value && 0 !== t.el.value.length || t.start() })) }, s.insertCursor = function () { this.showCursor && (this.cursor || (this.cursor = document.createElement("span"), this.cursor.className = "typed-cursor", this.cursor.setAttribute("aria-hidden", !0), this.cursor.innerHTML = this.cursorChar, this.el.parentNode && this.el.parentNode.insertBefore(this.cursor, this.el.nextSibling))) }, t }()
+    });
+    var myArray = [];
+        myArray = ["Öğrenci Dostu Üniversite", "Araştırma Üniversitesi", "Bursa Uludağ Üniversitesi'nin 50. Yılı"];
+
+    //# sourceMappingURL=typed.umd.js.map
+    var typed = new Typed(".auto-type", {
+        strings: ["Öğrenci Dostu Üniversite", "Araştırma Üniversitesi", "Bursa Uludağ Üniversitesi'nin 50. Yılı"],
+        strings: myArray,
+        typeSpeed: 50,
+        backSpeed: 20,
+        loop: true
+    });
+    }
+    catch(e){
+        console.log(e);
+    }
+</script>
+
+
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-2 mid-content">
+                    <input type="button" id="notname" name="NotName" value="Arama terimi giriniz. (Haber, Duyuru, Personel, Etkinlik vb.)"
+                           class="form-control search-dialog-trigger" aria-label="Site i&#xE7;i aramay&#x131; a&#xE7;"
+                           aria-haspopup="dialog" aria-controls="myOverlay" aria-expanded="false"
+                           onclick="openSearch(this)">
+                    <button type="button" class="search-icon-button" aria-label="Site i&#xE7;i aramay&#x131; a&#xE7;"
+                            aria-haspopup="dialog" aria-controls="myOverlay" aria-expanded="false"
+                            onclick="openSearch(this)">
+                        <i class="fa fa-search fa-2x search-icon-glyph" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="col-lg-5 col-md-12">
+                    <div class="right-icons">
+                        <ul>
+                                <li class="">
+                                    <a class="d-flex" href="#pageQL" title="H&#x131;zl&#x131; Ba&#x11F;lant&#x131;lara Git" onclick="scrollToQL()">
+                                        <i class="fa-solid fa-link" aria-hidden="true"></i>
+                                        <span style="font-size: 14px; padding-left:5px;"
+                                              class="quick-links-text">H&#x131;zl&#x131; Ba&#x11F;lant&#x131;lar</span>
+                                    </a>
+                                </li>
+                            
+        <li>
+            <a href="https://x.com/uludag_iibf" target="_blank" rel="noopener noreferrer" class="logo-link"
+               aria-label="Sosyal medya, yeni sekmede a&#xE7;&#x131;l&#x131;r">
+
+                    <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+            </a>
+
+        </li>
+        <li>
+            <a href="https://www.instagram.com/buu.iibf" target="_blank" rel="noopener noreferrer" class="logo-link"
+               aria-label="Sosyal medya, yeni sekmede a&#xE7;&#x131;l&#x131;r">
+
+                    <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            </a>
+
+        </li>
+<li class="scroll-to-section d-lg-none">
+    <button type="button" class="search-icon-button mobile-search-button d-block d-lg-none"
+            aria-label="Site i&#xE7;i aramay&#x131; a&#xE7;" aria-haspopup="dialog" aria-controls="myOverlay" aria-expanded="false"
+            onclick="openSearch(this)">
+        <i class="fa fa-search search-icon-glyph" aria-hidden="true"></i>
+    </button>
+</li>
+<li class="">
+    <a href="#pageFooter" aria-label="&#x130;leti&#x15F;im bilgilerine git" onclick="scrollToFooter(); return false;">
+        <i class="fa-solid fa-phone" aria-hidden="true"></i>
+    </a>
+</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="navbar navbar-expand-lg" aria-label="Ana navigasyon">
+                        <!-- ***** Logo Start ***** -->
+
+                        <div class="container-fluid">
+                                <div class="logo-container d-flex align-items-center">
+            <a href="/tr/iibf" aria-label="&#x130;KT&#x130;SAD&#x130; VE &#x130;DAR&#x130; B&#x130;L&#x130;MLER FAK&#xDC;LTES&#x130; ana sayfas&#x131;">
+                <img src="https://uludag.edu.tr/img/swglogolar/iibFak.svg" class="float-left birim-logo-size" alt="" aria-hidden="true">
+            </a>
+        <a href="/tr/iibf" aria-label="&#x130;KT&#x130;SAD&#x130; VE &#x130;DAR&#x130; B&#x130;L&#x130;MLER FAK&#xDC;LTES&#x130; ana sayfas&#x131;">
+            <div class="logo-text">
+                    <span>&#x130;KT&#x130;SAD&#x130; VE &#x130;DAR&#x130;</span>
+
+                    <span>B&#x130;L&#x130;MLER FAK&#xDC;LTES&#x130;</span>
+
+            </div>
+        </a>
+            <a class="navbar-brand logo float-left d-none d-sm-block" style="margin-left:20px;" href="/50yil"
+               aria-label="50. y&#x131;l sayfas&#x131;">
+                <img src="https://www.uludag.edu.tr/images/defaults/50yil.svg" alt="Bursa Uludağ Üniversitesi 50. yıl logosu"
+                     aria-hidden="true" class="float-left" id="animated-50-yil" />
+            </a>
+    </div>
+
+
+                            
+<style>
+    @media screen and (min-width: 992px) {
+
+        .sub {
+            -webkit-box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .sub-sub {
+            -webkit-box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.35);
+        }
+
+        .sub-sub-sub {
+            -webkit-box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.45);
+            box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.45);
+        }
+
+        .sub-sub-sub-sub {
+            -webkit-box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.55);
+            box-shadow: 0 0 20px 10px rgba(0, 0, 0, 0.55);
+        }
+
+        .marginl-10-lg {
+            margin-left: 10px;
+        }
+    }
+
+    @media (max-width:992px) {
+        .marginl-10-lg {
+            margin: 10px 0px 10px 0px;
+        }
+    }
+</style>
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#main_nav"
+            aria-controls="main_nav"
+            aria-expanded="false"
+            aria-label="Ana men&#xFC;y&#xFC; a&#xE7;"
+            data-open-label="Ana men&#xFC;y&#xFC; a&#xE7;"
+            data-close-label="Ana men&#xFC;y&#xFC; kapat">
+        <span class="navbar-toggler-icon" aria-hidden="true"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="main_nav">
+        <ul class="navbar-nav">
+        </ul>
+        <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="/" class="nav-link" aria-label="Ana sayfa">
+                        <i class="fa-solid fa-house" style="font-size:20px;" aria-hidden="true"></i>
+                    </a>
+                </li>
+
+                <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           data-bs-toggle="dropdown"
+                           href="#"
+                           aria-haspopup="true"
+                           aria-expanded="false">FAK&#xDC;LTE</a>
+                        <ul class="submenu dropdown-menu sub">
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="#"
+                                       target="_self"
+                                       style=" ">TANITIM</a>
+                                        <ul class="submenu dropdown-menu sub-sub">
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="/adayogrenci"
+                                                       target="_self"
+                                                       style=" ">BU&#xDC; TANITIM</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="/iibf/fakulte-tanitimi-76825"
+                                                       target="_self"
+                                                       style=" ">FAK&#xDC;LTE TANITIMI</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="dosyalar/iibf/Fakulte/%C4%B0%C4%B0BF%20Fak%C3%BClte%20Tarih%C3%A7esi.pdf"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="FAK&#xDC;LTE TAR&#x130;H&#xC7;ES&#x130;, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">FAK&#xDC;LTE TAR&#x130;H&#xC7;ES&#x130;</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="/iibf/bolum-tanitimlari-78946"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="B&#xD6;L&#xDC;M TANITIMLARI, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">B&#xD6;L&#xDC;M TANITIMLARI</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="iibf/dekanlarimiz-92593"
+                                                       target="_self"
+                                                       style=" ">DEKANLARIMIZ</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://uludag.edu.tr/dosyalar\iibf/Tan%C4%B1t%C4%B1m/%C4%B0ktisadi%20ve%20%C4%B0dari%20Bilimler%20Fak%C3%BCltesi%20(1).mp4"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="TANITIM F&#x130;LM&#x130;, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">TANITIM F&#x130;LM&#x130;</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="iibf/50-yil-kitabi-84577"
+                                                       target="_self"
+                                                       style=" ">50.YIL K&#x130;TABI</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="iibf/i-i-b-f-dergisi-50-yil-ozel-sayisi-96570"
+                                                       target="_self"
+                                                       style=" ">&#x130;.&#x130;.B.F. DERG&#x130;S&#x130; 50. YIL &#xD6;ZEL SAYISI</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="#"
+                                       target="_self"
+                                       style=" ">Y&#xD6;NET&#x130;M</a>
+                                        <ul class="submenu dropdown-menu sub-sub">
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="/iibf/organizasyon/iktisadi-ve-idari-bilimler-fakultesi-dekanligi"
+                                                       target="_self"
+                                                       style=" ">DEKANLIK</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="/iibf/kurul/kurullar-ve-komisyonlar"
+                                                       target="_self"
+                                                       style=" ">KURULLAR VE KOM&#x130;SYONLAR</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://uludag.edu.tr/dosyalar/iibf/sp_24_28_1.pdf"
+                                                       target="_self"
+                                                       style=" ">BU&#xDC; STRATEJ&#x130;K PLAN</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://uludag.edu.tr/dosyalar/iibf/Koordinasyon.pdf"
+                                                       target="_self"
+                                                       style=" ">ORGAN&#x130;ZASYON &#x15E;EMASI</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="/iibf/organizasyon/idari-personel"
+                                                       target="_self"
+                                                       style=" ">&#x130;DAR&#x130; B&#x130;R&#x130;MLER</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="#"
+                                                       target="_self"
+                                                       style=" ">&#x130;&#xC7; KONTROL S&#x130;STEM&#x130;</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://uludag.edu.tr/dosyalar/iibf/Tan%C4%B1t%C4%B1m/gorev_tanimlari.pdf"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="B&#x130;R&#x130;M G&#xD6;REV TANIMLARI, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">B&#x130;R&#x130;M G&#xD6;REV TANIMLARI</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="#"
+                                       target="_self"
+                                       style=" ">KAL&#x130;TE</a>
+                                        <ul class="submenu dropdown-menu sub-sub">
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="/kalite"
+                                                       target="_self"
+                                                       style=" ">KAL&#x130;TE KOORD&#x130;NAT&#xD6;RL&#xDC;&#x11E;&#xDC;</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="#"
+                                                       target="_self"
+                                                       style=" ">B&#x130;R&#x130;M KOM&#x130;SYONLARI VE KURULLARI</a>
+                                                        <ul class="submenu dropdown-menu sub-sub-sub">
+                                                                <li>
+                                                                    <a class="dropdown-item"
+                                                                       href="/iibf/kurul/kalite-komisyonu"
+                                                                       target="_self"
+                                                                       style=" ">KAL&#x130;TE KOM&#x130;SYONU</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item"
+                                                                       href="/iibf/komisyon/ic-kontrol-komisyonu"
+                                                                       target="_self"
+                                                                       style=" ">&#x130;&#xC7; KONTROL KOM&#x130;SYONU</a>
+                                                                </li>
+                                                        </ul>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="#"
+                                                       target="_self"
+                                                       style=" ">B&#x130;R&#x130;M ANAL&#x130;Z RAPORLARI</a>
+                                                        <ul class="submenu dropdown-menu sub-sub-sub">
+                                                                <li>
+                                                                    <a class="dropdown-item"
+                                                                       href="/iibf/birim-ic-degerlendirme-raporu-bidr-78974"
+                                                                       target="_self"
+                                                                       style=" ">B&#x130;R&#x130;M &#x130;&#xC7; DE&#x11E;ERLEND&#x130;RME RAPORU (B&#x130;DR)</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item"
+                                                                       href="iibf/2025-faaliyet-raporu-92114"
+                                                                       target="_blank"
+                                                                       rel="noopener noreferrer"
+                                                                       aria-label="2025 FAAL&#x130;YET RAPORU, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                                       style=" ">2025 FAAL&#x130;YET RAPORU</a>
+                                                                </li>
+                                                        </ul>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://uludag.edu.tr/dosyalar/iibf/sp_24_28_1.pdf"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="BU&#xDC; Stratejik Plan, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">BU&#xDC; Stratejik Plan</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="#"
+                                                       target="_self"
+                                                       style=" ">&#x130;Y&#x130;LE&#x15E;T&#x130;RMELER</a>
+                                                        <ul class="submenu dropdown-menu sub-sub-sub">
+                                                                <li>
+                                                                    <a class="dropdown-item"
+                                                                       href="https://www.uludag.edu.tr/dosyalar/iibf/KAL%C4%B0TE/%C4%B0%C4%B0BF-Memnuniyet%20Anketi%20Analiz%20ve%20De%C4%9Ferlendirme%20Raporu%20Lisans_%C3%96nlisans-2024.pdf"
+                                                                       target="_blank"
+                                                                       rel="noopener noreferrer"
+                                                                       aria-label="ANKETLER, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                                       style=" ">ANKETLER</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item"
+                                                                       href="/dosyalar/iibf/KAL&#x130;TE/FR%20LKYS%20078%20S&#xFC;rekli%20&#x130;yile&#x15F;tirme%20Formu-&#x130;&#x130;BF-2025%20(1).pdf"
+                                                                       target="_blank"
+                                                                       rel="noopener noreferrer"
+                                                                       aria-label="S&#xDC;REKL&#x130; &#x130;Y&#x130;LE&#x15E;T&#x130;RME FORMU (S&#x130;F), yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                                       style=" ">S&#xDC;REKL&#x130; &#x130;Y&#x130;LE&#x15E;T&#x130;RME FORMU (S&#x130;F)</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item"
+                                                                       href="/iibf/iyilestirme-faaliyetleri-ornekleri-84098"
+                                                                       target="_self"
+                                                                       style=" ">&#x130;Y&#x130;LE&#x15E;T&#x130;RME FAAL&#x130;YETLER&#x130; &#xD6;RNEKLER&#x130;</a>
+                                                                </li>
+                                                        </ul>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="#"
+                                                       target="_self"
+                                                       style=" ">AKRED&#x130;TASYON</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="iibf/etik-davranis-ilkeleri-90573"
+                                                       target="_self"
+                                                       style=" ">ET&#x130;K DAVRANI&#x15E; &#x130;LKELER&#x130;</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="#"
+                                       target="_self"
+                                       style=" ">PERSONEL</a>
+                                        <ul class="submenu dropdown-menu sub-sub">
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="/iibf/akademikpersonel"
+                                                       target="_self"
+                                                       style=" ">AKADEM&#x130;K PERSONEL</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="/iibf/organizasyon/idari-personel"
+                                                       target="_self"
+                                                       style=" ">&#x130;DAR&#x130;  PERSONEL</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="iibf/etik-davranis-ilkeleri-90573"
+                                                       target="_self"
+                                                       style=" ">ET&#x130;K DAVRANI&#x15E; &#x130;LKELER&#x130;</a>
+                                                </li>
+                                        </ul>
+                                </li>
+
+                        </ul>
+                </li>
+                <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           data-bs-toggle="dropdown"
+                           href="#"
+                           aria-haspopup="true"
+                           aria-expanded="false">B&#xD6;L&#xDC;MLER</a>
+                        <ul class="submenu dropdown-menu sub">
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="/iktisat"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       aria-label="&#x130;KT&#x130;SAT B&#xD6;L&#xDC;M&#xDC;, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                       style=" ">&#x130;KT&#x130;SAT B&#xD6;L&#xDC;M&#xDC;</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="/maliye"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       aria-label="MAL&#x130;YE B&#xD6;L&#xDC;M&#xDC;, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                       style=" ">MAL&#x130;YE B&#xD6;L&#xDC;M&#xDC;</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="/ceko"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       aria-label="&#xC7;ALI&#x15E;MA EKONOM&#x130;S&#x130; VE END&#xDC;STR&#x130; &#x130;L&#x130;&#x15E;K&#x130;LER&#x130; B&#xD6;L&#xDC;M&#xDC;, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                       style=" ">&#xC7;ALI&#x15E;MA EKONOM&#x130;S&#x130; VE END&#xDC;STR&#x130; &#x130;L&#x130;&#x15E;K&#x130;LER&#x130; B&#xD6;L&#xDC;M&#xDC;</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="/isletme"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       aria-label="&#x130;&#x15E;LETME B&#xD6;L&#xDC;M&#xDC;, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                       style=" ">&#x130;&#x15E;LETME B&#xD6;L&#xDC;M&#xDC;</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="/sbky"
+                                       target="_self"
+                                       style=" ">S&#x130;YASET B&#x130;L&#x130;M&#x130; VE KAMU Y&#xD6;NET&#x130;M&#x130; B&#xD6;L&#xDC;M&#xDC;</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="/uluslar"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       aria-label="ULUSLARARASI &#x130;L&#x130;&#x15E;K&#x130;LER B&#xD6;L&#xDC;M&#xDC;, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                       style=" ">ULUSLARARASI &#x130;L&#x130;&#x15E;K&#x130;LER B&#xD6;L&#xDC;M&#xDC;</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="/ekonometri"
+                                       target="_blank"
+                                       rel="noopener noreferrer"
+                                       aria-label="EKONOMETR&#x130; B&#xD6;L&#xDC;M&#xDC;, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                       style=" ">EKONOMETR&#x130; B&#xD6;L&#xDC;M&#xDC;</a>
+                                </li>
+
+                        </ul>
+                </li>
+                <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           data-bs-toggle="dropdown"
+                           href="#"
+                           aria-haspopup="true"
+                           aria-expanded="false">&#xD6;&#x11E;RENC&#x130;</a>
+                        <ul class="submenu dropdown-menu sub">
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="#"
+                                       target="_self"
+                                       style=" ">YA&#x15E;AM</a>
+                                        <ul class="submenu dropdown-menu sub-sub">
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://www.uludag.edu.tr/saglikkultur"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="SA&#x11E;LIK, K&#xDC;LT&#xDC;R VE SPOR, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">SA&#x11E;LIK, K&#xDC;LT&#xDC;R VE SPOR</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://www.uludag.edu.tr/saglikkultur/beslenme-hizmeti-76609"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="BESLENME, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">BESLENME</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://www.uludag.edu.tr/saglikkultur/ogrenci-yurtlarimiz-69551"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="BARINMA, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">BARINMA</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3046.2203626435867!2d28.869964784545154!3d40.22640239791046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ca11ee968e6897%3A0xa1108911db539788!2sUluda%C4%9F%20%C3%9Cniversitesi%20%C4%B0ktisadi%20ve%20%C4%B0dari%20Bilimler%20Fak%C3%BCltesi!5e0!3m2!1str!2str!4v1738155450488!5m2!1str!2str"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="ULA&#x15E;IM, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">ULA&#x15E;IM</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="#"
+                                       target="_self"
+                                       style=" ">B&#x130;LG&#x130;</a>
+                                        <ul class="submenu dropdown-menu sub-sub">
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="/oidb/akademik-takvim-69873"
+                                                       target="_self"
+                                                       style=" ">AKADEM&#x130;K TAKV&#x130;M</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="#"
+                                                       target="_self"
+                                                       style=" ">&#xD6;&#x11E;RENC&#x130; DE&#x11E;&#x130;&#x15E;&#x130;M PROGRAMLARI</a>
+                                                        <ul class="submenu dropdown-menu sub-sub-sub">
+                                                                <li>
+                                                                    <a class="dropdown-item"
+                                                                       href="https://www.uludag.edu.tr/erasmus"
+                                                                       target="_blank"
+                                                                       rel="noopener noreferrer"
+                                                                       aria-label="ERASMUS, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                                       style=" ">ERASMUS</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item"
+                                                                       href="https://www.uludag.edu.tr/mevlana"
+                                                                       target="_blank"
+                                                                       rel="noopener noreferrer"
+                                                                       aria-label="MEVLANA, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                                       style=" ">MEVLANA</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a class="dropdown-item"
+                                                                       href="https://www.uludag.edu.tr/farabi"
+                                                                       target="_blank"
+                                                                       rel="noopener noreferrer"
+                                                                       aria-label="FARAB&#x130;, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                                       style=" ">FARAB&#x130;</a>
+                                                                </li>
+                                                        </ul>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://kalite.uludag.edu.tr/kiksis/dokuman_main.php"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="D&#x130;LEK&#xC7;E VE FORMLAR, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">D&#x130;LEK&#xC7;E VE FORMLAR</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://www.uludag.edu.tr/saglikkultur/ogrenci-topluluklari-deneme-76647"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="&#xD6;&#x11E;RENC&#x130; TOPLULUKLARI, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">&#xD6;&#x11E;RENC&#x130; TOPLULUKLARI</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://kms.kaysis.gov.tr/Home/Goster/167318"
+                                                       target="_self"
+                                                       style=" ">Y&#xD6;NETMEL&#x130;K VE Y&#xD6;NERGELER</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://www.uludag.edu.tr/oidb/ozel-ogrenci-statusu-7322"
+                                                       target="_self"
+                                                       style=" ">&#xD6;zel &#xD6;grenci Stat&#xFC;s&#xFC;</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="#"
+                                       target="_self"
+                                       style=" ">D&#x130;J&#x130;TAL ULUDA&#x11E;</a>
+                                        <ul class="submenu dropdown-menu sub-sub">
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://unisis.uludag.edu.tr"
+                                                       target="_self"
+                                                       style=" ">UN&#x130;S&#x130;S</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://ukey.uludag.edu.tr"
+                                                       target="_self"
+                                                       style=" ">UKEY</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://kullanicigirisi.uludag.edu.tr"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="MA&#x130;L, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">MA&#x130;L</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://www.uludag.edu.tr/bilgiislem/microsoft-office-365-hesabi-olusturma-7526"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="OFF&#x130;CE 365, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">OFF&#x130;CE 365</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://uludag.edu.tr/konu/eduroam-baglanti-adimlari-6075"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="EDUROAM, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">EDUROAM</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://uludag.edu.tr/kutuphane"
+                                                       target="_self"
+                                                       style=" ">ONLINE K&#xDC;T&#xDC;PHANE</a>
+                                                </li>
+                                        </ul>
+                                </li>
+
+                        </ul>
+                </li>
+                <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           data-bs-toggle="dropdown"
+                           href="#"
+                           aria-haspopup="true"
+                           aria-expanded="false">MEZUN</a>
+                        <ul class="submenu dropdown-menu sub">
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="#"
+                                       target="_self"
+                                       style=" ">MEZUN TAK&#x130;P S&#x130;STEM&#x130;</a>
+                                        <ul class="submenu dropdown-menu sub-sub">
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://kalite.uludag.edu.tr/mezun/index.php"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="S&#x130;STEME KAYIT, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">S&#x130;STEME KAYIT</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="#"
+                                                       target="_self"
+                                                       style=" ">&#x130;STAT&#x130;ST&#x130;KLER</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="#"
+                                       target="_self"
+                                       style=" ">MEZUN &#x130;LET&#x130;&#x15E;&#x130;M&#x130;</a>
+                                        <ul class="submenu dropdown-menu sub-sub">
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="#"
+                                                       target="_self"
+                                                       style=" ">&#x130;&#x15E; &#x130;LANLARI</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="#"
+                                                       target="_self"
+                                                       style=" ">ETK&#x130;NL&#x130;KLER</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="#"
+                                                       target="_self"
+                                                       style=" ">BA&#x15E;ARI H&#x130;KAYELER&#x130;</a>
+                                                </li>
+                                        </ul>
+                                </li>
+
+                        </ul>
+                </li>
+                <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle"
+                           data-bs-toggle="dropdown"
+                           href="#"
+                           aria-haspopup="true"
+                           aria-expanded="false">ADAY &#xD6;&#x11E;RENC&#x130;</a>
+                        <ul class="submenu dropdown-menu sub">
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="#"
+                                       target="_self"
+                                       style=" ">NEDEN BU&#xDC;?</a>
+                                        <ul class="submenu dropdown-menu sub-sub">
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://www.uludag.edu.tr/adayogrenci"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="BU&#xDC; TANITIM, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">BU&#xDC; TANITIM</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="/iibf/fakulte-tanitimi-76825"
+                                                       target="_self"
+                                                       style=" ">FAK&#xDC;LTE TANITIMI</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="/iibf/tanitim-filmi-ve-brosur-78580"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="TANITIM F&#x130;LM&#x130; VE BRO&#x15E;&#xDC;R, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">TANITIM F&#x130;LM&#x130; VE BRO&#x15E;&#xDC;R</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="/iibf/bolum-tanitimlari-78946"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="B&#xD6;L&#xDC;M TANITIMI, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">B&#xD6;L&#xDC;M TANITIMI</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="#"
+                                       target="_self"
+                                       style=" ">KAMP&#xDC;STE YA&#x15E;AM</a>
+                                        <ul class="submenu dropdown-menu sub-sub">
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="#"
+                                                       target="_self"
+                                                       style=" ">SOSYAL &#x130;MKANLAR</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="https://www.uludag.edu.tr/saglikkultur/spor-tesislerimiz-69554"
+                                                       target="_blank"
+                                                       rel="noopener noreferrer"
+                                                       aria-label="SPORT&#x130;F &#x130;MKANLAR, yeni sekmede a&#xE7;&#x131;l&#x131;r"
+                                                       style=" ">SPORT&#x130;F &#x130;MKANLAR</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="#"
+                                                       target="_self"
+                                                       style=" ">SANATSAL &#x130;MKANLAR</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="#"
+                                                       target="_self"
+                                                       style=" ">K&#xDC;LT&#xDC;REL &#x130;MKANLAR</a>
+                                                </li>
+                                        </ul>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="dropdown-item"
+                                       href="#"
+                                       target="_self"
+                                       style=" ">DE&#x11E;&#x130;&#x15E;&#x130;M PROGRAMLARI</a>
+                                        <ul class="submenu dropdown-menu sub-sub">
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="/erasmus"
+                                                       target="_self"
+                                                       style=" ">ERASMUS</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="/farabi"
+                                                       target="_self"
+                                                       style=" ">FARAB&#x130;</a>
+                                                </li>
+                                                <li>
+                                                    <a class="dropdown-item"
+                                                       href="/mevlana"
+                                                       target="_self"
+                                                       style=" ">MEVLANA</a>
+                                                </li>
+                                        </ul>
+                                </li>
+
+                        </ul>
+                </li>
+
+            <li>
+                <a href="/kalite/akredite-olmus-bolum-program-bilgileri-59581"
+                   aria-label="Akredite programlar">
+                    <i class="fa-solid fa-award fa-2x"
+                       style="color:var(--kurumsal-logo-sari)"
+                       aria-hidden="true"></i>
+                </a>
+            </li>
+
+            <li class="marginl-10-lg">
+                <a href="https://internet.uludag.edu.tr/"
+                   title="&#x130;nternete giri&#x15F;"
+                   aria-label="&#x130;nternete giri&#x15F;">
+                    <i class="fa-solid fa-globe fa-2x"
+                       style="color:var(--kurumsal-logo-turkuaz)"
+                       aria-hidden="true"></i>
+                </a>
+            </li>
+            <li class="marginl-10-lg">
+                <a href="https://uludag.edu.tr/butad-hgs-park-87448" title="HGS">
+                    <img src="/assets/images/hgslogoikon.png" width="32" height="32" alt="HGS" />
+                </a>
+            </li>
+        </ul>
+    </div> <!-- navbar-collapse.// -->
+
+                        </div> <!-- container-fluid.// -->
+                    </nav>
+                    <!-- ***** Menu End ***** -->
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="row mx-0">
+        <main id="main-content" tabindex="-1" class="pb-0 px-0">
+                <h1 class="visually-hidden">Egitim Plani</h1>
+            
+<link href="/assets/css/haberdetay/imageslide.css" rel="stylesheet" />
+<link href="/assets/css/haberdetay/carditem.css" rel="stylesheet" />
+<link href="/assets/css/haberdetay/share.css" rel="stylesheet" />
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+<style type="text/css">
+    .fancybox-image {
+        z-index: -1;
+    }
+
+    /* .content-data table {
+        border-collapse: collapse !important;
+        width: 100%;
+    }
+
+    .content-data table,
+    .content-data th,
+    .content-data td {
+        border: 1px solid #000 !important;
+    }
+
+    .content-data td,
+    .content-data th {
+        padding: 8px;
+    } */
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.17/dist/fancybox/fancybox.umd.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.17/dist/fancybox/fancybox.css" />
+
+    <section class="heading-page header-text" id="top">
+        <div class="container">
+            <div class="row " style="background-color: rgba(94, 93, 92, 0.45);  border-radius:20px;">
+                <div class="col-lg-12 py-2">
+                    <h2 style="text-transform:uppercase; font-weight:bold; color:white;" class="content-category-heading my-3">Egitim Plani </h2>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="meetings-page pb-3" id="meetings">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="meeting-single-item">
+                                <div class="thumb">
+                                    <div class="price">
+                                    </div>
+                                </div>
+                                <div class="down-content " style="border-top-right-radius: 20px;border-top-left-radius: 20px; padding-top:35px ;">
+                                    <div class="content-data" style="overflow:hidden;">
+                                        <h3>Egitim Planlari</h3>
+
+<ul>
+	<li><a href="http://bilgipaketi.uludag.edu.tr/Programlar/Detay/337?AyID=23" style="text-decoration: none; color: rgb(50, 102, 147);" title="Egitim Plani – Iktisat">Iktisat B&ouml;l&uuml;m&uuml; Egitim Plani</a></li>
+	<li><a href="http://bilgipaketi.uludag.edu.tr/Programlar/Detay/338?AyID=23" style="text-decoration: none; color: rgb(50, 102, 147);" title="Egitim Plani – Maliye">Maliye B&ouml;l&uuml;m&uuml; Egitim Plani</a></li>
+	<li><a href="http://bilgipaketi.uludag.edu.tr/Programlar/Detay/339?AyID=23" style="text-decoration: none; color: rgb(50, 102, 147);" title="Egitim Plani – Çalisma Ekonomisi ve Endüstri Iliskileri">&Ccedil;alisma Ekonomisi ve End&uuml;stri Iliskileri B&ouml;l&uuml;m&uuml; Egitim Plani</a></li>
+	<li><a href="http://bilgipaketi.uludag.edu.tr/Programlar/Detay/340?AyID=23" style="text-decoration: none; color: rgb(50, 102, 147);" title="Egitim Plani – Isletme">Isletme B&ouml;l&uuml;m&uuml; Egitim Plani</a></li>
+	<li><a href="http://bilgipaketi.uludag.edu.tr/Programlar/Detay/341?AyID=23" style="text-decoration: none; color: rgb(50, 102, 147);" title="Egitim Plani – Kamu Yönetimi">Kamu Y&ouml;netimi B&ouml;l&uuml;m&uuml; Egitim Plani</a></li>
+	<li><a href="http://bilgipaketi.uludag.edu.tr/Programlar/Detay/342?AyID=23" style="text-decoration: none; color: rgb(50, 102, 147);" title="Egitim Plani – Uluslararasi Iliskiler">Uluslararasi Iliskiler B&ouml;l&uuml;m&uuml; Egitim Plani</a></li>
+	<li><a href="http://bilgipaketi.uludag.edu.tr/Programlar/Detay/343?AyID=23" style="text-decoration: none; color: rgb(50, 102, 147);" title="Egitim Plani – Ekonometri">Ekonometri B&ouml;l&uuml;m&uuml; Egitim Plani</a></li>
+</ul>
+
+<h3>Ders I&ccedil;erikleri</h3>
+
+<ul>
+	<li><a href="http://bilgipaketi.uludag.edu.tr/Programlar/Detay/337?AyID=23" style="text-decoration: none; color: rgb(50, 102, 147);" title="Ders Içerikleri – Iktisat">Iktisat B&ouml;l&uuml;m&uuml; Ders I&ccedil;erikleri</a></li>
+	<li><a href="http://bilgipaketi.uludag.edu.tr/Programlar/Detay/338?AyID=23" style="text-decoration: none; color: rgb(50, 102, 147);" title="Ders Içerikleri – Maliye">Maliye B&ouml;l&uuml;m&uuml; Ders I&ccedil;erikleri</a></li>
+	<li><a href="http://bilgipaketi.uludag.edu.tr/Programlar/Detay/339?AyID=23" style="text-decoration: none; color: rgb(50, 102, 147);" title="Ders Içerikleri – Çalisma Ekonomisi ve Endüstri Iliskileri">&Ccedil;alisma Ekonomisi ve End&uuml;stri Iliskileri B&ouml;l&uuml;m&uuml; Ders I&ccedil;erikleri</a></li>
+	<li><a href="http://bilgipaketi.uludag.edu.tr/Programlar/Detay/340?AyID=23" style="text-decoration: none; color: rgb(50, 102, 147);" title="Ders Içerikleri – Isletme">Isletme B&ouml;l&uuml;m&uuml; Ders I&ccedil;erikleri</a></li>
+	<li><a href="http://bilgipaketi.uludag.edu.tr/Programlar/Detay/341?AyID=23" style="text-decoration: none; color: rgb(50, 102, 147);" title="Ders Içerikleri – Kamu Yönetimi">Kamu Y&ouml;netimi B&ouml;l&uuml;m&uuml; Ders I&ccedil;erikleri</a></li>
+	<li><a href="http://bilgipaketi.uludag.edu.tr/Programlar/Detay/342?AyID=23" style="color: rgb(50, 102, 147); outline: 0px;" title="Ders Içerikleri – Uluslararasi Iliskiler">Uluslararasi Iliskiler B&ouml;l&uuml;m&uuml; Ders I&ccedil;erikleri</a></li>
+	<li><a href="http://bilgipaketi.uludag.edu.tr/Programlar/Detay/343?AyID=23" style="text-decoration: none; color: rgb(50, 102, 147);" title="Ders Içerikleri – Ekonometri">Ekonometri B&ouml;l&uuml;m&uuml; Ders I&ccedil;erikleri</a></li>
+</ul>
+
+                                    </div>
+                                    <div class="row">
+                                    </div>
+
+                                    <br />
+                                    <div class="row">
+                                        <hr />
+
+                                        <div class="col-lg-6">
+                                            <div class="hours">
+                                                <h4 class="detail-subheading">Bilgi</h4>
+                                                <p>
+                                                    Okunma Say&#x131;s&#x131;: <strong>239597</strong>
+                                                    <br />
+                                                    Eklenme Tarihi:<strong> 23.08.2026 </strong>
+                                                    <br />
+                                                    G&#xFC;ncelleme Tarihi:<strong> - </strong>
+
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6">
+                                            <h4 class="detail-subheading">Payla&#x15F;</h4>
+
+                                            <div class="social-share">
+                                                <a href="#" onclick="shareOnWhatsApp(); return false;" class="whatsapp" aria-label="WhatsApp&#x27;ta payla&#x15F;"><i class="fab fa-whatsapp fa-2x" aria-hidden="true"></i></a>
+                                                <a href="#" onclick="shareOnTwitter(); return false;" class="twitter" aria-label="X&#x27;te payla&#x15F;"><i class="fab fa-x-twitter fa-2x" aria-hidden="true"></i></a>
+                                                <a href="#" onclick="shareOnLinkedIn(); return false;" class="linkedin" aria-label="LinkedIn&#x27;de payla&#x15F;"><i class="fab fa-linkedin fa-2x" aria-hidden="true"></i></a>
+                                                <a href="#" onclick="shareOnFacebook(); return false;" class="facebook" aria-label="Facebook&#x27;ta payla&#x15F;"><i class="fab fa-facebook fa-2x" aria-hidden="true"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <style>
+    .announcement-list {
+        position: relative;
+        height: 490px;
+        overflow: hidden;
+    }
+
+    .announcement-item {
+        height: 88px;
+        display: flex;
+        position: relative;
+    }
+
+    .fixed {
+        z-index: 10;
+    }
+
+    #sliding-announcement-container {
+        position: absolute;
+        width: 100%;
+    }
+
+    .announcement-item a {
+        min-height: 0px;
+    }
+</style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var $slidingAnnouncementContainer = $('#sliding-announcement-container');
+            var intervalTime = 2500;
+            var itemHeight = $('.announcement-item').first().outerHeight(true);
+
+            // # of unfixed announcements (Status != 6)
+            var totalUnfixedItems = $slidingAnnouncementContainer.children('li').length;
+
+            // # of fixed announcements (Status == 6)
+            var fixedItemsCount = $('#fixed-announcement-container').children('li').length;
+
+            var spaceForUnFixedItems = 5 - fixedItemsCount;
+
+            if (totalUnfixedItems > spaceForUnFixedItems) {
+                function slideAnnouncements() {
+                    var $firstSlidingItem = $slidingAnnouncementContainer.find('li:first');
+
+                    if (!$slidingAnnouncementContainer.is(':animated')) {
+                        $slidingAnnouncementContainer.animate({
+                            marginTop: -itemHeight
+                        }, 800, 'easeInOutCubic', function () {
+                            $firstSlidingItem.appendTo($slidingAnnouncementContainer);
+                            $slidingAnnouncementContainer.css('marginTop', 0);
+                        });
+                    }
+                }
+                setInterval(slideAnnouncements, intervalTime);
+            }
+        });
+    </script>
+
+                <style>
+    .announcement-list {
+        position: relative;
+        height: 490px;
+        overflow: hidden;
+    }
+
+    .announcement-item {
+        height: 88px;
+        display: flex;
+        position: relative;
+    }
+
+    .fixed {
+        z-index: 10;
+    }
+
+    #sliding-announcement-container {
+        position: absolute;
+        width: 100%;
+    }
+
+    .announcement-item a {
+        min-height: 0px;
+    }
+</style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            var $slidingAnnouncementContainer = $('#sliding-announcement-container');
+            var intervalTime = 2500;
+            var itemHeight = $('.announcement-item').first().outerHeight(true);
+
+            // # of unfixed announcements (Status != 6)
+            var totalUnfixedItems = $slidingAnnouncementContainer.children('li').length;
+
+            // # of fixed announcements (Status == 6)
+            var fixedItemsCount = $('#fixed-announcement-container').children('li').length;
+
+            var spaceForUnFixedItems = 5 - fixedItemsCount;
+
+            if (totalUnfixedItems > spaceForUnFixedItems) {
+                function slideAnnouncements() {
+                    var $firstSlidingItem = $slidingAnnouncementContainer.find('li:first');
+
+                    if (!$slidingAnnouncementContainer.is(':animated')) {
+                        $slidingAnnouncementContainer.animate({
+                            marginTop: -itemHeight
+                        }, 800, 'easeInOutCubic', function () {
+                            $firstSlidingItem.appendTo($slidingAnnouncementContainer);
+                            $slidingAnnouncementContainer.css('marginTop', 0);
+                        });
+                    }
+                }
+                setInterval(slideAnnouncements, intervalTime);
+            }
+        });
+    </script>
+
+                <div class="col-lg-6 col-md-12">
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+<script src="/lib/jquery/dist/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        let element = document.getElementById("top");
+        try {
+            var json = "https://www.uludag.edu.tr/images/defaults/haber-arkaplan.jpg";
+            // console.log(json);
+            var resg = json.toString().replaceAll("\\", "//");
+            // console.log(resg);
+            var url = resg.replaceAll("dosyalar", "/dosyalar")
+            element.style.backgroundImage = "url(" + url + ")";
+            element.style.backgroundRepeat = "no-repeat";
+            element.style.backgroundPosition = "center";
+        }
+        catch (err) {
+            console.log(err);
+        //     element.style.backgroundImage = "url(https://www.uludag.edu.tr/assets/images/buu_giris.jpg)";
+         }
+
+    });
+</script>
+<script>
+    Fancybox.bind('[data-fancybox="gallery"]', {
+        Slideshow: {
+            playOnStart: true,
+        },
+    });
+</script>
+<script>
+    {
+        const contentTitle = "Egitim Plani";
+        const institutionTitle = document.documentElement.dataset.institutionName;
+        const siteTitle = "Bursa Uluda\u011F \u00DCniversitesi";
+        const titleParts = [contentTitle, institutionTitle, siteTitle]
+            .filter((part, index, parts) =>
+                part && parts.findIndex(other =>
+                    other && other.toLocaleLowerCase() === part.toLocaleLowerCase()) === index);
+
+        document.title = titleParts.join(" | ");
+    }
+</script>
+
+<script src="/assets/js/share.js"></script>
+<script>
+    document.querySelectorAll(".content-data table").forEach(table => {
+        if (!table.parentElement.classList.contains("table-responsive")) {
+            let wrapper = document.createElement("div");
+            wrapper.classList.add("table-responsive");
+            table.parentNode.insertBefore(wrapper, table);
+            wrapper.appendChild(table);
+        }
+    });
+</script>
+
+        </main>
+    </div>
+    <div id="myOverlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="search-dialog-title"
+         aria-hidden="true" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+        background-color:rgba(0,0,0,0.6); z-index:9999;">
+        <h2 id="search-dialog-title" class="visually-hidden">Site i&#xE7;i arama</h2>
+        <button type="button" class="closebtn" onclick="closeSearch()" title="Aramay&#x131; kapat"
+                aria-label="Aramay&#x131; kapat">
+            <span aria-hidden="true">×</span>
+        </button>
+
+        <div class="container overlay-content" style="position:relative; top:20%; margin:auto; background:white;
+            padding:0px; width:90%; max-width:600px; border-radius:8px;">
+            <div class="autocomplete text-center">
+                <div class="ui-widget">
+                    <label for="name" class="visually-hidden">Sitede ara</label>
+                    <input id="name" type="text" aria-describedby="search-help" aria-autocomplete="list"
+                           aria-haspopup="listbox" aria-controls="search-results" aria-expanded="false"
+                           autocomplete="off" />
+                    <p id="search-help" class="visually-hidden">&#xD6;nerileri incelemek i&#xE7;in yukar&#x131; ve a&#x15F;a&#x11F;&#x131; ok tu&#x15F;lar&#x131;n&#x131;, se&#xE7;ili sonucu a&#xE7;mak i&#xE7;in Enter tu&#x15F;unu kullan&#x131;n.</p>
+                    <div id="live-region" aria-live="polite" aria-atomic="true" class="visually-hidden"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="pageQL" aria-label="H&#x131;zl&#x131; ba&#x11F;lant&#x131;lar">
+        
+<style>
+    .flex {
+        display: flex;
+    }
+</style>
+    <section class="contact-us" id="contact">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-heading">
+                        <h2>H&#x131;zl&#x131; Ba&#x11F;lant&#x131;lar</h2>
+                    </div>
+                    <!-- Tab buttons -->
+
+                    <div class="col-lg-12">
+                            <div class="row tab-content ac-kapa H&#x131;zl&#x131; Ba&#x11F;lant&#x131;lar" id="All" style="display:flex">
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://uludag.edu.tr/dosyalar/iibf/Fakulte/%F0%9F%93%8C%20%C3%9Cniversitemizi%20Tan%C4%B1yoruz%20serisinin%209.%20b%C3%B6l%C3%BCm%C3%BCnde%20%C4%B0ktisadi%20ve%20%C4%B0dari%20Bilimler%20Fak%C3%BCltemizdeyiz.Vi.mp4" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-rectangle-list fa-2x icon"></i>
+                                            <span>FAK&#xDC;LTE TANITIM </span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="/iibf/iletisim-adresleri-79200" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-phone-volume fa-2x icon"></i>
+                                            <span>&#xD6;&#x11F;renci &#x130;leti&#x15F;im</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://www.uludag.edu.tr/iibf/mezun-durumda-olan-ogrencilerimizin-dikkatine-84561" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-graduation-cap fa-2x icon"></i>
+                                            <span>Mezun &#xD6;&#x11F;renci  Talep Formu </span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://bilgipaketi.uludag.edu.tr/" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-regular fa-address-card fa-2x icon"></i>
+                                            <span>Bilgi Paketi</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://uludag.edu.tr/oidb/ogrenci-kimlik-karti-7324" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-regular fa-id-card fa-2x icon"></i>
+                                            <span>&#xD6;&#x11F;renci Kimlik Kart&#x131;</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://kalite.uludag.edu.tr/kiksis/dokuman_main.php" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-regular fa-file fa-2x icon"></i>
+                                            <span>Dok&#xFC;man/Kiksis </span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="/iibf/oryantasyon-el-kitabi-79025" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-graduation-cap fa-2x icon"></i>
+                                            <span>&#xD6;&#x11F;renci Oryantasyon El Kitab&#x131; </span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://www.uludag.edu.tr/oidb/akademik-takvim-69873" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-regular fa-calendar fa-2x icon"></i>
+                                            <span>Akademik Takvim</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://unisis.uludag.edu.tr/" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-regular fa-address-card fa-2x icon"></i>
+                                            <span>Unisis</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://ukey.uludag.edu.tr/" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-regular fa-address-book fa-2x icon"></i>
+                                            <span>Ukey</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://uludag.edu.tr/telefon" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-phone-volume fa-2x icon"></i>
+                                            <span>Rehber</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://parola.uludag.edu.tr/giris?ReturnUrl=%2F" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-unlock fa-2x icon"></i>
+                                            <span>&#x15E;ifre &#x130;&#x15F;lemleri</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://dergipark.org.tr/tr/pub/bujes" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-regular fa-folder-open fa-2x icon"></i>
+                                            <span>&#x130;&#x130;BF Dergi </span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://www.uludag.edu.tr/oidb/universitemiz-eski-mezun-ogrencilerinden-mezuniyet-bilgileri-yuksekogretim-bilgi-sisteminde-yoksis-6366" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-graduation-cap fa-2x icon"></i>
+                                            <span>Eski Mezuniyet Bilgileri Y&#xD6;KS&#x130;S&#x27;e Ekleme </span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://www.uludag.edu.tr/oidb/ikinci-kez-diploma-talep-islemleri-7325" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-user-graduate fa-2x icon"></i>
+                                            <span>&#x130;kinci Kez Diploma Talep &#x130;&#x15F;lemleri</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://www.uludag.edu.tr/kalite" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-regular fa-pen-to-square fa-2x icon"></i>
+                                            <span>Kalite </span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://www.uludag.edu.tr/konu/uludag-universitesi-yonetmelik-ve-yonergeleri-6047" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-graduation-cap fa-2x icon"></i>
+                                            <span>Y&#xF6;netmelik ve Y&#xF6;nergeler</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://www.uludag.edu.tr/oidb/cift-anadal-programi-69156" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-arrows-down-to-line fa-2x icon"></i>
+                                            <span>&#xC7;ift Anadal Program&#x131;</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://www.uludag.edu.tr/oidb/yan-dal-programi-69157" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-link fa-2x icon"></i>
+                                            <span>Yan Dal Program&#x131;</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://www.uludag.edu.tr/oidb/osym-tabantavan-puanlari-7315" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-link fa-2x icon"></i>
+                                            <span>Taban/Tavan Puanlar&#x131;</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://egitim.yok.gov.tr/documentFiles/1759306423605.ek-madde-1-uygulama-ilkeleri.pdf" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-link fa-2x icon"></i>
+                                            <span>Ek Madde 1 Yatay Ge&#xE7;i&#x15F;</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://www.uludag.edu.tr/logolar-6072" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-arrow-up-from-bracket fa-2x icon"></i>
+                                            <span>Logolar</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://www.uludag.edu.tr/uluyos" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-graduation-cap fa-2x icon"></i>
+                                            <span>Uluslararas&#x131; &#xD6;&#x11F;renci (ULUY&#xD6;S)</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://www.uludag.edu.tr/kutuphane" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-book fa-2x icon"></i>
+                                            <span>K&#xFC;t&#xFC;phane</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://www.uludag.edu.tr/erasmus" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-graduation-cap fa-2x icon"></i>
+                                            <span>Erasmus</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://sosyaltranskript.uludag.edu.tr/giris" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-graduation-cap fa-2x icon"></i>
+                                            <span>Sosyal Transkript</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="https://www.uludag.edu.tr/oidb/ogrenci-sayilari-7310" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-graduation-cap fa-2x icon"></i>
+                                            <span>&#xD6;&#x11F;renci Say&#x131;lar&#x131;</span>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-sm-6 col-md-3 col-lg-2 mb-4">
+                                        <a href="/" class="box d-flex flex-column align-items-center justify-content-center">
+                                            <i class="fa-solid fa-solid fa-person-running fa-2x icon"></i>
+                                            <span>&#x130;.&#x130;.B.F. SPOR</span>
+                                        </a>
+                                    </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+    </section>
+<script type="text/javascript">
+    $(document).ready(function () {
+      $('#All').css({ 'display': 'flex' });
+      });
+</script>
+<script src="/assets/js/hizli-link-tabs.js"></script>
+    </section>
+    <footer id="pageFooter" class="new_footer_area bg_color">
+        <div class="new_footer_top">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                    <div class="f_widget social-widget pl_70 wow fadeInLeft" data-wow-delay="0.8s" style="visibility: visible; animation-delay: 0.8s; animation-name: fadeInLeft;">
+        <h3 class="f-title f_600 t_color f_size_18">&#x130;leti&#x15F;im:</h3>
+        <div class="">
+            <i class="fa-solid fa-location-dot"></i> Bursa Uluda&#x11F; &#xDC;niversitesi &#x130;ktisadi ve &#x130;dari Bilimler Fak&#xFC;ltesi G&#xF6;r&#xFC;kle Kamp&#xFC;s&#xFC; 16059 Nil&#xFC;fer Bursa / T&#xFC;rkiye<br />
+            <i class="fa-solid fa-square-phone" style="font-size:1.2em;"></i>
+                <a href="/telefon">0 (224) 294 10 07</a>
+                <br />
+                <i class="fa-solid fa-square-phone" style="font-size:1.2em;"></i>
+                <span>&#xD6;&#x11E;RENC&#x130; &#x130;&#x15E;LER&#x130; TEL.</span>
+                    <a href="/telefon">0 (224) 294 10 25</a>
+            <br />
+            <i class="fa-solid fa-envelope"></i> <a href="mailto:iibf@uludag.edu.tr">iibf@uludag.edu.tr</a>
+            <br />
+                <i class="fa-solid fa-envelope"></i>
+                <span style="padding-left:5px;">&#xD6;&#x11F;renci &#x130;&#x15F;leri E-posta Adresi</span> <a href="mailto:iibfogis@uludag.edu.tr">iibfogis@uludag.edu.tr</a>
+                <br />
+            <i class="fa-solid fa-map-pin"></i> Harita:<br />
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3046.2203626435867!2d28.869964784545154!3d40.22640239791046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ca11ee968e6897%3A0xa1108911db539788!2sUluda%C4%9F%20%C3%9Cniversitesi%20%C4%B0ktisadi%20ve%20%C4%B0dari%20Bilimler%20Fak%C3%BCltesi!5e0!3m2!1str!2str!4v1738155450488!5m2!1str!2str"
+                    width="300"
+                    height="200"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Harita: Bursa Uluda&#x11F; &#xDC;niversitesi &#x130;ktisadi ve &#x130;dari Bilimler Fak&#xFC;ltesi G&#xF6;r&#xFC;kle Kamp&#xFC;s&#xFC; 16059 Nil&#xFC;fer Bursa / T&#xFC;rkiye">
+            </iframe>
+        </div>
+    </div>
+
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s"
+                     style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
+                    <h3 class="f-title f_600 t_color f_size_18">Yard&#x131;mc&#x131; Ba&#x11F;lant&#x131;lar</h3>
+                    <ul class="list-unstyled f_list">
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s"
+                     style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
+                    <h3 class="f-title f_600 t_color f_size_18"><br /></h3>
+                    <ul class="list-unstyled f_list">
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                <div class="f_widget about-widget pl_70 wow fadeInLeft" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
+                    <h3 class="f-title f_600 t_color f_size_18">D&#x131;&#x15F; Ba&#x11F;lant&#x131;lar</h3>
+                    <div class="d-flex d-flex-ext flex-wrap" style="gap: 10px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .custom-item {
+        width: 48%;
+    }
+
+    @media (min-width: 768px) {
+        .custom-item {
+            width: 32%;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .custom-item {
+            width: 30%;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .d-flex-ext {
+            justify-content: flex-start !important;
+            
+        }
+
+            .d-flex-ext > .custom-item {
+                margin-right: 0 !important;
+                
+            }
+
+        .d-flex-ext {
+            gap: 10px !important;
+            
+        }
+
+            .d-flex-ext:nth-child(3n + 1) {
+                justify-content: center !important;
+            }
+    }
+
+    /* Küçük ekranlarda satır başına iki öğe uygular */
+    .f_list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding-left: 0;
+    }
+
+        .f_list li {
+            width: 48%;
+            list-style: none;
+        }
+
+    @media (min-width: 768px) {
+        .f_list li {
+            width: 100%;
+        }
+    }
+</style>
+        <div class="footer_bottom">
+            <div class="container">
+                <div class="mobil-portal-links">
+                    <!-- Google Play Rozeti -->
+                    <div class="store-badge-container">
+                        <a href="https://play.google.com/store/apps/details?id=com.mobile.uludag" target="_blank"
+                           rel="noopener noreferrer"
+                           class="store-badge-link android-only"
+                           aria-label="Microsoft.AspNetCore.Mvc.Localization.LocalizedHtmlString, yeni sekmede a&#xE7;&#x131;l&#x131;r">
+                            <img src="/assets/images/google-play-tr.webp"
+                                 alt="Google Play üzerinden hemen indirin" title="Google Play üzerinden hemen indirin">
+                        </a>
+                        <div class="qr-tooltip">
+                            <img src="/assets/images/qr_google_play_buu.png" alt="Google Play QR Kod">
+                            <span>Telefon kameranızla tarayın</span>
+                        </div>
+                    </div>
+
+                    <!-- App Store Rozeti -->
+                    <div class="store-badge-container">
+                        <a href="https://apps.apple.com/tr/app/bursa-uludağ-üniversitesi/id6745051750?l=tr"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="store-badge-link ios-only"
+                           aria-label="Microsoft.AspNetCore.Mvc.Localization.LocalizedHtmlString, yeni sekmede a&#xE7;&#x131;l&#x131;r">
+                            <img src="/assets/images/app-store-tr.webp"
+                                 alt="App Store üzerinden hemen indirin" title="App Store üzerinden hemen indirin">
+                        </a>
+                        <div class="qr-tooltip">
+                            <img src="/assets/images/qr_app_store_buu.png" alt="App Store QR Kod">
+                            <span>Telefon kameranızla tarayın</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <p class="mb-0 f_400">© BU&#xDC; Bilgi &#x130;&#x15F;lem Daire Ba&#x15F;kanl&#x131;&#x11F;&#x131; 2025- . T&#xFC;m haklar&#x131; sakl&#x131;d&#x131;r.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+    <script>
+        (function (d) {
+        var s = d.createElement("script");
+        s.setAttribute("data-account", "I7NGQzWXrr");
+        s.setAttribute("src", "https://cdn.userway.org/widget.js");
+        (d.body || d.head).appendChild(s);
+        })(document)
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+        const logo = document.getElementById("animated-50-yil");
+
+        setTimeout(() => {
+        logo.classList.add("grow");
+        }, 1000);
+        });
+
+    </script>
+    <script>
+        window.buuPublicSearchConfig = {
+        endpoint: '/home/AutoComplete',
+        culture: 'tr',
+        isEnglish: false
+        };
+    </script>
+    <script src="/assets/js/search.js?v=mZKESj4KK8uIhn8JqNJr19wgmXYKdK9Vphc7huGvYiI"></script>
+    <script src="/assets/js/isotope.min.js"></script>
+    <script src="/assets/js/owl-carousel.js"></script>
+    <script src="/assets/js/lightbox.js"></script>
+    <script src="/assets/js/tabs.js"></script>
+    <script src="/assets/js/video.js"></script>
+    <script src="/assets/js/slick-slider.js"></script>
+    <script src="/assets/js/custom.js"></script>
+    <script src="/assets/js/counter.js"></script>
+    <script src="/assets/js/multi-level-menu.js?v=IOk_2NAJEw8KiB2Op86KX7EFyzfkLPLVOmNXJWXbCbw"></script>
+    <script src="/assets/js/section.js"></script>
+    <style>
+        * {
+        box-sizing: border-box;
+        }
+
+        .openBtn {
+        border: none;
+        padding: 10px 15px;
+        font-size: 20px;
+        cursor: pointer;
+        }
+
+        .openBtn:hover {
+        background: #bbb;
+        }
+
+        .overlay {
+        height: 100%;
+        width: 100%;
+        display: none;
+        position: fixed;
+        z-index: 100000;
+        top: 0;
+        left: 0;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .overlay-content {
+        position: relative;
+        top: 20%;
+        width: 80%;
+        text-align: center;
+        margin-top: 30px;
+        margin: auto;
+        }
+
+        .overlay .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
+        cursor: pointer;
+        color: white;
+        }
+
+        .overlay .closebtn:hover {
+        color: #ccc;
+        }
+
+        .overlay input[type=text] {
+        padding: 15px;
+        font-size: 17px;
+        border: none;
+        width: 100%;
+        background: white;
+        }
+
+        .overlay input[type=text]:hover {
+        background: #f1f1f1;
+        }
+
+        .overlay button {
+        float: left;
+        width: 20%;
+        padding: 15px;
+        background: #ddd;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+        }
+
+        .overlay button:hover {
+        background: #bbb;
+        }
+    </style>
+    <script>
+        //according to loftblog tut
+        $('.nav li:first').addClass('active');
+
+        var showSection = function showSection(section, isAnimate) {
+        var
+        direction = section.replace(/#/, ''),
+        reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+        reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+        $('body, html').animate({
+        scrollTop: reqSectionPos
+        },
+        800);
+        } else {
+        $('body, html').scrollTop(reqSectionPos);
+        }
+
+        };
+
+        var checkSection = function checkSection() {
+        $('.section').each(function () {
+        var
+        $this = $(this),
+        topEdge = $this.offset().top - 80,
+        bottomEdge = topEdge + $this.height(),
+        wScroll = $(window).scrollTop();
+        if (topEdge < wScroll && bottomEdge > wScroll) {
+        var
+        currentId = $this.data('section'),
+        reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+        reqLink.closest('li').addClass('active').
+        siblings().removeClass('active');
+        }
+        });
+        };
+
+        $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+        e.preventDefault();
+        showSection($(this).attr('href'), true);
+        });
+
+        $(window).scroll(function () {
+        checkSection();
+        });
+    </script>
+    <script>
+        window.onscroll = function () {
+        toggleScrollButton();
+        };
+
+        function toggleScrollButton() {
+        const button = document.getElementById("scrollToTopBtn");
+        if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        button.style.display = "block";
+        } else {
+        button.style.display = "none";
+        }
+        }
+
+        function scrollToTop() {
+        window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+        });
+        }
+        function scrollToFooter() {
+        const footerElement = document.getElementById("pageFooter");
+        footerElement.scrollIntoView({ behavior: "smooth" });
+        }
+
+        function scrollToQL() {
+        const footerElement = document.getElementById("pageQL");
+        footerElement.scrollIntoView({ behavior: "smooth" });
+        }
+    </script>
+    <button id="scrollToTopBtn"
+            type="button"
+            class="scroll-to-top"
+            onclick="scrollToTop()"
+            aria-label="Sayfan&#x131;n ba&#x15F;&#x131;na d&#xF6;n"
+            style="display: none;">
+        <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+    </button>
+
+    
+</body>
+
+</html>

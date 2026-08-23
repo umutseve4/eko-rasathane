@@ -1,0 +1,15 @@
+HTTP/1.1 302 Found
+transfer-encoding: chunked
+location: /iibf/egitim-plani-14528
+server: Microsoft-IIS/10.0
+date: Sun, 23 Aug 2026 19:01:13 GMT
+
+HTTP/1.1 200 OK
+transfer-encoding: chunked
+content-type: text/html; charset=utf-8
+content-encoding: br
+vary: Accept-Encoding
+server: Microsoft-IIS/10.0
+set-cookie: lang=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; samesite=lax
+date: Sun, 23 Aug 2026 19:01:14 GMT
+
