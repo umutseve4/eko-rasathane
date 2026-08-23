@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 
 const courseRoute = '/#/ders/temel-ekonometri-1';
 const firstTopicRoute = `${courseRoute}/konu/matematiksel-araclar`;
+const noteField = page => page.locator('#note');
 
 async function expectNoHorizontalOverflow(page) {
   const dimensions = await page.evaluate(() => ({
@@ -29,14 +30,14 @@ test('class → course → topic flow persists quiz, note and progress', async (
 
   await page.getByRole('link', { name: /Matematiksel araçlar/ }).click();
   await expect(page).toHaveURL(/konu\/matematiksel-araclar$/);
-  await page.getByRole('textbox', { name: 'Bunu yarınki kendine anlat.' }).fill('Ortalama, toplamın gözlem sayısına bölünmesidir.');
+  await noteField(page).fill('Ortalama, toplamın gözlem sayısına bölünmesidir.');
   await page.getByRole('button', { name: 'B · 15' }).click();
   await expect(page.getByRole('status').filter({ hasText: 'Doğru.' })).toBeVisible();
   await page.getByRole('button', { name: 'Konuyu tamamla' }).click();
   await expect(page.getByRole('button', { name: '✓ Tamamlandı' })).toBeVisible();
 
   await page.reload();
-  await expect(page.getByRole('textbox', { name: 'Bunu yarınki kendine anlat.' })).toHaveValue('Ortalama, toplamın gözlem sayısına bölünmesidir.');
+  await expect(noteField(page)).toHaveValue('Ortalama, toplamın gözlem sayısına bölünmesidir.');
   await expect(page.getByRole('button', { name: '✓ Tamamlandı' })).toBeVisible();
   await page.goto(courseRoute);
   await expect(page.getByText('%14 tamamlandı').first()).toBeVisible();
@@ -51,7 +52,7 @@ test('legacy production storage migrates without losing recall or JSON notes', a
   });
   await page.goto(firstTopicRoute);
 
-  await expect(page.getByRole('textbox', { name: 'Bunu yarınki kendine anlat.' })).toHaveValue('Eski not kaybolmamalı.');
+  await expect(noteField(page)).toHaveValue('Eski not kaybolmamalı.');
   const migrated = await page.evaluate(() => JSON.parse(localStorage.getItem('eko:state:v2')));
   expect(migrated.recall).toEqual({ index: 3, schedule: { 0: '2026-08-24', 3: '2026-08-27' } });
   expect(migrated.notes['matematiksel-araclar']).toBe('Eski not kaybolmamalı.');
@@ -67,7 +68,7 @@ test('malformed routes render the not-found view instead of canonicalizing', asy
 
 test('reset clears current and legacy study data', async ({ page }) => {
   await page.goto(firstTopicRoute);
-  await page.getByRole('textbox', { name: 'Bunu yarınki kendine anlat.' }).fill('Silinecek not');
+  await noteField(page).fill('Silinecek not');
   await page.getByRole('button', { name: 'Notu kaydet' }).click();
   await page.evaluate(() => localStorage.setItem('eko:studio-note-old', JSON.stringify('legacy')));
   page.once('dialog', dialog => dialog.accept());
@@ -91,6 +92,16 @@ test('320 px viewport has no horizontal overflow on critical screens', async ({ 
   await expectNoHorizontalOverflow(page);
   await page.goto(firstTopicRoute);
   await expectNoHorizontalOverflow(page);
+});
+
+test('skip link focuses content without mutating the current route', async ({ page }) => {
+  await page.goto(courseRoute);
+  const currentHash = await page.evaluate(() => location.hash);
+  const skipLink = page.locator('[data-skip]');
+  await skipLink.focus();
+  await skipLink.press('Enter');
+  await expect(page.locator('#app')).toBeFocused();
+  expect(await page.evaluate(() => location.hash)).toBe(currentHash);
 });
 
 test('reduced motion is honored and route headings receive focus', async ({ page }) => {
