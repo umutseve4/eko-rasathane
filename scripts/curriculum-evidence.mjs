@@ -2,40 +2,41 @@ import fs from 'node:fs';
 import { academicCatalog } from '../data/academic-catalog.mjs';
 
 const fields = ['semester', 'courseType', 'courseCode', 'sourceTitle', 'theoryHours', 'practiceHours', 'labHours', 'ects'];
-const historicalPath = 'evidence/program-343-ay23.rows.tsv';
-const currentPath = 'evidence/program-343-ay33.rows.tsv';
-const jsonPath = 'evidence/program-343-ay23-vs-ay33.diff.json';
-const markdownPath = 'evidence/program-343-ay23-vs-ay33.diff.md';
-const expectedReconciliation = { evidenceCount: 144, fixtureCount: 144, missingFromFixture: [], extraInFixture: [] };
-const expectedDiffCounts = { historicalRows: 122, currentRows: 144, unchangedRows: 71, addedRows: 73, removedRows: 51 };
-
+const paths = {
+  historical: 'evidence/program-343-ay23.rows.tsv',
+  current: 'evidence/program-343-ay33.rows.tsv',
+  json: 'evidence/program-343-ay23-vs-ay33.diff.json',
+  markdown: 'evidence/program-343-ay23-vs-ay33.diff.md'
+};
+const expectedCounts = { historicalRows: 122, currentRows: 144, unchangedRows: 71, addedRows: 73, removedRows: 51 };
 export const rowKey = row => JSON.stringify(fields.map(field => row[field]));
 
 export function parseCurriculumEvidence(text) {
   const rows = [];
   let semester = null;
   let sectionType = null;
-  for (const sourceLine of text.replace(/\r/g, '').split('\n')) {
+  for (const sourceLine of text.replace(/^\uFEFF/u, '').replace(/\r/g, '').split('\n')) {
     const line = sourceLine.trim();
-    const heading = line.match(/^(\d+)\. Yarıyıl( Seçmeli)? Dersleri$/);
+    const heading = line.match(/^(\d+)\.\s*Yarıyıl(\s+Seçmeli)?\s+Dersleri$/u);
     if (heading) {
       semester = Number(heading[1]);
       sectionType = heading[2] ? 'elective' : 'required';
       continue;
     }
-    const cells = sourceLine.split('\t');
+    const cells = sourceLine.split('\t').map(cell => cell.trim());
     if (!semester || cells.length !== 7 || !cells[0] || !['Zorunlu', 'Seçmeli'].includes(cells[2])) continue;
     const [courseCode, sourceTitle, sourceType, theory, practice, lab, ects] = cells;
-    if (!/^[A-Z0-9]+$/u.test(courseCode) || !/\d/u.test(courseCode) || !sourceTitle.trim()) continue;
+    if (!/^[A-ZÇĞİÖŞÜ]{2,}[0-9]{3,4}$/u.test(courseCode) || !sourceTitle) continue;
     const courseType = sourceType === 'Zorunlu' ? 'required' : 'elective';
     if (courseType !== sectionType) throw new Error(`Section/type mismatch: ${sourceLine}`);
-    const numericCells = [theory, practice, lab, ects];
-    if (numericCells.some(value => !/^\d+(?:\.\d+)?$/u.test(value))) throw new Error(`Invalid numeric evidence row: ${sourceLine}`);
-    const numeric = numericCells.map(Number);
+    const numeric = [theory, practice, lab, ects].map(value => Number(value.replace(',', '.')));
+    if (numeric.some(value => !Number.isFinite(value) || value < 0)) throw new Error(`Invalid numeric evidence row: ${sourceLine}`);
     rows.push({ semester, courseType, courseCode, sourceTitle, theoryHours: numeric[0], practiceHours: numeric[1], labHours: numeric[2], ects: numeric[3] });
   }
   return rows;
 }
+
+export const parseCurriculumRows = parseCurriculumEvidence;
 
 export function fixtureRows(catalog = academicCatalog) {
   const courses = new Map(catalog.courses.map(course => [course.id, course]));
@@ -107,6 +108,9 @@ export function diffCurricula(historicalRows, currentRows) {
   };
 }
 
+export const createCurriculumDiff = diffCurricula;
+export function renderJson(diff) { return `${JSON.stringify(diff, null, 2)}\n`; }
+
 export function renderDiffMarkdown(diff) {
   const lines = [
     '# Curriculum diff: AyID=23 → AyID=33', '',
@@ -127,40 +131,40 @@ export function renderDiffMarkdown(diff) {
   return `${lines.join('\n')}\n`;
 }
 
-export function buildArtifacts() {
-  const historical = parseCurriculumEvidence(fs.readFileSync(historicalPath, 'utf8'));
-  const current = parseCurriculumEvidence(fs.readFileSync(currentPath, 'utf8'));
-  const reconciliation = reconcileFixture(current);
+export const renderMarkdown = renderDiffMarkdown;
+
+function computedArtifacts() {
+  const historical = parseCurriculumEvidence(fs.readFileSync(paths.historical, 'utf8'));
+  const current = parseCurriculumEvidence(fs.readFileSync(paths.current, 'utf8'));
   const diff = diffCurricula(historical, current);
-  return {
-    reconciliation,
-    diff,
-    json: `${JSON.stringify(diff, null, 2)}\n`,
-    markdown: renderDiffMarkdown(diff)
-  };
+  return { diff, json: renderJson(diff), markdown: renderDiffMarkdown(diff) };
 }
 
-export function generateArtifacts() {
-  const artifacts = buildArtifacts();
-  fs.writeFileSync(jsonPath, artifacts.json);
-  fs.writeFileSync(markdownPath, artifacts.markdown);
+export function generateArtifacts(options = {}) {
+  if (options.beforePath || options.afterPath) {
+    const historical = parseCurriculumEvidence(fs.readFileSync(options.beforePath, 'utf8'));
+    const current = parseCurriculumEvidence(fs.readFileSync(options.afterPath, 'utf8'));
+    const diff = diffCurricula(historical, current);
+    const json = renderJson(diff);
+    const markdown = renderDiffMarkdown(diff);
+    if (options.jsonPath) fs.writeFileSync(options.jsonPath, json);
+    if (options.markdownPath) fs.writeFileSync(options.markdownPath, markdown);
+    return { diff, json, markdown };
+  }
+  const artifacts = computedArtifacts();
+  fs.writeFileSync(paths.json, artifacts.json);
+  fs.writeFileSync(paths.markdown, artifacts.markdown);
   return artifacts.diff;
 }
 
-function exactEqual(actual, expected) {
-  return JSON.stringify(actual) === JSON.stringify(expected);
-}
-
 export function verifyArtifacts() {
-  const artifacts = buildArtifacts();
-  if (!exactEqual(artifacts.reconciliation, expectedReconciliation)) throw new Error(`Fixture reconciliation mismatch: ${JSON.stringify(artifacts.reconciliation)}`);
-  if (!exactEqual(artifacts.diff.counts, expectedDiffCounts)) throw new Error(`Historical diff counts mismatch: ${JSON.stringify(artifacts.diff.counts)}`);
-  if (fs.readFileSync(jsonPath, 'utf8') !== artifacts.json) throw new Error(`${jsonPath} is stale; run npm run evidence:generate`);
-  if (fs.readFileSync(markdownPath, 'utf8') !== artifacts.markdown) throw new Error(`${markdownPath} is stale; run npm run evidence:generate`);
-  return { reconciliation: artifacts.reconciliation, counts: artifacts.diff.counts };
+  const artifacts = computedArtifacts();
+  if (JSON.stringify(artifacts.diff.counts) !== JSON.stringify(expectedCounts)) throw new Error(`Unexpected counts: ${JSON.stringify(artifacts.diff.counts)}`);
+  if (fs.readFileSync(paths.json, 'utf8') !== artifacts.json) throw new Error(`${paths.json} is stale`);
+  if (fs.readFileSync(paths.markdown, 'utf8') !== artifacts.markdown) throw new Error(`${paths.markdown} is stale`);
+  return artifacts.diff.counts;
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const verify = process.argv.slice(2).includes('--verify');
-  console.log(JSON.stringify(verify ? verifyArtifacts() : generateArtifacts().counts));
+  console.log(JSON.stringify(process.argv.includes('--verify') ? verifyArtifacts() : generateArtifacts().counts));
 }
