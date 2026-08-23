@@ -24,3 +24,18 @@ jobs:
           path: .
       - id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify deployed signature
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: |
+          for attempt in {1..12}; do
+            if curl --fail --silent --show-error --location --retry 2 "$PAGE_URL" --output deployed.html \
+              && grep --fixed-strings --quiet "EKO RASATHANE" deployed.html; then
+              echo "PASS: $PAGE_URL returned the EKO RASATHANE signature."
+              exit 0
+            fi
+            echo "Attempt $attempt/12: deployment is not ready; retrying in 10 seconds."
+            sleep 10
+          done
+          echo "FAIL: deployed page did not return the expected signature."
+          exit 1

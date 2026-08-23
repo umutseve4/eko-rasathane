@@ -25,8 +25,8 @@ npm run check
 | Planlandı | M1–M4 |
 | Uygulandı | M1 dikey dilim |
 | Test edildi | Saf iş mantığı + statik sözleşme |
-| Doğrulandı | GitHub Actions sonucu bekleniyor |
-| Dağıtıldı | Pages iş akışı eklendi; ilk koşum bekleniyor |
+| Doğrulandı | PR #1 Node 22 CI: `test` başarılı — run `32639209341` ve `32639214399` |
+| Dağıtıldı | Pages iş akışı mevcut; canlı imza kontrolü henüz kanıtlanmadı |
 | Production-ready | Hayır — resmî katalog senkronu, pilot, güvenlik ve hukuk incelemesi gerekli |
 
 Ayrıntılar: [ROADMAP.md](ROADMAP.md) · [SOURCES.md](SOURCES.md)
