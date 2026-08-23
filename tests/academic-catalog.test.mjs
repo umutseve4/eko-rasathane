@@ -106,3 +106,64 @@ test('validator rejects invalid anomaly type and status', () => {
   assert.ok(errors.some(error => error.includes('invalid type invalid-type')));
   assert.ok(errors.some(error => error.includes('invalid status invalid-status')));
 });
+
+test('validator rejects duplicate CurriculumCourse natural keys', () => {
+  const catalog = clone(academicCatalog);
+  catalog.curriculumCourses.push({
+    ...catalog.curriculumCourses[0],
+    id: 'cc-buu-current-s5-eko3101-core-duplicate'
+  });
+
+  const errors = validateAcademicCatalog(catalog);
+  assert.ok(errors.some(error => error.includes('duplicate natural key')));
+});
+
+test('validator keeps compound keys distinct when values contain delimiters', () => {
+  const catalog = clone(academicCatalog);
+  const base = catalog.curriculumCourses[0];
+  catalog.courses.push(
+    { ...catalog.courses[0], id: 'course::pool', courseCode: 'COLLISION-A', sourceRecordKey: 'collision-a' },
+    { ...catalog.courses[0], id: 'course', courseCode: 'COLLISION-B', sourceRecordKey: 'collision-b' }
+  );
+  catalog.curriculumCourses = [
+    { ...base, id: 'cc-collision-a', courseId: 'course::pool', requirementGroup: 'x' },
+    { ...base, id: 'cc-collision-b', courseId: 'course', requirementGroup: 'pool::x' }
+  ];
+
+  assert.deepEqual(validateAcademicCatalog(catalog), []);
+});
+
+test('validator rejects invalid CurriculumCourse enums and requirement groups', () => {
+  const catalog = clone(academicCatalog);
+  catalog.curriculumCourses[0].courseType = 'mandatory';
+  catalog.curriculumCourses[0].targetAudience = 'everyone';
+  catalog.curriculumCourses[0].requirementGroup = '   ';
+
+  const errors = validateAcademicCatalog(catalog);
+  assert.ok(errors.some(error => error.includes('invalid courseType mandatory')));
+  assert.ok(errors.some(error => error.includes('invalid targetAudience everyone')));
+  assert.ok(errors.some(error => error.includes('invalid requirementGroup')));
+});
+
+test('validator rejects negative and non-finite CurriculumCourse measurements', () => {
+  const catalog = clone(academicCatalog);
+  catalog.curriculumCourses[0].ects = -1;
+  catalog.curriculumCourses[0].theoryHours = Number.NaN;
+  catalog.curriculumCourses[0].practiceHours = Number.POSITIVE_INFINITY;
+  catalog.curriculumCourses[0].labHours = '0';
+
+  const errors = validateAcademicCatalog(catalog);
+  for (const field of ['ects', 'theoryHours', 'practiceHours', 'labHours']) {
+    assert.ok(errors.some(error => error.includes(`invalid ${field}`)));
+  }
+});
+
+test('validator accepts zero, positive and null CurriculumCourse measurements', () => {
+  const catalog = clone(academicCatalog);
+  catalog.curriculumCourses[0].ects = 5;
+  catalog.curriculumCourses[0].theoryHours = 3;
+  catalog.curriculumCourses[0].practiceHours = 0;
+  catalog.curriculumCourses[0].labHours = null;
+
+  assert.deepEqual(validateAcademicCatalog(catalog), []);
+});
