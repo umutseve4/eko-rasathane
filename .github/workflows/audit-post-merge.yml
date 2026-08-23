@@ -15,7 +15,7 @@ jobs:
   audit:
     runs-on: ubuntu-latest
     env:
-      TARGET_SHA: 07e86e10913f72db76f464d335138dbe075add92
+      TARGET_SHA: 3bff9360cb19e26bdb1d1c4e470a691765fc3b76
       REPORT: docs/post-merge-audit.md
       GH_TOKEN: ${{ github.token }}
     steps:
@@ -63,5 +63,5 @@ jobs:
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add "${REPORT}"
           git diff --cached --quiet && exit 0
-          git commit -m "docs: record post-merge workflow evidence"
+          git commit -m "docs: record M2 post-merge workflow evidence"
           git push
