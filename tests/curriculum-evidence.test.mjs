@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { academicCatalog } from '../data/academic-catalog.mjs';
-import { parseCurriculumRows, generateArtifacts } from '../scripts/curriculum-evidence.mjs';
+import { createCurriculumDiff, parseCurriculumRows, generateArtifacts, verifyArtifacts } from '../scripts/curriculum-evidence.mjs';
 
 const evidence = path => new URL(`../evidence/${path}`, import.meta.url);
 const rowKey = row => JSON.stringify([row.semester, row.type, row.code, row.title, row.T, row.U, row.L, row.AKTS]);
@@ -26,9 +26,17 @@ test('AyID=33 evidence matches all 144 fixture relations in every source field',
   assert.deepEqual(rows.map(rowKey).sort(), fixture.map(rowKey).sort());
 });
 
+test('multiset diff preserves duplicate row multiplicity', () => {
+  const row = { code: 'EKO1001', title: 'MATEMATİK I', type: 'required', T: 3, U: 0, L: 0, AKTS: 5, semester: 1 };
+  const diff = createCurriculumDiff([row, row], [row]);
+  assert.deepEqual(diff.counts, { ay23: 2, ay33: 1, unchanged: 1, added: 0, removed: 1 });
+  assert.equal(diff.removed.length, 1);
+});
+
 test('committed diff artifacts are deterministic byte-for-byte regenerations', async () => {
   const generated = await generateArtifacts({ beforePath: evidence('program-343-ay23.rows.tsv'), afterPath: evidence('program-343-ay33.rows.tsv') });
   assert.deepEqual(generated.diff.counts, { ay23: 122, ay33: 144, unchanged: 71, added: 73, removed: 51 });
   assert.equal(generated.json, await readFile(evidence('program-343-ay23-vs-ay33.diff.json'), 'utf8'));
   assert.equal(generated.markdown, await readFile(evidence('program-343-ay23-vs-ay33.diff.md'), 'utf8'));
+  assert.deepEqual(await verifyArtifacts(), generated.diff.counts);
 });

@@ -6,6 +6,13 @@ const CODE = /^[A-ZÇĞİÖŞÜ]{2,}[0-9]{3,4}$/u;
 const TYPES = new Map([['Zorunlu', 'required'], ['Seçmeli', 'elective']]);
 const numeric = value => /^\d+(?:[.,]\d+)?$/u.test(value);
 const number = value => Number(value.replace(',', '.'));
+const DEFAULTS = {
+  beforePath: 'evidence/program-343-ay23.rows.tsv',
+  afterPath: 'evidence/program-343-ay33.rows.tsv',
+  jsonPath: 'evidence/program-343-ay23-vs-ay33.diff.json',
+  markdownPath: 'evidence/program-343-ay23-vs-ay33.diff.md'
+};
+const EXPECTED_COUNTS = { ay23: 122, ay33: 144, unchanged: 71, added: 73, removed: 51 };
 
 export function parseCurriculumRows(text) {
   let semester = null;
@@ -17,9 +24,9 @@ export function parseCurriculumRows(text) {
       semester = Number(heading[1]);
       continue;
     }
-    const fields = rawLine.split('\t').map(value => value.trim());
-    if (semester === null || fields.length !== 7) continue;
-    const [code, title, T, U, L, AKTS, sourceType] = fields;
+    const values = rawLine.split('\t').map(value => value.trim());
+    if (semester === null || values.length !== 7) continue;
+    const [code, title, T, U, L, AKTS, sourceType] = values;
     const type = TYPES.get(sourceType);
     if (!CODE.test(code) || !title || !type || ![T, U, L, AKTS].every(numeric)) continue;
     rows.push({ code, title, type, T: number(T), U: number(U), L: number(L), AKTS: number(AKTS), semester });
@@ -36,13 +43,34 @@ const compare = (a, b) => {
   return 0;
 };
 const key = row => JSON.stringify(fields.map(field => row[field]));
+const counts = rows => {
+  const result = new Map();
+  for (const row of rows) result.set(key(row), (result.get(key(row)) ?? 0) + 1);
+  return result;
+};
 
 export function createCurriculumDiff(beforeRows, afterRows) {
-  const before = new Map(beforeRows.map(row => [key(row), row]));
-  const after = new Map(afterRows.map(row => [key(row), row]));
-  const unchanged = beforeRows.filter(row => after.has(key(row))).sort(compare);
-  const removed = beforeRows.filter(row => !after.has(key(row))).sort(compare);
-  const added = afterRows.filter(row => !before.has(key(row))).sort(compare);
+  const unmatchedAfter = counts(afterRows);
+  const unchanged = [];
+  const removed = [];
+  for (const row of beforeRows) {
+    const rowKey = key(row);
+    const available = unmatchedAfter.get(rowKey) ?? 0;
+    (available > 0 ? unchanged : removed).push(row);
+    if (available > 0) unmatchedAfter.set(rowKey, available - 1);
+  }
+  const added = [];
+  for (const row of afterRows) {
+    const rowKey = key(row);
+    const available = unmatchedAfter.get(rowKey) ?? 0;
+    if (available > 0) {
+      added.push(row);
+      unmatchedAfter.set(rowKey, available - 1);
+    }
+  }
+  unchanged.sort(compare);
+  removed.sort(compare);
+  added.sort(compare);
   const semesters = [...new Set([...beforeRows, ...afterRows].map(row => row.semester))].sort((a, b) => a - b);
   const bySemester = semesters.map(semester => ({
     semester,
@@ -55,7 +83,7 @@ export function createCurriculumDiff(beforeRows, afterRows) {
   return {
     schemaVersion: 1,
     methodology: 'Exact structural row multiset over semester,type,code,title,T,U,L,AKTS; edits are one removal plus one addition.',
-    sources: { before: 'evidence/program-343-ay23.rows.tsv', after: 'evidence/program-343-ay33.rows.tsv' },
+    sources: { before: DEFAULTS.beforePath, after: DEFAULTS.afterPath },
     counts: { ay23: beforeRows.length, ay33: afterRows.length, unchanged: unchanged.length, added: added.length, removed: removed.length },
     bySemester,
     added,
@@ -93,11 +121,26 @@ export async function generateArtifacts({ beforePath, afterPath, jsonPath, markd
   return { diff, json, markdown };
 }
 
+export async function verifyArtifacts() {
+  const generated = await generateArtifacts({ beforePath: DEFAULTS.beforePath, afterPath: DEFAULTS.afterPath });
+  if (JSON.stringify(generated.diff.counts) !== JSON.stringify(EXPECTED_COUNTS)) {
+    throw new Error(`Unexpected curriculum counts: ${JSON.stringify(generated.diff.counts)}`);
+  }
+  const [json, markdown] = await Promise.all([readFile(DEFAULTS.jsonPath, 'utf8'), readFile(DEFAULTS.markdownPath, 'utf8')]);
+  if (json !== generated.json) throw new Error(`${DEFAULTS.jsonPath} is stale; run npm run evidence:generate`);
+  if (markdown !== generated.markdown) throw new Error(`${DEFAULTS.markdownPath} is stale; run npm run evidence:generate`);
+  return generated.diff.counts;
+}
+
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
-  await generateArtifacts({
-    beforePath: process.argv[2] ?? 'evidence/program-343-ay23.rows.tsv',
-    afterPath: process.argv[3] ?? 'evidence/program-343-ay33.rows.tsv',
-    jsonPath: process.argv[4] ?? 'evidence/program-343-ay23-vs-ay33.diff.json',
-    markdownPath: process.argv[5] ?? 'evidence/program-343-ay23-vs-ay33.diff.md'
-  });
+  if (process.argv.includes('--verify')) {
+    console.log(JSON.stringify(await verifyArtifacts()));
+  } else {
+    await generateArtifacts({
+      beforePath: process.argv[2] ?? DEFAULTS.beforePath,
+      afterPath: process.argv[3] ?? DEFAULTS.afterPath,
+      jsonPath: process.argv[4] ?? DEFAULTS.jsonPath,
+      markdownPath: process.argv[5] ?? DEFAULTS.markdownPath
+    });
+  }
 }
