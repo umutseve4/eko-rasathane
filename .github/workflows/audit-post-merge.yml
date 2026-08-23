@@ -1,0 +1,72 @@
+name: Audit post-merge evidence
+
+on:
+  push:
+    branches:
+      - chore/audit-post-merge
+    paths-ignore:
+      - docs/post-merge-audit.md
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    env:
+      TARGET_SHA: 07e86e10913f72db76f464d335138dbe075add92
+      REPORT: docs/post-merge-audit.md
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: chore/audit-post-merge
+      - name: Query exact-SHA workflow runs and jobs
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p docs
+          api="https://api.github.com/repos/${GITHUB_REPOSITORY}"
+          auth=(-H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" -H "X-GitHub-Api-Version: 2022-11-28")
+          curl --fail --silent --show-error "${auth[@]}" \
+            "${api}/actions/runs?head_sha=${TARGET_SHA}&event=push&per_page=100" > /tmp/runs.json
+
+          {
+            echo "# Post-merge workflow evidence"
+            echo
+            echo "- Repository: \`${GITHUB_REPOSITORY}\`"
+            echo "- Target SHA: \`${TARGET_SHA}\`"
+            echo "- Generated at: \`$(date -u +%Y-%m-%dT%H:%M:%SZ)\`"
+            echo
+            echo "| Workflow | Run ID | Event | Head branch | SHA | Status | Conclusion | URL |"
+            echo "|---|---:|---|---|---|---|---|---|"
+            jq -r '.workflow_runs | sort_by(.id)[] | "| \(.name) | \(.id) | \(.event) | \(.head_branch) | `\(.head_sha)` | \(.status) | \(.conclusion // "null") | \(.html_url) |"' /tmp/runs.json
+            echo
+            echo "## Jobs"
+            echo
+            echo "| Run ID | Job | Job ID | Status | Conclusion | Started | Completed | URL |"
+            echo "|---:|---|---:|---|---|---|---|---|"
+          } > "${REPORT}"
+
+          mapfile -t run_ids < <(jq -r '.workflow_runs[].id' /tmp/runs.json)
+          test "${#run_ids[@]}" -ge 3
+          for run_id in "${run_ids[@]}"; do
+            curl --fail --silent --show-error "${auth[@]}" \
+              "${api}/actions/runs/${run_id}/jobs?per_page=100" > "/tmp/jobs-${run_id}.json"
+            jq -r --arg run_id "${run_id}" '.jobs | sort_by(.id)[] | "| \($run_id) | \(.name) | \(.id) | \(.status) | \(.conclusion // "null") | \(.started_at // "null") | \(.completed_at // "null") | \(.html_url) |"' "/tmp/jobs-${run_id}.json" >> "${REPORT}"
+          done
+
+          jq -e '[.workflow_runs[] | select(.name == "CI" and .status == "completed" and .conclusion == "success")] | length >= 1' /tmp/runs.json
+          jq -e '[.workflow_runs[] | select(.name == "Browser E2E" and .status == "completed" and .conclusion == "success")] | length >= 1' /tmp/runs.json
+          jq -e '[.workflow_runs[] | select(.name == "Deploy GitHub Pages" and .status == "completed" and .conclusion == "success")] | length >= 1' /tmp/runs.json
+      - name: Commit evidence report
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add "${REPORT}"
+          git diff --cached --quiet && exit 0
+          git commit -m "docs: record post-merge workflow evidence"
+          git push
