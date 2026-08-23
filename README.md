@@ -1,24 +1,91 @@
 # EKO Rasathane β
 
-BUÜ Ekonometri öğrencileri için **sınıf → ders → konu → çalışma adımı** akışına sahip bağımsız çalışma platformu.
+EKO Rasathane, **ekonometri camiası için yaşayan bir öğrenme, uygulama ve araştırma ekosistemi** olmayı hedefler. Bir ders notu sitesi değildir.
 
-## Durum
+İlk doğrulama alanı Bursa Uludağ Üniversitesi (BUÜ) Ekonometri programıdır. Ürün modeli tek üniversiteye, sınıfa veya ders koduna bağlı değildir; BUÜ verisi kurumdan bağımsız mimarinin ilk gerçek veri kümesidir.
 
-- Eski sürüm: deployed ve imza doğrulaması yapılmıştı.
-- Bu dal: course-first yeniden tasarım; PR/CI/Pages kanıtı tamamlanana kadar **implemented** sayılmaz.
-- Ürün henüz browser E2E, gerçek öğrenci pilotu ve içerik uzmanı incelemesinden geçmediği için **production-ready değildir**.
+## Ürün vaadi
 
-## Sabit ürün sözleşmesi
+Kullanıcı üç yoldan ilerleyebilir:
 
-1. Öğrenci 1–4 arasından sınıfını seçer.
-2. Aynı ekranda dönemlere göre dersleri görür.
-3. Dersi açar; konu rotası, aktif hatırlama, not ve ilerleme araçlarını kullanır.
+1. **Programımı takip et:** kurum, program, müfredat, dönem ve ders rotası.
+2. **Bir kavramı öğren:** ders kodundan bağımsız Atlas kavram ağı.
+3. **Bir modeli dene veya araştır:** etkileşimli laboratuvar ve kanıt odaklı araştırma masası.
 
-GitHub Pages uyumu için hash route kullanılır: `#/`, `#/sinif/:id`, `#/ders/:id`, `#/ders/:id/konu/:id`.
+## Hedef kitle
 
-## İlk tam dikey dilim
+- Çekirdek: ekonometri öğrencileri, öğretim elemanları, mezunlar ve araştırmacılar.
+- İkinci halka: iktisat, istatistik, veri analizi ve ilgili programlarda ekonometri/istatistik servis dersi alanlar.
+- İlk doğrulama alanı: BUÜ Ekonometri lisans programı.
 
-**3. sınıf → EKO3103 TEMEL EKONOMETRİ I → 7 duraklık hazırlık rotası.** Bu rota resmî ilk yedi öğretim haftasından türetilmiştir; garanti vize kapsamı değildir. BUÜ kayıtlarındaki `5 / 6 AKTS` çelişkisi arayüzde açıkça gösterilir, tek bir değermiş gibi düzeltilmez.
+## Ürün katmanları
+
+### Atlas
+
+Kurumdan ve ders kodundan bağımsız kavram ağı. İlk çapraz rota **Veriden Modele** olacaktır:
+
+`betimsel istatistik → olasılık ve çıkarım → doğrusal cebir → basit regresyon → çoklu regresyon → varsayımlar ve diagnostik → tahmin ve belirsizlik → nedensellik sınırları → zaman serilerine geçiş`
+
+### Program Haritaları
+
+Üniversite, program, müfredat sürümü, yarıyıl, zorunlu/seçmeli ders ve AKTS görünümü. BUÜ Bologna Bilgi Paketi kanonik program kaynağıdır; ders programlarındaki gün/saat/derslik verisi ayrı dönemsel açılma kaydıdır.
+
+### Ekonometri Laboratuvarı
+
+Parametreleri değiştirerek matematiksel ve istatistiksel ilişkileri görünür kılan erişilebilir demonstratörler. WebGL zorunlu değildir; temel işlev statik alternatif ve klavye ile kullanılabilir kalmalıdır.
+
+### Araştırma Masası
+
+Hipotez, veri kaynağı, model seçimi, varsayım kontrolleri, sonuçlar ve sınırlılıklar üzerinden kanıt üretimi; ileride dışa aktarılabilir Model Card/analiz raporu.
+
+## Kilitli ürün kararları
+
+| Karar | Sözleşme |
+|---|---|
+| Hedef kitle | Ekonometri çekirdek; servis dersleri ikinci halka |
+| İlk içerik rotası | Ders kodu bağımsız **Veriden Modele** Atlas rotası |
+| EKO3101 / EKO3103 | Ayrı program bağlamları ve kaynaklarıyla etiketlenir; hiçbirinin üzerine bütün ürün kurulmaz |
+| Görsel yön | Akademik Rasathane + Editoryal Dijital Kampüs; etkileşimlerde Ekonometri Laboratuvarı |
+| Hareket | Orta yoğunluk; yalnız hiyerarşi veya matematiksel ilişkiyi açıklayan hareket |
+| Program özelliği | Kanonik Bologna kataloğu + ayrı offering katmanında gün/saat/derslik |
+
+## İlerleme ve retention sözleşmesi
+
+Gamification akademik davranışı destekler; puan avcılığına veya cezalandırıcı içerik kilidine dönüşmez.
+
+- **Node Resonance:** anlamlı günlük öğrenme/araştırma etkinliğinin sürekliliği. Sadece sayfa açmak seri üretmez.
+- **Araştırma Bütçesi:** deneme, hata analizi ve tekrar döngüsünü görünür kılan geri kazanılabilir işlem gücü metaforu. Bütçenin bitmesi temel içeriği, erişilebilirliği veya veri dışa aktarmayı engellemez.
+- **Yetkinlik sinyalleri:** puan yerine **Veri Mühendisliği** ve **İstatistiksel Keskinlik** barları. Barlar süreye değil doğrulanabilir görevlere, tekrar başarısına ve üretilen kanıta dayanır.
+- İlerleme durumu yerel ve açıklanabilir olmalı; kullanıcı sıfırlayabilmeli ve dışa aktarabilmelidir.
+
+## Tasarım ve hareket politikası
+
+- Karanlık SaaS estetiği hedef değil, bilimsel okunabilirliği destekleyen bir yüzey dilidir.
+- Neon, glass ve bento ölçülü araçlardır; ürün kimliğinin yerine geçmez.
+- Standart cursor, görünür focus, klavye akışı ve `prefers-reduced-motion` zorunludur.
+- Hareket uygulaması mevcut teknolojiyle uyumlu seçilir. Framer Motion ancak uygulama mimarisi React tabanlıysa değerlendirilir; sırf animasyon için framework göçü yapılmaz.
+- WebGL kapalıyken temel işlev kaybı hedefi `%0`dır.
+
+## Mevcut dikey dilim
+
+**3. sınıf → EKO3103 TEMEL EKONOMETRİ I → 7 konuluk hazırlık rotası**, teknik ve pedagojik bir örnek/fixture'dır; ürün kapsamı değildir. BUÜ kayıtlarındaki `5 / 6 AKTS` çelişkisi kaynak anomalisi olarak korunur, sessizce düzeltilmez.
+
+GitHub Pages uyumu için mevcut prototip hash route kullanır: `#/`, `#/sinif/:id`, `#/ders/:id`, `#/ders/:id/konu/:id`.
+
+## Durum dili
+
+- **Planned:** kabul edilmiş, henüz uygulanmamış.
+- **Implemented:** kod veya içerik üretilmiş.
+- **Tested:** otomatik ya da manuel testten geçmiş.
+- **Verified:** kabul ölçütü bağımsız kanıtla doğrulanmış.
+- **Deployed:** belirli commit'in canlıya çıktığı kanıtlanmış.
+- **Production-ready:** güvenlik, içerik, erişilebilirlik, performans ve gerçek kullanıcı doğrulaması tamamlanmış.
+
+Mevcut prototip ve browser kalite kapısı implemented/tested durumundadır. Kapsamlı Atlas, 8 yarıyıllık kanonik katalog, yeni tasarım sistemi, retention sistemi ve araştırma akışı henüz planned durumundadır. Ürün production-ready değildir.
+
+## Veri ve kaynak sözleşmesi
+
+Ayrıntılı şema, kimlik, kaynak izlenebilirliği, doğrulama statüleri ve gamification durum modeli için [`PRODUCT_DATA_CONTRACT.md`](PRODUCT_DATA_CONTRACT.md) dosyasına bakın. Resmî kaynak rolleri [`SOURCES.md`](SOURCES.md) içinde tutulur.
 
 ## Yerel doğrulama
 
@@ -26,22 +93,12 @@ GitHub Pages uyumu için hash route kullanılır: `#/`, `#/sinif/:id`, `#/ders/:
 npm run verify
 ```
 
-## Kaynak politikası
+## Gizlilik ve içerik ilkesi
 
-- Program ve ders kimliği: BUÜ resmî program/ders bilgi paketi.
-- Açıklamalar, örnekler ve sorular: projeye özgü içerik.
+- UKEY/UNİSİS kimlik bilgisi istenmez ve izinsiz scraping yapılmaz.
 - Telifli kitap, slayt, sınav veya cevap anahtarı kopyalanmaz.
-- Doğrulanmamış sınıf katalogları, sayfayı dolu göstermek için uydurulmaz.
-
-## Gizlilik
-
-İlerleme, quiz ve notlar yalnızca tarayıcının `localStorage` alanında tutulur. UKEY/UNİSİS kimlik bilgisi istenmez.
-
-## Kaynaklar
-
-- [BUÜ Ekonometri Program Bilgi Paketi](https://bilgipaketi.uludag.edu.tr/Programlar/Detay/343?AyID=23)
-- [BUÜ Ekonometri Bölümü](https://uludag.edu.tr/ekonometri)
-- [BUÜ İİBF Eğitim Planı](https://uludag.edu.tr/iibf/default/konu/1403)
+- Özgün anlatım, örnek, quiz ve demonstratörler platform içeriğidir.
+- İlerleme, quiz ve notlar mevcut prototipte yalnız tarayıcının `localStorage` alanında tutulur.
 
 ## Lisans
 
