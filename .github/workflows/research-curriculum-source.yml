@@ -42,7 +42,9 @@ jobs:
           }
           fetch_page program-343-ay23 'https://bilgipaketi.uludag.edu.tr/Programlar/Detay/343?AyID=23'
           fetch_page program-343-ay21 'https://bilgipaketi.uludag.edu.tr/Programlar/Detay/343?AyID=21'
+          fetch_page program-343-ay33 'https://bilgipaketi.uludag.edu.tr/Programlar/Detay/343?AyID=33'
           fetch_page program-343-report-ay23 'https://bilgipaketi.uludag.edu.tr/DersProgramiRapor/DersProgramiRaporTR/343?Dil=0&AyarID=23'
+          fetch_page program-343-report-ay33 'https://bilgipaketi.uludag.edu.tr/DersProgramiRapor/DersProgramiRaporTR/343?Dil=0&AyarID=33'
           fetch_page iibf-plan-current 'https://uludag.edu.tr/iibf/egitim-plani-14528'
           fetch_page iibf-plan-legacy 'https://uludag.edu.tr/iibf/default/konu/1403'
           python - <<'PY'
