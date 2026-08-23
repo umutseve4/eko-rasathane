@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 const courseRoute = '/#/ders/temel-ekonometri-1';
 const firstTopicRoute = `${courseRoute}/konu/matematiksel-araclar`;
-const noteField = page => page.locator('#note');
+const noteField = page => page.getByRole('textbox', { name: 'Bunu yarınki kendine anlat.' });
 
 async function expectNoHorizontalOverflow(page) {
   const dimensions = await page.evaluate(() => ({
@@ -44,12 +44,13 @@ test('class → course → topic flow persists quiz, note and progress', async (
 });
 
 test('legacy production storage migrates without losing recall or JSON notes', async ({ page }) => {
-  await page.addInitScript(() => {
+  await page.evaluate(() => {
     localStorage.removeItem('eko:state:v2');
     localStorage.setItem('eko:recall-index', JSON.stringify(3));
     localStorage.setItem('eko:recall-schedule', JSON.stringify({ 0: '2026-08-24', 3: '2026-08-27' }));
     localStorage.setItem('eko:studio-note-matematiksel-araclar', JSON.stringify('Eski not kaybolmamalı.'));
   });
+  await page.reload();
   await page.goto(firstTopicRoute);
 
   await expect(noteField(page)).toHaveValue('Eski not kaybolmamalı.');
