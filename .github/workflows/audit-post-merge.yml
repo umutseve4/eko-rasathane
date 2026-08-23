@@ -63,5 +63,7 @@ jobs:
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add "${REPORT}"
           git diff --cached --quiet && exit 0
-          git commit -m "docs: record M2 docs post-merge workflow evidence"
+          git commit -m "docs: refresh M2 docs post-merge workflow evidence"
           git push
+
+# Refresh marker: wait for all target workflows to reach a terminal state.
