@@ -21,30 +21,48 @@ jobs:
       - name: Fetch official sources without executing remote content
         shell: bash
         run: |
-          set -u
+          set +e
           rm -rf research-output
           mkdir -p research-output
-          cat > research-output/targets.tsv <<'EOF'
-          program-343-ay23	https://bilgipaketi.uludag.edu.tr/Programlar/Detay/343?AyID=23
-          program-343-ay21	https://bilgipaketi.uludag.edu.tr/Programlar/Detay/343?AyID=21
-          iibf-plan-current	https://uludag.edu.tr/iibf/egitim-plani-14528
-          iibf-plan-legacy	https://uludag.edu.tr/iibf/default/konu/1403
-          EOF
           printf 'fetched_at_utc=%s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > research-output/manifest.txt
-          while IFS=$'\t' read -r name url; do
+          fetch_page() {
+            name="$1"
+            url="$2"
+            : > "research-output/${name}.html"
+            : > "research-output/${name}.headers.txt"
             code=$(curl --location --compressed --http1.1 --max-time 45 \
               --user-agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/127 Safari/537.36' \
               --header 'Accept: text/html,application/xhtml+xml' \
               --dump-header "research-output/${name}.headers.txt" \
               --output "research-output/${name}.html" \
-              --write-out '%{http_code}' "$url" || true)
+              --write-out '%{http_code}' "$url")
+            curl_exit=$?
             bytes=$(wc -c < "research-output/${name}.html")
-            printf '%s\thttp=%s\tbytes=%s\turl=%s\n' "$name" "$code" "$bytes" "$url" >> research-output/manifest.txt
-            grep -Eio 'href=["'"'][^"'"']+["'"']' "research-output/${name}.html" \
-              | sed -E 's/^href=["'"']|["'"']$//g' \
-              | sort -u > "research-output/${name}.hrefs.txt" || true
-          done < research-output/targets.tsv
-      - name: Commit immutable probe output to research branch
+            printf '%s\thttp=%s\tcurl_exit=%s\tbytes=%s\turl=%s\n' "$name" "$code" "$curl_exit" "$bytes" "$url" >> research-output/manifest.txt
+          }
+          fetch_page program-343-ay23 'https://bilgipaketi.uludag.edu.tr/Programlar/Detay/343?AyID=23'
+          fetch_page program-343-ay21 'https://bilgipaketi.uludag.edu.tr/Programlar/Detay/343?AyID=21'
+          fetch_page iibf-plan-current 'https://uludag.edu.tr/iibf/egitim-plani-14528'
+          fetch_page iibf-plan-legacy 'https://uludag.edu.tr/iibf/default/konu/1403'
+          python - <<'PY'
+          from html.parser import HTMLParser
+          from pathlib import Path
+
+          class Links(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.items = set()
+              def handle_starttag(self, tag, attrs):
+                  for key, value in attrs:
+                      if key.lower() in {'href', 'src', 'action'} and value:
+                          self.items.add(f'{key.lower()}\t{value}')
+
+          for page in Path('research-output').glob('*.html'):
+              parser = Links()
+              parser.feed(page.read_text(encoding='utf-8', errors='replace'))
+              page.with_suffix('.links.tsv').write_text('\n'.join(sorted(parser.items)) + ('\n' if parser.items else ''), encoding='utf-8')
+          PY
+      - name: Commit probe output to research branch
         shell: bash
         run: |
           set -euo pipefail
