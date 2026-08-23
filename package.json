@@ -1,12 +1,12 @@
 {
   "name": "eko-rasathane",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/core.test.mjs",
+    "test": "node --test tests/*.test.mjs",
     "test:e2e": "playwright test",
-    "check": "node --check app.js && node --check core.mjs && node --check data/catalog.mjs",
+    "check": "node --check app.js && node --check core.mjs && node --check academic-catalog.mjs && node --check data/catalog.mjs && node --check data/academic-catalog.mjs",
     "verify": "npm run check && npm test"
   },
   "devDependencies": {

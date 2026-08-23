@@ -2,7 +2,7 @@
 
 Bu roadmap `planned`, `implemented`, `tested`, `verified`, `deployed` ve `production-ready` statülerini birbirine karıştırmaz.
 
-## M0 · Ürün ve veri sözleşmesi — approved, merge verification pending
+## M0 · Ürün ve veri sözleşmesi — verified
 
 **Amaç:** EKO Rasathane'yi tek ders/kurum prototipinden ekonometri camiası için kurumdan bağımsız bir ekosisteme bağlayan sözleşmeyi kilitlemek.
 
@@ -14,38 +14,35 @@ Teslimatlar:
 - Kaynak, doğrulama, anomali ve offering modeli.
 - Node Resonance, Araştırma Bütçesi ve yetkinlik sinyalleri için davranış sözleşmesi.
 
-Kabul kapısı:
-- README, roadmap, kaynak sicili ve veri sözleşmesi aynı kapsamı ifade eder.
-- BUÜ yalnız ilk doğrulama alanı; EKO3103 yalnız örnek fixture olarak tanımlanır.
-- Gamification temel içeriği kilitlemez ve yalnız anlamlı etkinliği ödüllendirir.
-- Umut'un ürün sözleşmesi onayı alındı; merge ve post-merge `main` CI kanıtı bekleniyor.
+Doğrulama kanıtı:
+- PR #6 squash-merge SHA: `07e86e10913f72db76f464d335138dbe075add92`.
+- Post-merge `verify`: run `32650999541`, job `97222470608`, `completed/success`.
+- Post-merge `browser-e2e`: run `32650999535`, job `97222470754`, `completed/success`.
+- Post-merge `deploy-pages`: run `32650999553`, job `97222470891`, `completed/success`.
+- Üç çalışma da `main` üzerindeki aynı merge SHA'sına bağlıdır.
+- Bu statü M0 sözleşme kapısını doğrular; ürün production-ready değildir.
 
-## M1 · Mevcut kalite borcu — partially verified
+## M1 · Mevcut kalite borcu — verified baseline
 
-Implemented/tested:
+Implemented/tested/verified:
 - Course-first dikey dilim.
 - Unit/statik CI tabanı.
 - Chromium Playwright kalite kapısı: kritik navigasyon, quiz/not/ilerleme kalıcılığı, legacy migration, 404, reset, 320 px overflow, skip-link/focus ve reduced-motion.
+- `main` post-merge CI, browser ve Pages deployment aynı `07e86e10913f72db76f464d335138dbe075add92` SHA'sında başarılıdır.
 
-Açık doğrulama:
-- Güncel `main` CI sonucunun post-merge kanıtı.
-- GitHub Pages deployed SHA kanıtı ve canlı içerik imzası.
-- Testlerin ders kimliğinden bağımsız fixture yapısına hazırlanması.
+Sınır:
+- Testlerin ders kimliğinden bağımsız fixture yapısına geçişi M2 ile başlar.
+- Çoklu tarayıcı kapsamı M8 kapısıdır.
 
-Kabul kapısı:
-- Kritik rotalar `%100` geçer.
-- `320 px` yatay taşma `0`dır.
-- Klavye akışı ve reduced-motion işlev paritesi doğrulanır.
-- Canlı commit kesin olarak bilinir.
-
-## M2 · Kanonik katalog ve Atlas omurgası — planned
+## M2 · Kanonik katalog ve Atlas omurgası — implemented, CI verification pending
 
 İlk dikey dilim:
 - Institution, Program ve Curriculum varlıkları.
 - Tek yarıyıllık doğrulanabilir katalog fixture'ı.
-- EKO3101/EKO3103 bağlam ayrımı.
-- Source, SourceSnapshot ve Anomaly kayıtları.
-- Yeni kurum/program eklemek için navigasyon kodunun değiştirilmemesi.
+- EKO3101 çekirdek bağlamı ile conflicted EKO3103 fixture'ının ayrı dahili kimliklerde tutulması.
+- Source, SourceSnapshot ve açık Anomaly kayıtları.
+- Veri güdümlü program keşfi; yeni kurum/program için navigasyon mantığı değişmez.
+- Referential-integrity, duplicate-code, source-integrity, semester-range ve anomaly testleri.
 
 Genişleme teslimatları — ilk dikey dilim doğrulanmadan başlanmaz:
 - 8 yarıyıllık BUÜ Ekonometri katalog aktarımı.
@@ -58,10 +55,11 @@ Genişleme teslimatları — ilk dikey dilim doğrulanmadan başlanmaz:
 
 Kabul kapısı:
 - Yeni kurum/program eklemek navigasyon kodunu değiştirmez.
-- Her görünen kayıt kaynak ve doğrulama statüsü taşır.
+- Her görünür kayıt kaynak ve doğrulama statüsü taşır.
 - Aynı ders kodunun farklı bağlamları veri kaybı olmadan tutulur.
 - Duplicate-code, referential-integrity ve kaynak bütünlüğü testleri geçer.
 - Belirsiz kayıtlar verified gösterilmez.
+- PR CI ve browser kapıları `completed/success` olur.
 
 ## M3 · Bilgi mimarisi ve öğrenme şablonu — planned
 
