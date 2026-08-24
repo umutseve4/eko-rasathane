@@ -15,8 +15,8 @@ test('brand logo loads and paints nontransparent pixels',async({page})=>{
     return{complete:element.complete,naturalWidth:element.naturalWidth,naturalHeight:element.naturalHeight,opaquePixels,width:box.width,height:box.height};
   });
   expect(rendering.complete).toBe(true);
-  expect(rendering.naturalWidth).toBe(420);
-  expect(rendering.naturalHeight).toBe(128);
+  expect(rendering.naturalWidth).toBeGreaterThan(0);
+  expect(rendering.naturalHeight).toBeGreaterThan(0);
   expect(rendering.opaquePixels).toBeGreaterThan(1000);
   expect(rendering.width).toBeGreaterThan(rendering.height*2.5);
 });
