@@ -1,24 +1,13 @@
 import { test } from '@playwright/test';
-import { offerings, offeringSummary } from '../../offerings.mjs';
+import { offerings } from '../../offerings.mjs';
 
-test('REPORT_M2_MAPPING_DISTRIBUTION', () => {
-  const anomalies = offerings
-    .filter((offering) => offering.anomalyRefs.length > 0)
-    .map(({ id, printedCourseCode, sourceTitle, mappingStatus, anomalyRefs, mappingEvidence }) => ({
-      id,
-      printedCourseCode,
-      sourceTitle,
-      mappingStatus,
-      anomalyRefs,
-      reason: mappingEvidence.reason
-    }));
-  throw new Error(`M2_MAPPING_REPORT=${JSON.stringify({
-    counts: {
-      mapped: offeringSummary.mapped,
-      'mapped-with-anomaly': offeringSummary['mapped-with-anomaly'],
-      ambiguous: offeringSummary.ambiguous,
-      unmatched: offeringSummary.unmatched
-    },
-    anomalies
-  })}`);
-});
+const anomalies = offerings
+  .filter((offering) => offering.anomalyRefs.length > 0)
+  .map((offering) => [offering.id, offering.mappingStatus, offering.anomalyRefs, offering.mappingEvidence.reason]);
+
+for (let index = 0; index < anomalies.length; index += 4) {
+  const chunk = anomalies.slice(index, index + 4);
+  test(`M2_ANOMALY_CHUNK_${index / 4 + 1}`, () => {
+    throw new Error(`M2_ANOMALY_REPORT=${JSON.stringify(chunk)}`);
+  });
+}
