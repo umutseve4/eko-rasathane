@@ -1,0 +1,41 @@
+{
+  "offeringCount": 164,
+  "prefixes": [
+    {
+      "code": "CAL",
+      "count": 18
+    },
+    {
+      "code": "EKO",
+      "count": 64
+    },
+    {
+      "code": "IKT",
+      "count": 33
+    },
+    {
+      "code": "ISL",
+      "count": 21
+    },
+    {
+      "code": "KAM",
+      "count": 1
+    },
+    {
+      "code": "MLY",
+      "count": 16
+    },
+    {
+      "code": "TUD",
+      "count": 2
+    },
+    {
+      "code": "ULU",
+      "count": 3
+    },
+    {
+      "code": "YAD",
+      "count": 6
+    }
+  ]
+}
