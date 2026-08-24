@@ -1,0 +1,2 @@
+spring=https://uludag.edu.tr/dosyalar/iibf/2025-2026/BAHAR/PRGRM/2025-2026%20BAHAR%20DERS%20PROGRAMI-10_SUBAT.pdf
+fall=https://uludag.edu.tr/dosyalar/iibf/2025-2026/GZ/2025-2026%20G%C3%9CZ%20DERS%20PROGRAMI-%C4%B0%C4%B0BF-G%C3%9CNCEL-19.09.2025.pdf
