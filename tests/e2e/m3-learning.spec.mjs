@@ -24,8 +24,8 @@ test('öğrenme ekranı kanonik 8/8 sözleşmesini görünür kılar', async ({p
   await page.goto(`/${topicRoute}`);
   const study = page.locator('[data-learning-unit-id="matematiksel-araclar"]');
   await expect(study).toHaveAttribute('data-template-sections', '8');
-  for (const section of ['Öğrenme hedefi', 'Ön koşul', 'ANA FİKİR', 'ÇÖZÜMLÜ ÖRNEK', 'Görsel açıklama', '60 SANİYELİK KONTROL', 'HATA RADARI', 'Özet ve kaynak']) {
-    await expect(study.getByText(new RegExp(section, 'i')).first()).toBeVisible();
+  for (const section of ['ÖĞRENME HEDEFİ', 'ÖN KOŞUL', 'ANA FİKİR', 'ÇÖZÜMLÜ ÖRNEK', 'GÖRSEL AÇIKLAMA', '60 SANİYELİK KONTROL', 'HATA RADARI', 'ÖZET VE KAYNAK']) {
+    await expect(study.getByText(section, {exact:false}).first()).toBeVisible();
   }
   await expect(study.getByRole('link', {name:/BÜÜ TEMEL EKONOMETRİ I Ders Öğretim Planı/i})).toHaveAttribute('href', 'https://bilgipaketi.uludag.edu.tr/Ders/Index/1236601');
 });
