@@ -1,3 +1,4 @@
+# Trigger-only branch for the remote integration gate.
 name: apply-m2-remote
 
 on:
