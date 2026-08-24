@@ -1,0 +1,31 @@
+name: M2 evidence bootstrap
+on:
+  push:
+    branches: [feat/m2-operational-timetable]
+    paths: [.github/workflows/m2-bootstrap.yml]
+permissions:
+  contents: write
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/m2-operational-timetable
+      - name: Capture immutable official PDF text
+        run: |
+          set -euo pipefail
+          mkdir -p evidence/academic-offerings
+          curl --fail --location --retry 3 'https://uludag.edu.tr/dosyalar/iibf/2025-2026/BAHAR/PRGRM/2025-2026%20BAHAR%20DERS%20PROGRAMI-10_SUBAT.pdf' -o /tmp/spring.pdf
+          curl --fail --location --retry 3 'https://uludag.edu.tr/dosyalar/iibf/2025-2026/GZ/2025-2026%20G%C3%9CZ%20DERS%20PROGRAMI-%C4%B0%C4%B0BF-G%C3%9CNCEL-19.09.2025.pdf' -o /tmp/fall.pdf
+          pdftotext -layout -enc UTF-8 /tmp/spring.pdf evidence/academic-offerings/spring-2025-2026.raw.txt
+          pdftotext -layout -enc UTF-8 /tmp/fall.pdf evidence/academic-offerings/fall-2025-2026.raw.txt
+          sha256sum /tmp/spring.pdf /tmp/fall.pdf > evidence/academic-offerings/pdf-hashes.sha256
+          printf '%s\n' 'spring=https://uludag.edu.tr/dosyalar/iibf/2025-2026/BAHAR/PRGRM/2025-2026%20BAHAR%20DERS%20PROGRAMI-10_SUBAT.pdf' 'fall=https://uludag.edu.tr/dosyalar/iibf/2025-2026/GZ/2025-2026%20G%C3%9CZ%20DERS%20PROGRAMI-%C4%B0%C4%B0BF-G%C3%9CNCEL-19.09.2025.pdf' > evidence/academic-offerings/source-urls.txt
+      - name: Commit captured evidence
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add evidence/academic-offerings
+          git commit -m 'data: capture official timetable evidence'
+          git push origin HEAD:feat/m2-operational-timetable
