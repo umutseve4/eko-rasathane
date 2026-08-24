@@ -1,6 +1,16 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { offerings, filterOfferings, getDepartmentCode, getDepartmentCodes } from '../offerings.mjs';
+import { DEPARTMENT_OPTIONS, offerings, filterOfferings, getDepartmentCode, getDepartmentCodes, getDepartmentOptions } from '../offerings.mjs';
+
+const expected = [
+  { code: 'CAL', name: 'Çalışma Ekonomisi ve Endüstri İlişkileri', count: 18 },
+  { code: 'EKO', name: 'Ekonometri', count: 64 },
+  { code: 'IKT', name: 'İktisat', count: 33 },
+  { code: 'ISL', name: 'İşletme', count: 21 },
+  { code: 'MLY', name: 'Maliye', count: 16 },
+  { code: 'KAM', name: 'Siyaset Bilimi ve Kamu Yönetimi', count: 1 },
+  { code: 'ULU', name: 'Uluslararası İlişkiler', count: 3 }
+];
 
 test('department code is source-derived and normalized safely', () => {
   assert.equal(getDepartmentCode({ printedCourseCode: 'EKO1202' }), 'EKO');
@@ -11,26 +21,21 @@ test('department code is source-derived and normalized safely', () => {
   assert.equal(getDepartmentCode(null), '');
 });
 
-test('department options are unique and Turkish-locale sorted', () => {
-  assert.deepEqual(getDepartmentCodes([
-    { printedCourseCode: 'İKT1001' },
-    { printedCourseCode: 'EKO1202' },
-    { printedCourseCode: 'eko2201' },
-    { printedCourseCode: '' }
-  ]), ['EKO', 'İKT']);
-  const actual = getDepartmentCodes(offerings);
-  assert.ok(actual.length > 1);
-  assert.deepEqual(actual, [...new Set(actual)].sort((a,b) => a.localeCompare(b, 'tr-TR')));
-  assert.equal(offerings.every(item => actual.includes(getDepartmentCode(item))), true);
+test('selector exposes exactly seven verified departments with full Turkish names', () => {
+  assert.deepEqual(DEPARTMENT_OPTIONS, expected.map(({code,name})=>({code,name})));
+  assert.deepEqual(getDepartmentOptions(offerings), expected.map(({code,name})=>({code,name})));
+  assert.deepEqual(getDepartmentCodes(offerings), expected.map(({code})=>code));
+  const names=getDepartmentOptions(offerings).map(({name})=>name);
+  assert.deepEqual(names,[...names].sort((a,b)=>a.localeCompare(b,'tr-TR')));
+  assert.equal(getDepartmentCodes(offerings).includes('TUD'),false);
+  assert.equal(getDepartmentCodes(offerings).includes('YAD'),false);
 });
 
-test('department filter is exact, optional and conjunctive', () => {
-  const departments = getDepartmentCodes(offerings);
-  const selected = departments.at(-1);
-  const byDepartment = filterOfferings(offerings, { department: selected });
-  assert.ok(byDepartment.length > 0 && byDepartment.length < offerings.length);
-  assert.ok(byDepartment.every(item => getDepartmentCode(item) === selected));
-  assert.equal(filterOfferings(offerings, {}).length, offerings.length);
-  const term = byDepartment[0].term;
-  assert.ok(filterOfferings(offerings, { department: selected, term }).every(item => getDepartmentCode(item) === selected && item.term === term));
+test('department filtering stays exact while all source records remain intact', () => {
+  assert.equal(offerings.length,164);
+  for(const {code,count} of expected){const matches=filterOfferings(offerings,{department:code});assert.equal(matches.length,count);assert.ok(matches.every(item=>getDepartmentCode(item)===code))}
+  assert.equal(filterOfferings(offerings,{}).length,164);
+  assert.equal(filterOfferings(offerings,{department:'TUD'}).length,2);
+  assert.equal(filterOfferings(offerings,{department:'YAD'}).length,6);
+  assert.equal(offerings.every(item=>item.printedCourseCode&&item.sourceTitle),true);
 });

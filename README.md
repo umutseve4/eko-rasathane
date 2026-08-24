@@ -106,4 +106,6 @@ MIT
 
 ## Akademik program (M2)
 
-`#/program`, resmî 2025–2026 güz ve bahar programlarından çıkarılan 164 EKO kaydını (108 I. öğretim, 56 II. öğretim) gösterir. Basılı alanlar değiştirilmez; kanonik katalogla uzlaştırma sonucu her kayıtta açıkça saklanır. Program filtreleri, basılı ders kodunun başındaki kaynak-türevli bölüm kodunu da içerir; doğrulanmamış bölüm adları üretilmez.
+`#/program`, resmî 2025–2026 güz ve bahar programlarından çıkarılan `164` EKO kaydını (`108` I. öğretim, `56` II. öğretim) gösterir. Basılı alanlar değiştirilmez; kanonik katalogla uzlaştırma sonucu her kayıtta açıkça saklanır.
+
+Bölüm filtresi ham basılı ders kodunu kararlı değer olarak kullanır ve kullanıcıya doğrulanmış tam adları gösterir: Çalışma Ekonomisi ve Endüstri İlişkileri, Ekonometri, İktisat, İşletme, Maliye, Siyaset Bilimi ve Kamu Yönetimi ve Uluslararası İlişkiler. `TUD` ve `YAD` gerçek fakülte bölümü olarak doğrulanmadığı için yalnız seçici seçeneklerinden çıkarılır; ilgili `8` kaynak kaydı silinmez ve “Tümü” görünümünde korunur.

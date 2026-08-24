@@ -57,6 +57,22 @@ AyID=23 → AyID=33 tarihsel farkı exact structural row multiset yöntemiyle ü
 - `EKO2004`, `IKT3306` ve `EKO4305` aynı kodla farklı başlıklarda yayımlanmıştır; kayıtlar birleştirilmemiş ve `duplicate-code` anomalileriyle ilişkilendirilmiştir.
 - `EKO3310` için `PYHTON UYGULAMALARI`, `EKO4115` için `ÖNRAPORLAMA TEKNİKLERİ` ve `IKT3306` için `DOGAL KAYNAKLAR EKONOMİSİ` kaynak yazımları aynen korunmuş ve `typo-suspected` olarak işaretlenmiştir.
 
+## Bölüm seçici sözlüğü
+
+Bölüm adları [BUÜ İktisadi ve İdari Bilimler Fakültesi](https://uludag.edu.tr/iibf) bölüm envanteriyle, kodlar ise `2025-2026` ders programındaki basılı ders kodlarıyla eşleştirilir. Bu sözlük yalnız sunum katmanıdır; `printedCourseCode`, `sourceTitle` veya diğer kaynak alanlarını değiştirmez.
+
+| Ham kod | Gösterilen tam ad | Kayıt |
+|---|---|---:|
+| `CAL` | Çalışma Ekonomisi ve Endüstri İlişkileri | `18` |
+| `EKO` | Ekonometri | `64` |
+| `IKT` | İktisat | `33` |
+| `ISL` | İşletme | `21` |
+| `MLY` | Maliye | `16` |
+| `KAM` | Siyaset Bilimi ve Kamu Yönetimi | `1` |
+| `ULU` | Uluslararası İlişkiler | `3` |
+
+Basılı kod envanterindeki `TUD` (`2` kayıt) ve `YAD` (`6` kayıt) doğrulanmış fakülte bölümü değildir. Bu `8` kayıt yalnız bölüm seçicisinden çıkarılır; fixture'da ve “Tümü” görünümünde aynen kalır. Böylece seçici yalnız `7` doğrulanmış bölüm sunarken toplam `164` kayıt korunur.
+
 ## Tarihsel ve keşif kaynakları
 
 | Kaynak | Dönem | Durum |
