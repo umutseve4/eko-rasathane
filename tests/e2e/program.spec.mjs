@@ -32,6 +32,7 @@ test('program navigation decodes the authoritative fixture and renders provenanc
 
 test('department selector uses complete labels, raw values and exact filtering',async({page})=>{
   await page.goto(programRoute);const select=page.locator('select[name="department"]');
+  await expect(select).toBeVisible();
   const options=await select.locator('option').evaluateAll(nodes=>nodes.map(node=>[node.value,node.textContent]));
   expect(options).toEqual([['','Tümü'],...departments]);
   expect(options.flat()).not.toContain('TUD');expect(options.flat()).not.toContain('YAD');
@@ -61,10 +62,10 @@ test('legacy and stale department state safely fall back to all',async({page})=>
   expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('eko:timetable:v1')).department)).toBe('');
 });
 
-test('brand uses the refreshed accessible horizontal logo',async({page})=>{
+test('brand uses the enlarged accessible square logo',async({page})=>{
   await page.goto(programRoute);const brand=page.getByRole('link',{name:'EKO Rasathane ana sayfa'}),image=brand.locator('img');
   await expect(brand).toHaveCount(1);await expect(image).toBeVisible();await expect(image).toHaveAttribute('alt','');await expect(image).toHaveAttribute('src','./assets/eko-rasathane-logo.svg?v=a25cdf953c48');
-  const box=await image.boundingBox();expect(box.width).toBeGreaterThan(box.height*2.5);
+  const box=await image.boundingBox();expect(box.width).toBe(96);expect(box.height).toBe(96);
 });
 
 test('program route is strict and malformed variants stay not-found',async({page})=>{for(const hash of ['#/program/','#/program/foo','#/program%2Ffoo']){await page.goto(`/${hash}`);await expect(page.getByRole('heading',{level:1})).toHaveText('Bu kapı yok.');expect(page.url()).toContain(hash)}});

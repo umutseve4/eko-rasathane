@@ -1,1 +1,1 @@
-.brand{font:inherit;gap:0;min-width:0}.brand img{display:block;width:clamp(160px,18vw,200px);height:58px;max-width:100%;object-fit:contain;object-position:left center}@media(max-width:420px){.brand img{width:138px;height:42px}.header-actions{gap:.65rem}}
+.site-header{height:112px}.brand{font:inherit;gap:0;min-width:0}.brand img{display:block;width:96px;height:96px;max-width:100%;object-fit:contain;object-position:left center}@media(max-width:420px){.site-header{height:86px}.brand img{width:68px;height:68px}.header-actions{gap:.65rem}}
