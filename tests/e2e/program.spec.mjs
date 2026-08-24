@@ -63,7 +63,7 @@ test('legacy and stale department state safely fall back to all',async({page})=>
 
 test('brand uses the refreshed accessible horizontal logo',async({page})=>{
   await page.goto(programRoute);const brand=page.getByRole('link',{name:'EKO Rasathane ana sayfa'}),image=brand.locator('img');
-  await expect(brand).toHaveCount(1);await expect(image).toBeVisible();await expect(image).toHaveAttribute('alt','');await expect(image).toHaveAttribute('src','./assets/eko-rasathane-logo.svg');
+  await expect(brand).toHaveCount(1);await expect(image).toBeVisible();await expect(image).toHaveAttribute('alt','');await expect(image).toHaveAttribute('src','./assets/eko-rasathane-logo.svg?v=a25cdf953c48');
   const box=await image.boundingBox();expect(box.width).toBeGreaterThan(box.height*2.5);
 });
 
