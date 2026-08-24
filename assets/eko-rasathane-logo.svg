@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 260">
+  <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="10" d="m27 65 93-39 93 39-93 39z"/>
+    <path stroke-width="9" d="M55 82v43c17 17 39 25 65 25s48-8 65-25V82"/>
+    <path stroke-width="7" d="M213 66v54"/>
+    <circle cx="213" cy="131" r="7" fill="#fff" stroke="none"/>
+    <path stroke-width="8" d="M38 150c31-10 58-5 82 14 24-19 51-24 82-14v55c-31-10-58-5-82 14-24-19-51-24-82-14zM120 164v55"/>
+  </g>
+  <path fill="#ff746d" d="m195 18 6 14 14 6-14 6-6 14-6-14-14-6 14-6z"/>
+  <text x="120" y="238" fill="#fff" font-family="Manrope,Arial,sans-serif" font-size="32" font-weight="800" text-anchor="middle">EKO</text>
+  <text x="120" y="258" fill="#ff746d" font-family="DM Sans,Arial,sans-serif" font-size="19" font-weight="700" text-anchor="middle">Rasathane</text>
+</svg>
