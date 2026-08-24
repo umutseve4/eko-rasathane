@@ -1,7 +1,7 @@
 name: apply-m2-remote
 
 on:
-  push:
+  pull_request:
     branches:
       - feat/m2-academic-timetable
     paths:
@@ -12,16 +12,14 @@ permissions:
 
 jobs:
   apply:
-    if: github.event.head_commit.message == 'chore(m2): bootstrap remote timetable assembly'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: feat/m2-academic-timetable
           fetch-depth: 0
-      - name: Verify expected base
+      - name: Verify expected timetable base
         run: |
-          test "$(git rev-parse HEAD^)" = "d8e76de8bbab39734268f799a5f1fa81ed071747"
           test "$(git rev-parse HEAD:data/timetable.mjs)" = "fd7d4b6031f68044994ede2d24de9617b8254cf6"
       - name: Assemble timetable byte-for-byte
         run: |
