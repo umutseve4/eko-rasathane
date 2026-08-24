@@ -1,0 +1,21 @@
+import {topicById} from './data/catalog.mjs';
+
+const courseId='temel-ekonometri-1';
+const officialSource={label:'BÜÜ TEMEL EKONOMETRİ I Ders Öğretim Planı',url:'https://bilgipaketi.uludag.edu.tr/Ders/Index/1236601'};
+const supplements={
+ 'matematiksel-araclar':{objective:'Toplam ve ortalama gösterimini okuyup küçük bir veri kümesine uygulayabilmek.',prerequisiteIds:[],visualExplanation:'Sayı doğrusu üzerinde her gözlemi işaretle; denge noktası ortalamayı, noktaların toplam uzaklığı ise yayılım fikrini görünür kılar.',recap:'Toplam gözlemleri birleştirir; ortalama toplamı gözlem sayısına böler. Merkez ile değişkenlik aynı şey değildir.'},
+ 'modelleme-kavramlari':{objective:'Gerçek bir ekonomik soruyu değişken, mekanizma ve hata terimiyle sınırlandırılmış bir modele çevirebilmek.',prerequisiteIds:['matematiksel-araclar'],visualExplanation:'Gerçek dünya kutusundan modele üç ok çiz: gözlenen X, açıklanan Y ve model dışında kalanları taşıyan u. Model yalnız seçilmiş ilişkileri içerir.',recap:'Model gerçekliğin kopyası değil, soruya göre sınanabilir bir sadeleştirmedir.'},
+ 'temel-ekonomik-modeller':{objective:'Basit doğrusal modelde bağımlı değişkeni, açıklayıcı değişkeni ve eğim parametresini yorumlayabilmek.',prerequisiteIds:['modelleme-kavramlari'],visualExplanation:'Koordinat düzleminde X yatay, Y dikey eksendedir. β₁ çizginin eğimini; uᵢ noktanın çizgiye dikey uzaklığını temsil eder.',recap:'β₁, X bir birim değiştiğinde Y’nin beklenen değişimini ifade eder; tek başına nedensellik kanıtı değildir.'},
+ 'nokta-aralik-tahmini':{objective:'Nokta tahmini ile güven aralığının farklı bilgi taşıdığını açıklayabilmek.',prerequisiteIds:['temel-ekonomik-modeller'],visualExplanation:'Bir sayı doğrusu üzerinde β̂ noktasını ve iki yanında hata payı kadar uzanan aralığı göster. Nokta merkez, çizgi belirsizliktir.',recap:'Nokta tahmini merkez bilgisini; aralık tahmini belirsizliği ve hassasiyeti birlikte gösterir.'},
+ 'tahmin-edici-ozellikleri':{objective:'Bir tahmin ediciyi sapmasızlık, tutarlılık ve etkinlik ölçütleriyle sorgulayabilmek.',prerequisiteIds:['nokta-aralik-tahmini'],visualExplanation:'Aynı örnekleme sürecini çok kez düşün: tahminlerin dağılımının merkezi gerçek β’da ise sapmasızlık, dağılım dar ise daha yüksek etkinlik vardır.',recap:'Tahmin edici kalitesi tek bir sonuçla değil, tekrarlı örneklemelerdeki davranışla değerlendirilir.'},
+ 'hipotez-testleri':{objective:'Bir test istatistiğini sıfır hipotezi altındaki uyumsuzluk ölçüsü olarak yorumlayabilmek.',prerequisiteIds:['tahmin-edici-ozellikleri'],visualExplanation:'H₀ dağılımında merkezi 0 kabul et; gözlenen t değerini kuyruğa yerleştir. Kuyrukta daha uç bölge, H₀ ile daha güçlü uyumsuzluk demektir.',recap:'Hipotez testi verinin H₀ ile uyumunu ölçer; p-değeri H₀’ın doğru olma olasılığı değildir.'},
+ 'guven-araliklari':{objective:'Güven aralığını yön, büyüklük ve hassasiyet bilgileriyle birlikte raporlayabilmek.',prerequisiteIds:['hipotez-testleri'],visualExplanation:'Sıfırı işaretleyen dikey çizgi ile tahmin aralığını karşılaştır. Aralık sıfırı kesmiyorsa ilgili iki taraflı testte reddetme ile uyumludur.',recap:'Güven aralığı makul parametre değerlerini ve tahminin hassasiyetini birlikte sunar; tek bir özel aralığa olasılık yüklemez.'}
+};
+
+export const learningUnits=Object.entries(supplements).map(([topicId,item],index)=>{
+ const topic=topicById(topicId);
+ return {id:topicId,topicId,conceptId:topicId,relatedCourseIds:[courseId],sourceRefs:[officialSource],order:index+1,...item,narrative:topic.summary,workedExample:topic.example,checkQuestion:topic.q,misconception:topic.mistake};
+});
+export const concepts=learningUnits.map(unit=>({id:unit.conceptId,unitId:unit.id,title:{'matematiksel-araclar':'Betimsel istatistik ve matematiksel araçlar','modelleme-kavramlari':'Modelleme kavramları','temel-ekonomik-modeller':'Basit regresyona geçiş','nokta-aralik-tahmini':'Tahmin ve belirsizlik','tahmin-edici-ozellikleri':'Tahmin edici kalitesi','hipotez-testleri':'Olasılık ve çıkarım','guven-araliklari':'Güven aralıkları'}[unit.id],prerequisiteIds:unit.prerequisiteIds,order:unit.order}));
+export const learningUnitById=id=>learningUnits.find(item=>item.id===id);
+export const conceptById=id=>concepts.find(item=>item.id===id);
