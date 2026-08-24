@@ -1,8 +1,8 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {parseRoute,coursesForGrade,courseProgress,validateCatalog,migrateState} from '../core.mjs';
 import {grades,courses,topics} from '../data/catalog.mjs';
-test('hash routes are parsed',()=>{assert.deepEqual(parseRoute('#/'),{name:'home'});assert.deepEqual(parseRoute('#/sinif/3'),{name:'grade',gradeId:'3'});assert.equal(parseRoute('#/ders/temel-ekonometri-1').name,'course');assert.equal(parseRoute('#/ders/temel-ekonometri-1/konu/hipotez-testleri').name,'topic')});
-test('invalid and non-canonical routes are rejected',()=>{for(const route of ['#/sinif/9','#/sinif/3/fazla','#/ders/x/fazla','#/ders/%E0%A4%A','#/sinif//3','#/ders/course/','#/ders//course','#sinif/3'])assert.equal(parseRoute(route).name,'notFound')});
+test('hash routes are parsed',()=>{assert.deepEqual(parseRoute('#/'),{name:'home'});assert.deepEqual(parseRoute('#/program'),{name:'program'});assert.deepEqual(parseRoute('#/sinif/3'),{name:'grade',gradeId:'3'});assert.equal(parseRoute('#/ders/temel-ekonometri-1').name,'course');assert.equal(parseRoute('#/ders/temel-ekonometri-1/konu/hipotez-testleri').name,'topic')});
+test('invalid and non-canonical routes are rejected',()=>{for(const route of ['#/program/','#/program/foo','#/program%2Ffoo','#/sinif/9','#/sinif/3/fazla','#/ders/x/fazla','#/ders/%E0%A4%A','#/sinif//3','#/ders/course/','#/ders//course','#sinif/3'])assert.equal(parseRoute(route).name,'notFound')});
 test('grade filter is deterministic',()=>assert.deepEqual(coursesForGrade(courses,'3').map(x=>x.id),['temel-ekonometri-1']));
 test('progress is clamped to course topics',()=>assert.equal(courseProgress(['a','b','c'],['a','c','outside']),67));
 test('catalog references and invariants are valid',()=>assert.deepEqual(validateCatalog({grades,courses,topics}),[]));

@@ -12,6 +12,7 @@ export function parseRoute(hash=''){
  if(!raw||raw.includes('//')||raw.endsWith('/'))return {name:'notFound'};
  let p;
  try{p=raw.split('/').map(decodeURIComponent)}catch{return {name:'notFound'}}
+ if(p.length===1&&p[0]==='program')return {name:'program'};
  if(p.length===2&&p[0]==='sinif'&&/^[1-4]$/.test(p[1]))return {name:'grade',gradeId:p[1]};
  if(p.length===4&&p[0]==='ders'&&p[1]&&p[2]==='konu'&&p[3])return {name:'topic',courseId:p[1],topicId:p[3]};
  if(p.length===2&&p[0]==='ders'&&p[1])return {name:'course',courseId:p[1]};

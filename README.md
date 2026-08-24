@@ -103,3 +103,8 @@ npm run verify
 ## Lisans
 
 MIT
+
+
+## Akademik program (M2)
+
+`#/program`, resmî 2025–2026 güz ve bahar programlarından çıkarılan 164 EKO kaydını (108 I. öğretim, 56 II. öğretim) gösterir. Basılı alanlar değiştirilmez; kanonik katalogla uzlaştırma sonucu her kayıtta açıkça saklanır.
