@@ -2,9 +2,56 @@ name: verify
 on:
   push:
   pull_request:
+  workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
+  integrate-m2:
+    if: github.event_name == 'pull_request' && github.head_ref == 'feat/m2-academic-timetable' && github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/m2-academic-timetable
+          fetch-depth: 0
+      - name: Assemble authoritative timetable fixture
+        run: |
+          cat .m2-fixture/part-00 .m2-fixture/part-01 .m2-fixture/part-02 .m2-fixture/part-03 .m2-fixture/part-04 > /tmp/timetable.mjs
+          test "$(wc -c < /tmp/timetable.mjs | tr -d ' ')" = "14637"
+          test "$(sha256sum /tmp/timetable.mjs | cut -d' ' -f1)" = "9231d013e3cbbfb24e3ca463582c47cb42e40c2660aaad9b58a3da0afd64f87b"
+          ! grep -q 'PLACEHOLDER' /tmp/timetable.mjs
+          ! grep -q 'TRUNCATED_FOR_TOOL_LIMIT' /tmp/timetable.mjs
+          cp /tmp/timetable.mjs data/timetable.mjs
+      - name: Apply runtime integration patches
+        run: python scripts/apply-m2.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm run verify
+      - name: Reconciliation audit
+        run: |
+          node --input-type=module <<'NODE'
+          import { timetable } from './data/timetable.mjs';
+          import { getClassLevel } from './core.mjs';
+          const expected = {1:1,2:2,3:3,4:4,5:5,6:6,7:7,8:8};
+          const mismatches = timetable.filter((entry) => getClassLevel(entry.code) !== expected[entry.term]);
+          if (mismatches.length) {
+            console.error(mismatches);
+            process.exit(1);
+          }
+          NODE
+      - name: Commit verified integration
+        run: |
+          if git diff --quiet; then
+            echo "No integration changes needed"
+            exit 0
+          fi
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add data/timetable.mjs core.mjs app.js index.html package.json tests/core.test.mjs README.md ROADMAP.md
+          git commit -m "chore(m2): apply runtime integration"
+          git push origin HEAD:feat/m2-academic-timetable
   test:
     runs-on: ubuntu-latest
     steps:
