@@ -15,20 +15,22 @@ test('brand logo loads and enlarges its painted footprint inside the clipping bo
     const pixels=context.getImageData(0,0,canvas.width,canvas.height).data;
     let meaningfulPixels=0;for(let index=3;index<pixels.length;index+=4)if(pixels[index]>8)meaningfulPixels+=1;
     const box=element.getBoundingClientRect();
-    const style=getComputedStyle(element);
     const clip=element.parentElement.getBoundingClientRect();
-    return{complete:element.complete,naturalWidth:element.naturalWidth,naturalHeight:element.naturalHeight,meaningfulPixels,width:box.width,height:box.height,clipWidth:clip.width,clipHeight:clip.height,overflow:getComputedStyle(element.parentElement).overflow,transform:style.transform};
+    const brandStyle=getComputedStyle(element.parentElement);
+    return{complete:element.complete,naturalWidth:element.naturalWidth,naturalHeight:element.naturalHeight,meaningfulPixels,width:box.width,height:box.height,clipWidth:clip.width,clipHeight:clip.height,overflow:brandStyle.overflow,backgroundSize:brandStyle.backgroundSize,backgroundPosition:brandStyle.backgroundPosition,backgroundImage:brandStyle.backgroundImage};
   });
   expect(rendering.complete).toBe(true);
   expect(rendering.naturalWidth).toBe(128);
   expect(rendering.naturalHeight).toBe(128);
   expect(rendering.meaningfulPixels).toBeGreaterThan(1000);
-  expect(rendering.width).toBeCloseTo(182.4,1);
-  expect(rendering.height).toBeCloseTo(182.4,1);
+  expect(rendering.width).toBe(96);
+  expect(rendering.height).toBe(96);
   expect(rendering.clipWidth).toBe(96);
   expect(rendering.clipHeight).toBe(96);
   expect(rendering.overflow).toBe('hidden');
-  expect(rendering.transform).not.toBe('none');
+  expect(rendering.backgroundSize).toBe('190% 190%');
+  expect(rendering.backgroundPosition).toBe('50% 44.6%');
+  expect(rendering.backgroundImage).toContain('eko-rasathane-logo.svg');
 });
 
 test('enlarged painted logo remains usable without overlap or horizontal overflow at 320px',async({page})=>{
@@ -39,13 +41,15 @@ test('enlarged painted logo remains usable without overlap or horizontal overflo
     const logo=document.querySelector('.brand img').getBoundingClientRect();
     const actions=document.querySelector('.header-actions').getBoundingClientRect();
     const header=document.querySelector('.site-header').getBoundingClientRect();
-    return{brand:{left:brand.left,right:brand.right,width:brand.width,height:brand.height},logo:{width:logo.width,height:logo.height},actions:{left:actions.left,right:actions.right},headerHeight:header.height,scrollWidth:document.documentElement.scrollWidth,viewport:window.innerWidth};
+    const style=getComputedStyle(document.querySelector('.brand'));
+    return{brand:{left:brand.left,right:brand.right,width:brand.width,height:brand.height},logo:{width:logo.width,height:logo.height},actions:{left:actions.left,right:actions.right},headerHeight:header.height,backgroundSize:style.backgroundSize,scrollWidth:document.documentElement.scrollWidth,viewport:window.innerWidth};
   });
   expect(layout.brand.width).toBe(68);
   expect(layout.brand.height).toBe(68);
-  expect(layout.logo.width).toBeCloseTo(129.2,1);
-  expect(layout.logo.height).toBeCloseTo(129.2,1);
+  expect(layout.logo.width).toBe(68);
+  expect(layout.logo.height).toBe(68);
   expect(layout.headerHeight).toBe(86);
+  expect(layout.backgroundSize).toBe('190% 190%');
   expect(layout.brand.right).toBeLessThanOrEqual(layout.actions.left);
   expect(layout.actions.right).toBeLessThanOrEqual(layout.viewport);
   expect(layout.scrollWidth).toBeLessThanOrEqual(layout.viewport);
