@@ -69,7 +69,7 @@ Kabul kapısı:
 - Belirsiz kayıtlar verified gösterilmez.
 - PR CI ve browser kapıları `completed/success` olur.
 
-## M3 · Bilgi mimarisi ve öğrenme şablonu — planned
+## M3 · Bilgi mimarisi ve öğrenme şablonu — verified / deployed; production-ready blocked
 
 Akışlar:
 - Program → sınıf → dönem → ders → konu → çalışma adımı.
@@ -85,10 +85,31 @@ Her öğrenme birimi:
 - yaygın yanılgı,
 - özet ve kaynak.
 
+Implemented/tested/verified/deployed:
+- `#/atlas` ve `#/atlas/kavram/:conceptId` rotaları ilk `7` kavramlık Atlas dilimi için çalışır.
+- Program ve Atlas yolları aynı kanonik öğrenme birimine bağlanır.
+- İlk `7` konu görünür `8/8` öğrenme şablonunu taşır.
+- Ana sayfa Atlas girişi ve son çalışılan konu kısayolu sağlanır.
+- `eko:m3:v1` durumu, legacy `eko:last-topic` migration'ı ve reset temizliği uygulanmıştır.
+- Route parser, referential integrity, ön koşul döngüsü, migration, 404/focus ve `320 px` overflow otomatik kapıları bulunur.
+
+Doğrulama kanıtı:
+- PR #26 squash-merge SHA: `a02c711721f8d11be5064e701c854ab34ba01714`.
+- Post-merge `deploy-pages`: run `32731750903`, job `97445289502`, `completed/success`.
+- Post-merge `verify`: run `32731750914`, job `97445289508`, `completed/success`.
+- Post-merge `browser-e2e`: run `32731750961`, job `97445289791`, `completed/success`.
+- Üç çalışma da `main` üzerindeki exact merge SHA `a02c711721f8d11be5064e701c854ab34ba01714` için başarılıdır.
+- Canlı hedef: `https://umutseve4.github.io/eko-rasathane/`.
+
 Kabul kapısı:
-- Ana sayfadan hedef konuya en fazla `3` anlamlı etkileşim.
-- Son çalışılan konuya en fazla `2` etkileşim.
-- `5` kişilik görev testinde ders/kavram bulma başarısı en az `%80`.
+- [x] Ana sayfadan hedef konuya en fazla `3` anlamlı etkileşim — browser E2E ile doğrulandı.
+- [x] Son çalışılan konuya en fazla `2` etkileşim — browser E2E akışında `1` etkileşimle doğrulandı.
+- [ ] `5` gerçek katılımcının en az `4`'ü ders/kavram bulma görevini tamamlar (`%80`).
+
+Sınır:
+- İlk `7` kavram, uzun vadeli `Veriden Modele` Atlas vizyonunun tamamı değildir.
+- Otomatik kapılar verified, exact commit deployed durumundadır.
+- Gerçek katılımcı kapısı tamamlanmadığı için M3 ve ürün production-ready değildir.
 
 ## M4 · Tasarım sistemi — planned
 
