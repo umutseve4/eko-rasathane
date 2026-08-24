@@ -37,6 +37,8 @@ Program and Atlas remain available, but they are supporting routes rather than u
 
 ## Verification evidence
 
+### Product Reset implementation
+
 PR: [#28](https://github.com/umutseve4/eko-rasathane/pull/28)
 
 Application head reviewed by independent QA:
@@ -47,8 +49,32 @@ Application head reviewed by independent QA:
 - Test run/job: `32738343750` / `97466517435` — `completed/success`
 - Exact-head checks: `3/3 success`
 - Independent source-aware QA: `PASS-WITH-NOTES`; no code-merge blocker.
+- Squash-merge SHA: `d272353171c2b0ece2345c151b56b7160d6b334c`.
 
-The documentation commit that adds this record must receive its own PR-head checks. After merge, Verify, Browser E2E, and Pages must be tied to the exact merge SHA before the milestone can be called deployed.
+The Product Reset code merge passed its exact-SHA Test and Browser checks. Its Pages check failed after deployment because the workflow still searched the downloaded static HTML for the obsolete course-first phrase `Ders rotan burada`. This was a stale verification contract, not a demonstrated application or artifact failure.
+
+### Pages verification recovery
+
+Recovery PR: [#29](https://github.com/umutseve4/eko-rasathane/pull/29)
+
+- Recovery branch: `fix/product-reset-pages-verification`
+- Recovery head: `3dc3c65035866ac27470df3c832681331702649b`
+- Added deterministic static marker: `<meta name="eko-release" content="product-reset-v1">`
+- Replaced the obsolete visible-text check with a fixed-string raw-HTML marker check.
+- Exact recovery-head checks: `3/3 completed/success`.
+- Independent focused QA: `PASS-WITH-NOTES`; no code-merge blocker.
+- Squash-merge SHA: `cdbc692dca99669c4e522fe071803b9975e176e3`.
+
+Exact recovery merge-SHA checks:
+
+- Deploy check/job `97472882410` — `completed/success`
+- Test check/job `97472881531` — `completed/success`
+- Browser check/job `97472881392` — `completed/success`
+- GitHub Pages deployment ID: `6065023233`
+
+Live target: <https://umutseve4.github.io/eko-rasathane/>
+
+A cache-busted live retrieval showed the Product Reset title, promise, all three entry paths, and the sample-journey CTA. The successful exact-SHA Deploy job also passed the live raw-HTML release-marker gate.
 
 ## Non-blocking follow-ups
 
@@ -60,12 +86,11 @@ The documentation commit that adds this record must receive its own PR-head chec
 
 | Gate | Status |
 |---|---|
-| Product Reset implementation | Implemented |
-| Exact application-head automated checks | Verified |
+| Product Reset implementation | Verified |
 | Independent code QA | Verified (`PASS-WITH-NOTES`) |
-| Documentation-head CI | Pending |
-| Exact merge-SHA CI | Pending |
-| Exact merge-SHA Pages deployment | Pending |
+| Exact recovery merge-SHA CI | Verified (`3/3 completed/success`) |
+| Exact recovery merge-SHA Pages deployment | Deployed |
+| Live Product Reset homepage | Verified |
 | Umut live product acceptance | Pending |
 | Revised anonymous usability test | Frozen until Umut accepts the live experience |
 | Production-ready | No |
