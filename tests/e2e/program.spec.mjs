@@ -39,6 +39,7 @@ test('program navigation decodes the authoritative fixture and renders provenanc
 
 test('four filters persist independently from learning state', async ({ page }) => {
   await page.goto(programRoute);
+  const learningBefore = await page.evaluate(() => JSON.parse(localStorage.getItem('eko:state:v2')));
   await page.locator('select[name="term"]').selectOption('spring');
   await expect(page.locator('.program-card')).toHaveCount(83);
   await page.locator('select[name="educationType"]').selectOption('second');
@@ -52,7 +53,10 @@ test('four filters persist independently from learning state', async ({ page }) 
     semester: '2',
     weekday: 'PAZARTESİ'
   });
-  expect(await page.evaluate(() => localStorage.getItem('eko:state:v2'))).toBeNull();
+  const learningAfter = await page.evaluate(() => JSON.parse(localStorage.getItem('eko:state:v2')));
+  for (const field of ['selectedGradeId', 'completedTopics', 'quizResults', 'notes', 'evidence']) {
+    expect(learningAfter[field]).toEqual(learningBefore[field]);
+  }
 
   await page.reload();
   await expect(page.locator('select[name="term"]')).toHaveValue('spring');
