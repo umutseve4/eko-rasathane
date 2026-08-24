@@ -1,6 +1,18 @@
 import { test, expect } from '@playwright/test';
 
-test('brand logo loads and enlarges its painted footprint inside the clipping box',async({page})=>{
+function expectMeaningfulPaintInsideClip(rendering,clipSize){
+  const backgroundSize=clipSize*1.9;
+  const scale=backgroundSize/rendering.naturalWidth;
+  const offsetX=(clipSize-backgroundSize)*0.5;
+  const offsetY=(clipSize-backgroundSize)*0.446;
+  const projected={left:offsetX+rendering.minX*scale,top:offsetY+rendering.minY*scale,right:offsetX+(rendering.maxX+1)*scale,bottom:offsetY+(rendering.maxY+1)*scale};
+  expect(projected.left).toBeGreaterThanOrEqual(0);
+  expect(projected.top).toBeGreaterThanOrEqual(0);
+  expect(projected.right).toBeLessThanOrEqual(clipSize);
+  expect(projected.bottom).toBeLessThanOrEqual(clipSize);
+}
+
+test('brand logo loads and enlarges its complete meaningful painted footprint inside the clipping box',async({page})=>{
   await page.goto('/#/program');
   const brand=page.getByRole('link',{name:'EKO Rasathane ana sayfa'});
   const image=brand.locator('img');
@@ -13,16 +25,18 @@ test('brand logo loads and enlarges its painted footprint inside the clipping bo
     const canvas=document.createElement('canvas');canvas.width=element.naturalWidth;canvas.height=element.naturalHeight;
     const context=canvas.getContext('2d');context.drawImage(element,0,0);
     const pixels=context.getImageData(0,0,canvas.width,canvas.height).data;
-    let meaningfulPixels=0;for(let index=3;index<pixels.length;index+=4)if(pixels[index]>8)meaningfulPixels+=1;
+    let meaningfulPixels=0,minX=canvas.width,minY=canvas.height,maxX=-1,maxY=-1;
+    for(let y=0;y<canvas.height;y+=1)for(let x=0;x<canvas.width;x+=1){const alpha=pixels[(y*canvas.width+x)*4+3];if(alpha>8){meaningfulPixels+=1;minX=Math.min(minX,x);minY=Math.min(minY,y);maxX=Math.max(maxX,x);maxY=Math.max(maxY,y)}}
     const box=element.getBoundingClientRect();
     const clip=element.parentElement.getBoundingClientRect();
     const brandStyle=getComputedStyle(element.parentElement);
-    return{complete:element.complete,naturalWidth:element.naturalWidth,naturalHeight:element.naturalHeight,meaningfulPixels,width:box.width,height:box.height,clipWidth:clip.width,clipHeight:clip.height,overflow:brandStyle.overflow,backgroundSize:brandStyle.backgroundSize,backgroundPosition:brandStyle.backgroundPosition,backgroundImage:brandStyle.backgroundImage};
+    return{complete:element.complete,naturalWidth:element.naturalWidth,naturalHeight:element.naturalHeight,meaningfulPixels,minX,minY,maxX,maxY,width:box.width,height:box.height,clipWidth:clip.width,clipHeight:clip.height,overflow:brandStyle.overflow,backgroundSize:brandStyle.backgroundSize,backgroundPosition:brandStyle.backgroundPosition,backgroundImage:brandStyle.backgroundImage};
   });
   expect(rendering.complete).toBe(true);
   expect(rendering.naturalWidth).toBe(128);
   expect(rendering.naturalHeight).toBe(128);
   expect(rendering.meaningfulPixels).toBeGreaterThan(1000);
+  expect(rendering).toMatchObject({minX:35,minY:29,maxX:93,maxY:93});
   expect(rendering.width).toBe(96);
   expect(rendering.height).toBe(96);
   expect(rendering.clipWidth).toBe(96);
@@ -31,6 +45,8 @@ test('brand logo loads and enlarges its painted footprint inside the clipping bo
   expect(rendering.backgroundSize).toBe('190% 190%');
   expect(rendering.backgroundPosition).toBe('50% 44.6%');
   expect(rendering.backgroundImage).toContain('eko-rasathane-logo.svg');
+  expectMeaningfulPaintInsideClip(rendering,96);
+  expectMeaningfulPaintInsideClip(rendering,68);
 });
 
 test('enlarged painted logo remains usable without overlap or horizontal overflow at 320px',async({page})=>{
