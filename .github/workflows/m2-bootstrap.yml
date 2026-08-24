@@ -12,16 +12,22 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: feat/m2-operational-timetable
+      - name: Install PDF extraction dependency
+        run: sudo apt-get update && sudo apt-get install --yes poppler-utils
       - name: Capture immutable official PDF text
+        env:
+          SPRING_URL: https://uludag.edu.tr/dosyalar/iibf/2025-2026/BAHAR/PRGRM/2025-2026%20BAHAR%20DERS%20PROGRAMI-10_SUBAT.pdf
+          FALL_URL: https://uludag.edu.tr/dosyalar/iibf/2025-2026/GZ/2025-2026%20G%C3%9CZ%20DERS%20PROGRAMI-%C4%B0%C4%B0BF-G%C3%9CNCEL-19.09.2025.pdf
         run: |
           set -euo pipefail
           mkdir -p evidence/academic-offerings
-          curl --fail --location --retry 3 'https://uludag.edu.tr/dosyalar/iibf/2025-2026/BAHAR/PRGRM/2025-2026%20BAHAR%20DERS%20PROGRAMI-10_SUBAT.pdf' -o /tmp/spring.pdf
-          curl --fail --location --retry 3 'https://uludag.edu.tr/dosyalar/iibf/2025-2026/GZ/2025-2026%20G%C3%9CZ%20DERS%20PROGRAMI-%C4%B0%C4%B0BF-G%C3%9CNCEL-19.09.2025.pdf' -o /tmp/fall.pdf
+          curl --http1.1 --fail --location --retry 3 --user-agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/131 Safari/537.36' --referer 'https://uludag.edu.tr/iibf' "$SPRING_URL" -o /tmp/spring.pdf
+          curl --http1.1 --fail --location --retry 3 --user-agent 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/131 Safari/537.36' --referer 'https://uludag.edu.tr/iibf' "$FALL_URL" -o /tmp/fall.pdf
+          file /tmp/spring.pdf /tmp/fall.pdf
           pdftotext -layout -enc UTF-8 /tmp/spring.pdf evidence/academic-offerings/spring-2025-2026.raw.txt
           pdftotext -layout -enc UTF-8 /tmp/fall.pdf evidence/academic-offerings/fall-2025-2026.raw.txt
           sha256sum /tmp/spring.pdf /tmp/fall.pdf > evidence/academic-offerings/pdf-hashes.sha256
-          printf '%s\n' 'spring=https://uludag.edu.tr/dosyalar/iibf/2025-2026/BAHAR/PRGRM/2025-2026%20BAHAR%20DERS%20PROGRAMI-10_SUBAT.pdf' 'fall=https://uludag.edu.tr/dosyalar/iibf/2025-2026/GZ/2025-2026%20G%C3%9CZ%20DERS%20PROGRAMI-%C4%B0%C4%B0BF-G%C3%9CNCEL-19.09.2025.pdf' > evidence/academic-offerings/source-urls.txt
+          printf 'spring=%s\nfall=%s\n' "$SPRING_URL" "$FALL_URL" > evidence/academic-offerings/source-urls.txt
       - name: Commit captured evidence
         run: |
           git config user.name 'github-actions[bot]'
