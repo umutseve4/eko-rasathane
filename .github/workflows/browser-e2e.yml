@@ -1,7 +1,7 @@
 name: browser-e2e
 on:
   push:
-    branches: [main]
+    branches: [main, evidence/live-logo-production]
   pull_request:
 permissions:
   contents: read
