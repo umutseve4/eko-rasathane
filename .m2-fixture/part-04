@@ -1,0 +1,13 @@
+pt7TYOEBLq5/dbIV0/xYXC9vm409Jw4sNrRZXhd64XKrX8sYJbcAMAW+U5VZ57U14Gc3ZmfPzLLzirJ6pcHyQmPt+NB5dDRafzxefu/Q/Pbm66l5LVVSzYt6xCu9YLrtgFgwNKtX5ajnv5j3ISXirvKqtumXBLUSnD27xroycLP6i0I5Ra0p5C2ffPZmH72Gstwvdnwpps4mYYaLCMJFg2NpcHRHrKDHZrlqrqhZDbVYMKvou9RZ/DxPTlU/O7kashYhGIu1cadauElRxMUxl17mFzZ1A3dZREtBx52VvxMgqtrZWUEFrYt8IqXB1MSyui2GVuhiWqosBoqqhPIYhy2Pc0UG1aPKRTaLZD5QKKTG+xyqcUAGYZMDiqhhWqYphmapYMi4oaQVcqWaNYkkaLOWNpgdRaEkpgNbDDppLyCNeXAbDKmUwLFUG0w6mlqPd/drtZXFo9IzElnSkD2kxxYUvrFL4wu7zLSaLiSTTWLk4XovN9L56m1kdm5BWU1znwip1LuztYDV3gVOL3YQsb1nFHdSX6wsMUC2CevNLFVydouoRM6pS1sIyZS2L11a9URLDVTq7pPnqlEVAa1nfCKiAsTsRl7CISgmLSJWwoEjVEbkTDGtR87taBuGHK/pgg+hyMrpkm5nzY38Lp6nGhSjtM8oKJ5wQXPHwVKomMbAqNSiC5Syrm4z+fZpQllNabhxZduQJwbrnpVqEAFvVg4BVtkEA0LqKi01EpdhEiKR13Z3WbEOADssKWmcSLqhg+73YKFg2NDBbLn4SyN4dg5JxKWblSSkirjsRlboTkao7be5Ny+ss5ybkZ6mY+jNVBLYIdVgY25IYA5pecVGKqBSliFxRCohjO8OxBmvsgG1yGwbHvHhsGP4UTt4t/0THozH18b9bPnRPlg/t5cN5vfE9d3P2UbM7KNme/cML9jU7TTw9Ow9ag6C7GeKUgfi0S3/HbkMyRFuNNgUwyI44RHNUQjSndFVbosCnbdlMDWzzWoH6kgGoOUkitBJeJkxjQtrRDDsEEl9cjm/Q7gTdevB9eU/hygs7qp31hUQX9xdu/OUfXtCfUhX1YvsNSL3YdXZUXGeHyFAv2k+YUWH+bVjTUP4ibNlxHS+CCfkikPIX4XUv6Pab59/Wq8ArdRi5l0BXGtkR++KOii/umDIvAXnuS7Ahofw1WJVAjPgF2Cm1DDdpc3DGdWQGi79ml+yZR3vbWL9qXEoWoXaiWThm7mG7Tf+3+Czjr8gn6MykGLIzs+KZm5bKzE3LK222SdS0crvTykko3JJdTnhpFyWXnItl8e9//j9/4h5vRcABAA==`;
+async function inflate(value) {
+  const bytes = typeof Buffer !== 'undefined'
+    ? Buffer.from(value, 'base64')
+    : Uint8Array.from(atob(value), (character) => character.charCodeAt(0));
+  const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+  return JSON.parse(await new Response(stream).text());
+}
+export const sourceSnapshots = Object.freeze([
+  { id: '2025-2026-spring-10-feb', title: '2025-2026 Bahar Ders Programı (10 Şubat)', url: 'https://uludag.edu.tr/dosyalar/iibf/2025-2026/BAHAR/PRGRM/2025-2026%20BAHAR%20DERS%20PROGRAMI-10_SUBAT.pdf', academicYear: '2025-2026', term: 'spring', extractionSha256: '616ae40aa873a90a75938ca6900f05f1977c8b07b0660d2e4a93b6a275cc252a', physicalRecordStarts: 490, acceptedSourceRows: 490, excludedPhysicalOrdinals: [] },
+  { id: '2025-2026-fall-19-sep', title: '2025-2026 Güz Ders Programı (19 Eylül)', url: 'https://uludag.edu.tr/dosyalar/iibf/2025-2026/GZ/2025-2026%20G%C3%9CZ%20DERS%20PROGRAMI-%C4%B0%C4%B0BF-G%C3%9CNCEL-19.09.2025.pdf', academicYear: '2025-2026', term: 'fall', extractionSha256: '3e2a5c79fd6faaeb3fbc5796ff14ce348ecc2b6bc0423a609014f4cd6aa637ba', physicalRecordStarts: 514, acceptedSourceRows: 512, excludedPhysicalOrdinals: [503, 505] }
+]);
+export const offerings = Object.freeze(await inflate(payload));
