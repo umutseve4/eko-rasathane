@@ -1,0 +1,31 @@
+name: Apply M2 integration
+on:
+  push:
+    branches: [feat/m2-academic-timetable]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  apply:
+    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message != 'chore(m2): apply runtime integration'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/m2-academic-timetable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: python scripts/apply-m2.py
+      - run: npm ci
+      - run: npm run verify
+      - name: Reconciliation audit
+        run: node -e "import('./offerings.mjs').then(m=>{console.log(JSON.stringify(m.offeringSummary,null,2)); console.log('validation',m.validateOfferings())})"
+      - name: Commit verified integration
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add core.mjs app.js index.html package.json tests/core.test.mjs README.md ROADMAP.md
+          git commit -m 'chore(m2): apply runtime integration'
+          git push
