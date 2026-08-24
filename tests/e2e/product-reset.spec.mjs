@@ -39,9 +39,11 @@ test('kontrol geri bildirimi ve Mini Model Card üretimi kalıcıdır', async ({
   await page.getByRole('button', { name: /Devam et/ }).click();
   await page.getByLabel('Modelin sınırlılığı').fill('Beklentiler gözlenmediği için gelir etkisi yanlı olabilir.');
   await page.getByRole('button', { name: 'Model Card’ı oluştur' }).click();
-  await expect(page.getByRole('heading', { name: 'Mini Model Card' })).toBeVisible();
+  const card = page.locator('.model-card-output');
+  await expect(card.getByRole('heading', { name: 'Mini Model Card', exact: true })).toBeVisible();
+  await expect(card).toBeFocused();
   await page.reload();
-  await expect(page.getByRole('heading', { name: 'Mini Model Card' })).toBeVisible();
+  await expect(page.locator('.model-card-output').getByRole('heading', { name: 'Mini Model Card', exact: true })).toBeVisible();
   await expect(page.getByText(/Beklentiler gözlenmediği/)).toBeVisible();
 });
 
@@ -50,8 +52,19 @@ test('odak, 320 px ve reset sözleşmesi korunur', async ({ page }) => {
   await page.goto('/#/basla');
   await expect(page.getByRole('heading', { level: 1 })).toBeFocused();
   await noOverflow(page);
-  await page.evaluate(() => localStorage.setItem('eko:journey:v1', '{"step":4}'));
+  await page.evaluate(() => {
+    localStorage.setItem('eko:state:v2', '{"notes":{"x":"y"}}');
+    localStorage.setItem('eko:m3:v1', '{"lastUnitId":"modelleme-kavramlari"}');
+    localStorage.setItem('eko:last-topic', 'modelleme-kavramlari');
+    localStorage.setItem('eko:journey:v1', '{"step":4}');
+  });
   page.once('dialog', dialog => dialog.accept());
   await page.getByRole('button', { name: 'İlerlemeyi sıfırla' }).click();
-  await expect.poll(() => page.evaluate(() => localStorage.getItem('eko:journey:v1'))).toBe(null);
+  await page.waitForLoadState('domcontentloaded');
+  await expect.poll(() => page.evaluate(() => [
+    'eko:state:v2',
+    'eko:m3:v1',
+    'eko:last-topic',
+    'eko:journey:v1'
+  ].map(key => localStorage.getItem(key)))).toEqual([null, null, null, null]);
 });
