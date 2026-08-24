@@ -1,0 +1,42 @@
+name: prefix-inventory
+on:
+  push:
+    branches:
+      - agent/full-department-labels-v2
+permissions:
+  contents: write
+jobs:
+  inventory:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/full-department-labels-v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Generate exact inventory
+        run: |
+          node --input-type=module <<'EOF'
+          import { offerings, getDepartmentCode } from './offerings.mjs';
+          const counts = {};
+          for (const item of offerings) {
+            const code = getDepartmentCode(item);
+            counts[code] = (counts[code] || 0) + 1;
+          }
+          const prefixes = Object.entries(counts)
+            .sort(([a], [b]) => a.localeCompare(b, 'tr-TR'))
+            .map(([code, count]) => ({ code, count }));
+          await import('node:fs/promises').then(fs => fs.writeFile(
+            'prefix-inventory.json',
+            JSON.stringify({ offeringCount: offerings.length, prefixes }, null, 2) + '\n'
+          ));
+          EOF
+      - name: Commit inventory to diagnostic branch
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add prefix-inventory.json
+          git commit -m "chore: record exact timetable prefix inventory"
+          git push
