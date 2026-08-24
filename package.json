@@ -1,6 +1,6 @@
 {
   "name": "eko-rasathane",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -8,7 +8,7 @@
     "test:e2e": "playwright test",
     "evidence:generate": "node scripts/curriculum-evidence.mjs",
     "evidence:verify": "node scripts/curriculum-evidence.mjs --verify",
-    "check": "node --check app.js && node --check core.mjs && node --check academic-catalog.mjs && node --check data/catalog.mjs && node --check data/academic-catalog.mjs && node --check scripts/curriculum-evidence.mjs",
+    "check": "node --check app.js && node --check core.mjs && node --check academic-catalog.mjs && node --check offerings.mjs && node --check program.mjs && node --check data/timetable.mjs && node --check data/catalog.mjs && node --check data/academic-catalog.mjs && node --check scripts/curriculum-evidence.mjs",
     "verify": "npm run check && npm test && npm run evidence:verify"
   },
   "devDependencies": {

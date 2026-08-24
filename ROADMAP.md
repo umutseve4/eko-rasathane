@@ -169,3 +169,6 @@ Kabul kapısı:
 ## Açıkça kapsam dışı
 
 Yetkilendirilene kadar: UKEY kimlik bilgisi saklama/scraping, not çekme, izinsiz ders materyali, kamuya açık not liderlik tablosu, proctoring, herkese açık yükleme pazarı ve amaçsız genel AI sohbeti.
+
+
+- [x] M2 akademik program dikey dilimi: 164 provenance-preserving Offering, açık uzlaştırma statüleri ve `#/program` görünümü.
