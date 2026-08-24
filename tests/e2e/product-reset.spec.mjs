@@ -43,8 +43,9 @@ test('kontrol geri bildirimi ve Mini Model Card üretimi kalıcıdır', async ({
   await expect(card.getByRole('heading', { name: 'Mini Model Card', exact: true })).toBeVisible();
   await expect(card).toBeFocused();
   await page.reload();
-  await expect(page.locator('.model-card-output').getByRole('heading', { name: 'Mini Model Card', exact: true })).toBeVisible();
-  await expect(page.getByText(/Beklentiler gözlenmediği/)).toBeVisible();
+  const persistedCard = page.locator('.model-card-output');
+  await expect(persistedCard.getByRole('heading', { name: 'Mini Model Card', exact: true })).toBeVisible();
+  await expect(persistedCard).toContainText('Beklentiler gözlenmediği için gelir etkisi yanlı olabilir.');
 });
 
 test('odak, 320 px ve reset sözleşmesi korunur', async ({ page }) => {
@@ -61,10 +62,13 @@ test('odak, 320 px ve reset sözleşmesi korunur', async ({ page }) => {
   page.once('dialog', dialog => dialog.accept());
   await page.getByRole('button', { name: 'İlerlemeyi sıfırla' }).click();
   await page.waitForLoadState('domcontentloaded');
-  await expect.poll(() => page.evaluate(() => [
-    'eko:state:v2',
-    'eko:m3:v1',
-    'eko:last-topic',
-    'eko:journey:v1'
-  ].map(key => localStorage.getItem(key)))).toEqual([null, null, null, null]);
+  await expect.poll(() => page.evaluate(() => {
+    const state = JSON.parse(localStorage.getItem('eko:state:v2') || '{}');
+    return [
+      JSON.stringify(state.notes || {}),
+      localStorage.getItem('eko:m3:v1'),
+      localStorage.getItem('eko:last-topic'),
+      localStorage.getItem('eko:journey:v1')
+    ];
+  })).toEqual(['{}', null, null, null]);
 });

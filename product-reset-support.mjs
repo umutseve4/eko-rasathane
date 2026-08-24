@@ -27,8 +27,8 @@ function installResetController() {
   current.replaceWith(replacement);
   replacement.addEventListener('click', () => {
     if (!confirm('Tüm ilerleme, test ve notları sıfırlamak istiyor musun?')) return;
+    history.replaceState(null, '', `${location.pathname}${location.search}#/`);
     clearProductState();
-    location.hash = '#/';
     location.reload();
   });
 }
