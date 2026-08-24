@@ -70,7 +70,15 @@ Gamification akademik davranışı destekler; puan avcılığına veya cezaland�
 
 **3. sınıf → EKO3103 TEMEL EKONOMETRİ I → 7 konuluk hazırlık rotası**, teknik ve pedagojik bir örnek/fixture'dır; ürün kapsamı değildir. BUÜ kayıtlarındaki `5 / 6 AKTS` çelişkisi kaynak anomalisi olarak korunur, sessizce düzeltilmez.
 
-GitHub Pages uyumu için mevcut prototip hash route kullanır: `#/`, `#/sinif/:id`, `#/ders/:id`, `#/ders/:id/konu/:id`.
+GitHub Pages uyumu için mevcut prototip hash route kullanır: `#/`, `#/program`, `#/sinif/:id`, `#/ders/:id`, `#/ders/:id/konu/:id`, `#/atlas`, `#/atlas/kavram/:conceptId`.
+
+### M3 Atlas ve öğrenme şablonu
+
+M3'te ilk `7` konu, ilk `7` Atlas kavramıyla aynı kanonik öğrenme birimlerine bağlandı. Program ve Atlas akışları görünür `8/8` öğrenme şablonunda yakınsar; ana sayfa son çalışılan konuya dönüş kısayolu sunar.
+
+Bu dilim, uzun vadeli **Veriden Modele** Atlas vizyonunun tamamı değildir. Uygulama ve otomatik kalite kapıları exact merge SHA `a02c711721f8d11be5064e701c854ab34ba01714` üzerinde verified ve deployed durumundadır. `5` gerçek katılımcının en az `4`'ünün ders/kavram bulma görevini tamamlaması gereken kullanılabilirlik kapısı açık olduğundan ürün production-ready değildir.
+
+Teknik kapsam ve doğrulama ayrıntıları için [`docs/m3-information-architecture.md`](docs/m3-information-architecture.md) ve [`docs/m3-usability-test.md`](docs/m3-usability-test.md) dosyalarına bakın.
 
 ## Durum dili
 
@@ -81,7 +89,7 @@ GitHub Pages uyumu için mevcut prototip hash route kullanır: `#/`, `#/sinif/:i
 - **Deployed:** belirli commit'in canlıya çıktığı kanıtlanmış.
 - **Production-ready:** güvenlik, içerik, erişilebilirlik, performans ve gerçek kullanıcı doğrulaması tamamlanmış.
 
-Mevcut prototip ve browser kalite kapısı implemented/tested durumundadır. Kapsamlı Atlas, 8 yarıyıllık kanonik katalog, yeni tasarım sistemi, retention sistemi ve araştırma akışı henüz planned durumundadır. Ürün production-ready değildir.
+M3'ün ilk `7` kavramlık dikey dilimi implemented, tested, verified ve deployed durumundadır. Kapsamlı Atlas, 8 yarıyıllık kanonik katalog, retention sistemi ve araştırma akışı hâlâ planned durumundadır. `5` gerçek katılımcı kapısı tamamlanmadığı için ürün production-ready değildir.
 
 ## Veri ve kaynak sözleşmesi
 
@@ -108,4 +116,4 @@ MIT
 
 `#/program`, resmî 2025–2026 güz ve bahar programlarından çıkarılan `164` EKO kaydını (`108` I. öğretim, `56` II. öğretim) gösterir. Basılı alanlar değiştirilmez; kanonik katalogla uzlaştırma sonucu her kayıtta açıkça saklanır.
 
-Bölüm filtresi ham basılı ders kodunu kararlı değer olarak kullanır ve kullanıcıya doğrulanmış tam adları gösterir: Çalışma Ekonomisi ve Endüstri İlişkileri, Ekonometri, İktisat, İşletme, Maliye, Siyaset Bilimi ve Kamu Yönetimi ve Uluslararası İlişkiler. `TUD` ve `YAD` gerçek fakülte bölümü olarak doğrulanmadığı için yalnız seçici seçeneklerinden çıkarılır; ilgili `8` kaynak kaydı silinmez ve “Tümü” görünümünde korunur.
+Bölüm filtresi ham basılı ders kodunu kararlı değer olarak kullanır ve kullanıcıya doğrulanmış tam adlarını gösterir: Çalışma Ekonomisi ve Endüstri İlişkileri, Ekonometri, İktisat, İşletme, Maliye, Siyaset Bilimi ve Kamu Yönetimi ve Uluslararası İlişkiler. `TUD` ve `YAD` gerçek fakülte bölümü olarak doğrulanmadığı için yalnız seçici seçeneklerinden çıkarılır; ilgili `8` kaynak kaydı silinmez ve “Tümü” görünümünde korunur.
