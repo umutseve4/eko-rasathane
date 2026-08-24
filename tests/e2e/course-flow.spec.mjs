@@ -13,9 +13,12 @@ async function expectNoHorizontalOverflow(page) {
 }
 
 test.beforeEach(async ({ page }) => {
+  const pageErrors = [];
+  page.on('pageerror', error => pageErrors.push(error.stack || error.message));
   await page.goto('/#/');
   await page.evaluate(() => localStorage.clear());
   await page.reload();
+  await expect.poll(() => pageErrors.join('\n'), { message: 'Browser runtime errors' }).toBe('');
 });
 
 test('class → course → topic flow persists quiz, note and progress', async ({ page }) => {
