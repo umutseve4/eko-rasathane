@@ -28,8 +28,22 @@ herhangi bir sunucuyla açabilirsin:
 python3 -m http.server 8080
 ```
 
-Arayüz hash rotalarıyla çalışır: `#/` (giriş), `#/program` (ders planı),
-`#/atlas` (kavram haritası).
+## Rotalar
+
+Arayüz hash rotalarıyla çalışır; her rota doğrudan paylaşılabilir bir adrestir.
+
+| Rota | Ne açar |
+|---|---|
+| `#/` | Giriş — hedef seçimi |
+| `#/basla` | Örnek yolculuk (adım adım) |
+| `#/program` | Ekonometri lisans ders planının tamamı |
+| `#/sinif/:id` | Tek bir sınıfın rotası, örn. `#/sinif/3` |
+| `#/ders/:id` | Tek bir ders, örn. `#/ders/temel-ekonometri-1` |
+| `#/ders/:id/konu/:konu` | Dersin tek bir konusu |
+| `#/atlas` | Kavram haritası |
+
+Tanınmayan veya kanonik olmayan rotalar (`#/sinif//3`, `#/sinif/9`, `#/program/foo`)
+sessizce düzeltilmez; "bulunamadı" görünümüne düşer ve bu davranış testlidir.
 
 ## Ne veriyor?
 
