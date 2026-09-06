@@ -1,0 +1,1012 @@
+                                                                                                T.C.
+                                                                                    BURSA ULUDAĞ ÜNİVERSİTESİ
+                                                                               İKTİSADİ VE İDARİ BİLİMLER FAKÜLTESİ
+                                                                   2025-2026 EĞİTİM-ÖĞRETİM YILI BAHAR YARIYILI DERS PROGRAMI                                                           FR 15649725-001
+
+                                                                                                    Dersin       Dersin   Dersin                                                                      Dersin Verildiği
+Eğitim TürüDersin Kodu Dersi Alan Bölüm                              Dersin Adı                      Türü        Şubesi   Yarıyılı Unvan          İsim-Soyad            Sınıf          Gün                 Saat
+I. EĞİTİM    IKT1204   CAL                   MİKRO İKTİSAT                                         Z         A            II      Doç. Dr.        Mikail KAR             B8     SALI                 12:05-14:35
+
+I. EĞİTİM    IKT1204   CAL                   MİKRO İKTİSAT                                         Z         B            II      Dr. Öğr.Üyesi   Sibel BALI            C10     SALI                 12:05-14:35
+
+I. EĞİTİM    IKT1002   EKO                   İKTİSAT II                                            Z         A            II      Prof. Dr.       M. Ozan BAŞKOL         A5     PAZARTESİ            09:45-12:00
+
+I. EĞİTİM    IKT1002   EKO                   İKTİSAT II                                            Z         B            II      Doç. Dr.        Görkem BAHTİYAR        C8     PAZARTESİ            09:45-12:00
+
+I. EĞİTİM    IKT1202   IKT                   İKTİSAT II                                            Z         A            II      Prof. Dr.       Nalan ÖLMEZOĞULLARI    B2     SALI                 12:05-14:35
+
+I. EĞİTİM    IKT1202   IKT                   İKTİSAT II                                            Z         B            II      Prof. Dr.       Metin ÖZDEMİR          A9     PAZARTESİ            12:05-14:35
+
+I. EĞİTİM    IKT1402   IKT                   İKTİSAT TARİHİ                                        Z         A            II      Prof. Dr.       Adem LEVENT           A19     ÇARŞAMBA             09:45-12:00
+
+I. EĞİTİM    IKT1402   IKT                   İKTİSAT TARİHİ                                        Z         B            II      Dr. Öğr.Üyesi   Halime ALKAN           B4     ÇARŞAMBA             09:45-12:00
+
+I. EĞİTİM    IKT1204   ISL                   MİKRO İKTİSAT                                         Z         A            II      Doç. Dr.        Mikail KAR             B6     ÇARŞAMBA             09:45-12:00
+
+I. EĞİTİM    IKT1204   ISL                   MİKRO İKTİSAT                                         Z         B            II      Öğr. Gör. Dr.   Ali KURU               B2     PAZARTESİ            14:40-17:00
+
+I. EĞİTİM    IKT1202   BUS                   MACRO ECONOMICS                                       Z                      II      Dr. Öğr.Üyesi   Mustafa HATTAPOĞLU     A3     SALI                 14:40-17:00
+
+I. EĞİTİM    IKT1202   KAM                   İKTİSAT II                                            Z         A            II      Dr. Öğr.Üyesi   Sibel BALI             A6     PAZARTESİ            09:45-12:00
+
+I. EĞİTİM    IKT1202   KAM                   İKTİSAT II                                            Z         B            II      Doç. Dr.        Filiz ERYILMAZ         A8     PAZARTESİ            09:45-12:00
+
+I. EĞİTİM    IKT1204   MLY                   MİKRO İKTİSAT                                         Z         A            II      Doç. Dr.        M. Ozan BAŞKOL        A16     PAZARTESİ            14:40-17:00
+
+I. EĞİTİM    IKT1204   MLY                   MİKRO İKTİSAT                                         Z         B            II      Doç. Dr.        Filiz ERYILMAZ        A11     PAZARTESİ            12:05-14:35
+
+I. EĞİTİM    IKT1202   ULU                   İKTİSAT II                                            Z         A            II      Doç. Dr.        Filiz ERYILMAZ         B7     SALI                 12:05-14:35
+
+I. EĞİTİM    IKT1202   ULU                   İKTİSAT II                                            Z         B            II      Öğr. Gör. Dr.   Ali KURU              A10     CUMA                 14:40-17:00
+
+I. EĞİTİM    IKT1202   INT                   ECONOMICS II                                          Z                      II      Dr. Öğr.Üyesi   Mustafa HATTAPOĞLU     A5     PERŞEMBE             11:15-13:45
+
+I. EĞİTİM    IKT2102   EKO                   MAKRO İKTİSAT                                         Z         A            IV      Dr. Öğr.Üyesi   Sevginaz IŞIK          B4     PAZARTESİ            09:45-12:00
+
+I. EĞİTİM    IKT2102   EKO                   MAKRO İKTİSAT                                         Z         B            IV      Dr. Öğr.Üyesi   Bahar BAYSAL KAR       B6     PAZARTESİ            09:45-12:00
+
+I. EĞİTİM    IKT2102   MLY                   PARA TEORİSİ ve POLİTİKASI                            Z                      IV      Prof. Dr.       Metin ÖZDEMİR         A15     PAZARTESİ            09:45-12:00
+
+I. EĞİTİM    IKT2104   IKT                   MAKRO İKTİSAT II                                      Z         A            IV      Prof. Dr.       Nejla ADANUR          A16     ÇARŞAMBA             09:45-12:00
+
+I. EĞİTİM    IKT2104   IKT                   MAKRO İKTİSAT II                                      Z         B            IV      Prof. Dr.       Hülya AKAY             A9     ÇARŞAMBA             09:45-12:00
+
+I. EĞİTİM    IKT2202   IKT                   MİKRO İKTİSAT II                                      Z         A            IV      Prof. Dr.       Nalan ÖLMEZOĞULLARI   A16     ÇARŞAMBA             14:40-17:00
+
+I. EĞİTİM    IKT2202   IKT                   MİKRO İKTİSAT II                                      Z         B            IV      Doç. Dr.        Mehmet Ali POLAT       C7     ÇARŞAMBA             14:40-17:00
+
+I. EĞİTİM    IKT2306   IKT-MLY-CAL-EKO       SANAYİ EKONOMİSİ                                      S                      IV      Öğr. Gör. Dr.   Ali KURU               A5     PERŞEMBE             14:40-17:00
+
+I. EĞİTİM    IKT2402   IKT-MLY-CAL-KAM-EKO   İKTİSADİ SİSTEMLER                                    S                      IV      Prof. Dr.       Nalan ÖLMEZOĞULLARI    A9     SALI                 14:40-17:00
+
+I. EĞİTİM    IKT2306   BUS                   INDUSTRIAL ECONOMICS                                  S                      IV      Doç. Dr.        Görkem BAHTİYAR        B6     SALI                 12:05-14:35
+
+I. EĞİTİM    IKT2106   KAM                   MAKRO İKTİSAT                                         S                      IV      Doç. Dr.        Filiz ERYILMAZ        A11     SALI                 09:45-12:00
+
+I. EĞİTİM    IKT2402   INT                   ECONOMIC SYSTEMS                                      S                      IV      Doç. Dr.        Görkem BAHTİYAR       A18     PAZARTESİ            14:40-17:00
+
+I. EĞİTİM    IKT3002   IKT                   ARAŞTIRMA YÖNTEMLERİ (İKTİSADİ GELİŞME VE ULUSLARARASIZİKTİSAT)              VI      Dr. Öğr.Üyesi   Bahar BAYSAL KAR       A4     PERŞEMBE             14:40-17:00
+
+II. EĞİTİM   IKT3002   IKT                   ARAŞTIRMA YÖNTEMLERİ (İKTİSADİ GELİŞME VE ULUSLARARASIZİKTİSAT)              VI      Dr. Öğr.Üyesi   Bahar BAYSAL KAR      A18     PERŞEMBE             19:15-21:30
+
+I. EĞİTİM    IKT3002   IKT                   ARAŞTIRMA YÖNTEMLERİ (İKTİSAT POLİTİKASI)             Z                      VI      Prof. Dr.       Hülya AKAY            A18     PERŞEMBE             14:40-17:00
+
+II. EĞİTİM   IKT3002   IKT                   ARAŞTIRMA YÖNTEMLERİ (İKTİSAT POLİTİKASI)             Z                      VI      Prof. Dr.       Hülya AKAY            A19     PERŞEMBE             19:15-21:30
+
+I. EĞİTİM    IKT3002   IKT                   ARAŞTIRMA YÖNTEMLERİ (İKTİSAT TARİHİ)                 Z                      VI      Dr. Öğr.Üyesi   Halime ALKAN           B3     PERŞEMBE             14:40-17:00
+
+II. EĞİTİM   IKT3002   IKT                   ARAŞTIRMA YÖNTEMLERİ (İKTİSAT TARİHİ)                 Z                      VI      Dr. Öğr.Üyesi   Halime ALKAN          A20     PERŞEMBE             19:15-21:30
+I. EĞİTİM    IKT3002   IKT                       ARAŞTIRMA YÖNTEMLERİ (İKTİSAT TEORİSİ   Z       VI     Prof. Dr.        Nejla ADANUR           A21   PERŞEMBE    14:40-17:00
+
+II. EĞİTİM   IKT3002   IKT                       ARAŞTIRMA YÖNTEMLERİ (İKTİSAT TEORİSİ   Z       VI     Prof. Dr.        Nejla ADANUR           A17   PERŞEMBE    19:15-21:30
+
+I. EĞİTİM    IKT3104   IKT                       REGÜLASYON EKONOMİSİ                    S       VI     Doç. Dr.         Mikail KAR             B4    ÇARŞAMBA    12:05-14:35
+
+I. EĞİTİM    IKT3204   IKT                       EMEK PİYASALARI ANALİZİ                 S       VI     Dr. Öğr.Üyesi    Nurten DERİCİ TEMEL    B3    ÇARŞAMBA    09:45-12:00
+
+I. EĞİTİM    IKT3302   IKT                       ULUSLARARASI İKTİSAT POLİTİKASI         Z   A   VI     Prof. Dr.        M. Ozan BAŞKOL         A5    SALI        09:45-12:00
+
+II. EĞİTİM   IKT3302   IKT                       ULUSLARARASI İKTİSAT POLİTİKASI         Z   A   VI     Prof. Dr.        M. Ozan BAŞKOL         A5    SALI        14:40-17:00
+
+I. EĞİTİM    IKT3302   IKT                       ULUSLARARASI İKTİSAT POLİTİKASI         Z   B   VI     Doç. Dr.         Derya HEKİM            A14   SALI        09:45-12:00
+
+II. EĞİTİM   IKT3302   IKT                       ULUSLARARASI İKTİSAT POLİTİKASI         Z   B   VI     Doç. Dr.         Derya HEKİM            A11   SALI        17:00-19:15
+
+I. EĞİTİM    IKT3304   IKT                       İKTİSADİ BÜYÜME                         Z   A   VI     Prof. Dr.        Cem Okan TUNCEL        A14   PERŞEMBE    12:05-14:35
+
+II. EĞİTİM   IKT3304   IKT                       İKTİSADİ BÜYÜME                         Z   A   VI     Prof. Dr.        Cem Okan TUNCEL        A16   PERŞEMBE    17:00-19:15
+
+I. EĞİTİM    IKT3304   IKT                       İKTİSADİ BÜYÜME                         Z   B   VI     Dr. Öğr.Üyesi    Ayda ASLAN             A12   PERŞEMBE    12:05-14:35
+
+II. EĞİTİM   IKT3304   IKT                       İKTİSADİ BÜYÜME                         Z   B   VI     Dr. Öğr.Üyesi    Ayda ASLAN             A19   PERŞEMBE    17:00-19:15
+
+I. EĞİTİM    IKT3304   IKT-KAM-EKO               İKTİSADİ PLANLAMA                       S       VI     Dr. Öğr.Üyesi    Ayda ASLAN             A15   CUMA        14:40-17:00
+
+II. EĞİTİM   IKT3304   IKT-KAM-EKO               İKTİSADİ PLANLAMA                       S       VI     Dr. Öğr.Üyesi    Ayda ASLAN             A16   PERŞEMBE    19:15-21:30
+
+I. EĞİTİM    IKT3102   IKT-CAL-KAM-EKO           POLİTİK İKTİSAT                         S       VI     Prof. Dr.        Adem LEVENT            C8    ÇARŞAMBA    14:40-17:00
+
+II. EĞİTİM   IKT3102   IKT-CAL-KAM-EKO           POLİTİK İKTİSAT                         S       VI     Prof. Dr.        Adem LEVENT            A20   ÇARŞAMBA    17:00-19:15
+
+I. EĞİTİM    IKT3206   IKT-MLY-CAL               REFAH EKONOMİSİ                         S       VI     Öğr. Gör. Dr.    Ali KURU               A6    SALI        14:40-17:00
+
+II. EĞİTİM   IKT3206   IKT-MLY-CAL               REFAH EKONOMİSİ                         S       VI     Öğr. Gör. Dr.    Ali KURU               A14   SALI        19:15-21:30
+
+I. EĞİTİM    IKT3308   MLY-CAL-ISL-KAM-ULU-EKO   ULUSLARARASI İKTİSAT POLİTİKASI         S       VI     Dr. Öğr.Üyesi    İ. Ethem AKYILDIZ      A16   CUMA        14:40-17:00
+
+II. EĞİTİM   IKT3308   MLY-CAL-ISL-KAM-ULU-EKO   ULUSLARARASI İKTİSAT POLİTİKASI         S       VI     Dr. Öğr.Üyesi    İ. Ethem AKYILDIZ      A19   CUMA        17:00-19:15
+
+I. EĞİTİM    IKT3206   INT/BUS                   WELFARE ECONOMICS                       S       VI     Dr. Öğr.Üyesi    Mustafa HATTAPOĞLU     A3    PERŞEMBE    14:40-17:00
+
+I. EĞİTİM    ECO3406   BUS                       ECONOMICS OF MIGRATION                  S       VI     Dr. Öğr.Üyesi    İ. Ethem AKYILDIZ      B9    ÇARŞAMBA    14:40-17:00
+
+I. EĞİTİM    IKT4102   IKT                       TÜRKİYE EKONOMİSİ                       Z   A   VIII   Prof. Dr.        Nejla ADANUR           A17   ÇARŞAMBA    14:40-17:00
+
+II. EĞİTİM   IKT4102   IKT                       TÜRKİYE EKONOMİSİ                       Z   A   VIII   Prof. Dr.        Nejla ADANUR           A23   PERŞEMBE    17:00-19:15
+
+I. EĞİTİM    IKT4102   IKT                       TÜRKİYE EKONOMİSİ                       Z   B   VIII   Prof. Dr.        Metin ÖZDEMİR          A17   ÇARŞAMBA    09:45-12:00
+
+II. EĞİTİM   IKT4102   IKT                       TÜRKİYE EKONOMİSİ                       Z   B   VIII   Prof. Dr.        Metin ÖZDEMİR          A22   ÇARŞAMBA    17:00-19:15
+
+I. EĞİTİM    IKT4104   IKT                       İKTİSAT POLİTİKASI                      Z   A   VIII   Doç. Dr.         Meryem FİLİZ BAŞTÜRK   A22   ÇARŞAMBA    09:45-12:00
+
+II. EĞİTİM   IKT4104   IKT                       İKTİSAT POLİTİKASI                      Z   A   VIII   Doç. Dr.         Meryem FİLİZ BAŞTÜRK   A14   ÇARŞAMBA    17:00-19:15
+
+I. EĞİTİM    IKT4104   IKT                       İKTİSAT POLİTİKASI                      Z   B   VIII   Prof. Dr.        Hülya AKAY             A12   SALI        12:05-14:35
+
+II. EĞİTİM   IKT4104   IKT                       İKTİSAT POLİTİKASI                      Z   B   VIII   Prof. Dr.        Hülya AKAY             A16   SALI        17:00-19:15
+
+I. EĞİTİM    IKT4202   IKT                       FİNANS EKONOMİSİ                        Z   A   VIII   Doç. Dr.         Mücahit ÖZDEMİR        B4    SALI        12:05-14:35
+
+II. EĞİTİM   IKT4202   IKT                       FİNANS EKONOMİSİ                        Z   A   VIII   Doç. Dr.         Mücahit ÖZDEMİR        B4    SALI        17:00-19:15
+
+I. EĞİTİM    IKT4202   IKT                       FİNANS EKONOMİSİ                        Z   B   VIII   Dr. Öğr.Üyesi    Sibel BALI             A12   PAZARTESİ   12:05-14:35
+
+II. EĞİTİM   IKT4202   IKT                       FİNANS EKONOMİSİ                        Z   B   VIII   Dr. Öğr.Üyesi    Sibel BALI             A12   PAZARTESİ   17:00-19:15
+
+I. EĞİTİM    IKT4108   IKT-CAL                   İKTİSADİ GÖSTERGELER ve YORUMLANMASI    S       VIII   Doç. Dr.         Mehmet Ali POLAT       C13   ÇARŞAMBA    12:05-14:35
+
+II. EĞİTİM   IKT4108   IKT-CAL                   İKTİSADİ GÖSTERGELER ve YORUMLANMASI    S       VIII   Doç. Dr.         Mehmet Ali POLAT       A10   ÇARŞAMBA    19:15-21:30
+
+I. EĞİTİM    IKT4106   IKT-EKO                   YATIRIM PROJELERİ ANALİZİ               S       VIII   Araş. Gör. Dr.   Volkan GÜRSEL          A14   CUMA        09:45-12:00
+
+II. EĞİTİM   IKT4106   IKT-EKO                   YATIRIM PROJELERİ ANALİZİ               S       VIII   Araş. Gör. Dr.   Volkan GÜRSEL          A20   CUMA        14:40-17:00
+
+I. EĞİTİM    IKT4304   IKT-MLY                   BÖLGESEL İKTİSAT                        S       VIII   Dr. Öğr.Üyesi    İ. Ethem AKYILDIZ      B4    PERŞEMBE    14:40-17:00
+
+II. EĞİTİM   IKT4304   IKT-MLY                   BÖLGESEL İKTİSAT                        S       VIII   Dr. Öğr.Üyesi    İ. Ethem AKYILDIZ      A14   PERŞEMBE    19:15-21:30
+I. EĞİTİM    IKT4302   IKT-MLY-ISL-ULU       ULUSLARARASI FİNANS                             S       VIII   Doç. Dr.        Derya HEKİM            A23   PERŞEMBE    12:05-14:35
+
+II. EĞİTİM   IKT4302   IKT-MLY-ISL-ULU       ULUSLARARASI FİNANS                             S       VIII   Doç. Dr.        Derya HEKİM            A16   SALI        19:15-21:30
+
+I. EĞİTİM    IKT4306   IKT-CAL-ISL-KAM-EKO   DİJİTAL EKONOMİ                                 S       VIII   Prof. Dr.       Cem Okan TUNCEL        A10   PERŞEMBE    09:45-12:00
+
+II. EĞİTİM   IKT4306   IKT-CAL-ISL-KAM-EKO   DİJİTAL EKONOMİ                                 S       VIII   Prof. Dr.       Cem Okan TUNCEL        A16   ÇARŞAMBA    19:15-21:30
+
+I. EĞİTİM    IKT4110   KAM                   İKTİSAT POLİTİKASI                              S       VIII   Doç. Dr.        Meryem FİLİZ BAŞTÜRK   A8    SALI        14:40-17:00
+
+I. EĞİTİM    IKT4112   MLY-KAM-EKO           TÜRKİYE EKONOMİSİ                               S       VIII   Dr. Öğr.Üyesi   Bahar BAYSAL KAR       C13   PAZARTESİ   14:40-17:00
+
+II. EĞİTİM   IKT4112   MLY-KAM-EKO           TÜRKİYE EKONOMİSİ                               S       VIII   Dr. Öğr.Üyesi   Bahar BAYSAL KAR       A14   PAZARTESİ   17:00-19:15
+
+I. EĞİTİM    MLY2108   FAKÜLTE DIŞI          KAMU MALİYESİ                                   S       GS     Doç. Dr.        Zuhal AKBELEN          B1    SALI        14:40-17:00
+
+I. EĞİTİM    MLY1104   MLY                   KAMU MALİYESİ II                                Z       II     Prof. Dr.       İsmail TATLIOĞLU       A14   SALI        12:05-14:35
+
+I. EĞİTİM    MLY2404   IKT-CAL               VERGİ HUKUKU                                    S       IV     Prof. Dr.       Adnan GERÇEK           A19   SALI        14:40-17:00
+
+I. EĞİTİM    MLY2112   KAM                   KAMU MALİYESİ                                   Z       IV     Prof. Dr.       Filiz GİRAY            A10   PAZARTESİ   14:40-17:00
+
+I. EĞİTİM    MLY2106   IKT-EKO               KAMU MALİYESİ                                   S       IV     Doç. Dr.        Zuhal AKBELEN          A10   PERŞEMBE    12:05-14:35
+
+I. EĞİTİM    MLY2406   ISL                   TÜRK VERGİ SİSTEMİ                              Z   A   IV     Prof. Dr.       Adnan GERÇEK           A16   SALI        09:45-12:00
+
+I. EĞİTİM    MLY2406   ISL                   TÜRK VERGİ SİSTEMİ                              Z   B   IV     Dr. Öğr.Üyesi   Muhammed ÇELİK         A22   SALI        09:45-12:00
+
+I. EĞİTİM    MLY2102   MLY                   MALİYE TARİHİ                                   Z       IV     Prof. Dr.       Filiz GİRAY            A10   SALI        09:45-12:00
+
+I. EĞİTİM    MLY2202   MLY                   MAHALLİ İDARELER MALİYESİ                       Z   A   IV     Dr. Öğr.Üyesi   Halil SERBES           C13   PAZARTESİ   12:05-14:35
+
+I. EĞİTİM    MLY2202   MLY                   MAHALLİ İDARELER MALİYESİ                       Z   B   IV     Prof. Dr.       Özhan ÇETİNKAYA        A20   PAZARTESİ   12:05-14:35
+
+I. EĞİTİM    MLY2302   MLY                   KAMU EKONOMİSİ II                               Z   A   IV     Doç. Dr.        Harun KILIÇASLAN       C13   SALI        14:40-17:00
+
+I. EĞİTİM    MLY2302   MLY                   KAMU EKONOMİSİ II                               Z   B   IV     Prof. Dr.       Ufuk SELEN             A17   SALI        14:40-17:00
+
+I. EĞİTİM    MLY2104   MLY-ISL-KAM           MALİYE SOSYOLOJİSİ                              S       IV     Doç. Dr.        Zuhal AKBELEN          A20   PERŞEMBE    14:40-17:00
+
+I. EĞİTİM    MLY2304   MLY-CAL               SAĞLIK HİZMETLERİ VE FİNANSMANI                 S       IV     Dr. Öğr.Üyesi   Çağlayan TABAR         C9    ÇARŞAMBA    12:05-14:35
+
+I. EĞİTİM    MLY2306   MLY                   ALTYAPI EKONOMİSİ ve KAMU HİZMETLERİ            S       IV     Doç. Dr.        Harun KILIÇASLAN       C8    ÇARŞAMBA    12:05-14:35
+
+I. EĞİTİM    MLY3406   IKT-MLY-ISL-KAM-ULU   E-VERGİLEME SİSTEMİ                             S       VI     Dr. Öğr.Üyesi   Feride BAKAR TÜREGÜN   A19   PAZARTESİ   09:45-12:00
+
+II. EĞİTİM   MLY3406   IKT-MLY-ISL-KAM-ULU   E-VERGİLEME SİSTEMİ                             S       VI     Dr. Öğr.Üyesi   Feride BAKAR TÜREGÜN   C12   PAZARTESİ   14:40-17:00
+
+I. EĞİTİM    MLY3204   IKT-ISL-KAM-EKO       KAMU BÜTÇESİ                                    S       VI     Prof. Dr.       Özhan ÇETİNKAYA        A8    PAZARTESİ   14:40-17:00
+
+II. EĞİTİM   MLY3204   IKT-ISL-KAM-EKO       KAMU BÜTÇESİ                                    S       VI     Prof. Dr.       Özhan ÇETİNKAYA        A19   PAZARTESİ   19:15-21:30
+
+I. EĞİTİM    MLY3404   IKT-ULU-EKO           TÜRK VERGİ SİSTEMİ                              S       VI     Dr. Öğr.Üyesi   Feride BAKAR TÜREGÜN   B9    SALI        12:05-14:35
+
+II. EĞİTİM   MLY3404   IKT-ULU-EKO           TÜRK VERGİ SİSTEMİ                              S       VI     Dr. Öğr.Üyesi   Feride BAKAR TÜREGÜN   C17   SALI        14:40-17:00
+
+I. EĞİTİM    MLY3002   MLY                   ARAŞTIRMA YÖNTEMLERİ (BÜTÇE VE MALİ PLANLAMA)   Z       VI     Dr. Öğr.Üyesi   Halil SERBES           C15   SALI        14:40-17:00
+
+II. EĞİTİM   MLY3002   MLY                   ARAŞTIRMA YÖNTEMLERİ (BÜTÇE VE MALİ PLANLAMA)   Z       VI     Dr. Öğr.Üyesi   Halil SERBES           A22   SALI        19:15-21:30
+
+I. EĞİTİM    MLY3002   MLY                   ARAŞTIRMA YÖNTEMLERİ (MALİ HUKUK)               Z       VI     Dr. Öğr.Üyesi   Muhammed ÇELİK         C10   SALI        14:40-17:00
+
+II. EĞİTİM   MLY3002   MLY                   ARAŞTIRMA YÖNTEMLERİ (MALİ HUKUK)               Z       VI     Dr. Öğr.Üyesi   Muhammed ÇELİK         A8    SALI        19:15-21:30
+
+I. EĞİTİM    MLY3002   MLY                   ARAŞTIRMA YÖNTEMLERİ (MALİ İKTİSAT)             Z       VI     Doç. Dr.        Harun KILIÇASLAN       C9    ÇARŞAMBA    14:40-17:00
+
+II. EĞİTİM   MLY3002   MLY                   ARAŞTIRMA YÖNTEMLERİ (MALİ İKTİSAT)             Z       VI     Doç. Dr.        Harun KILIÇASLAN       C8    SALI        19:15-21:30
+
+I. EĞİTİM    MLY3002   MLY                   ARAŞTIRMA YÖNTEMLERİ (MALİYE TEORİSİ)           Z       VI     Prof. Dr.       Filiz GİRAY            B9    SALI        14:40-17:00
+
+II. EĞİTİM   MLY3002   MLY                   ARAŞTIRMA YÖNTEMLERİ (MALİYE TEORİSİ)           Z       VI     Prof. Dr.       Filiz GİRAY            A6    SALI        19:15-21:30
+
+I. EĞİTİM    MLY3302   MLY                   İKTİSADİ GELİŞME ve VERGİLEME                   Z   A   VI     Dr. Öğr.Üyesi   Reyhan LEBA            A20   ÇARŞAMBA    09:45-12:00
+
+II. EĞİTİM   MLY3302   MLY                   İKTİSADİ GELİŞME ve VERGİLEME                   Z   A   VI     Dr. Öğr.Üyesi   Reyhan LEBA            A11   ÇARŞAMBA    17:00-19:15
+
+I. EĞİTİM    MLY3302   MLY                   İKTİSADİ GELİŞME ve VERGİLEME                   Z   B   VI     Prof. Dr.       Ufuk SELEN             A11   ÇARŞAMBA    09:45-12:00
+
+II. EĞİTİM   MLY3302   MLY                   İKTİSADİ GELİŞME ve VERGİLEME                   Z   B   VI     Prof. Dr.       Ufuk SELEN             A19   ÇARŞAMBA    14:40-17:00
+I. EĞİTİM    MLY3402   MLY                       TÜRK VERGİ SİSTEMİ II                               Z   A   VI     Dr. Öğr.Üyesi   Feride BAKAR TÜREGÜN   A23   PERŞEMBE    09:45-12:00
+
+II. EĞİTİM   MLY3402   MLY                       TÜRK VERGİ SİSTEMİ II                               Z   A   VI     Dr. Öğr.Üyesi   Feride BAKAR TÜREGÜN   A15   PERŞEMBE    14:40-17:00
+
+I. EĞİTİM    MLY3402   MLY                       TÜRK VERGİ SİSTEMİ II                               Z   B   VI     Dr. Öğr.Üyesi   Muhammed ÇELİK         C9    PAZARTESİ   12:05-14:35
+
+II. EĞİTİM   MLY3402   MLY                       TÜRK VERGİ SİSTEMİ II                               Z   B   VI     Dr. Öğr.Üyesi   Muhammed ÇELİK         A6    PAZARTESİ   17:00-19:15
+
+I. EĞİTİM    MLY3206   MLY                       KAMU BÜTÇESİ II                                     Z   A   VI     Prof. Dr.       Tolga DEMİRBAŞ         C8    SALI        12:05-14:35
+
+II. EĞİTİM   MLY3206   MLY                       KAMU BÜTÇESİ II                                     Z   A   VI     Prof. Dr.       Tolga DEMİRBAŞ         A14   SALI        17:00-19:15
+
+I. EĞİTİM    MLY3206   MLY                       KAMU BÜTÇESİ II                                     Z   B   VI     Prof. Dr.       Özhan ÇETİNKAYA        A8    SALI        12:05-14:35
+
+II. EĞİTİM   MLY3206   MLY                       KAMU BÜTÇESİ II                                     Z   B   VI     Prof. Dr.       Özhan ÇETİNKAYA        A12   SALI        17:00-19:15
+
+I. EĞİTİM    MLY3310   MLY                       ÇEVRE EKONOMİSİ ve MALİ POLİTİKALAR                 S       VI     Doç. Dr.        Harun KILIÇASLAN       C13   PERŞEMBE    12:05-14:35
+
+II. EĞİTİM   MLY3310   MLY                       ÇEVRE EKONOMİSİ ve MALİ POLİTİKALAR                 S       VI     Doç. Dr.        Harun KILIÇASLAN       C8    PERŞEMBE    19:15-21:30
+
+I. EĞİTİM    MLY3208   MLY                       MALİ YERİNDEN YÖNETİM                               S       VI     Dr. Öğr.Üyesi   Halil SERBES           C10   PAZARTESİ   14:40-17:00
+
+I. EĞİTİM    MLY3306   MLY                       KAMUSAL KARAR ALMA                                  S       VI     Dr. Öğr.Üyesi   Çağlayan TABAR         A17   CUMA        14:40-17:00
+
+II. EĞİTİM   MLY3306   MLY                       KAMUSAL KARAR ALMA                                  S       VI     Dr. Öğr.Üyesi   Çağlayan TABAR         A17   CUMA        17:00-19:15
+
+I. EĞİTİM    MLY4408   MLY-KAM-ULU               VERGİ YARGILAMA HUKUKU                              S       VIII   Prof. Dr.       Adnan GERÇEK           A16   PAZARTESİ   09:45-12:00
+
+II. EĞİTİM   MLY4408   MLY-KAM-ULU               VERGİ YARGILAMA HUKUKU                              S       VIII   Prof. Dr.       Adnan GERÇEK           A17   PAZARTESİ   17:00-19:15
+
+I. EĞİTİM    MLY4102   IKT-MLY-ISL-KAM-ULU-EKO   MALİ TEŞVİK SİSTEMİ                                 S       VIII   Prof. Dr.       Filiz GİRAY            A22   ÇARŞAMBA    12:05-14:35
+
+II. EĞİTİM   MLY4102   IKT-MLY-ISL-KAM-ULU-EKO   MALİ TEŞVİK SİSTEMİ                                 S       VIII   Prof. Dr.       Filiz GİRAY            A16   PAZARTESİ   19:15-21:30
+
+I. EĞİTİM    MLY4104   MLY                       ULUSLARARASI MALİYE                                 Z       VIII   Doç. Dr.        Zuhal AKBELEN          C7    SALI        09:45-12:00
+
+II. EĞİTİM   MLY4104   MLY                       ULUSLARARASI MALİYE                                 Z       VIII   Doç. Dr.        Zuhal AKBELEN          A23   SALI        19:15-21:30
+
+I. EĞİTİM    MLY4202   MLY                       KAMU MALİ DENETİMİ                                  Z       VIII   Dr. Öğr.Üyesi   Halil SERBES           C10   ÇARŞAMBA    14:40-17:00
+
+II. EĞİTİM   MLY4202   MLY                       KAMU MALİ DENETİMİ                                  Z       VIII   Dr. Öğr.Üyesi   Halil SERBES           A19   ÇARŞAMBA    19:15-21:30
+
+I. EĞİTİM    MLY4306   MLY                       MALİYE POLİTİKASI II                                Z   A   VIII   Prof. Dr.       Mircan TOKATLIOĞLU     A14   PERŞEMBE    09:45-12:00
+
+II. EĞİTİM   MLY4306   MLY                       MALİYE POLİTİKASI II                                Z   A   VIII   Prof. Dr.       Mircan TOKATLIOĞLU     A16   PERŞEMBE    14:40-17:00
+
+I. EĞİTİM    MLY4306   MLY                       MALİYE POLİTİKASI II                                Z   B   VIII   Prof. Dr.       Ufuk SELEN             A17   PERŞEMBE    09:45-12:00
+
+II. EĞİTİM   MLY4306   MLY                       MALİYE POLİTİKASI II                                Z   B   VIII   Prof. Dr.       Ufuk SELEN             A23   PERŞEMBE    14:40-17:00
+
+I. EĞİTİM    MLY4402   MLY                       MALİ TAKİP HUKUKU (KAMU İCRA HUKUKU MU OLACAK)      Z   A   VIII   Doç. Dr.        Recep YÜCEDOĞRU        B9    ÇARŞAMBA    09:45-12:00
+
+II. EĞİTİM   MLY4402   MLY                       MALİ TAKİP HUKUKU (KAMU İCRA HUKUKU MU OLACAK)      Z   A   VIII   Doç. Dr.        Recep YÜCEDOĞRU        B12   ÇARŞAMBA    14:40-17:00
+
+I. EĞİTİM    MLY4402   MLY                       MALİ TAKİP HUKUKU (KAMU İCRA HUKUKU MU OLACAK)      Z   B   VIII   Prof. Dr.       Adnan GERÇEK           A15   ÇARŞAMBA    09:45-12:00
+
+II. EĞİTİM   MLY4402   MLY                       MALİ TAKİP HUKUKU (KAMU İCRA HUKUKU MU OLACAK)      Z   B   VIII   Prof. Dr.       Adnan GERÇEK           A9    ÇARŞAMBA    17:00-19:15
+
+I. EĞİTİM    MLY4302   MLY-CAL-ULU               KÜRESELLEŞME VE MALİ YAPI                           S       VIII   Dr. Öğr.Üyesi   Reyhan LEBA            A11   PERŞEMBE    12:05-14:35
+
+II. EĞİTİM   MLY4302   MLY-CAL-ULU               KÜRESELLEŞME VE MALİ YAPI                           S       VIII   Dr. Öğr.Üyesi   Reyhan LEBA            A17   PERŞEMBE    17:00-19:15
+
+I. EĞİTİM    MLY4406   MLY                       AVRUPA BİRLİĞİ MALİYESİ VE TÜRKİYE                  S       VIII   Prof. Dr.       Mircan TOKATLIOĞLU     A14   PAZARTESİ   12:05-14:35
+
+II. EĞİTİM   MLY4406   MLY                       AVRUPA BİRLİĞİ MALİYESİ VE TÜRKİYE                  S       VIII   Prof. Dr.       Mircan TOKATLIOĞLU     A14   PAZARTESİ   14:40-17:00
+
+I. EĞİTİM    MLY4308   ISL-ULU-EKO               MALİYE POLİTİKASI                                   S       VIII   Dr. Öğr.Üyesi   Çağlayan TABAR         C8    PERŞEMBE    14:40-17:00
+
+II. EĞİTİM   MLY4308   ISL-ULU-EKO               MALİYE POLİTİKASI                                   S       VIII   Dr. Öğr.Üyesi   Çağlayan TABAR         A12   PERŞEMBE    19:15-21:30
+
+I. EĞİTİM    MLY4410   MLY                       KAMU İHALE SÖZLEŞMELERİ VE UYUŞMAZLIKLARIN ÇÖZÜMÜ   S       VIII   Dr. Öğr.Üyesi   Muhammed ÇELİK         A12   PERŞEMBE    14:40-17:00
+
+II. EĞİTİM   MLY4410   MLY                       KAMU İHALE SÖZLEŞMELERİ VE UYUŞMAZLIKLARIN ÇÖZÜMÜ   S       VIII   Dr. Öğr.Üyesi   Muhammed ÇELİK         A11   PERŞEMBE    19:15-21:30
+
+I. EĞİTİM    CAL1102   CAL                       SOSYAL POLİTİKA                                     Z       II     Öğr. Gör. Dr.   Aysu SERDAR            B2    PAZARTESİ   12:05-14:35
+
+I. EĞİTİM    CAL1102   EKO                       SOSYAL POLİTİKA                                     Z       II     Öğr. Gör. Dr.   Aysu SERDAR            A20   SALI        14:40-17:00
+
+I. EĞİTİM    CAL2104   CAL                       ÇALIŞMA İLİŞKİLERİ TARİHİ                           S       IV     Öğr. Gör. Dr.   Aysu SERDAR            A19   SALI        09:45-12:00
+I. EĞİTİM    CAL2302   CAL               ENDÜSTRİ SOSYOLOJİSİ                                 Z           IV     Doç. Dr.         Şenol BAŞTÜRK            A10   PAZARTESİ   12:05-14:35
+
+I. EĞİTİM    CAL2404   CAL               ÇALIŞMA PSİKOLOJİSİ                                  Z       A   IV     Prof. Dr.        Aşkın KESER              A19   SALI        12:05-14:35
+
+I. EĞİTİM    CAL2404   CAL               ÇALIŞMA PSİKOLOJİSİ                                  Z       B   IV     Dr. Öğr.Üyesi    Ulviye TÜFEKÇİ YAMAN     C9    SALI        12:05-14:35
+
+I. EĞİTİM    CAL2202   ISL               İŞ HUKUKU                                            Z           IV     Prof. Dr.        İlknur KILKIŞ            A23   PAZARTESİ   09:45-12:00
+
+II. EĞİTİM   CAL2202   ISL               İŞ HUKUKU                                            Z           IV     Prof. Dr.        İlknur KILKIŞ            A16   PAZARTESİ   17:00-19:15
+
+I. EĞİTİM    CAL2304   MAL-ISL-KAM-EKO   TÜRKİYE'NİN TOPLUMSAL YAPISI                         S           IV     Dr. Öğr.Üyesi    Memet ZENCİRKIRAN        A22   PERŞEMBE    12:05-14:35
+
+I. EĞİTİM    CAL2102   CAL-KAM           REFAH SİSTEMLERİ VE SOSYAL POLİTİKALAR               S           IV     Dr. Öğr.Üyesi    Burak Faik EMİRGİL       A20   ÇARŞAMBA    12:05-14:35
+
+I. EĞİTİM    CAL3002   CAL               ARAŞTIRMA YÖNTEMLERİ (ÇALIŞMA EKONOMİSİ)             Z           VI     Öğr. Gör. Dr.    Aysu SERDAR              C11   PAZARTESİ   14:40-17:00
+
+II. EĞİTİM   CAL3002   CAL               ARAŞTIRMA YÖNTEMLERİ (ÇALIŞMA EKONOMİSİ)             Z           VI     Öğr. Gör. Dr.    Aysu SERDAR              A17   PAZARTESİ   19:15-21:30
+
+I. EĞİTİM    CAL3002   CAL               ARAŞTIRMA YÖNTEMLERİ (İŞ HUKUKU VE SOSYAL GÜVENLİK HUKUKU)
+                                                                                              Z           VI     Dr. Öğr.Üyesi    Fatih GÜLTEKİN           A18   PERŞEMBE    09:45-12:00
+
+II. EĞİTİM   CAL3002   CAL               ARAŞTIRMA YÖNTEMLERİ (İŞ HUKUKU VE SOSYAL GÜVENLİK HUKUKU)
+                                                                                              Z           VI     Dr. Öğr.Üyesi    Fatih GÜLTEKİN           A21   ÇARŞAMBA    19:15-21:30
+
+I. EĞİTİM    CAL3002   CAL               ARAŞTIRMA YÖNTEMLERİ (YÖNETİM VE ÇALIŞMA PSİKOLOJİSİ) Z          VI     Doç. Dr.         Selver YILDIZ BAĞDOĞAN   B11   SALI        14:40-17:00
+
+II. EĞİTİM   CAL3002   CAL               ARAŞTIRMA YÖNTEMLERİ (YÖNETİM VE ÇALIŞMA PSİKOLOJİSİ) Z          VI     Doç. Dr.         Selver YILDIZ BAĞDOĞAN   A18   SALI        19:15-21:30
+
+I. EĞİTİM    CAL3002   CAL               ARAŞTIRMA YÖNTEMLERİ (YÖNETİM VE ÇALIŞMA SOSYOLOJİSİ) Z          VI     Araş. Gör. Dr.   Gözde SOYSAL             C9    PAZARTESİ   09:45-12:00
+
+II. EĞİTİM   CAL3002   CAL               ARAŞTIRMA YÖNTEMLERİ (YÖNETİM VE ÇALIŞMA SOSYOLOJİSİ) Z          VI     Araş. Gör. Dr.   Gözde SOYSAL             C9    PAZARTESİ   14:40-17:00
+
+I. EĞİTİM    CAL3102   CAL               ÇALIŞMA EKONOMİSİ II                                 Z       A   VI     Prof. Dr.        Rabihan YÜKSEL ARABACI   A11   SALI        12:05-14:35
+
+II. EĞİTİM   CAL3102   CAL               ÇALIŞMA EKONOMİSİ II                                 Z       A   VI     Prof. Dr.        Rabihan YÜKSEL ARABACI   A19   SALI        17:00-19:15
+
+I. EĞİTİM    CAL3102   CAL               ÇALIŞMA EKONOMİSİ II                                 Z       B   VI     Dr. Öğr.Üyesi    Elif KARA YAVAŞ          C11   SALI        12:05-14:35
+
+II. EĞİTİM   CAL3102   CAL               ÇALIŞMA EKONOMİSİ II                                 Z       B   VI     Dr. Öğr.Üyesi    Elif KARA YAVAŞ          A20   SALI        17:00-19:15
+
+I. EĞİTİM    CAL3104   CAL-ISL           ENDÜSTRİ İLİŞKİLERİ                                  Z/S         VI     Dr. Öğr.Üyesi    Burak Faik EMİRGİL       A3    PAZARTESİ   12:05-14:35
+
+II. EĞİTİM   CAL3104   CAL-ISL           ENDÜSTRİ İLİŞKİLERİ                                  Z/S         VI     Dr. Öğr.Üyesi    Burak Faik EMİRGİL       A22   PAZARTESİ   17:00-19:15
+
+I. EĞİTİM    CAL3202   CAL               TOPLU İŞ HUKUKU                                      Z           VI     Dr. Öğr.Üyesi    Fatih GÜLTEKİN           B2    ÇARŞAMBA    12:05-14:35
+
+II. EĞİTİM   CAL3202   CAL               TOPLU İŞ HUKUKU                                      Z           VI     Dr. Öğr.Üyesi    Fatih GÜLTEKİN           A23   ÇARŞAMBA    17:00-19:15
+
+I. EĞİTİM    CAL3302   CAL               AİLE SOSYOLOJİSİ VE POLİTİKASI                       S           VI     Araş. Gör. Dr.   Gözde SOYSAL             C8    PERŞEMBE    12:05-14:35
+
+II. EĞİTİM   CAL3302   CAL               AİLE SOSYOLOJİSİ VE POLİTİKASI                       S           VI     Araş. Gör. Dr.   Gözde SOYSAL             C10   PERŞEMBE    14:40-17:00
+
+I. EĞİTİM    CAL3106   CAL-ISL-KAM       TÜRKİYE'DE SOSYAL GÜVENLİK                           S           VI     Prof. Dr.        Yusuf ALPER              A23   SALI        09:45-12:00
+
+II. EĞİTİM   CAL3106   CAL-ISL-KAM       TÜRKİYE'DE SOSYAL GÜVENLİK                           S           VI     Prof. Dr.        Yusuf ALPER              A23   SALI        14:40-17:00
+
+I. EĞİTİM    CAL3112   CAL-MLY           İŞGÜCÜ PİYASASI İÇİN BECERİLER                       S           VI     Dr. Öğr.Üyesi    Elif KARA YAVAŞ          A17   PERŞEMBE    14:40-17:00
+
+II. EĞİTİM   CAL3112   CAL-MLY           İŞGÜCÜ PİYASASI İÇİN BECERİLER                       S           VI     Dr. Öğr.Üyesi    Elif KARA YAVAŞ          A8    PERŞEMBE    17:00-19:15
+
+I. EĞİTİM    CAL3204   MLY-EKO           İŞ HUKUKU                                            S           VI     Dr. Öğr.Üyesi    Fatih GÜLTEKİN           A10   PERŞEMBE    14:40-17:00
+
+II. EĞİTİM   CAL3204   MLY-EKO           İŞ HUKUKU                                            S           VI     Dr. Öğr.Üyesi    Fatih GÜLTEKİN           A10   PERŞEMBE    17:00-19:15
+
+I. EĞİTİM    CAL4102   CAL               GELİR DAĞILIMI POLİTİKALARI                          Z           VIII   Prof. Dr.        Rabihan YÜKSEL ARABACI   A22   PAZARTESİ   12:05-14:35
+
+II. EĞİTİM   CAL4102   CAL               GELİR DAĞILIMI POLİTİKALARI                          Z           VIII   Prof. Dr.        Rabihan YÜKSEL ARABACI   A11   PAZARTESİ   14:40-17:00
+
+I. EĞİTİM    CAL4112   CAL               YEŞİL DÖNÜŞÜM VE ÇALIŞMA                             S           VIII   Dr. Öğr.Üyesi    Elif KARA YAVAŞ          A11   PERŞEMBE    09:45-12:00
+
+II. EĞİTİM   CAL4112   CAL               YEŞİL DÖNÜŞÜM VE ÇALIŞMA                             S           VIII   Dr. Öğr.Üyesi    Elif KARA YAVAŞ          A17   SALI        19:15-21:30
+
+I. EĞİTİM    CAL4202   CAL               SOSYAL GÜVENLİK HUKUKU                               Z           VIII   Prof. Dr.        Yusuf ALPER              A23   ÇARŞAMBA    09:45-12:00
+
+II. EĞİTİM   CAL4202   CAL               SOSYAL GÜVENLİK HUKUKU                               Z           VIII   Prof. Dr.        Yusuf ALPER              A23   ÇARŞAMBA    14:40-17:00
+
+I. EĞİTİM    CAL4402   CAL               İNSAN KAYNAKLARI                                     Z           VIII   Doç. Dr.         Selver YILDIZ BAĞDOĞAN   A10   PAZARTESİ   09:45-12:00
+
+II. EĞİTİM   CAL4402   CAL               İNSAN KAYNAKLARI                                     Z           VIII   Doç. Dr.         Selver YILDIZ BAĞDOĞAN   A23   PAZARTESİ   17:00-19:15
+
+I. EĞİTİM    CAL4406   CAL               ÇALIŞMA HAYATI VE KADIN                              S           VIII   Dr. Öğr.Üyesi    Ulviye TÜFEKÇİ YAMAN     A20   PERŞEMBE    12:05-14:35
+II. EĞİTİM   CAL4406     CAL                       ÇALIŞMA HAYATI VE KADIN                        S       VIII   Dr. Öğr.Üyesi    Ulviye TÜFEKÇİ YAMAN             A12   PERŞEMBE     17:00-19:15
+
+I. EĞİTİM    CAL4204     IKT                       SOSYAL GÜVENLİK HUKUKU                         S       VIII   Araş. Gör. Dr.   Emre YAYIN                       C8    SALI         09:45-12:00
+
+II. EĞİTİM   CAL4204     IKT                       SOSYAL GÜVENLİK HUKUKU                         S       VIII   Araş. Gör. Dr.   Emre YAYIN                       C16   SALI         14:40-17:00
+
+I. EĞİTİM    CAL4206     MLY-CAL-ISL-KAM-ULU-EKO   İŞ SAĞLIĞI VE GÜVENLİĞİ HUKUKU                 S       VIII   Prof. Dr.        İlknur KILKIŞ                    A10   SALI         12:05-14:35
+
+II. EĞİTİM   CAL4206     MLY-CAL-ISL-KAM-ULU-EKO   İŞ SAĞLIĞI VE GÜVENLİĞİ HUKUKU                 S       VIII   Prof. Dr.        İlknur KILKIŞ                    A17   SALI         17:00-19:15
+
+I. EĞİTİM    CAL4108     MLY-KAM-EKO               İSTİHDAM ve İŞSİZLİK                           S       VIII   Dr. Öğr.Üyesi    Burak Faik EMİRGİL               C13   ÇARŞAMBA     14:40-17:00
+
+II. EĞİTİM   CAL4108     MLY-KAM-EKO               İSTİHDAM ve İŞSİZLİK                           S       VIII   Dr. Öğr.Üyesi    Burak Faik EMİRGİL               A15   ÇARŞAMBA     19:15-21:30
+
+I. EĞİTİM    ISL2210FD   FAKÜLTE DIŞI              GİRİŞİMCİLİK                                   S       GS     Araş. Gör. Dr.   Yaşar NUMAN AKSANYAR         14:40-17:00 PERŞEMBE   14:40-17:00
+
+I. EĞİTİM    ISL1004     CAL                       İŞLETME                                        Z       II     Dr. Öğr.Üyesi    Olcay BEKTAŞ                     B2    PAZARTESİ    09:45-12:00
+
+I. EĞİTİM    ISL1202     EKO                       MUHASEBE II                                    Z       II     Dr. Öğr.Üyesi    Alp AYTAÇ                        A8    PERŞEMBE     14:40-17:00
+
+I. EĞİTİM    ISL1004     IKT                       İŞLETME                                        Z       II     Prof. Dr.        Mehmet ERYILMAZ                  A9    PAZARTESİ    09:45-12:00
+
+I. EĞİTİM    ISL1202     IKT                       MUHASEBE II                                    Z   A   II     Doç. Dr.         Funda ÖZÇELİK                    A15   PAZARTESİ    12:05-14:35
+
+I. EĞİTİM    ISL1202     IKT                       MUHASEBE II                                    Z   B   II     Prof. Dr.        Melek EKER                       C12   SALI         12:05-14:35
+
+I. EĞİTİM    ISL1002     ISL                       İŞLETME II                                     Z   A   II     Prof. Dr.        Başak Aydem AYDEMİR ÇİFTÇİOĞLU   B3    SALI         12:05-14:35
+
+I. EĞİTİM    ISL1002     ISL                       İŞLETME II                                     Z   B   II     Dr. Öğr.Üyesi    Ceyda KAVURMACI AYTAÇ            C15   SALI         12:05-14:35
+
+I. EĞİTİM    ISL1202     ISL                       MUHASEBE II                                    Z   A   II     Prof. Dr.        Ali ILDIR                        A14   PAZARTESİ    09:45-12:00
+
+I. EĞİTİM    ISL1202     ISL                       MUHASEBE II                                    Z   B   II     Prof. Dr.        Elif YÜCEL                       A11   PAZARTESİ    09:45-12:00
+
+I. EĞİTİM    ISL1202     ISL                       MUHASEBE II                                    Z   C   II     Prof. Dr.        Yasemin ERTAN                    A12   PAZARTESİ    09:45-12:00
+
+I. EĞİTİM    ISL1402     ISL                       İŞLETME MATEMATİĞİ II                          Z   A   II     Doç. Dr.         Gül EMEL                         C7    ÇARŞAMBA     12:05-14:35
+
+I. EĞİTİM    ISL1402     ISL                       İŞLETME MATEMATİĞİ II                          Z   B   II     Doç. Dr.         Burcu AVCI ÖZTÜRK                A9    ÇARŞAMBA     12:05-14:35
+
+I. EĞİTİM    ISL1402     ISL                       İŞLETME MATEMATİĞİ II                          Z   C   II     Araş. Gör. Dr.   Nagihan MEMİŞ YAKAR              B4    PAZARTESİ    12:05-14:35
+
+I. EĞİTİM    ISL1202     MLY                       MUHASEBE II                                    Z   A   II     Prof. Dr.        Yasemin ERTAN                    A14   ÇARŞAMBA     12:05-14:35
+
+I. EĞİTİM    ISL1202     MLY                       MUHASEBE II                                    Z   B   II     Doç. Dr.         Funda ÖZÇELİK                    A15   PAZARTESİ    14:40-17:00
+
+I. EĞİTİM    ISL2108     CAL-ISL-KAM               SOSYAL GİRİŞİMCİLİK                            S       IV     Doç. Dr.         Mehlika SARAÇ                    B3    ÇARŞAMBA     14:40-17:00
+
+I. EĞİTİM    ISL2104     ISL                       ORGANİZASYON TEORİSİ                           Z       IV     Prof. Dr.        Mehmet ERYILMAZ                  A2    SALI         12:05-14:35
+
+II. EĞİTİM   ISL2104     ISL                       ORGANİZASYON TEORİSİ                           Z       IV     Prof. Dr.        Mehmet ERYILMAZ                  A10   SALI         17:00-19:15
+
+I. EĞİTİM    ISL2212     ISL                       FİNANSA GİRİŞ                                  Z   A   IV     Prof. Dr.        Değer ALPER                      A16   ÇARŞAMBA     12:05-14:35
+
+I. EĞİTİM    ISL2212     ISL                       FİNANSA GİRİŞ                                  Z   B   IV     Prof. Dr.        Adem ANBAR                       A8    ÇARŞAMBA     12:05-14:35
+
+I. EĞİTİM    ISL2212     ISL                       FİNANSA GİRİŞ                                  Z   C   IV     Dr. Öğr.Üyesi    Esen CİMİLLİ                     B3    ÇARŞAMBA     12:05-14:35
+
+I. EĞİTİM    ISL2212     IKT-KAM-EKO               MALİ TABLOLAR ANALİZİ                          S       IV     Prof. Dr.        Elif YÜCEL                       A12   PAZARTESİ    14:40-17:00
+
+I. EĞİTİM    ISL3216     IKT-MLY-ISL-EKO           MENKUL KIYMET ANALİZİ                          S       VI     Dr. Öğr.Üyesi    Esen CİMİLLİ                     A12   ÇARŞAMBA     09:45-12:00
+
+II. EĞİTİM   ISL3216     IKT-MLY-ISL-EKO           MENKUL KIYMET ANALİZİ                          S       VI     Dr. Öğr.Üyesi    Esen CİMİLLİ                     A8    CUMA         14:40-17:00
+
+I. EĞİTİM    ISL3206     IKT-MLY-EKO               MALİYET MUHASEBESİ                             S       VI     Prof. Dr.        Melek EKER                       C12   ÇARŞAMBA     12:05-14:35
+
+I. EĞİTİM    ISL3104     IKT-MLY-KAM-EKO           İNSAN KAYNAĞI YÖNETİMİ                         S       VI     Prof. Dr.        Kurtuluş KAYMAZ                  A16   PAZARTESİ    12:05-14:35
+
+II. EĞİTİM   ISL3104     IKT-MLY-KAM-EKO           İNSAN KAYNAĞI YÖNETİMİ                         S       VI     Prof. Dr.        Kurtuluş KAYMAZ                  A3    PAZARTESİ    14:40-17:00
+
+I. EĞİTİM    ISL3006     ISL                       ARAŞTIRMA YÖNTEMLERİ (MUHASEBE VE FİNANSMAN)   Z       VI     Prof. Dr.        Ali ILDIR                        A18   ÇARŞAMBA     14:40-17:00
+
+II. EĞİTİM   ISL3006     ISL                       ARAŞTIRMA YÖNTEMLERİ (MUHASEBE VE FİNANSMAN)   Z       VI     Prof. Dr.        Ali ILDIR                        A12   ÇARŞAMBA     19:15-21:30
+
+I. EĞİTİM    ISL3006     ISL                       ARAŞTIRMA YÖNTEMLERİ (SAYISAL YÖNTEMLER)       Z       VI     Doç. Dr.         Burcu AVCI ÖZTÜRK                A4    ÇARŞAMBA     14:40-17:00
+
+II. EĞİTİM   ISL3006     ISL                       ARAŞTIRMA YÖNTEMLERİ (SAYISAL YÖNTEMLER)       Z       VI     Doç. Dr.         Burcu AVCI ÖZTÜRK                A11   ÇARŞAMBA     19:15-21:30
+
+I. EĞİTİM    ISL3006     ISL                       ARAŞTIRMA YÖNTEMLERİ (TİCARET HUKUKU)          Z       VI     Araş. Gör. Dr.   Yaşar NUMAN AKSANYAR             A21   ÇARŞAMBA     14:40-17:00
+II. EĞİTİM   ISL3006   ISL           ARAŞTIRMA YÖNTEMLERİ (TİCARET HUKUKU)               Z       VI     Araş. Gör. Dr.   Yaşar NUMAN AKSANYAR   A18   ÇARŞAMBA    19:15-21:30
+
+I. EĞİTİM    ISL3006   ISL           ARAŞTIRMA YÖNTEMLERİ (ÜRETİM YÖNETİMİ VE PAZARLAMA) Z       VI     Doç. Dr.         Onur ÖZTÜRK            B4    ÇARŞAMBA    14:40-17:00
+
+II. EĞİTİM   ISL3006   ISL           ARAŞTIRMA YÖNTEMLERİ (ÜRETİM YÖNETİMİ VE PAZARLAMA) Z       VI     Doç. Dr.         Onur ÖZTÜRK            A3    ÇARŞAMBA    19:15-21:30
+
+I. EĞİTİM    ISL3006   ISL           ARAŞTIRMA YÖNTEMLERİ (YÖNETİM VE ORGANİZASYON)      Z       VI     Araş. Gör. Dr.   Yaşar NUMAN AKSANYAR   B3    PAZARTESİ   14:40-17:00
+
+II. EĞİTİM   ISL3006   ISL           ARAŞTIRMA YÖNTEMLERİ (YÖNETİM VE ORGANİZASYON)      Z       VI     Araş. Gör. Dr.   Yaşar NUMAN AKSANYAR   A3    PAZARTESİ   19:15-21:30
+
+I. EĞİTİM    ISL3208   ISL           YÖNETİM MUHASEBESİ                                  Z   A   VI     Prof. Dr.        Melek EKER             A12   SALI        09:45-12:00
+
+II. EĞİTİM   ISL3208   ISL           YÖNETİM MUHASEBESİ                                  Z   A   VI     Prof. Dr.        Melek EKER             A22   SALI        14:40-17:00
+
+I. EĞİTİM    ISL3208   ISL           YÖNETİM MUHASEBESİ                                  Z   B   VI     Doç. Dr.         Funda ÖZÇELİK          A15   SALI        14:40-17:00
+
+II. EĞİTİM   ISL3208   ISL           YÖNETİM MUHASEBESİ                                  Z   B   VI     Doç. Dr.         Funda ÖZÇELİK          A15   SALI        14:40-17:00
+
+I. EĞİTİM    ISL3304   ISL           ÜRETİM YÖNETİMİ                                     Z       VI     Dr. Öğr.Üyesi    Gülay KASAP            A9    PERŞEMBE    12:05-14:35
+
+II. EĞİTİM   ISL3304   ISL           ÜRETİM YÖNETİMİ                                     Z       VI     Dr. Öğr.Üyesi    Gülay KASAP            A9    PERŞEMBE    17:00-19:15
+
+I. EĞİTİM    ISL3312   ISL           PERAKENDECİLİK YÖNETİMİ                             S       VI     Prof. Dr.        Serkan KILIÇ           A9    CUMA        14:40-17:00
+
+II. EĞİTİM   ISL3312   ISL           PERAKENDECİLİK YÖNETİMİ                             S       VI     Prof. Dr.        Serkan KILIÇ           A9    CUMA        19:15-21:30
+
+I. EĞİTİM    ISL3502   ISL           TİCARET HUKUKU                                      Z       VI     Araş. Gör. Dr.   Aybike SALMAN          B14   ÇARŞAMBA    12:05-14:35
+
+II. EĞİTİM   ISL3502   ISL           TİCARET HUKUKU                                      Z       VI     Araş. Gör. Dr.   Aybike SALMAN          A12   ÇARŞAMBA    17:00-19:15
+
+I. EĞİTİM    ISL3218   ISL-EKO       FİNANSAL TEKNİKLER                                  S       VI     Prof. Dr.        Değer ALPER            A17   SALI        12:05-14:35
+
+I. EĞİTİM    ISL3308   ISL-EKO       SATIŞ GÜCÜ YÖNETİMİ                                 S       VI     Prof. Dr.        Erkan ÖZDEMİR          A8    PERŞEMBE    09:45-12:00
+
+II. EĞİTİM   ISL3308   ISL-EKO       SATIŞ GÜCÜ YÖNETİMİ                                 S       VI     Prof. Dr.        Erkan ÖZDEMİR          A9    PERŞEMBE    14:40-17:00
+
+I. EĞİTİM    ISL3310   MAL-ISL-EKO   PAZARLAMA ARAŞTIRMASI                               S       VI     Prof. Dr.        Serkan KILIÇ           A9    CUMA        09:45-12:00
+
+II. EĞİTİM   ISL3310   MAL-ISL-EKO   PAZARLAMA ARAŞTIRMASI                               S       VI     Prof. Dr.        Serkan KILIÇ           A9    CUMA        17:00-19:15
+
+I. EĞİTİM    ISL3318   ISL           DİJİTAL PAZARLAMA                                   S       VI     Doç. Dr.         Onur ÖZTÜRK            A14   PERŞEMBE    14:40-17:00
+
+II. EĞİTİM   ISL3318   ISL           DİJİTAL PAZARLAMA                                   S       VI     Doç. Dr.         Onur ÖZTÜRK            A9    PERŞEMBE    19:15-21:30
+
+I. EĞİTİM    ISL4210   ISL           YATIRIM PROJELERİNİN DEĞERLENDİRİLMESİ              S       VIII   Prof. Dr.        Adem ANBAR             A5    PAZARTESİ   12:05-14:35
+
+II. EĞİTİM   ISL4210   ISL           YATIRIM PROJELERİNİN DEĞERLENDİRİLMESİ              S       VIII   Prof. Dr.        Adem ANBAR             A15   PAZARTESİ   19:15-21:30
+
+I. EĞİTİM    ISL4202   MLY           MALİ TABLOLAR ANALİZİ                               Z       VIII   Prof. Dr.        Elif YÜCEL             B2    SALI        14:40-17:00
+
+II. EĞİTİM   ISL4202   MLY           MALİ TABLOLAR ANALİZİ                               Z       VIII   Prof. Dr.        Elif YÜCEL             B2    SALI        14:40-17:00
+
+I. EĞİTİM    ISL4214   MLY-CAL-ISL   MUHASEBE DENETİMİ                                   S       VIII   Prof. Dr.        Yasemin ERTAN          B2    ÇARŞAMBA    14:40-17:00
+
+II. EĞİTİM   ISL4214   MLY-CAL-ISL   MUHASEBE DENETİMİ                                   S       VIII   Prof. Dr.        Yasemin ERTAN          B2    ÇARŞAMBA    14:40-17:00
+
+I. EĞİTİM    ISL4312   ISL           HİZMET PAZARLAMASI                                  S       VIII   Prof. Dr.        Çağatan TAŞKIN         A9    SALI        09:45-12:00
+
+II. EĞİTİM   ISL4312   ISL           HİZMET PAZARLAMASI                                  S       VIII   Prof. Dr.        Çağatan TAŞKIN         A15   SALI        19:15-21:30
+
+I. EĞİTİM    ISL4316   ISL           PAZARLAMA STRATEJİLERİ                              Z   A   VIII   Prof. Dr.        Erkan ÖZDEMİR          B1    SALI        12:05-14:35
+
+II. EĞİTİM   ISL4316   ISL           PAZARLAMA STRATEJİLERİ                              Z   A   VIII   Prof. Dr.        Erkan ÖZDEMİR          A10   SALI        14:40-17:00
+
+I. EĞİTİM    ISL4316   ISL           PAZARLAMA STRATEJİLERİ                              Z   B   VIII   Prof. Dr.        Çağatan TAŞKIN         A9    SALI        12:05-14:35
+
+II. EĞİTİM   ISL4316   ISL           PAZARLAMA STRATEJİLERİ                              Z   B   VIII   Prof. Dr.        Çağatan TAŞKIN         A5    SALI        17:00-19:15
+
+I. EĞİTİM    ISL4402   ISL           SAYISAL YÖNTEMLER II                                Z   A   VIII   Doç. Dr.         Burcu AVCI ÖZTÜRK      A9    PAZARTESİ   14:40-17:00
+
+II. EĞİTİM   ISL4402   ISL           SAYISAL YÖNTEMLER II                                Z       VIII   Doç. Dr.         Burcu AVCI ÖZTÜRK      A9    PAZARTESİ   17:00-19:15
+
+I. EĞİTİM    ISL4402   ISL           SAYISAL YÖNTEMLER II                                Z   B   VIII   Araş. Gör. Dr.   Nagihan MEMİŞ YAKAR    A16   PERŞEMBE    12:05-14:35
+
+I. EĞİTİM    ISL4302   ISL           ÜRETİM PLANLAMA                                     Z       VIII   Araş. Gör. Dr.   Merve KÖSE KÜÇÜK       C13   PERŞEMBE    09:45-12:00
+
+II. EĞİTİM   ISL4302   ISL           ÜRETİM PLANLAMA                                     Z       VIII   Araş. Gör. Dr.   Merve KÖSE KÜÇÜK       C13   PERŞEMBE    14:40-17:00
+
+I. EĞİTİM    ISL4216   MLY-ISL       MUHASEBE STANDARTLARI                               S       VIII   Dr. Öğr.Üyesi    Alp AYTAÇ              A8    ÇARŞAMBA    09:45-12:00
+I. EĞİTİM    KAM1406   CAL-MLY           ANAYASA HUKUKU                                      Z       II      Araş. Gör. Dr.   Abdullah Yasin ERDEM     C14     SALI        14:40-17:00
+
+I. EĞİTİM    KAM1404   ISL               HUKUKA GİRİŞ                                        Z       II      Dr. Öğr.Üyesi    Burak MEYDANCI          ONLINE   SALI        14:40-17:00
+I. EĞİTİM    KAM1404   BUS               INTRODUCTION TO LAW                                 Z       II      Dr. Öğr.Üyesi    Burak MEYDANCI          ONLINE   CUMA        09:45-12:00
+
+I. EĞİTİM    KAM1104   KAM               SİYASAL OLAYLAR TARİHİ                              Z       II      Doç. Dr.         Mert GÖKIRMAK             A2     SALI        14:40-17:00
+
+I. EĞİTİM    KAM1106   KAM               SİYASET BİLİMİ                                      Z   A   II      Doç. Dr.         Mert GÖKIRMAK            A22     PERŞEMBE    14:40-17:00
+
+I. EĞİTİM    KAM1106   KAM               SİYASET BİLİMİ                                      Z   B   II      Doç. Dr.         Elif MADAKBAŞ GÜLENER     B5     PERŞEMBE    11:15-13:45
+
+I. EĞİTİM    KAM1302   KAM               ÇEVRE BİLİMLERİ                                     Z       II      Doç. Dr.         Yasemin KAYA             A23     SALI        12:05-14:35
+
+I. EĞİTİM    KAM1108   ULU               SOSYOLOJİ                                           Z       II      Araş. Gör. Dr.   Elif Bengi AKKUŞ          C8     PAZARTESİ   12:05-14:35
+
+I. EĞİTİM    KAM1406-KAM2206
+                        ULU-KAM          ANAYASA HUKUKU                                      Z       II-IV   Prof. Dr.        Serdar GÜLENER            A2     ÇARŞAMBA    09:45-12:00
+
+I. EĞİTİM    KAM1108   INT               SOCIOLOGY                                           Z       II      Dr. Öğr.Üyesi    Gülçin TUNÇ              B11     SALI        12:05-14:35
+
+I. EĞİTİM    KAM1406   INT               CONSTITUTIONAL LAW                                  Z       II      Dr. Öğr.Üyesi    Salih TAŞDÖĞEN          ONLINE   CUMA        09:45-12:00
+
+I. EĞİTİM    KAM2410   CAL               BORÇLAR HUKUKU                                      Z       IV      Dr. Öğr.Üyesi    Erdem Utku ÇAKIR         C10     ÇARŞAMBA    09:45-12:00
+
+I. EĞİTİM    KAM2406   MLY               BORÇLAR HUKUKU                                      Z       IV      Dr. Öğr.Üyesi    Erdem Utku ÇAKIR         A10     ÇARŞAMBA    14:40-17:00
+
+II. EĞİTİM   KAM2406/KAM2410
+                        MLY/CAL          BORÇLAR HUKUKU                                      Z       IV      Dr. Öğr.Üyesi    Erdem Utku ÇAKIR         A23     SALI        17:00-19:15
+
+I. EĞİTİM    KAM2104   CAL-ULU           SİYASET SOSYOLOJİSİ                                 S       IV      Dr. Öğr.Üyesi    Semih EKER               C12     SALI        14:40-17:00
+
+I. EĞİTİM    KAM2102   KAM               SİYASET SOSYOLOJİSİ                                 Z   A   IV      Prof. Dr.        Ali Yaşar SARIBAY        A19     PAZARTESİ   12:05-14:35
+
+I. EĞİTİM    KAM2102   KAM               SİYASET SOSYOLOJİSİ                                 Z   B   IV      Dr. Öğr.Üyesi    Semih EKER               A17     PAZARTESİ   12:05-14:35
+
+I. EĞİTİM    KAM2112   KAM               SİYASAL DÜŞÜNCELER TARİHİ                           Z   A   IV      Prof. Dr.        Derda KÜÇÜKALP           A16     SALI        12:05-14:35
+
+I. EĞİTİM    KAM2112   KAM               SİYASAL DÜŞÜNCELER TARİHİ                           Z   B   IV      Prof. Dr.        Fırat MOLLAER            B12     SALI        12:05-14:35
+
+I. EĞİTİM    KAM2116   KAM               TÜRKİYE'DE MODERNLEŞME VE SEKÜLERLEŞME MESELELERİ   S       IV      Dr. Öğr.Üyesi    Gülbeyaz KARAKUŞ         A20     SALI        09:45-12:00
+
+I. EĞİTİM    KAM2402   MLY-CAL-KAM-ULU   MEDENİ HUKUK                                        S       IV      Araş. Gör. Dr.   Abdullah Yasin ERDEM     C10     PERŞEMBE    12:05-14:35
+
+I. EĞİTİM    KAM2208   ULU               İDARE HUKUKU                                        Z       IV      Araş. Gör. Dr.   Abdullah Yasin ERDEM      C7     PERŞEMBE    14:40-17:00
+
+I. EĞİTİM    KAM2208   INT               ADMINISTRATIVE LAW                                  Z       IV      Doç. Dr.         İlyas Fırat CENGİZ        A6     SALI        12:05-14:35
+
+I. EĞİTİM    KAM3104   IKT-CAL-ULU       MODERN SİYASAL AKIMLAR                              S       VI      Prof. Dr.        Derda KÜÇÜKALP           A20     ÇARŞAMBA    14:40-17:00
+
+II. EĞİTİM   KAM3104   IKT-CAL-ULU       MODERN SİYASAL AKIMLAR                              S       VI      Prof. Dr.        Derda KÜÇÜKALP           A17     ÇARŞAMBA    17:00-19:15
+
+I. EĞİTİM    KAM3006   KAM               ARAŞTIRMA YÖNTEMLERİ (HUKUK BİLİMLERİ)              Z       VI      Prof. Dr.        Serdar GÜLENER            B5     SALI        14:40-17:00
+
+II. EĞİTİM   KAM3006   KAM               ARAŞTIRMA YÖNTEMLERİ (HUKUK BİLİMLERİ)              Z       VI      Prof. Dr.        Serdar GÜLENER           A22     SALI        17:00-19:15
+
+I. EĞİTİM    KAM3006   KAM               ARAŞTIRMA YÖNTEMLERİ (KENTLEŞME VE ÇEVRE SORUNLARI) Z       VI      Doç. Dr.         Yasemin KAYA              A4     SALI        14:40-17:00
+
+II. EĞİTİM   KAM3006   KAM               ARAŞTIRMA YÖNTEMLERİ (KENTLEŞME VE ÇEVRE SORUNLARI) Z       VI      Doç. Dr.         Yasemin KAYA             A21     SALI        17:00-19:15
+
+I. EĞİTİM    KAM3006   KAM               ARAŞTIRMA YÖNTEMLERİ (SİYASET VE SOSYAL BİLİMLER)   Z       VI      Prof. Dr.        Derda KÜÇÜKALP           A21     SALI        14:40-17:00
+
+II. EĞİTİM   KAM3006   KAM               ARAŞTIRMA YÖNTEMLERİ (SİYASET VE SOSYAL BİLİMLER)   Z       VI      Prof. Dr.        Derda KÜÇÜKALP            A4     SALI        17:00-19:15
+
+I. EĞİTİM    KAM3006   KAM               ARAŞTIRMA YÖNTEMLERİ (YÖNETİM BİLİMLERİ)            Z       VI      Prof. Dr.        Bekir PARLAK             A18     SALI        14:40-17:00
+
+II. EĞİTİM   KAM3006   KAM               ARAŞTIRMA YÖNTEMLERİ (YÖNETİM BİLİMLERİ)            Z       VI      Prof. Dr.        Bekir PARLAK             A19     SALI        19:15-21:30
+
+I. EĞİTİM    KAM3104   KAM               MODERN SİYASAL AKIMLAR                              Z   A   VI      Prof. Dr.        Fırat MOLLAER            A15     PERŞEMBE    12:05-14:35
+
+II. EĞİTİM   KAM3104   KAM               MODERN SİYASAL AKIMLAR                              Z   A   VI      Prof. Dr.        Fırat MOLLAER            A11     PERŞEMBE    17:00-19:15
+
+I. EĞİTİM    KAM3104   KAM               MODERN SİYASAL AKIMLAR                              Z   B   VI      Dr. Öğr.Üyesi    İbrahim ERAYMAN           C9     PERŞEMBE    12:05-14:35
+
+II. EĞİTİM   KAM3104   KAM               MODERN SİYASAL AKIMLAR                              Z   B   VI      Dr. Öğr.Üyesi    İbrahim ERAYMAN          A14     PERŞEMBE    17:00-19:15
+
+I. EĞİTİM    KAM3106   KAM               DEVLET TEORİLERİ                                    Z       VI      Dr. Öğr.Üyesi    Semih EKER               C13     PAZARTESİ   09:45-12:00
+
+II. EĞİTİM   KAM3106   KAM               DEVLET TEORİLERİ                                    Z       VI      Dr. Öğr.Üyesi    Semih EKER                B6     PAZARTESİ   14:40-17:00
+
+I. EĞİTİM    KAM3116   KAM               ELEŞTİREL DÜŞÜNME BECERİSİ                          S       VI      Doç. Dr.         Elif MADAKBAŞ GÜLENER     A5     ÇARŞAMBA    14:40-17:00
+II. EĞİTİM   KAM3116   KAM               ELEŞTİREL DÜŞÜNME BECERİSİ                      S     VI     Doç. Dr.         Elif MADAKBAŞ GÜLENER   A22   PERŞEMBE    19:15-21:30
+
+I. EĞİTİM    KAM3118   KAM               ÇAĞDAŞ İSLAM DÜŞÜNCESİ                          S     VI     Dr. Öğr.Üyesi    İbrahim DURMAZ          A6    PERŞEMBE    14:40-17:00
+
+II. EĞİTİM   KAM3118   KAM               ÇAĞDAŞ İSLAM DÜŞÜNCESİ                          S     VI     Dr. Öğr.Üyesi    İbrahim DURMAZ          A5    PERŞEMBE    19:15-21:30
+
+I. EĞİTİM    KAM3120   KAM               GÖÇ SOSYOLOJİSİ                                 S     VI     Dr. Öğr.Üyesi    İbrahim ERAYMAN         A6    CUMA        14:40-17:00
+
+I. EĞİTİM    KAM3306   KAM               YEREL YÖNETİMLER                                Z     VI     Prof. Dr.        Bekir PARLAK            A23   ÇARŞAMBA    12:05-14:35
+
+II. EĞİTİM   KAM3306   KAM               YEREL YÖNETİMLER                                Z     VI     Prof. Dr.        Bekir PARLAK            A16   ÇARŞAMBA    17:00-19:15
+
+I. EĞİTİM    KAM3302   MLY-CAL-KAM       KENTLEŞME ve KONUT POLİTİKASI                   S     VI     Dr. Öğr.Üyesi    Gülçin TUNÇ             B5    ÇARŞAMBA    14:40-17:00
+
+II. EĞİTİM   KAM3302   MLY-CAL-KAM       KENTLEŞME ve KONUT POLİTİKASI                   S     VI     Dr. Öğr.Üyesi    Gülçin TUNÇ             A22   ÇARŞAMBA    19:15-21:30
+
+I. EĞİTİM    KAM4112   IKT-MLY-CAL-ULU   TÜRK SİYASAL HAYATI                             S     VIII   Dr. Öğr.Üyesi    Gülbeyaz KARAKUŞ        C11   SALI        14:40-17:00
+
+II. EĞİTİM   KAM4112   IKT-MLY-CAL-ULU   TÜRK SİYASAL HAYATI                             S     VIII   Dr. Öğr.Üyesi    Gülbeyaz KARAKUŞ        A20   SALI        19:15-21:30
+
+I. EĞİTİM    KAM4102   KAM-ULU           MİLLİYETÇİLİK TEORİLERİ                         S     VIII   Dr. Öğr.Üyesi    Gülbeyaz KARAKUŞ        A17   PERŞEMBE    12:05-14:35
+
+II. EĞİTİM   KAM4102   KAM-ULU           MİLLİYETÇİLİK TEORİLERİ                         S     VIII   Dr. Öğr.Üyesi    Gülbeyaz KARAKUŞ        A22   PERŞEMBE    17:00-19:15
+
+I. EĞİTİM    KAM4202   KAM               KAMU POLİTİKASI                                 Z     VIII   Prof. Dr.        Bekir PARLAK            A15   SALI        12:05-14:35
+
+II. EĞİTİM   KAM4202   KAM               KAMU POLİTİKASI                                 Z     VIII   Prof. Dr.        Bekir PARLAK            A23   ÇARŞAMBA    19:15-21:30
+
+I. EĞİTİM    KAM4206   KAM               TÜRK YÖNETİM TARİHİ                             S     VIII   Araş. Gör. Dr.   İbrahim HATİPOĞLU       A6    PERŞEMBE    09:45-12:00
+
+II. EĞİTİM   KAM4206   KAM               TÜRK YÖNETİM TARİHİ                             S     VIII   Araş. Gör. Dr.   İbrahim HATİPOĞLU       C9    PERŞEMBE    14:40-17:00
+
+I. EĞİTİM    KAM4404   KAM-ULU           İDARİ YARGI                                     Z+S   VIII   Araş. Gör. Dr.   Abdullah Yasin ERDEM    A2    SALI        09:45-12:00
+
+II. EĞİTİM   KAM4404   KAM-ULU           İDARİ YARGI                                     Z+S   VIII   Araş. Gör. Dr.   Abdullah Yasin ERDEM    A10   PERŞEMBE    19:15-21:30
+
+I. EĞİTİM    KAM4118   KAM               BEDEN SOSYOLOJİSİ                               S     VIII   Araş. Gör. Dr.   Elif Bengi AKKUŞ        C11   PAZARTESİ   09:45-12:00
+
+II. EĞİTİM   KAM4118   KAM               BEDEN SOSYOLOJİSİ                               S     VIII   Araş. Gör. Dr.   Elif Bengi AKKUŞ        C9    SALI        14:40-17:00
+
+I. EĞİTİM    KAM4302   KAM               KENT ANALİZİ                                    Z     VIII   Dr. Öğr.Üyesi    Gülçin TUNÇ             A22   PAZARTESİ   14:40-17:00
+
+II. EĞİTİM   KAM4302   KAM               KENT ANALİZİ                                    Z     VIII   Dr. Öğr.Üyesi    Gülçin TUNÇ             A23   PAZARTESİ   19:15-21:30
+
+I. EĞİTİM    ULU1104   KAM               ULUSLARARASI İLİŞKİLER                          Z     II     Prof. Dr.        Çiğdem AYDIN KOYUNCU    A10   ÇARŞAMBA    11:15-13:45
+
+I. EĞİTİM    ULU1102   ULU               ULUSLARARASI İLİŞKİLER II                       Z     II     Prof. Dr.        Çiğdem AYDIN KOYUNCU    A23   PAZARTESİ   14:40-17:00
+
+I. EĞİTİM    ULU2104   KAM-ULU           GÜVENLİK STRATEJİLERİ                           S     IV     Prof. Dr.        Sezgin KAYA             A15   ÇARŞAMBA    12:05-14:35
+
+I. EĞİTİM    ULU2102   ULU               ULUSLARARASI İLİŞKİLER TEORİLERİ II             Z     IV     Prof. Dr.        Sezgin KAYA             A15   ÇARŞAMBA    14:40-17:00
+
+I. EĞİTİM    ULU2202   ULU               DİPLOMASİ TARİHİ II                             Z     IV     Prof. Dr.        Barış ÖZDAL             A20   PAZARTESİ   14:40-17:00
+
+I. EĞİTİM    ULU2302   ULU               ULUSLARARASI HUKUK II                           Z     IV     Prof. Dr.        Kamuran REÇBER          A2    PAZARTESİ   09:45-12:00
+
+II. EĞİTİM   ULU2302   ULU               ULUSLARARASI HUKUK II                           Z     IV     Prof. Dr.        Kamuran REÇBER          A15   PAZARTESİ   17:00-19:15
+
+I. EĞİTİM    ULU3112   KAM               TÜRK DIŞ POLİTİKASI                             S     VI     Dr. Öğr.Üyesi    Uğur ERMİŞ              A3    CUMA        14:40-17:00
+
+I. EĞİTİM    ULU3110   KAM-ULU           AVRUPA BİRLİĞİ’NİN DIŞ İLİŞKİLERİ               S     VI     Prof. Dr.        İbrahim CANBOLAT        A18   SALI        12:05-14:35
+
+II. EĞİTİM   ULU3110   KAM-ULU           AVRUPA BİRLİĞİ’NİN DIŞ İLİŞKİLERİ               S     VI     Prof. Dr.        İbrahim CANBOLAT        A8    SALI        17:00-19:15
+
+I. EĞİTİM    ULU3108   ULU               DIŞ POLİTİKADA KRİZ YÖNETİMİ                    S     VI     Prof. Dr.        Sezgin KAYA             A3    SALI        12:05-14:35
+
+II. EĞİTİM   ULU3108   ULU               DIŞ POLİTİKADA KRİZ YÖNETİMİ                    S     VI     Prof. Dr.        Sezgin KAYA             A9    SALI        17:00-19:15
+
+I. EĞİTİM    ULU3002   ULU               ARAŞTIRMA YÖNTEMLERİ (DEVLETLER HUKUKU)         Z     VI     Doç. Dr.         Samet YILMAZ            B6    SALI        14:40-17:00
+
+II. EĞİTİM   ULU3002   ULU               ARAŞTIRMA YÖNTEMLERİ (DEVLETLER HUKUKU)         Z     VI     Doç. Dr.         Samet YILMAZ            A5    SALI        19:15-21:30
+
+I. EĞİTİM    ULU3002   ULU               ARAŞTIRMA YÖNTEMLERİ (SİYASİ TARİH)             Z     VI     Doç. Dr.         Kader ÖZLEM             B8    SALI        14:40-17:00
+
+II. EĞİTİM   ULU3002   ULU               ARAŞTIRMA YÖNTEMLERİ (SİYASİ TARİH)             Z     VI     Doç. Dr.         Kader ÖZLEM             A3    SALI        19:15-21:30
+
+I. EĞİTİM    ULU3002   ULU               ARAŞTIRMA YÖNTEMLERİ (ULUSLARARASI İLİŞKİLER)   Z     VI     Dr. Öğr.Üyesi    Uğur ERMİŞ              B5    PERŞEMBE    14:40-17:00
+
+II. EĞİTİM   ULU3002   ULU               ARAŞTIRMA YÖNTEMLERİ (ULUSLARARASI İLİŞKİLER)   Z     VI     Dr. Öğr.Üyesi    Uğur ERMİŞ              A3    PERŞEMBE    19:15-21:30
+I. EĞİTİM    ULU3102   ULU               TÜRK DIŞ POLİTİKASI II                              Z       VI     Prof. Dr.       Ömer Göksel İŞYAR         A9    PERŞEMBE    09:45-12:00
+
+II. EĞİTİM   ULU3102   ULU               TÜRK DIŞ POLİTİKASI II                              Z       VI     Prof. Dr.       Ömer Göksel İŞYAR         A15   PERŞEMBE    17:00-19:15
+
+I. EĞİTİM    ULU3104   ULU               ORTA ASYA ve KAFKASYA                               Z       VI     Prof. Dr.       Ömer Göksel İŞYAR         A5    ÇARŞAMBA    12:05-14:35
+
+II. EĞİTİM   ULU3104   ULU               ORTA ASYA ve KAFKASYA                               Z       VI     Prof. Dr.       Ömer Göksel İŞYAR         A15   ÇARŞAMBA    17:00-19:15
+
+I. EĞİTİM    ULU3106   ULU               ORTA DOĞU POLİTİKALARI                              Z       VI     Prof. Dr.       Tayyar ARI                A6    PAZARTESİ   12:05-14:35
+
+II. EĞİTİM   ULU3106   ULU               ORTA DOĞU POLİTİKALARI                              Z       VI     Prof. Dr.       Tayyar ARI                A5    PAZARTESİ   17:00-19:15
+
+I. EĞİTİM    ULU4306   CAL-KAM-ULU       TÜRKİYE-AVRUPA BİRLİĞİ İLİŞKİLERİ                   S       VIII   Doç. Dr.        Samet YILMAZ              B8    ÇARŞAMBA    12:05-14:35
+
+II. EĞİTİM   ULU4306   CAL-KAM-ULU       TÜRKİYE-AVRUPA BİRLİĞİ İLİŞKİLERİ                   S       VIII   Doç. Dr.        Samet YILMAZ              A6    SALI        17:00-19:15
+
+I. EĞİTİM    ULU4106   KAM-ULU           TÜRKİYE-ORTADOĞU İLİŞKİLERİ                         S       VIII   Prof. Dr.       Muzaffer Ercan YILMAZ     B6    ÇARŞAMBA    14:40-17:00
+
+II. EĞİTİM   ULU4106   KAM-ULU           TÜRKİYE-ORTADOĞU İLİŞKİLERİ                         S       VIII   Prof. Dr.       Muzaffer Ercan YILMAZ     A5    ÇARŞAMBA    17:00-19:15
+
+I. EĞİTİM    ULU4110   ULU               ÇATIŞMA YÖNETİMİ VE BARIŞIN İNŞASI                  S       VIII   Prof. Dr.       Muzaffer Ercan YILMAZ    A21    PERŞEMBE    09:45-12:00
+
+II. EĞİTİM   ULU4110   ULU               ÇATIŞMA YÖNETİMİ VE BARIŞIN İNŞASI                  S       VIII   Prof. Dr.       Muzaffer Ercan YILMAZ     A6    ÇARŞAMBA    19:15-21:30
+
+I. EĞİTİM    ULU4202   KAM-ULU           AVRUPA BİRLİĞİ'NİN GÜVENLİK ve SAVUNMA POLİTİKASI   S       VIII   Prof. Dr.       Barış ÖZDAL               A5    SALI        12:05-14:35
+
+II. EĞİTİM   ULU4202   KAM-ULU           AVRUPA BİRLİĞİ'NİN GÜVENLİK ve SAVUNMA POLİTİKASI   S       VIII   Prof. Dr.       Barış ÖZDAL              A10    PAZARTESİ   17:00-19:15
+
+I. EĞİTİM    ULU4204   ULU               TÜRKİYE-YUNANİSTAN İLİŞKİLERİ                       S       VIII   Doç. Dr.        Kader ÖZLEM               A6    ÇARŞAMBA    12:05-14:35
+
+I. EĞİTİM    ULU4302   ULU               AVRUPA BİRLİĞİ HUKUKU                               Z       VIII   Prof. Dr.       Kamuran REÇBER            A15   SALI        09:45-12:00
+
+II. EĞİTİM   ULU4302   ULU               AVRUPA BİRLİĞİ HUKUKU                               Z       VIII   Prof. Dr.       Kamuran REÇBER            A15   SALI        17:00-19:15
+
+I. EĞİTİM    ULU4304   ULU               ULUSLARARASI İNSAN HAKLARI                          Z       VIII   Prof. Dr.       Kamuran REÇBER            A9    ÇARŞAMBA    14:40-17:00
+
+II. EĞİTİM   ULU4304   ULU               ULUSLARARASI İNSAN HAKLARI                          Z       VIII   Prof. Dr.       Kamuran REÇBER            A5    ÇARŞAMBA    19:15-21:30
+
+I. EĞİTİM    EKO1202   CAL               BETİMSEL İSTATİSTİK                                 Z   A   II     Prof. Dr.       Z. Berna AYDIN           A19    ÇARŞAMBA    12:05-14:35
+
+I. EĞİTİM    EKO1202   CAL               BETİMSEL İSTATİSTİK                                 Z   B   II     Doç. Dr.        Dilek MURAT               B5    ÇARŞAMBA    12:05-14:35
+
+I. EĞİTİM    EKO1202   EKO               BETİMSEL İSTATİSTİK                                 Z   B   II     Prof. Dr.       Erkan IŞIĞIÇOK           A20    SALI        12:05-14:35
+
+I. EĞİTİM    EKO1202   EKO               BETİMSEL İSTATİSTİK                                 Z   A   II     Prof. Dr.       Ayşe OĞUZLAR             A22    SALI        12:05-14:35
+
+I. EĞİTİM    EKO1202   EKO               MATEMATİK II                                        Z   A   II     Prof. Dr.       Erkan IŞIĞIÇOK           A19    PERŞEMBE    09:45-12:00
+
+I. EĞİTİM    EKO1202   EKO               MATEMATİK II                                        Z   B   II     Prof. Dr.       Mehmet ÇINAR             A20    PERŞEMBE    09:45-12:00
+
+I. EĞİTİM    EKO1002   IKT               MATEMATİK II                                        Z   A   II     Prof. Dr.       Özer ARABACI             A16    SALI        14:40-17:00
+
+I. EĞİTİM    EKO1002   IKT               MATEMATİK II                                        Z   B   II     Dr. Öğr.Üyesi   Neşe ARAL                 C7    SALI        14:40-17:00
+
+I. EĞİTİM    EKO1202   MLY               BETİMSEL İSTATİSTİK                                 Z   A   II     Prof. Dr.       Sevda GÜRSAKAL           A23    PAZARTESİ   12:05-14:35
+
+I. EĞİTİM    EKO1202   MLY               BETİMSEL İSTATİSTİK                                 Z   B   II     Prof. Dr.       Selim TÜZÜNTÜRK          A21    ÇARŞAMBA    12:05-14:35
+
+I. EĞİTİM    EKO2204   ISL               ÇIKARIMSAL İSTATİSTİK                               Z   A   IV     Prof. Dr.       Ayşe OĞUZLAR             A19    PAZARTESİ   14:40-17:00
+
+I. EĞİTİM    EKO2204   ISL               ÇIKARIMSAL İSTATİSTİK                               Z   B   IV     Prof. Dr.       Sevda GÜRSAKAL            A17   PAZARTESİ   14:40-17:00
+
+I. EĞİTİM    EKO2204   ISL               ÇIKARIMSAL İSTATİSTİK                               Z   C   IV     Prof. Dr.       Selim TÜZÜNTÜRK           C8    PAZARTESİ   14:40-17:00
+
+I. EĞİTİM    EKO2104   EKO               MODEL KURMA TEKNİKLERİ                              Z       IV     Prof. Dr.       Özer ARABACI              A17   SALI        09:45-12:00
+
+I. EĞİTİM    EKO2206   MLY-CAL-ISL-EKO   NİCEL VERİ ANALİZİ                                  S       IV     Dr. Öğr.Üyesi   Neşe ARAL                 C13   SALI        12:05-14:35
+
+I. EĞİTİM    EKO2004   EKO               BİLGİSAYAR PROGRAMLAMA ve VBA UYGULAMALARI          Z       IV     Prof. Dr.       Arzu EREN ŞENARAS       BİL.LAB. PERŞEMBE   09:45-12:00
+
+I. EĞİTİM    EKO2202   EKO               İSTATİSTİKSEL KARAR TEORİSİ                         Z       IV     Prof. Dr.       Nuran BAYRAM ARLI         A2    PAZARTESİ   12:05-14:35
+
+I. EĞİTİM    EKO2204   IKT               ÇIKARIMSAL İSTATİSTİK                               Z   A   IV     Prof. Dr.       Ayşe OĞUZLAR              A8    PAZARTESİ   12:05-14:35
+
+I. EĞİTİM    EKO2204   IKT               ÇIKARIMSAL İSTATİSTİK                               Z   B   IV     Doç. Dr.        Dilek MURAT               B6    PAZARTESİ   12:05-14:35
+
+I. EĞİTİM    EKO2204   IKT               ÇIKARIMSAL İSTATİSTİK                               Z   C   IV     Dr. Öğr.Üyesi   Mine AYDEMİR DEV          C11   PAZARTESİ   12:05-14:35
+
+I. EĞİTİM    EKO3006   EKO               ARAŞTIRMA YÖNTEMLERİ (İSTATİSTİK)                   Z       VI     Dr. Öğr.Üyesi   Neşe ARAL                 C15   ÇARŞAMBA    14:40-17:00
+II. EĞİTİM   EKO3006   EKO               ARAŞTIRMA YÖNTEMLERİ (İSTATİSTİK)        Z       VI     Dr. Öğr.Üyesi   Neşe ARAL                     A20   ÇARŞAMBA    19:15-21:30
+
+I. EĞİTİM    EKO3006   EKO               ARAŞTIRMA YÖNTEMLERİ (YÖNEYLEM)          Z       VI     Prof. Dr.       Mehmet ÇINAR                  C8    SALI        14:40-17:00
+
+II. EĞİTİM   EKO3006   EKO               ARAŞTIRMA YÖNTEMLERİ (YÖNEYLEM)          Z       VI     Prof. Dr.       Mehmet ÇINAR                  A18   SALI        17:00-19:15
+
+I. EĞİTİM    EKO3102   EKO               EKONOMETRİ II                            Z       VI     Prof. Dr.       Mehmet ÇINAR                  A19   PERŞEMBE    12:05-14:35
+
+II. EĞİTİM   EKO3102   EKO               EKONOMETRİ II                            Z       VI     Prof. Dr.       Mehmet ÇINAR                  A20   PERŞEMBE    17:00-19:15
+
+I. EĞİTİM    EKO3112   EKO               MATEMATİKSEL İKTİSAT II                  Z       VI     Prof. Dr.       Özer ARABACI                  A17   ÇARŞAMBA    12:05-14:35
+
+II. EĞİTİM   EKO3112   EKO               MATEMATİKSEL İKTİSAT II                  Z       VI     Prof. Dr.       Özer ARABACI                  A19   ÇARŞAMBA    17:00-19:15
+
+I. EĞİTİM    EKO3302   EKO               YÖNEYLEM ARAŞTIRMASI II                  Z   A   VI     Prof. Dr.       V.Sinem ARIKAN KARGI          A14   ÇARŞAMBA    09:45-12:00
+
+II. EĞİTİM   EKO3302   EKO               YÖNEYLEM ARAŞTIRMASI II                  Z   A   VI     Prof. Dr.       V.Sinem ARIKAN KARGI          A6    ÇARŞAMBA    14:40-17:00
+
+I. EĞİTİM    EKO3302   EKO               YÖNEYLEM ARAŞTIRMASI II                  Z   B   VI     Prof. Dr.       Arzu EREN ŞENARAS             A8    SALI        09:45-12:00
+
+II. EĞİTİM   EKO3302   EKO               YÖNEYLEM ARAŞTIRMASI II                  Z   B   VI     Prof. Dr.       Arzu EREN ŞENARAS             B3    SALI        14:40-17:00
+
+I. EĞİTİM    EKO3104   IKT               TEMEL EKONOMETRİ II                      Z   A   VI     Prof. Dr.       Kadir Y. ERYİĞİT              A3    PAZARTESİ   09:45-12:00
+
+II. EĞİTİM   EKO3104   IKT               TEMEL EKONOMETRİ II                      Z   A   VI     Prof. Dr.       Kadir Y. ERYİĞİT              A3    PAZARTESİ   17:00-19:15
+
+I. EĞİTİM    EKO3104   IKT               TEMEL EKONOMETRİ II                      Z   B   VI     Prof. Dr.       Mehmet ÇINAR                  A22   PAZARTESİ   09:45-12:00
+
+II. EĞİTİM   EKO3104   IKT               TEMEL EKONOMETRİ II                      Z   B   VI     Prof. Dr.       Mehmet ÇINAR                  A20   PAZARTESİ   17:00-19:15
+
+I. EĞİTİM    EKO4102   EKO               EKONOMETRİK ANALİZ II                    Z       VIII   Prof. Dr.       Kadir Y. ERYİĞİT              A3    SALI        09:45-12:00
+
+II. EĞİTİM   EKO4102   EKO               EKONOMETRİK ANALİZ II                    Z       VIII   Prof. Dr.       Kadir Y. ERYİĞİT              A3    SALI        17:00-19:15
+
+I. EĞİTİM    EKO4104   EKO               FİNANSAL EKONOMETRİ                      Z       VIII   Prof. Dr.       Kadir Y. ERYİĞİT              A3    ÇARŞAMBA    09:45-12:00
+
+II. EĞİTİM   EKO4104   EKO               FİNANSAL EKONOMETRİ                      Z       VIII   Prof. Dr.       Kadir Y. ERYİĞİT              A3    ÇARŞAMBA    17:00-19:15
+
+I. EĞİTİM    EKO4206   EKO               ÖRNEKLEME                                Z       VIII   Prof. Dr.       Nuran BAYRAM ARLI             A5    PAZARTESİ   14:40-17:00
+
+II. EĞİTİM   EKO4206   EKO               ÖRNEKLEME                                Z       VIII   Prof. Dr.       Nuran BAYRAM ARLI             A5    PAZARTESİ   14:40-17:00
+
+I. EĞİTİM    EKO4214   CAL-ISL-KAM-EKO   ORGANİZASYONEL AĞ ANALİZİ                S       VIII   Prof. Dr.       Selim TÜZÜNTÜRK               A8    ÇARŞAMBA    14:40-17:00
+
+II. EĞİTİM   EKO4214   CAL-ISL-KAM-EKO   ORGANİZASYONEL AĞ ANALİZİ                S       VIII   Prof. Dr.       Selim TÜZÜNTÜRK               A8    ÇARŞAMBA    19:15-21:30
+
+I. EĞİTİM    EKO4302   EKO               PLANLAMA ve OPTİMİZASYON                 Z   A   VIII   Prof. Dr.       V.Sinem ARIKAN KARGI          C8    PERŞEMBE    09:45-12:00
+
+II. EĞİTİM   EKO4302   EKO               PLANLAMA ve OPTİMİZASYON                 Z   A   VIII   Prof. Dr.       V.Sinem ARIKAN KARGI          A19   PERŞEMBE    14:40-17:00
+
+I. EĞİTİM    EKO4302   EKO               PLANLAMA ve OPTİMİZASYON                 Z   B   VIII   Prof. Dr.       Arzu EREN ŞENARAS             C10   ÇARŞAMBA    12:05-14:35
+
+II. EĞİTİM   EKO4302   EKO               PLANLAMA ve OPTİMİZASYON                 Z   B   VIII   Prof. Dr.       Arzu EREN ŞENARAS             A22   ÇARŞAMBA    14:40-17:00
+
+I. EĞİTİM    ULU1102   INT               INTERNATIONAL RELATIONS II               Z       II     Prof. Dr.       Muzaffer Ercan YILMAZ         C11   ÇARŞAMBA    11:15-13:45
+
+I. EĞİTİM    ULU2102   INT               THEORIES of INTERNATIONAL RELATIONS II   Z       IV     Prof. Dr.       Tayyar ARI                    A15   PERŞEMBE    09:45-12:00
+
+I. EĞİTİM    ULU2106   INT               POLITICS IN BALKANS AFTER THE COLD WAR   S       IV     Prof. Dr.       Tayyar ARI                    A3    PERŞEMBE    12:05-14:35
+
+I. EĞİTİM    ULU2202   INT               DIPLOMATIC HISTORY II                    Z       IV     Doç. Dr.        Kader ÖZLEM                   A3    ÇARŞAMBA    14:40-17:00
+
+I. EĞİTİM    ULU2302   INT               INTERNATIONAL LAW II                     Z       IV     Doç. Dr.        Mehmet Halil Mustafa BEKTAŞ   A12   SALI        14:40-17:00
+
+I. EĞİTİM    ULU3002   INT               RESEARCH METHODS                         Z       VI     Prof. Dr.       Tayyar ARI                    A18   ÇARŞAMBA    09:45-12:00
+
+I. EĞİTİM    ULU3102   INT               TURKISH FOREIGN POLICY II                Z       VI     Prof. Dr.       Ömer Göksel İŞYAR             A4    SALI        12:05-14:35
+
+I. EĞİTİM    ULU3104   INT               CHINA and GLOBAL POLITICS                S       VI     Dr.             Safa USLU                     A5    CUMA        09:45-12:00
+
+I. EĞİTİM    ULU3106   INT               MIDDLE EAST POLITICS                     Z       VI     Prof. Dr.       Tayyar ARI                    A3    ÇARŞAMBA    12:05-14:35
+
+I. EĞİTİM    ULU3306   INT               INTERNATIONAL ETHICS                     S       VI     Prof. Dr.       Bülent ŞENAY                  A4    PERŞEMBE    12:05-14:35
+
+I. EĞİTİM    ULU3104   INT               CENTRAL ASIA and CAUCASUS                Z       VI     Prof. Dr.       Ömer Göksel İŞYAR             A4    SALI        09:45-12:00
+
+I. EĞİTİM    ULU4302   INT               EUROPEAN UNION INTEGRATION               Z       VIII   Doç. Dr.        Samet YILMAZ                  A6    ÇARŞAMBA    09:45-12:00
+
+I. EĞİTİM    ULU4304   INT               INTERNATIONAL HUMAN RIGHTS               Z       VIII   Doç. Dr.        Mehmet Halil Mustafa BEKTAŞ   A6    SALI        09:45-12:00
+I. EĞİTİM    ULU4110   INT-BUS                           CONFLICT MANAGEMENT AND PEACE BUILDING   S       VIII   Prof. Dr.        Muzaffer Ercan YILMAZ                A6     PERŞEMBE     12:05-14:35
+
+I. EĞİTİM    ULU4204   INT                               TURKEY-GREECE RELATIONS                  S       VIII   Doç. Dr.         Kader ÖZLEM                          B5     SALI         12:05-14:35
+
+I. EĞİTİM    ULU4108   INT                               RELIGIOUS MOVEMENTS IN THE MIDDLE EAST   S       VIII   Doç. Dr.         Mehmet ÇELENK                        A4     PERŞEMBE     09:45-12:00
+
+I. EĞİTİM    ISL1002   BUS                               INTRODUCTION TO BUSINESS II              Z       II     Doç. Dr.         Mehlika SARAÇ                        A3     PERŞEMBE     09:45-12:00
+
+I. EĞİTİM    ISL1202   BUS                               INTRODUCTION TO ACCOUNTING II            Z       II     Prof. Dr.        Aylin POROY ARSOY                   A11     ÇARŞAMBA     12:05-14:35
+
+I. EĞİTİM    ISL1402   BUS                               BUSINESS MATHEMATICS II                  Z       II     Dr. Öğr.Üyesi    Gülcan PETRİÇLİ                     A21     SALI         12:05-14:35
+
+I. EĞİTİM    ISL2212   BUS                               INTRODUCTION TO FINANCE                  Z       IV     Doç. Dr.         Lokman TÜTÜNCÜ                   (ONLİNE) CUMA           14:40-17:00
+
+I. EĞİTİM    ISL2104   BUS                               ORGANIZATION THEORY                      Z       IV     Prof. Dr.        Mehmet ERYILMAZ                      A6     PAZARTESİ    14:40-17:00
+
+I. EĞİTİM    ISL2114   BUS                               COMPERATIVE MANAGEMENT                   Z       IV     Dr. Öğr.Üyesi    Ceyda KAVURMACI AYTAÇ                B4     SALI         14:40-17:00
+
+I. EĞİTİM    ISL2206   BUS                               FINANCIAL STATEMENT ANALYSIS             Z       IV     Dr. Öğr.Üyesi    Alp AYTAÇ                           A16     PERŞEMBE     09:45-12:00
+
+I. EĞİTİM    ISL2210   INT-BUS                           ENTREPRENEURSHİP                         S       IV     Araş. Gör. Dr.   Yaşar NUMAN AKSANYAR                 B3     PERŞEMBE     12:05-14:35
+
+I. EĞİTİM    ISL3006   BUS                               RESEARCH METHODS                         Z       VI     Doç. Dr.         Onur ÖZTÜRK                          A4     ÇARŞAMBA     09:45-12:00
+
+I. EĞİTİM    ISL3304   BUS                               PRODUCTION MANAGEMENT                    Z       VI     Prof. Dr.        Mustafa Cahit UNGAN (ONLİNE)      ONLINE    CUMA         09:45-12:00
+
+I. EĞİTİM    ISL3208   BUS                               MANAGEMENT ACCOUNTING                    Z       VI     Dr. Öğr.Üyesi    Alp AYTAÇ                            B6     ÇARŞAMBA     12:05-14:35
+
+I. EĞİTİM    ISL3502   BUS                               COMMERCIAL LAW                           Z       VI     Dr. Öğr.Üyesi    Burak MEYDANCI                    ONLINE    CUMA         14:40-17:00
+
+I. EĞİTİM    ISL4316   BUS                               MARKETING STRATEGIES                     Z       VIII   Araş. Gör. Dr.   Yaşar NUMAN AKSANYAR                A12     PERŞEMBE     09:45-12:00
+
+I. EĞİTİM    ISL4402   BUS                               QUANTITATIVE METHODS II                  Z       VIII   Dr. Öğr.Üyesi    Gülcan PETRİÇLİ                     A11     SALI         14:40-17:00
+
+I. EĞİTİM    ISL4210   BUS                               EVALUATION OF INVESTMENT PROJECTS        S       VIII   Doç. Dr.         Lokman TÜTÜNCÜ (ONLİNE)           ONLINE    CUMA         09:45-12:00
+
+I. EĞİTİM    ISL4104   BUS                               STRATEGIC MANAGEMENT                     Z       VIII   Dr. Öğr.Üyesi    Olcay BEKTAŞ                         B8     PAZARTESİ    14:40-17:00
+
+I. EĞİTİM    ISL4216   BUS                               ACCOUNTING STANDARDS                     S       VIII   Prof. Dr.        Aylin POROY ARSOY                   A12     ÇARŞAMBA     14:40-17:00
+
+I. EĞİTİM    ISL4310   INT-BUS                           DIGITAL MARKETING                        S       VIII   Doç. Dr.         Onur ÖZTÜRK                          A8     PERŞEMBE     12:05-14:35
+
+I. EĞİTİM    ISL4102   BUS                               INTERNATIONAL BUSINESS                   Z       VIII   Dr. Öğr.Üyesi    Ceyda KAVURMACI AYTAÇ                B3     SALI         09:45-12:00
+
+I. EĞİTİM    YAD102    CAL-EKO-INT                       Yabancı Dil II (İNGİLİZCE)               Z       II                      UZAKTAN EĞİTİM                 Microsoft Teams
+                                                                                                                                                                               PAZARTESİ   15:30-17:00
+
+I. EĞİTİM    YAD102    IKT-MLY-ISL-KAM-ULU-BUS           Yabancı Dil II (İNGİLİZCE)               Z       II                      Microsoft Teams                Microsoft Teams
+                                                                                                                                                                               ÇARŞAMBA    15:30-17:00
+
+I. EĞİTİM    YAD112    IKT-MLY-CAL-ISL-KAM-ULU-EKO-BUS-INT
+                                                       Yabancı Dil II (ALMANCA)                   Z       II                      UZAKTAN EĞİTİM                 Microsoft Teams
+                                                                                                                                                                               ÇARŞAMBA    15:30-17:00
+
+I. EĞİTİM    YAD122    IKT-MLY-CAL-ISL-KAM-ULU-EKO-BUS-INT
+                                                       Yabancı Dil II (FRANSIZCA)                 Z       II                      UZAKTAN EĞİTİM                 Microsoft Teams
+                                                                                                                                                                               SALI        10:30-12:00
+
+I. EĞİTİM    ATA 102   IKT                               Atatürk İlkeleri ve İnkılap Tarihi II    Z   A   II     Öğr. Gör.        Gürhan KORKMAZ                 Microsoft Teams
+                                                                                                                                                                               ÇARŞAMBA    13:50-15:25
+
+I. EĞİTİM    ATA 102   IKT                               Atatürk İlkeleri ve İnkılap Tarihi II    Z   B   II     Öğr. Gör.        Gürhan KORKMAZ                 Microsoft Teams
+                                                                                                                                                                               PERŞEMBE    13:50-15:25
+
+I. EĞİTİM    ATA 102   MLY                               Atatürk İlkeleri ve İnkılap Tarihi II    Z   A   II     Öğr. Gör.        Gürhan KORKMAZ                 Microsoft Teams
+                                                                                                                                                                               CUMA        10:30-12:00
+
+I. EĞİTİM    ATA 102   MLY                               Atatürk İlkeleri ve İnkılap Tarihi II    Z   B   II     Öğr. Gör.        Gürhan KORKMAZ                 Microsoft Teams
+                                                                                                                                                                               CUMA        13:50-15:25
+
+I. EĞİTİM    ATA 102   CAL                               Atatürk İlkeleri ve İnkılap Tarihi II    Z       II     Doç. Dr.         Mine ERSEVİNÇ                  Microsoft Teams
+                                                                                                                                                                               ÇARŞAMBA    08:50-10:30
+
+I. EĞİTİM    ATA 102   ISL                               Atatürk İlkeleri ve İnkılap Tarihi II    Z   A   II     Doç. Dr.         Mine ERSEVİNÇ                  Microsoft Teams
+                                                                                                                                                                               SALI        10:30-12:00
+
+I. EĞİTİM    ATA 102   ISL                               Atatürk İlkeleri ve İnkılap Tarihi II    Z   B   II     Doç. Dr.         Mine ERSEVİNÇ                  Microsoft Teams
+                                                                                                                                                                               SALI        08:50-10:30
+
+I. EĞİTİM    ATA 102   KAM                               Atatürk İlkeleri ve İnkılap Tarihi II    Z       II     Doç. Dr.         Mine ERSEVİNÇ                  Microsoft Teams
+                                                                                                                                                                               PERŞEMBE    08:50-10:30
+
+I. EĞİTİM    ATA 102   ULU                               Atatürk İlkeleri ve İnkılap Tarihi II    Z       II     Doç. Dr.         Mine ERSEVİNÇ                  Microsoft Teams
+                                                                                                                                                                               CUMA        10:30-12:00
+
+I. EĞİTİM    ATA 102   EKO                               Atatürk İlkeleri ve İnkılap Tarihi II    Z       II     Öğr. Gör.        Gürhan KORKMAZ                 Microsoft Teams
+                                                                                                                                                                               CUMA        12:05-13:45
+
+I. EĞİTİM    ATA 102   INT                               Atatürk İlkeleri ve İnkılap Tarihi II    Z       II     Doç. Dr.         Mine ERSEVİNÇ                  Microsoft Teams
+                                                                                                                                                                               PERŞEMBE    15:30-17:00
+
+I. EĞİTİM    ATA 102   BUS                               Atatürk İlkeleri ve İnkılap Tarihi II    Z       II     Doç. Dr.         Mine ERSEVİNÇ                  Microsoft Teams
+                                                                                                                                                                               PERŞEMBE    13:50-15:25
+
+II. EĞİTİM   ATA 102   IKT/MLY/EKO                       Atatürk İlkeleri ve İnkılap Tarihi II    Z       II     Öğr. Gör.        Gürhan KORKMAZ                 Microsoft Teams
+                                                                                                                                                                               ÇARŞAMBA    18:30-20:00
+
+II. EĞİTİM   ATA 102   CAL/ISL/ULU/KAM                   Atatürk İlkeleri ve İnkılap Tarihi II    Z       II     Doç. Dr.         Mine ERSEVİNÇ                  Microsoft Teams
+                                                                                                                                                                               PERŞEMBE    18:30-20:00
+I. EĞİTİM    TUD102   IKT               TÜRK DİLİ II   Z   A   II   Öğr. Gör.   Meral GÜLLÜLÜ      Microsoft Teams
+                                                                                                                 PERŞEMBE   13:50-15:25
+
+I. EĞİTİM    TUD102   IKT               TÜRK DİLİ II   Z   B   II   Öğr. Gör.   Meral GÜLLÜLÜ      Microsoft Teams
+                                                                                                                 ÇARŞAMBA   13:50-15:25
+
+I. EĞİTİM    TUD102   MLY               TÜRK DİLİ II   Z   A   II   Öğr. Gör.   Meral GÜLLÜLÜ      Microsoft Teams
+                                                                                                                 CUMA       08:50-10:25
+
+I. EĞİTİM    TUD102   MLY               TÜRK DİLİ II   Z   B   II   Öğr. Gör.   Meral GÜLLÜLÜ      Microsoft Teams
+                                                                                                                 CUMA       10:30-12:00
+
+I. EĞİTİM    TUD102   CAL               TÜRK DİLİ II   Z       II   Öğr. Gör.   Gülnaz ÇETİNOĞLU   Microsoft Teams
+                                                                                                                 ÇARŞAMBA   15:30-17:00
+
+I. EĞİTİM    TUD102   ISL               TÜRK DİLİ II   Z   A   II   Öğr. Gör.   Gülnaz ÇETİNOĞLU   Microsoft Teams
+                                                                                                                 SALI       08:50-10:25
+
+I. EĞİTİM    TUD102   ISL               TÜRK DİLİ II   Z   B   II   Öğr. Gör.   Gülnaz ÇETİNOĞLU   Microsoft Teams
+                                                                                                                 SALI       10:30-12:00
+
+I. EĞİTİM    TUD102   KAM               TÜRK DİLİ II   Z       II   Öğr. Gör.   Gülnaz ÇETİNOĞLU   Microsoft Teams
+                                                                                                                 ÇARŞAMBA   13:50-15:25
+
+I. EĞİTİM    TUD102   ULU               TÜRK DİLİ II   Z       II   Öğr. Gör.   Gülnaz ÇETİNOĞLU   Microsoft Teams
+                                                                                                                 PERŞEMBE   15:30-17:00
+
+I. EĞİTİM    TUD102   EKO               TÜRK DİLİ II   Z       II   Öğr. Gör.   Meral GÜLLÜLÜ      Microsoft Teams
+                                                                                                                 PERŞEMBE   12:05-13:45
+
+I. EĞİTİM    TUD102   INT               TÜRK DİLİ II   Z       II   Öğr. Gör.   Gülnaz ÇETİNOĞLU   Microsoft Teams
+                                                                                                                 PERŞEMBE   13:50-15:25
+
+I. EĞİTİM    TUD102   BUS               TÜRK DİLİ II   Z       II   Öğr. Gör.   Meral GÜLLÜLÜ      Microsoft Teams
+                                                                                                                 PERŞEMBE   15:30-17:00
+
+II. EĞİTİM   TUD102   IKT/MLY/EKO       TÜRK DİLİ II   Z       II   Öğr. Gör.   Meral GÜLLÜLÜ      Microsoft Teams
+                                                                                                                 SALI       18:30-20:00
+
+II. EĞİTİM   TUD102   CAL/ISL/KAM/ULU   TÜRK DİLİ II   Z       II   Öğr. Gör.   Gülnaz ÇETİNOĞLU   Microsoft Teams
+                                                                                                                 SALI       20:30-22:00
+
